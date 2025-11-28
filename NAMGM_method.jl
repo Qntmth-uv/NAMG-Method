@@ -8,8 +8,30 @@ using Base: time
 using CUTEst, NLPModels
 using Plots
 using DataStructures
+using Arpack
 
-
+function making_positive_foo_mod(m::Symmetric)
+    n = size(m, 1)
+    
+    # Use eigs for extreme eigenvalues of sparse matrices
+    eigen_min = eigs(m, which=:SR, nev=1, ritzvec=false)[1][1]  # Smallest real
+    eigen_max = eigs(m, which=:LR, nev=1, ritzvec=false)[1][1]  # Largest real
+    
+    if eigen_min < 0 && eigen_max < 0 
+        shift = abs(eigen_max)
+        m_modified = m + shift * I
+    elseif eigen_min < 0
+        shift = abs(eigen_min)
+        m_modified = m + shift * I
+    else
+        m_modified = m
+        shift = 0.0
+    end
+    
+    distance = (eigen_max - eigen_min) / 2
+    
+    return m_modified, distance
+end
 
 function namgmSolver(Bk, gk, list_of_vectors)
     """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente"""
@@ -29,26 +51,6 @@ function namgmSolver(Bk, gk, list_of_vectors)
     C = matrix\b
     return C
 end 
-
-
-function making_positive_foo_mod(m::Symmetric)
-
-    # Get only the smallest and largest eigenvalues
-    eigvals_extreme = eigvals(m, 1:1, size(m, 1):size(m, 1))
-    eigen_min = eigvals_extreme[1]
-    eigen_max = eigvals_extreme[end]
-
-    if eigen_min < 0 && eigen_max < 0 
-        eigen_max = abs(eigen_max)
-        m += eigen_max*identity(m.shape[1]) 
-    elseif eigen_min < 0
-        eigen_min = abs(eigen_min)
-        m += eigen_min*identity(m.shape[1])
-    end
-    distance = (eigen_max-eigen_min)/2
-
-    return m, distance
-end
 
 function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int)
     """NAMGM Using the Ovideo Directive. 
@@ -165,6 +167,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
         #Compute the hessian
         h = Hessian(x_old)
+        h = Diagonal(diag(h)) + 1e-12 * I
 
         #Collect the current elements in the queue to solve the optimization problem
         V = collect(gradient_queue)
@@ -184,8 +187,12 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
         push!(gradient_his, gnorm)
         k+=1
     end
+    
+    #Finalization of the method
     end_time = time()
     speended_time = end_time-start_time
+
+    #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
     return x_old, gradient_his
 end
@@ -215,4 +222,39 @@ function elementsTestFunction(name::String)
     end
     
     return f, g, h, nlp_problem.meta.x0, nlp_problem
+end
+
+function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int)
+    #Start time of the method
+    start_time = time()
+    gradient_his = []
+    k = 0
+
+    #Init the variables
+    x = x0
+    gnorm = Inf
+    while (k < maxIters && gnorm >= tolerance)
+        gk = gradient(x)
+        
+        hk = Symmetric(hessian(x))
+        s = nothing
+        try
+            s = -hk\gk    
+        catch
+            s = -1e-3gk
+        end
+        x = x+s
+
+        #Update 
+        gnorm = norm(gk) 
+        push!(gradient_his, gnorm)
+        k+=1
+    end
+    #Finalization of the method
+    end_time = time()
+    speended_time = end_time-start_time
+
+    #Print report of solutions
+    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
+    return x, gradient_his
 end
