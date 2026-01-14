@@ -1,4 +1,4 @@
-    # Converted from julia_notebook.ipynb
+# Converted from julia_notebook.ipynb
 using LinearAlgebra
 using Random
 using Distributions
@@ -10,14 +10,10 @@ using Plots
 using DataStructures
 using Arpack
 
-function BB_Aproximattion(s::Vector,y::Vector)
-    a = (s' * s)/(s' * y)
-    I_n = Matrix{Float32}(I, length(s), length(s))
-    return a*I_n
-end
 
 
-function fasCosineSim(u::Vector, v::Vector)
+
+function fastCosineSim(u::Vector, v::Vector)
     """Computes the cosine similarity between two vectors. In an efficient way
     """
     dot_prod = 0.0
@@ -31,46 +27,20 @@ function fasCosineSim(u::Vector, v::Vector)
     return dot_prod / (sqrt(norm_u) * sqrt(norm_v))
 end
 
+function getHeatmapCosine(listOfVectors)
+    """Creation """
+    dim = length(listOfVectors)
+    similaritys = zeros(Float64, dim, dim)
 
-
-function diagonalApproximation(hessianMatrix::Symmetric, epsion::Float64 = 1e-12)
-    """Fucntion that gets the main diagonal of the Hessian Matrix plus an epsilon- if it's
-    needed.
-    
-    # Inputs:
-        - hessianMatrix: Symmetric - Approximation of the hessian matrix
-        - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
-
-    # Outpu:
-        -h: Diaognal - The main diagonal of the approximation of the hesssian.        
-        """
-    h = Diagonal(diag(hessianMatrix)) + epsion * I
-    return h
-end
-   
-
-function making_positive_foo_mod(m::Symmetric)
-    n = size(m, 1)
-    
-    # Use eigs for extreme eigenvalues of sparse matrices
-    eigen_min = eigs(m, which=:SR, nev=1, ritzvec=false)[1][1]  # Smallest real
-    eigen_max = eigs(m, which=:LR, nev=1, ritzvec=false)[1][1]  # Largest real
-    
-    if eigen_min < 0 && eigen_max < 0 
-        shift = abs(eigen_max)
-        m_modified = m + shift * I
-    elseif eigen_min < 0
-        shift = abs(eigen_min)
-        m_modified = m + shift * I
-    else
-        m_modified = m
-        shift = 0.0
+    for i in 1:dim
+        for j in i:dim
+            similaritys[i, j] = fastCosineSim(listOfVectors[i], listOfVectors[j])
+            similaritys[j, i] = similaritys[i, j]
+        end
     end
-    
-    distance = (eigen_max - eigen_min) / 2
-    
-    return m_modified, distance
+    return similaritys
 end
+
 
 function namgmSolver(Bk, gk, list_of_vectors)
     """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
@@ -91,8 +61,17 @@ function namgmSolver(Bk, gk, list_of_vectors)
         end
     end
     b = [gk' * V[i] for i in (1:n_rows)]
+
+    #Here we need a try-catch implementation, we can use a small modification of the hessian matrix
     matrix = Symmetric(matrix)
-    C = matrix\b
+    display(matrix)
+    try
+        C = matrix \ b
+    catch
+        matrix += 1e-5I
+        C = matrix \ b
+        
+    end
     return C
 end 
 
@@ -140,7 +119,7 @@ function namgmSolver_V2(Bk, gk, list_of_vectors)
     return C
 end
 
-function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int)
+function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, hessian_mod)
     """NAMGM Using the Ovideo Directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -148,7 +127,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
-    
+        -hessian_mod: Call   - Modifier of the hessian matrix.
     # Output:
         -    x    : Vector - Final element of the sequence
         -  g_histo: Vector - Historial of gradient's thought the sequence 
@@ -156,6 +135,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     #Start time
     start_time = time()
     gradient_his = []
+    dim = length(x0)
     k = 1
 
     #Init the values
@@ -183,11 +163,12 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     gnorm = norm(g_old) 
     push!(gradient_his, gnorm)
     while (gnorm >= tolerance && k < maxIters)
-
         #Computing and making the hessian 
         #h = Symmetric(BB_Aproximattion(sk, yk))
         #h, distance = making_positive_foo_mod(h)
-        h = Symmetric(Hessian(x_old))
+        h = Matrix(Hessian(x_old))
+        h = hessian_mod(h, dim)
+
         #h = Diagonal(diag(h)) + 1e-12 * I
         #h, distance = making_positive_foo_mod(h)
 
@@ -218,10 +199,10 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     speended_time = end_time-start_time
     println("The last gradient was ", norm(g_old), ", iteration = ", k, ", time = ", speended_time, ".")
 
-    return x_old, gradient_his
+    return x_old, gradient_his, speended_time
 end
 
-function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int)
+function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod)
     """NAMGM Using the Gradient queue directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -230,7 +211,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         - que_size:    Int   - Maximum number of elements in the queue (set of vectors).
-    
+        -hessian_mod: Call   - Modifier of the hessian matrix.
     # Output:
         -    x    : Vector - Final element of the sequence
         -  g_histo: Vector - Historial of gradient's thought the sequence 
@@ -241,6 +222,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
     gradient_his = []
     gradient_queue = Queue{Vector}()
     k = 0
+    dim = length(x0)
     
     #Init the variables
     gnorm = Inf
@@ -249,7 +231,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
         #Compute the gradient
         g_old = gradient(x_old)
-        enqueue!(gradient_queue, g_old)
+        enqueue!(gradient_queue, g_old + 1e-4 * randn(dim))
 
         #Dequee if it's needed
         if k >= queue_size
@@ -257,17 +239,9 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
         end
 
         #Compute the hessian
-        h = Hessian(x_old)
-        #try
-        #    F = Cholesky(h)
-        #catch e
-        #    println("Error caught: ")
-        #end
-        #Using diagonal of the hessian
-        #h = Diagonal(diag(h)) + 1e-12 * I
-
-        #Using the tridiagonal of the hessian
-        #h = Tridiagonal(h) + 1e-12 * I
+        h = Matrix(Hessian(x_old))
+        h = hessian_mod(h, dim)
+  
 
         #println("Iteracion: ",k," Condicion: ",cond(Matrix(h)))
 
@@ -296,12 +270,24 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his
+    return x_old, gradient_his, speended_time
 end
 
 
-function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, randomSize:: Int)
-    """NAMGM Using the Random Vectors directive. """
+function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, randomSize:: Int, hessian_mod)
+    """NAMGM Using the Random Vectors directive. 
+    
+    #Input
+        - Gradient: Callable - Gradient of the function.
+        -  Hessian: Callable - Hessian of the fucnion.
+        -    x0   :  Vector  - Initial point of the sequence.
+        -tolerance:   Float  - Minimum norm of the critical point
+        -randomSize:  Int.   - Number of random elements to take
+        -hessian_mod: Call   - Modifier of the hessian matrix
+    # Output:
+        -    x    : Vector - Final element of the sequence
+        -  g_histo: Vector - Historial of gradient's thought the sequence 
+    """
     #Start time
     x_old = x0
     dim = length(x0)
@@ -329,8 +315,9 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         end
 
         #Get the approximation of the hessian
-        h = Hessian(x_old)
-
+        h = Matrix(Hessian(x_old))
+        h = hessian_mod(h, dim)
+  
         #Collect the currect elements in the queue to solve the optimization problem
         C = namgmSolver_V2(h, g_old, V)
 
@@ -355,8 +342,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his
-
+    return x_old, gradient_his, speended_time
 end
 
 
@@ -395,8 +381,10 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
     x = x0
     gnorm = Inf
     while (k < maxIters && gnorm >= tolerance)
+        #Compute the gradient of the matrix
         gk = gradient(x)
         
+        #Implemented Try catch in case that the hessian it's not invertible.
         hk = Symmetric(hessian(x))
         s = nothing
         try
@@ -417,5 +405,5 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x, gradient_his
+    return x, gradient_his, speended_time
 end

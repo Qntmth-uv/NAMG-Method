@@ -1,6 +1,7 @@
 using LinearAlgebra
 using BenchmarkTools
 include("./NAMGM_method.jl")
+include("./hessian_mod.jl")
 
 # 1. La estructura de datos (Solo guarda los parámetros fijos)
 struct GeneralQuadraticFunction
@@ -91,9 +92,8 @@ function generatorValues_Dense3(dim::Int, exponentInteger::Int)
     
     #Construct the vector
     b = Q*rand(Float64, dim)
-    return Q, b
+    return A, b
 end
-
 
 function main()
     # --- Configuración de datos ---
@@ -107,17 +107,19 @@ function main()
     println("Ejecutando versión normal")
 
     #Creation of the varibles
-    @btime generatorValues_Dense3($dim, 10)
-    #A, b = generatorValues_Dense3(dim, 10)
-    
-    #F,G,H = QuadraticFunctions(A, b)
+    #@btime generatorValues_Dense3($dim, 10)
+    A, b = generatorValues_Dense3(dim, 10)
+    f, g, h = QuadraticFunctions(A, b)  
+    println("Here")
+
+
     
     # Initialize random vector of same dimension
     #println("Dimension problem:", dim)
-    #x0 = rand!(dim)
+    x0 = rand(dim)
 
     #Run the NAMGM algoritms (It work with the implementation of all methods)
-    # xf_Oviedo, historial_Ovideo = namgmOviedo(G, H, x0, tol, nIters)
+    xf_Oviedo, historial_Ovideo = namgmOviedo(g, h, x0, tol, nIters, modifyHessian_Eigen)
     # xf_Queue, historial_Queue = namgmGrads(G, H, x0, tol, nIters, 8)
     # xf_random, historial_random = namgmRandomVectors(G, H, x0, tol, nIters, 8)
     # xf_newton, historial_newton = newtonMethod(G, H, x0, tol, nIters)
