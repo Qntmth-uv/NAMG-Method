@@ -1,6 +1,7 @@
 include("./NAMGM_method.jl")
 include("./hessian_mod.jl")
 include("utils.jl")
+include("plotting_util.jl")
 using ArgParse
 
 
@@ -55,15 +56,6 @@ end
 # para ver si el numero de condicion influye en la convergencia del algoritmo.
 # Ver porque es invariante a los vectores (habra alguna relacion entre los espacios generados) -
 
-# problems = ["ROSENBR", "POWELLSG", "BDQRTIC", 
-#         "BROYDN7D", "BRYBND", "CHNROSNB", "COSINE",
-#         "DIXMAANB", "DIXMAANC", "DIXMAAND", "DIXMAANF",
-#         "DIXMAANG", "DIXMAANH", "DIXMAANJ", "DIXMAANK",
-#         "DIXMAANL", "DQDRTIC", "EDENSCH", "ENGVAL1", "EXTROSNB",
-#         "FLETCBV2", "FLETCHCR", "FREUROTH", "GENROSE",
-#         "LIARWHD", "MOREBV", "NONCVXU2", "PENALTY1",
-#         "PENALTY2", "PENALTY3", "POWER", "SROSENBR", "TESTQUAD",
-#         "TRIDIA", "VAREIGVL", "WOODS"]
 
 #Functions that take so much time: FMINSURF", NONMSQRT, "POWELLBS"
 #Where Newton Fails: FLETCHCR, EXTROSNB
@@ -114,21 +106,22 @@ end
     # Initialize random vector of same dimension
     n = length(solution_x)
     println("Dimension problem:", n)
-    x0 = rand(n)
+    x0 = 500*rand(n)
+
 
     #Run the NAMGM algoritms
-    xf_Oviedo, historial_Ovideo, t_oviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
-    xf_Queue, historial_Queue, t_queue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
-    xf_random, historial_random, t_random = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
-    xf_newton, historial_newton, t_newton = newtonMethod(g, h, x0, tol, nIters)
+    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
+    xf_Queue, historial_Queue, t_queue, xP_queue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
+    xf_random, historial_random, t_random, xP_random = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
+    xf_newton, historial_newton, t_newton, xP_newton = newtonMethod(g, h, x0, tol, nIters)
 
     #Clean the data if there is a 0.0 then the plot will explote.
     H = [historial_Ovideo, historial_Queue, historial_random, historial_newton]
+
     for i in 1:length(H)
         if H[i][end] == 0.0
            H[i][end] = 1e-15
         end
-
     end
 
 
@@ -145,52 +138,63 @@ end
     println("Time per iteration (Newton): ", getIterationSpeed(historial_newton, t_newton))
 
 
-
-    #Headers of the CSV file
+    #Headers of the CSV file and creation 
     headers = ["Oviedo", "Queue", "RD", "Newton"]
-    #Creation of the  CSV file
     createCSV(H, file_name, headers)
 
+    #Variables to plot the results
+    problems_labels = ["Ovideo", "Queue", "RD", "Newton"]
+    colors_list = [:blue, :red, :purple, :green]
+    styles_list = [:solid, :dash, :solid, :solid]
+    plotGradsEvolution(H, nombre, colors_list, problems_labels, styles_list, image_name)
 
-    #Plot the results
-    plt = plot(historial_Ovideo,
-        label="Oviedo - Gradient Norm",
-        xlabel="Iteration",
-        ylabel="‖∇f(x)‖",
-        title="Convergence Analysis:"*problem,
-        linewidth=1,
-        color=:blue,
-        yscale=:log10,
-        grid=true,
-        gridstyle=:dot,
-        gridalpha=0.3,
-        legend=:topright,
-        size=(800, 400),
-        dpi=300,
-    )
-    plot!(plt, historial_Queue,
-      label="Queue - Gradient Norm",
-      linestyle=:dash,
-      linewidth=1,
-      color=:red,
-    )
+    if n === 2
+        #Transformation of trajectorys
+        # 1. Agrupamos las listas crudas para iterar (principio DRY: Don't Repeat Yourself)
+        raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton]
 
-    plot!(plt, historial_random,
-      label="Random - Gradient Norm",
-      linewidth=1,
-      color=:yellow,
-    )
+        # 2. Inicializamos variables para los límites globales con infinito invertido
+        g_xlims = (Inf, -Inf) # (min, max)
+        g_ylims = (Inf, -Inf)
 
-    plot!(plt, historial_newton,
-      label="Newton - Gradient Norm",
-      linewidth=1,
-      color=:green,
-    )
+        # 3. Procesamos todo en un solo bucle (map) o comprensión
+        # Convertimos a matrices y al mismo tiempo actualizamos los límites globales
+        matrices_procesadas = map(raw_inputs) do raw_data
+            # A. Conversión eficiente (stack es nativo y rápido en Julia >= 1.9)
+            # Si usas una versión vieja, mantén: Float64.(reduce(hcat, raw_data)')
+            mat = Float64.(stack(raw_data, dims=1)) 
+            
+            # B. Actualización de límites globales (usando extrema para rapidez)
+            if !isempty(mat)
+                # Eje X (Columna 1)
+                lx, ux = extrema(view(mat, :, 1)) # view ahorra memoria
+                g_xlims = (min(g_xlims[1], lx), max(g_xlims[2], ux))
+                
+                # Eje Y (Columna 2)
+                ly, uy = extrema(view(mat, :, 2))
+                g_ylims = (min(g_ylims[1], ly), max(g_ylims[2], uy))
+            end
+            
+            return mat
+        end
+
+        # 4. Desempaquetamos los resultados (Asignación múltiple)
+        xP_oviedo, xP_queue, xP_random, xP_newton = matrices_procesadas
 
 
-    historial_newton
-    
-    savefig(plt, image_name)
+        #Visual path of the algorithms
+        mi_grafica = plot_optimization_path(f, xP_oviedo, levels=20, label="Oviedo", g_xlims=g_xlims, g_ylims=g_ylims)
+
+        # # 3. ACTUALIZAR el lienzo con el segundo camino
+        # # Pasamos 'mi_grafica' y cambiamos el color y etiqueta
+        add_optimization_path!(mi_grafica, xP_queue, label="Queue", color=:blue, linestyle=:dash)
+        add_optimization_path!(mi_grafica, xP_random, label="Random", color=:purple)
+        add_optimization_path!(mi_grafica, xP_newton, label="Newton", color=:green)
+
+
+        #Guardar
+        savefig(mi_grafica, "images/"*nombre*"_path.svg")
+    end
 
     # Remember to finalize the model when you are done
     finalize(nlp_problem)

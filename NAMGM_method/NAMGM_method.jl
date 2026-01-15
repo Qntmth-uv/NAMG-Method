@@ -11,37 +11,6 @@ using DataStructures
 using Arpack
 
 
-
-
-function fastCosineSim(u::Vector, v::Vector)
-    """Computes the cosine similarity between two vectors. In an efficient way
-    """
-    dot_prod = 0.0
-    norm_u = 0.0
-    norm_v = 0.0
-    @simd for i in eachindex(u, v)
-        dot_prod += u[i] * v[i]
-        norm_u += u[i]^2
-        norm_v += v[i]^2
-    end
-    return dot_prod / (sqrt(norm_u) * sqrt(norm_v))
-end
-
-function getHeatmapCosine(listOfVectors)
-    """Creation """
-    dim = length(listOfVectors)
-    similaritys = zeros(Float64, dim, dim)
-
-    for i in 1:dim
-        for j in i:dim
-            similaritys[i, j] = fastCosineSim(listOfVectors[i], listOfVectors[j])
-            similaritys[j, i] = similaritys[i, j]
-        end
-    end
-    return similaritys
-end
-
-
 function namgmSolver(Bk, gk, list_of_vectors)
     """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
     
@@ -51,7 +20,6 @@ function namgmSolver(Bk, gk, list_of_vectors)
     """
     #Set the primal values
     n_rows = length(list_of_vectors)
-    n = length(gk)
     matrix = zeros(n_rows, n_rows)
     V = [Bk * v for v in list_of_vectors]
     for i in (1:n_rows)
@@ -64,13 +32,13 @@ function namgmSolver(Bk, gk, list_of_vectors)
 
     #Here we need a try-catch implementation, we can use a small modification of the hessian matrix
     matrix = Symmetric(matrix)
-    display(matrix)
+    C=nothing
+    #display(matrix)
     try
         C = matrix \ b
     catch
         matrix += 1e-5I
         C = matrix \ b
-        
     end
     return C
 end 
@@ -135,8 +103,14 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     #Start time
     start_time = time()
     gradient_his = []
+    x_path = []
     dim = length(x0)
     k = 1
+
+    #Steps matrix
+    if dim == 2
+        push!(x_path, x0)
+    end
 
     #Init the values
     x_old = x0
@@ -150,7 +124,11 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     v = -alpha * g_old
     x_new = x_old + v
     g_new = gradient(x_new)
-
+    
+    #Steps matrix
+    if dim == 2
+        push!(x_path, x_new)
+    end
     #Creation of the others elements in the set of vectors
     sk = x_new - x_old
     yk = g_new - g_old
@@ -194,12 +172,16 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         #Push the gradients
         gnorm = norm(g_old) 
         push!(gradient_his, gnorm)
+         #Steps matrix
+        if dim == 2
+            push!(x_path, x_old)
+        end
     end
     end_time = time()
     speended_time = end_time-start_time
     println("The last gradient was ", norm(g_old), ", iteration = ", k, ", time = ", speended_time, ".")
 
-    return x_old, gradient_his, speended_time
+    return x_old, gradient_his, speended_time, x_path
 end
 
 function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod)
@@ -220,10 +202,13 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
     x_old = x0
     start_time = time()
     gradient_his = []
+    x_path = []
     gradient_queue = Queue{Vector}()
     k = 0
     dim = length(x0)
-    
+    if dim == 2
+        push!(x_path, x0)
+    end
     #Init the variables
     gnorm = Inf
     while (k < maxIters && gnorm >= tolerance)
@@ -261,6 +246,9 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
         #Update 
         gnorm = norm(g_old) 
         push!(gradient_his, gnorm)
+        if dim == 2
+            push!(x_path, x_old)
+        end
         k+=1
     end
     
@@ -270,7 +258,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time
+    return x_old, gradient_his, speended_time, x_path
 end
 
 
@@ -293,8 +281,11 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
     dim = length(x0)
     start_time = time()
     gradient_his = []
+    x_path = []
     k = 0
-
+    if dim == 2
+        push!(x_path, x0)
+    end
     #Init the variables
     gnorm = Inf
     
@@ -333,6 +324,9 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         #Update 
         gnorm = norm(g_old) 
         push!(gradient_his, gnorm)
+        if dim == 2
+            push!(x_path, x_old)
+        end
         k+=1
     end
 
@@ -342,7 +336,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time
+    return x_old, gradient_his, speended_time, x_path
 end
 
 
@@ -375,6 +369,11 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
     #Start time of the method
     start_time = time()
     gradient_his = []
+    x_path = []
+    dim = length(x0)
+    if dim == 2
+        push!(x_path, x0)
+    end
     k = 0
 
     #Init the variables
@@ -397,6 +396,9 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
         #Update 
         gnorm = norm(gk) 
         push!(gradient_his, gnorm)
+        if dim == 2
+            push!(x_path, x)
+        end
         k+=1
     end
     #Finalization of the method
@@ -405,5 +407,5 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x, gradient_his, speended_time
+    return x, gradient_his, speended_time, x_path
 end
