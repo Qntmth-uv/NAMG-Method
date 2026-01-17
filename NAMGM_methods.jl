@@ -88,7 +88,14 @@ function namgmSolver_V2(Bk, gk, list_of_vectors)
 
     # Use Symmetric wrapper to tell the solver to use a faster Cholesky/LDLT factorization
     # standard 'matrix \ b' is robust
-    C = Symmetric(matrix) \ b
+    matrix = Symmetric(matrix)
+    C = nothing
+    try
+        C = matrix \ b
+    catch
+        matrix += 1e-5I
+        C = matrix \ b
+    end
     
     return C
 end
@@ -187,7 +194,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     speended_time = end_time-start_time
     println("The last gradient was ", norm(g_old), ", iteration = ", k, ", time = ", speended_time, ".")
 
-    return x_old, gradient_his, speended_time, x_path
+    return x_old, gradient_his, speended_time, x_path, k
 end
 
 function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod)
@@ -264,7 +271,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path
+    return x_old, gradient_his, speended_time, x_path, k
 end
 
 
@@ -346,7 +353,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
     #Print report of solution
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path
+    return x_old, gradient_his, speended_time, x_path, k
 end
 
 
@@ -418,5 +425,5 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x, gradient_his, speended_time, x_path
+    return x, gradient_his, speended_time, x_path, k
 end

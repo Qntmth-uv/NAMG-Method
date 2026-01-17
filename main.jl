@@ -2,7 +2,7 @@ using Random
 using ArgParse
 
 
-include("./NAMGM_method.jl")
+include("./NAMGM_methods.jl")
 include("./hessian_mod.jl")
 include("utils.jl")
 include("plotting_util.jl")
@@ -125,10 +125,10 @@ end
 
 
     #Run the NAMGM algoritms
-    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
-    xf_Queue, historial_Queue, t_queue, xP_queue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
-    xf_random, historial_random, t_random, xP_random = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
-    xf_newton, historial_newton, t_newton, xP_newton = newtonMethod(g, h, x0, tol, nIters)
+    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
+    xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
+    xf_random, historial_random, t_random, xP_random, iterRandom = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
+    xf_newton, historial_newton, t_newton, xP_newton, iterNewton = newtonMethod(g, h, x0, tol, nIters)
 
     #Clean the data if there is a 0.0 then the plot will explote.
     H = [historial_Ovideo, historial_Queue, historial_random, historial_newton]
