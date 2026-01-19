@@ -67,9 +67,6 @@ end
 #Where Newton Fails: FLETCHCR, EXTROSNB
 
   function main()
-
-
-
     #Load the arguments
     parsed_args = parse_commandline()
     
@@ -204,6 +201,21 @@ end
         #Guardar
         savefig(mi_grafica, "images/"*nombre*"_path.svg")
     end
+
+   #Creation of Dataframe of the results
+    times = [t_oviedo, t_queue, t_random, t_newton]
+    lastGrad = [historial_Ovideo[end], historial_Queue[end], historial_random[end], historial_newton[end]]
+    iterations =[iterOviedo, iterQueue, iterRandom, iterNewton]
+
+    data = [iterations, lastGrad, times]
+    #Header of the DF
+    headers = ["iterations", "Last Gradient", "Execution time"]
+
+    #Save the CSV fike
+    df = DataFrame(data, headers)
+
+    #Write the CSV file
+    CSV.write("csvs/results_"*nombre*".csv", df)
 
     # Remember to finalize the model when you are done
     finalize(nlp_problem)

@@ -54,3 +54,23 @@ function getHeatmapCosine(listOfVectors)
     end
     return similaritys
 end
+
+
+function getConditionNumber(M)
+    """Function to get the Condition Number of the NAMGM_system, this is posible because
+    the dimension of this matrix is easy to compute due his dimension.
+    
+    # Input:
+        - M: Matrix - Hψ(B_k, g_k, V) matrix of the linear system
+    
+    # Output:
+        - C: Float64 - Condition number of Hψ(B_k, g_k, V) 
+        - em:Float64 - Smallest eigenvalue of M
+        - eM:Float64 - Biggest eigenvalue of M
+    """
+    #Computation of the eigenvalues and the condition number
+    M = Symmetric(M)
+    val_max = eigmax(M)
+    val_min = eigmin(M)
+    return abs(val_max/val_min), val_min, val_max
+end

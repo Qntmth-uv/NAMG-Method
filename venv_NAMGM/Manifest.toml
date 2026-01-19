@@ -2,7 +2,7 @@
 
 julia_version = "1.12.4"
 manifest_format = "2.0"
-project_hash = "f89e7f0d4a48dcc3287a7f0cbc44de824a88d745"
+project_hash = "69ce209d8fd3743cdb02bcb5ca0081c3729e581a"
 
 [[deps.AbstractTrees]]
 git-tree-sha1 = "2d9c9a55f9c93e8887ad391fbae72f8ef55e1177"
@@ -44,6 +44,12 @@ version = "1.11.0"
 [[deps.Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 version = "1.11.0"
+
+[[deps.BenchmarkTools]]
+deps = ["Compat", "JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
+git-tree-sha1 = "7fecfb1123b8d0232218e2da0c213004ff15358d"
+uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+version = "1.6.3"
 
 [[deps.BitFlags]]
 git-tree-sha1 = "0691e34b3bb8be9307330f88d1a3c3f25466c24d"
@@ -781,7 +787,7 @@ uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
 version = "2025.11.4"
 
 [[deps.NAMGM]]
-deps = ["ArgParse", "Arpack", "CSV", "CUTEst", "DataFrames", "DataStructures", "Distributions", "LaTeXStrings", "LinearAlgebra", "NLPModels", "Plots", "ProfileView", "Random"]
+deps = ["ArgParse", "Arpack", "CSV", "CUTEst", "DataFrames", "DataStructures", "Distributions", "LaTeXStrings", "LinearAlgebra", "NLPModels", "Plots", "ProfileView", "PythonPlot", "Random"]
 path = "."
 uuid = "54910126-5790-45eb-8804-1c5c29c5ac04"
 version = "0.1.0"

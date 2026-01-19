@@ -1,24 +1,20 @@
 using LinearAlgebra
 
-function modifyHessian_Eigen(hessian, dimension::Int)
+function modifyHessian_Eigen(hessian, epsilon::Float64 = 1e-12)
     """Shift of the matrix to being posive definite."""
     H = Symmetric(hessian)
-    val_max = eigmax(H)
+    #val_max = eigmax(H)
     val_min = eigmin(H)
-    if (val_min<0.0)
-        hessian += abs(val_min)*I
-        #println("The matrix was shifted")
-    end
-    #println("Mínimo: $val_min - Máximo: $val_max")
+    val_min < 0.0 ? hessian += (abs(val_min) + epsilon)*I : nothing
     return H
 end
 
-function notModifierHessian(hessian::Matrix, dimension::Int)
+function notModifierHessian(hessian::Matrix, epsilon::Float64 = 1e-12)
     """As its name suggest, this does not realice any transformation to the hessian."""
     return Symmetric(hessian)
 end
 
-function diagonalModifier_Hessian(hessianMatrix::Matrix, dim::Int, epsion::Float64 = 1e-12)
+function diagonalModifier_Hessian(hessianMatrix::Matrix,  epsilon::Float64 = 1e-12)
     """Function that gets the main diagonal of the Hessian Matrix plus an epsilon- if it's
     needed.
     
@@ -35,7 +31,7 @@ function diagonalModifier_Hessian(hessianMatrix::Matrix, dim::Int, epsion::Float
 end
 
 
-function tridiagonalModifier_Hessian(hessianMatrix::Matrix, dim::Int, epsion::Float64 = 1e-12)
+function tridiagonalModifier_Hessian(hessianMatrix::Matrix, epsilon::Float64 = 1e-12)
     """Function that gets the main diagonal of the Hessian Matrix plus an epsilon- if it's
     needed.
     
@@ -47,7 +43,7 @@ function tridiagonalModifier_Hessian(hessianMatrix::Matrix, dim::Int, epsion::Fl
     # Outpu:
         -h: Tridiaognal - The tridiagonal of the approximation of the hesssian.        
         """
-    h = Tridiagonal(hessianMatrix) + epsion*I
+    h = Tridiagonal(hessianMatrix) + epsilon*I
     return Symmetric(h)
 end
 

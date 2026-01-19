@@ -1,7 +1,8 @@
 using LinearAlgebra
 using BenchmarkTools
-include("./NAMGM_method.jl")
+include("./NAMGM_methods.jl")
 include("./hessian_mod.jl")
+include("utils.jl")
 
 # 1. La estructura de datos (Solo guarda los parámetros fijos)
 struct GeneralQuadraticFunction
@@ -98,32 +99,42 @@ end
 function main()
     # --- Configuración de datos ---
     # Creamos una matriz positiva definida (para que sea una parábola bonita)
-    dim = 100
-
-
-    nIters = 2
-    tol = 0.0000001
-    
-    println("Ejecutando versión normal")
+    dim = 1000
+    nIters = 1000
+    tol = 1e-8 
+    lqueue = 50
 
     #Creation of the varibles
     #@btime generatorValues_Dense3($dim, 10)
     A, b = generatorValues_Dense3(dim, 10)
     f, g, h = QuadraticFunctions(A, b)  
-    println("Here")
-
-
     
     # Initialize random vector of same dimension
-    #println("Dimension problem:", dim)
     x0 = rand(dim)
 
-    #Run the NAMGM algoritms (It work with the implementation of all methods)
-    xf_Oviedo, historial_Ovideo = namgmOviedo(g, h, x0, tol, nIters, modifyHessian_Eigen)
-    # xf_Queue, historial_Queue = namgmGrads(G, H, x0, tol, nIters, 8)
-    # xf_random, historial_random = namgmRandomVectors(G, H, x0, tol, nIters, 8)
-    # xf_newton, historial_newton = newtonMethod(G, H, x0, tol, nIters)
+    #Modificator to be used
+    mod = notModifierHessian
 
+    #Run the NAMGM algoritms
+    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
+    xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
+    xf_random, historial_random, t_random, xP_random, iterRandom = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
+    xf_newton, historial_newton, t_newton, xP_newton, iterNewton = newtonMethod(g, h, x0, tol, nIters)
+
+    #Creation of Dataframe of the results
+    times = [t_oviedo, t_queue, t_random, t_newton]
+    lastGrad = [historial_Ovideo[end], historial_Queue[end], historial_random[end], historial_newton[end]]
+    iterations =[iterOviedo, iterQueue, iterRandom, iterNewton]
+
+    data = [iterations, lastGrad, times]
+    #Header of the DF
+    headers = ["iterations", "Last Gradient", "Execution time"]
+
+    #Save the CSV fike
+    df = DataFrame(data, headers)
+
+    #Write the CSV file
+    CSV.write("csvs/exaple.csv", df)
 
 end
 

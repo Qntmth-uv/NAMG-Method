@@ -158,7 +158,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         #h = Symmetric(BB_Aproximattion(sk, yk))
         #h, distance = making_positive_foo_mod(h)
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, dim)
+        h = hessian_mod(h)
 
         #h = Diagonal(diag(h)) + 1e-12 * I
         #h, distance = making_positive_foo_mod(h)
@@ -238,7 +238,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
         #Compute the hessian
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, dim)
+        h = hessian_mod(h, 0.0)
   
 
         #println("Iteracion: ",k," Condicion: ",cond(Matrix(h)))
@@ -324,7 +324,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
         #Get the approximation of the hessian
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, dim)
+        h = hessian_mod(h)
   
         #Collect the currect elements in the queue to solve the optimization problem
         C = namgmSolver_V2(h, g_old, V)
