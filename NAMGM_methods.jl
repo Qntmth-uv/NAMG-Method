@@ -11,6 +11,9 @@ using DataStructures
 using Arpack
 
 
+
+#Need to implement a BFGS method to compare.
+
 function namgmSolver(Bk, gk, list_of_vectors)
     """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
     
@@ -100,7 +103,7 @@ function namgmSolver_V2(Bk, gk, list_of_vectors)
     return C
 end
 
-function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, hessian_mod)
+function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, hessian_mod, epsilon::Float64)
     """NAMGM Using the Ovideo Directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -142,6 +145,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     if dim == 2
         push!(x_path, x_new)
     end
+
     #Creation of the others elements in the set of vectors
     sk = x_new - x_old
     yk = g_new - g_old
@@ -153,16 +157,13 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     #Actual Norm
     gnorm = norm(g_old) 
     push!(gradient_his, gnorm)
+
     while (gnorm >= tolerance && k < maxIters)
+
         #Computing and making the hessian 
-        #h = Symmetric(BB_Aproximattion(sk, yk))
-        #h, distance = making_positive_foo_mod(h)
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h)
-
-        #h = Diagonal(diag(h)) + 1e-12 * I
-        #h, distance = making_positive_foo_mod(h)
-
+        h = hessian_mod(h, g_new, epsilon)
+ 
         #Compute the coeficients
         V = [g_old, sk, yk]
         C = namgmSolver(h, g_old, V)
@@ -171,7 +172,6 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         v = -sum(V .* C)
         x_new = x_old + v
         g_new = gradient(x_new)
-        
 
         #Creation of the others elements in the set of vectors
         sk = x_new - x_old
@@ -197,7 +197,7 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     return x_old, gradient_his, speended_time, x_path, k
 end
 
-function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod)
+function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod, epsilon::Float64)
     """NAMGM Using the Gradient queue directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -238,11 +238,8 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 
         #Compute the hessian
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, 0.0)
-  
-
-        #println("Iteracion: ",k," Condicion: ",cond(Matrix(h)))
-
+        h = hessian_mod(h, g_old, epsilon)
+        
         #Collect the current elements in the queue to solve the optimization problem
         V = collect(gradient_queue)
         C = namgmSolver(h, g_old, V)
@@ -275,7 +272,7 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
 end
 
 
-function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, randomSize:: Int, hessian_mod)
+function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, randomSize:: Int, hessian_mod, epsilon::Float64)
     """NAMGM Using the Random Vectors directive. 
     
     #Input
@@ -324,7 +321,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
         #Get the approximation of the hessian
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h)
+        h = hessian_mod(h, g_old, epsilon)
   
         #Collect the currect elements in the queue to solve the optimization problem
         C = namgmSolver_V2(h, g_old, V)

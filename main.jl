@@ -2,6 +2,12 @@ using Random
 using ArgParse
 
 
+"""
+Execution command (example)
+julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --nIters 5 --modifier eigen 
+"""
+const minValue = 2.220446049250313e-16;
+
 include("./NAMGM_methods.jl")
 include("./hessian_mod.jl")
 include("utils.jl")
@@ -47,6 +53,10 @@ function parse_commandline()
             help = "Fix a seed for the random process"
             arg_type = Int
             default=0
+        "--epsilon"
+            help = "Epsion added to the Modfier in case of being needed"
+            arg_type = Float64
+            default = minValue
     end
     return parse_args(s)
 end
@@ -79,6 +89,8 @@ end
     lqueue = parsed_args["lqueue"]
     tol = parsed_args["tol"]
     seed = parsed_args["seed"]
+    epsilonAdded = parsed_args["epsilon"]
+ 
     
     #Fix a Seed for generation
     if seed == 0
@@ -108,6 +120,8 @@ end
         mod = diagonalModifier_Hessian
      elseif mod == "tridiag"
         mod = tridiagonalModifier_Hessian
+     elseif mod == "remove"
+        mod = removeConvergenceModifier
     else
         mod = notModifierHessian
     end
@@ -122,9 +136,9 @@ end
 
 
     #Run the NAMGM algoritms
-    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo = namgmOviedo(g, h, x0, tol, nIters, mod)
-    xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod)
-    xf_random, historial_random, t_random, xP_random, iterRandom = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod)
+    xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo = namgmOviedo(g, h, x0, tol, nIters, mod, epsilonAdded)
+    xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
+    xf_random, historial_random, t_random, xP_random, iterRandom = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
     xf_newton, historial_newton, t_newton, xP_newton, iterNewton = newtonMethod(g, h, x0, tol, nIters)
 
     #Clean the data if there is a 0.0 then the plot will explote.
@@ -156,14 +170,12 @@ end
 
     if n === 2
         #Transformation of trajectorys
-        # 1. Agrupamos las listas crudas para iterar (principio DRY: Don't Repeat Yourself)
         raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton]
 
-        # 2. Inicializamos variables para los límites globales con infinito invertido
-        g_xlims = (Inf, -Inf) # (min, max)
+        #Inicializamos variables para los límites globales con infinito invertido
+        g_xlims = (Inf, -Inf) 
         g_ylims = (Inf, -Inf)
 
-        # 3. Procesamos todo en un solo bucle (map) o comprensión
         # Convertimos a matrices y al mismo tiempo actualizamos los límites globales
         matrices_procesadas = map(raw_inputs) do raw_data
             # A. Conversión eficiente (stack es nativo y rápido en Julia >= 1.9)
@@ -184,7 +196,7 @@ end
             return mat
         end
 
-        # 4. Desempaquetamos los resultados (Asignación múltiple)
+        #Unpack the trajectorys 
         xP_oviedo, xP_queue, xP_random, xP_newton = matrices_procesadas
 
 
@@ -194,9 +206,8 @@ end
         # # 3. ACTUALIZAR el lienzo con el segundo camino
         # # Pasamos 'mi_grafica' y cambiamos el color y etiqueta
         add_optimization_path!(mi_grafica, xP_queue, label="Queue", color=:blue, linestyle=:dash)
-        add_optimization_path!(mi_grafica, xP_random, label="Random", color=:purple, linestyle=:dash)
         add_optimization_path!(mi_grafica, xP_newton, label="Newton", color=:green)
-
+        add_optimization_path!(mi_grafica, xP_random, label="Random", color=:purple, linestyle=:dash)
 
         #Guardar
         savefig(mi_grafica, "images/"*nombre*"_path.svg")
