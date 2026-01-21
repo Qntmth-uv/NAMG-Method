@@ -5,6 +5,7 @@ using ArgParse
 """
 Execution command (example)
 julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --nIters 5 --modifier eigen 
+julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --modifier eigen 
 """
 const minValue = 2.220446049250313e-16;
 
@@ -90,6 +91,8 @@ end
     tol = parsed_args["tol"]
     seed = parsed_args["seed"]
     epsilonAdded = parsed_args["epsilon"]
+
+    println(epsilonAdded)
  
     
     #Fix a Seed for generation

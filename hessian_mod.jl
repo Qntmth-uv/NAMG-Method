@@ -5,7 +5,7 @@ function modifyHessian_Eigen(hessian, gradient = Nothing,  epsilon::Float64 = 1e
     H = Symmetric(hessian)
     #val_max = eigmax(H)
     val_min = eigmin(H)
-    val_min < 0.0 ? hessian += (abs(val_min) + epsilon)*I : nothing
+    val_min < 0.0 ? H += (abs(val_min) + epsilon)*I : nothing
     return H
 end
 
@@ -26,7 +26,8 @@ function diagonalModifier_Hessian(hessianMatrix::Matrix, gradient = Nothing, eps
     # Outpu:
         -h: Diaognal - The main diagonal of the approximation of the hesssian.        
         """
-    h = Diagonal(diag(hessianMatrix))
+    #h  = abs.(Diagonal(diag(hessianMatrix)))+ epsilon*I
+    h = Diagonal(diag(hessianMatrix)).^2 + epsilon*I
     return Symmetric(h)
 end
 
@@ -73,11 +74,7 @@ function removeConvergenceModifier(hessian, gradient = nothing, epsilon::Float64
     #Fill the matrix
     for (i, g) in enumerate(Hkgk)
         addedMatrix[i,i] = -1/g * Hkgk[i] 
-        #addedMatrix[i,i] = isapprox(g, 0.0) ? 0.0 : 1/g * Hkgk[i]
+        #addedMatrix[i,i] = isapprox(g, 0.0) ? 0.0 : -1/g * Hkgk[i]
     end
-
-    #Return the matrix
-    #display(addedMatrix)
-    #display(gradient-Hkgk)
     return Symmetric(hessian + addedMatrix)
 end
