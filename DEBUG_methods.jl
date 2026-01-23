@@ -37,17 +37,26 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors)
     # Output:
         - C: Vector - Constans of the linear combination of the vectors
     """
+    #Change the type of variable type of all cases to standarize the types
+    list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
+    gk = vec(Array(gk)) 
 
     #Set the primal values
     n_rows = length(list_of_vectors)
-    matrix = zeros(n_rows, n_rows)
+    matrix = zeros(Float64, n_rows, n_rows)
+
+    #Precompute the right part of the matrix coeficients and the vector b
     V = [Bk * v for v in list_of_vectors]
+    
+    #Construct the matrix system
     for i in (1:n_rows)
         for j in (i:n_rows) 
             matrix[i, j] = V[i]' * V[j]
             matrix[j, i] = matrix[i, j]
         end
     end
+
+    #Construct the response vector
     b = [gk' * V[i] for i in (1:n_rows)]
 
     #Here we need a try-catch implementation, we can use a small modification of the hessian matrix
@@ -69,61 +78,6 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors)
     return C, cn
 end 
 
-function DEBUG_namgmSolver_V2(Bk, gk, list_of_vectors)
-    """
-    Solves the optimization problem, ensuring all inputs are handled as dense vectors.
-    """
-    
-    # --- STEP 1: SANITIZATION (The Fix) ---
-    # We create a new clean list where every element is forced to be a dense Vector{Float64}.
-    # vec(Array(v)) handles SparseMatrices, 1xN matrices, and standard vectors.
-    clean_vectors = [vec(Array(v)) for v in list_of_vectors]
-    
-    # Ensure gk is also a dense vector
-    gk_clean = vec(Array(gk))
-
-    # --- STEP 2: PRE-CALCULATION ---
-    n_rows = length(clean_vectors)
-    
-    # Compute V = Bk * v for every vector. 
-    # We assume Bk is the Hessian. The result is stored as a list of vectors.
-    V = [Bk * v for v in clean_vectors]
-
-    # --- STEP 3: BUILD THE MATRIX ---
-    matrix = zeros(Float64, n_rows, n_rows) # Explicitly use Float64
-
-    for i in 1:n_rows
-        # Optimization: Matrix is symmetric, so only compute j >= i
-        for j in i:n_rows 
-            # Dot product of the pre-computed vectors
-            val = dot(V[i], V[j]) 
-            matrix[i, j] = val
-            matrix[j, i] = val
-        end
-    end
-
-    # --- STEP 4: COMPUTE RHS (b) AND SOLVE ---
-    # b[i] = gk' * V[i]
-    b = [dot(gk_clean, V[i]) for i in 1:n_rows]
-
-    # Use Symmetric wrapper to tell the solver to use a faster Cholesky/LDLT factorization
-    # standard 'matrix \ b' is robust
-    matrix = Symmetric(matrix)
-
-    #Compute the condition number of the matrix
-    val_max = eigmax(matrix)
-    val_min = eigmin(matrix)
-    cn = abs(val_max/val_min)
-
-    C = nothing
-    try
-        C = matrix \ b
-    catch
-        matrix += 1e-5I
-        C = matrix \ b
-    end 
-    return C, cn
-end
 
 function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
                            tolerance:: Float64, maxIters:: Int, hessian_mod::Function,
@@ -222,7 +176,7 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
     speended_time = end_time-start_time
     println("The last gradient was ", norm(g_old), ", iteration = ", k, ", time = ", speended_time, ".")
 
-    return x_old, gradient_his, speended_time, x_path, k, condition_his
+    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
 end
 
 function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector, 
@@ -303,7 +257,7 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path, k, condition_his
+    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
 end
 
 
@@ -346,14 +300,14 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
         #Compute the gradient
         g_old = gradient(x_old)
 
-        # 1. Initialize an empty list specifically for Vectors
+        #Initialize an empty list specifically for Vectors
         V = Vector{Vector{Float64}}()
-        vectorsSample = 1000*randn(Float64, randomSize, dim)
-        # 2. Add g_old as the FIRST whole vector
+        vectorsSample = randn(Float64, randomSize, dim)
+
+        #Add g_old as the FIRST whole vector
         push!(V, vec(Array(g_old)))
 
-        # 3. Append the random vectors
-        # We loop through rows and push them one by one
+        #We loop through rows and push them one by one
         for i in 1:size(vectorsSample, 1)
             push!(V, vec(vectorsSample[i, :]))
         end
@@ -363,7 +317,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
         h = hessian_mod(h, g_old, epsilon)
   
         #Collect the currect elements in the queue to solve the optimization problem
-        C, cn = DEBUG_namgmSolver_V2(h, g_old, V)
+        C, cn = DEBUG_namgmSolver(h, g_old, V)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
@@ -390,7 +344,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
 
     #Print report of solution
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path, k, condition_his
+    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
 end
 
 
@@ -415,15 +369,14 @@ function elementsTestFunction(name::String)
     function h(x)
         return hess(nlp_problem, x)
     end
-    
     return f, g, h, nlp_problem.meta.x0, nlp_problem
 end
 
 function DEBUG_newtonMethod(gradient::Function, hessian::Function, 
                             x0::Vector, tolerance::Float64, maxIters:: Int)
     """
-    
-
+    Newton's method with applicable modifier in the Hessian matrix
+    (This is not the same as the BFGS method, such method use a unique modifer)
     # Input:
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
@@ -438,8 +391,6 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
     """
-    
-    
     #Start time of the method
     start_time = time()
     gradient_his = []
@@ -482,5 +433,5 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x, gradient_his, speended_time, x_path, k
+    return x, gradient_his, speended_time, x_path, k, gnorm
 end

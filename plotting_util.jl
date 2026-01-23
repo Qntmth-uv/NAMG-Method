@@ -35,8 +35,7 @@ function plot_optimization_path(f::Function, eval_points::AbstractMatrix;
         levels=lvl_vals, color=:plasma, fill=false, alpha=0.4, 
         clabels=false, cbar=false, label=nothing,
         title="$(function_name) Landscape", xlabel="x", ylabel="y")
-    
-    
+
     add_optimization_path!(p, eval_points, label=label, color=:crimson)
     
     return p
@@ -89,14 +88,17 @@ function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix;
     return plt
 end
 
-function plotGradsEvolution(list_of_Historials, problem::String, colors, labels, styleLine, image_name::String)
+function plotEvolution(list_of_Historials, problem::String, colors, labels, 
+                            styleLine, ylabel::String, plot_title::String, image_name::String)
+
     #Number of the elements in the historial 
     n_elemnts = length(list_of_Historials)
+
     #Configuration of the axis of the plot
     plt = plot(
         xlabel="Iteration",
-        ylabel="‖∇f(x)‖",
-        title="Convergence Analysis: " * problem,
+        ylabel=ylabel,
+        title=plot_title,
         yscale=:log10,
         grid=true,
         gridstyle=:dot,
@@ -115,37 +117,5 @@ function plotGradsEvolution(list_of_Historials, problem::String, colors, labels,
         )
     end
     #Save plot 
-    savefig(plt, image_name)
-end
-
-
-function plotConditionEvolution(list_of_Historials, problem::String, colors, labels, styleLine, image_name::String)
-    
-    #Number of the elements in the historial 
-    n_elemnts = length(list_of_Historials)
-
-    #Configuration of the axis of the plot
-    plt = plot(
-        xlabel="Iteration",
-        ylabel="κ(Hψ)",
-        title="Condition Analysis: " * problem,
-        grid=true,
-        gridstyle=:dot,
-        gridalpha=0.3,
-        legend=:topright,
-        size=(800, 400),
-        dpi=300
-    )
-    
-    for i in 1:n_elemnts
-        # Graficamos iterativamente sobre 'plt'
-        plot!(plt, list_of_Historials[i],
-            label = labels[i],
-            linestyle = styleLine[i],
-            color = colors[i],
-            linewidth = 2
-        )
-    end 
-    #Save plot image
     savefig(plt, image_name)
 end

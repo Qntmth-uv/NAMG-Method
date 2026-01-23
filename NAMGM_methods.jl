@@ -27,22 +27,31 @@ function namgmSolver(Bk, gk, list_of_vectors)
         - C: Vector - Constans of the linear combination of the vectors
     """
 
+     #Change the type of variable type of all cases to standarize the types
+    list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
+    gk = vec(Array(gk)) 
+
     #Set the primal values
     n_rows = length(list_of_vectors)
-    matrix = zeros(n_rows, n_rows)
+    matrix = zeros(Float64, n_rows, n_rows)
+
+    #Precompute the right part of the matrix coeficients and the vector b
     V = [Bk * v for v in list_of_vectors]
+    
+    #Construct the matrix system
     for i in (1:n_rows)
         for j in (i:n_rows) 
             matrix[i, j] = V[i]' * V[j]
             matrix[j, i] = matrix[i, j]
         end
     end
-    b = [gk' * V[i] for i in (1:n_rows)]
+
+    #Construct the response vector
+    b = [dot(gk, V[i]) for i in (1:n_rows)]
 
     #Here we need a try-catch implementation, we can use a small modification of the hessian matrix
     matrix = Symmetric(matrix)
     C=nothing
-    #display(matrix)
     try
         C = matrix \ b
     catch
@@ -51,57 +60,6 @@ function namgmSolver(Bk, gk, list_of_vectors)
     end
     return C
 end 
-
-function namgmSolver_V2(Bk, gk, list_of_vectors)
-    """
-    Solves the optimization problem, ensuring all inputs are handled as dense vectors.
-    """
-    
-    # --- STEP 1: SANITIZATION (The Fix) ---
-    # We create a new clean list where every element is forced to be a dense Vector{Float64}.
-    # vec(Array(v)) handles SparseMatrices, 1xN matrices, and standard vectors.
-    clean_vectors = [vec(Array(v)) for v in list_of_vectors]
-    
-    # Ensure gk is also a dense vector
-    gk_clean = vec(Array(gk))
-
-    # --- STEP 2: PRE-CALCULATION ---
-    n_rows = length(clean_vectors)
-    
-    # Compute V = Bk * v for every vector. 
-    # We assume Bk is the Hessian. The result is stored as a list of vectors.
-    V = [Bk * v for v in clean_vectors]
-
-    # --- STEP 3: BUILD THE MATRIX ---
-    matrix = zeros(Float64, n_rows, n_rows) # Explicitly use Float64
-
-    for i in 1:n_rows
-        # Optimization: Matrix is symmetric, so only compute j >= i
-        for j in i:n_rows 
-            # Dot product of the pre-computed vectors
-            val = dot(V[i], V[j]) 
-            matrix[i, j] = val
-            matrix[j, i] = val
-        end
-    end
-
-    # --- STEP 4: COMPUTE RHS (b) AND SOLVE ---
-    # b[i] = gk' * V[i]
-    b = [dot(gk_clean, V[i]) for i in 1:n_rows]
-
-    # Use Symmetric wrapper to tell the solver to use a faster Cholesky/LDLT factorization
-    # standard 'matrix \ b' is robust
-    matrix = Symmetric(matrix)
-    C = nothing
-    try
-        C = matrix \ b
-    catch
-        matrix += 1e-5I
-        C = matrix \ b
-    end
-    
-    return C
-end
 
 function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, hessian_mod, epsilon::Float64)
     """NAMGM Using the Ovideo Directive. 
@@ -276,15 +234,14 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         #Compute the gradient
         g_old = gradient(x_old)
 
-        # 1. Initialize an empty list specifically for Vectors
+        #Initialize an empty list specifically for the random Vectors
         V = Vector{Vector{Float64}}()
-        vectorsSample = 1000*randn(Float64, randomSize, dim)
+        vectorsSample = randn(Float64, randomSize, dim)
 
-        # 2. Add g_old as the FIRST whole vector
+        #Add g_old as the FIRST whole vector
         push!(V, vec(Array(g_old)))
 
-        # 3. Append the random vectors
-        # We loop through rows and push them one by one
+        #Append the random vectors
         for i in 1:size(vectorsSample, 1)
             push!(V, vec(vectorsSample[i, :]))
         end
@@ -294,7 +251,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         h = hessian_mod(h, g_old, epsilon)
   
         #Collect the currect elements in the queue to solve the optimization problem
-        C = namgmSolver_V2(h, g_old, V)
+        C = namgmSolver(h, g_old, V)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
@@ -378,5 +335,5 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
 
     #Print report of solutions
     println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", ttime, ".")
-    return x_old, k, ttime, gnorm 
+    return x, k, ttime, gnorm 
 end

@@ -4,10 +4,9 @@ using CSV
 
 
 
-function getIterationSpeed(historal, time::Float64)
+function getIterationSpeed(numberOfIters, time::Float64)
     """Compute the avrg iteration speed."""
-    n = length(historal)
-    return n/time  
+    return numberOfIters/time
 end
 
 

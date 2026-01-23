@@ -129,10 +129,10 @@ end
         println("DEBUG Mode")
 
         #Run the NAMGM algoritms using DEBUG mesuarements
-        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, CN_O = DEBUG_namgmOviedo(g, h, x0, tol, nIters, mod, epsilonAdded)
-        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, CN_Q = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
-        xf_random, historial_random, t_random, xP_random, iterRandom, CN_R= DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
-        xf_newton, historial_newton, t_newton, xP_newton, iterNewton = DEBUG_newtonMethod(g, h, x0, tol, nIters)
+        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O = DEBUG_namgmOviedo(g, h, x0, tol, nIters, mod, epsilonAdded)
+        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
+        xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R= DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
+        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton = DEBUG_newtonMethod(g, h, x0, tol, nIters)
 
         #Clean the data if there is a 0.0 then the plot will explote.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton]
@@ -153,8 +153,10 @@ end
         styles_list = [:solid, :dash, :dash, :solid]
 
         #Plot the results (The gradient historial and the condition number)
-        plotGradsEvolution(H, name, colors_list, problems_labels, styles_list, image_name)
-        plotConditionEvolution(Hc, name, colors_list[1:end-1], problems_labels[1:end-1], styles_list[1:end-1], cnName)
+        plot_title = "Convergence Analysis: " * name
+        plot_titleCN = "Condition Analysis: " * name
+        plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, image_name)
+        plotEvolution(Hc, name, colors_list[1:end-1], problems_labels[1:end-1], styles_list[1:end-1], "κ(Hψ)", plot_titleCN, cnName)
 
         #If the function is bidimensioal, then plot the sequence path
         if n === 2
@@ -195,24 +197,24 @@ end
         end
     else
         println("Normal mode")
-        xf_Oviedo, iterOviedo, t_oviedo, normOviedo = DEBUG_namgmOviedo(g, h, x0, tol, nIters, mod, epsilonAdded)
-        xf_Queue, iterQueue, t_queue, normQueue = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
-        xf_random, iterRandom, t_random, normRandom = DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
-        xf_newton, iterNewton, t_newton, normNewton = DEBUG_newtonMethod(g, h, x0, tol, nIters)
+        xf_Oviedo, iterOviedo, t_oviedo, normOviedo = namgmOviedo(g, h, x0, tol, nIters, mod, epsilonAdded)
+        xf_Queue, iterQueue, t_queue, normQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
+        xf_random, iterRandom, t_random, normRandom = namgmRandomVectors(g, h, x0, tol, nIters, lqueue, mod, epsilonAdded)
+        xf_newton, iterNewton, t_newton, normNewton = newtonMethod(g, h, x0, tol, nIters)
     end
 
     #Print the number of iterations per second
-    println("Time per iteration (Oviedo): ", getIterationSpeed(historial_Ovideo, t_oviedo))
-    println("Time per iteration (Queue): ", getIterationSpeed(historial_Queue, t_queue))
-    println("Time per iteration (Random): ", getIterationSpeed(historial_random, t_random))
-    println("Time per iteration (Newton): ", getIterationSpeed(historial_newton, t_newton))
+    println("Time per iteration (Oviedo): ", getIterationSpeed(iterOviedo, t_oviedo))
+    println("Time per iteration (Queue): ", getIterationSpeed(iterQueue, t_queue))
+    println("Time per iteration (Random): ", getIterationSpeed(iterRandom, t_random))
+    println("Time per iteration (Newton): ", getIterationSpeed(iterNewton, t_newton))
 
     # Remember to finalize the model when you are done
     finalize(nlp_problem)
 
     #Creation of Dataframe of the results
     times = [t_oviedo, t_queue, t_random, t_newton]
-    lastGrad = [historial_Ovideo[end], historial_Queue[end], historial_random[end], historial_newton[end]]
+    lastGrad = [normOviedo, normQueue, normRandom, normNewton]
     iterations =[iterOviedo, iterQueue, iterRandom, iterNewton]
     data = [iterations, lastGrad, times]
 
