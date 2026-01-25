@@ -2,7 +2,8 @@ using LaTeXStrings
 using Plots; pythonplot()
 using LinearAlgebra
 
-#
+#Change  the ploting function to GR instead of matplotlib. There is a problem with matplotlib in the creation of the 
+#levels graph.
 gr()
 
 function plot_optimization_path(f::Function, eval_points::AbstractMatrix; 
@@ -89,8 +90,25 @@ function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix;
 end
 
 function plotEvolution(list_of_Historials, problem::String, colors, labels, 
-                            styleLine, ylabel::String, plot_title::String, image_name::String)
+                            styleLine, ylabel::String, plotTitle::String, image_name::String)
+    """Function to plot the evolution of a phenomena. 
+    
+    # Input:
+        - list_of_Historials: Array[Vetors] - Array of several historials of the phenomena
+        - problem: String - Name of the phenomena
+        - colors: Array - Array of colors for the historials (e. g. :blue, :red)
+        - labels: Array - Array of labels of each historial 
+        - styline: Array - Array of lineStyles to plot the historial (e. g; :dash, :solid)
+        - ylabel: String - Name of the Y axis
+        - plotTitle: String - Title of the plot
+        - image_name: String - Path where to save the plot
 
+    # Output:
+        - None: Void - Only creates the plot and save it
+        
+    # Remark. There is not a check if the length of the historials is the same as for the colors
+    and the styleLine. If the lengths does not match, then the function will raise a Error.
+    """
     #Number of the elements in the historial 
     n_elemnts = length(list_of_Historials)
 
@@ -98,7 +116,7 @@ function plotEvolution(list_of_Historials, problem::String, colors, labels,
     plt = plot(
         xlabel="Iteration",
         ylabel=ylabel,
-        title=plot_title,
+        title=plotTitle,
         yscale=:log10,
         grid=true,
         gridstyle=:dot,
@@ -107,6 +125,7 @@ function plotEvolution(list_of_Historials, problem::String, colors, labels,
         size=(800, 400),
         dpi=300
     )
+
     #Add each of the lines
     for i in 1:n_elemnts
         plot!(plt, list_of_Historials[i],
@@ -116,6 +135,7 @@ function plotEvolution(list_of_Historials, problem::String, colors, labels,
             linewidth = 2
         )
     end
+
     #Save plot 
     savefig(plt, image_name)
 end

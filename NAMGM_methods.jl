@@ -10,6 +10,7 @@ using Plots
 using DataStructures
 using Arpack
 
+include("utils.jl")
 
 
 #Need to implement a BFGS method to compare.
@@ -78,10 +79,10 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     """
     #Start time
     start_time = time()
+    x_old = x0
     k = 1
 
     #Init the values
-    x_old = x0
     g_old = gradient(x_old)
 
     #We make the first iteration to be able to compute sk and yk
@@ -131,8 +132,11 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
     end
     end_time = time()
     ttime = end_time-start_time
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", ttime, ".")
-    return x_old, k, ttime, gnorm 
+    ittpSec = getIterationSpeed(k, ttime)
+
+    #Print report of the execution 
+    @printf("Execution Info - Oviedo| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, k, ttime, gnorm, ittpSec  
 end
 
 function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod, epsilon::Float64)
@@ -197,10 +201,11 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
     #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solutions
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", ttime, ".")
-    return x_old, k, ttime, gnorm 
+    #Print report of the executation
+    @printf("Execution Info - Grads | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, k, ttime, gnorm, ittpSec  
 end
 
 
@@ -221,9 +226,9 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
     """
     #Start time
+    start_time = time()
     x_old = x0
     dim = length(x0)
-    start_time = time()
     k = 0
 
     #Init the variables
@@ -236,7 +241,7 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
 
         #Initialize an empty list specifically for the random Vectors
         V = Vector{Vector{Float64}}()
-        vectorsSample = randn(Float64, randomSize, dim)
+        vectorsSample = randn(Float64, randomSize-1, dim)
 
         #Add g_old as the FIRST whole vector
         push!(V, vec(Array(g_old)))
@@ -270,45 +275,20 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
     #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solution
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", ttime, ".")
-    return x_old, k, ttime, gnorm 
-end
-
-
-function elementsTestFunction(name::String)
-    """Function to use the function, gradient, Hessian of a fucntion, also
-    return the x_minima and the nlp_problem to close it latter."""
-
-    # Create a model for the 'name' problem
-    nlp_problem = CUTEstModel(name)
-
-    # Define callable functions
-    function f(x)
-        return obj(nlp_problem, x)
-    end
-
-    # Alternative gradient function that returns the gradient
-    function g(x)
-        return grad(nlp_problem, x)
-    end
-
-    # Alternative Hessian function
-    function h(x)
-        return hess(nlp_problem, x)
-    end
-    
-    return f, g, h, nlp_problem.meta.x0, nlp_problem
+    #Print report of the executation
+    @printf("Execution Info - Random| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, k, ttime, gnorm, ittpSec 
 end
 
 function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int)
     #Start time of the method
     start_time = time()
+    x = x0
     k = 0
 
-    #Init the variables
-    x = x0
+    #Init the variable
     gnorm = Inf
     while (k < maxIters && gnorm >= tolerance)
         #Compute the gradient of the matrix
@@ -332,8 +312,67 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
     #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solutions
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", ttime, ".")
-    return x, k, ttime, gnorm 
+    #Print report of the executation
+    @printf("Execution Info - Newton| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x, k, ttime, gnorm, ittpSec  
+end
+
+
+function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int)
+    #Start time of the method
+    start_time = time()
+    x_old = x0
+    dim = length(x0)
+    k = 0
+
+    #Init the variables
+    x_new = zeros(Float64, length(dim)) 
+    g_new = zeros(Float64, length(dim))
+
+    #Compute the inverse of the hessian (first approximation)
+    hk = I
+    try
+        hk = inv(Symmetric(Matrix(hessian(x_old))))
+    catch
+        @warn "BFGS - Error trying to compute the inverse, using the identity as first approximation."
+    end
+    gnorm = Inf
+    while (k < maxIters && gnorm >= tolerance)
+        #Compute the gradient of the matrix
+        g_old = gradient(x_old)
+
+        #Compute the direction
+        pk = -hk*g_old
+
+        #Update the point using weak wolfe condition
+        actualfxk = fx(x_old)
+        alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk)
+        #alpha = 1e-3
+        x_new = x_old+alpha*pk
+        g_new = gradient(x_new)
+
+        #Update the Variables
+        sk = x_new - x_old
+        yk = g_new - g_old
+        
+        #Update the approximation of the hessian
+        rho = 1/(dot(yk, sk) + 1e-9) #<- Added a small epsilon to avoid a posible NaN
+        hk = (I-rho*sk*transpose(yk))*hk*(I-rho*yk*transpose(sk))+(rho*sk*transpose(sk))
+
+        #Update the variables
+        x_old = x_new
+        g_old = g_new
+        gnorm = norm(g_old) 
+        k+=1
+    end
+    #Finalization of the method
+    end_time = time()
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
+
+    #Print report of the executation
+    @printf("Execution Info - BFGSM | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, k, ttime, gnorm, ittpSec 
 end

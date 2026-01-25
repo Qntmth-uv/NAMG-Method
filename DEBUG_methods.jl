@@ -8,8 +8,6 @@ the gradient historial, and other standard measurements
 like solution, number of iterations, executation time
 """
 
-
-# Converted from julia_notebook.ipynb
 using LinearAlgebra
 using Random
 using Distributions
@@ -20,22 +18,23 @@ using CUTEst, NLPModels
 using Plots
 using DataStructures
 using Arpack
+using Printf
 
+include("utils.jl")
 
 
 #Need to implement a BFGS method to compare.
-
-function DEBUG_namgmSolver(Bk, gk, list_of_vectors)
+function DEBUG_namgmSolver(Bk, gk, list_of_vectors, modifier::Function)
     """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
     
     # Input
-    
         - Bk: Matrix - Approximation of the hessian matrix.
         - gk: Vector - Gradient in the current iteration
         - lk: Array  - List of vectors to solve the system
-
+        - modifier: Callable - Modifier of the System (to reduce the CN).
     # Output:
-        - C: Vector - Constans of the linear combination of the vectors
+        - C:  Vector  - Constans of the linear combination of the vectors
+        -CN: Float64  - Condition number of the system
     """
     #Change the type of variable type of all cases to standarize the types
     list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
@@ -60,7 +59,7 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors)
     b = [gk' * V[i] for i in (1:n_rows)]
 
     #Here we need a try-catch implementation, we can use a small modification of the hessian matrix
-    matrix = Symmetric(matrix)
+    matrix = modifier(matrix)
 
     #Compute the condition number of the matrix
     val_max = eigmax(matrix)
@@ -81,7 +80,7 @@ end
 
 function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
                            tolerance:: Float64, maxIters:: Int, hessian_mod::Function,
-                           epsilon::Float64)
+                           epsilon::Float64, sys_mod::Function)
     """NAMGM Using the Ovideo Directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -147,7 +146,7 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
  
         #Compute the coeficients
         V = [g_old, sk, yk]
-        C, cn = DEBUG_namgmSolver(h, g_old, V)
+        C, cn = DEBUG_namgmSolver(h, g_old, V, sys_mod)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
@@ -173,15 +172,17 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
         end
     end
     end_time = time()
-    speended_time = end_time-start_time
-    println("The last gradient was ", norm(g_old), ", iteration = ", k, ", time = ", speended_time, ".")
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
+    #Print report of the execution 
+    @printf("Execution Info - Oviedo| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, gradient_his, ttime, x_path, k, gnorm, condition_his, ittpSec 
 end
 
 function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector, 
                           tolerance:: Float64, maxIters:: Int, queue_size:: Int, 
-                          hessian_mod::Function, epsilon::Float64)
+                          hessian_mod::Function, epsilon::Float64, sys_mod::Function)
     """NAMGM Using the Gradient queue directive. 
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -230,7 +231,7 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
         
         #Collect the current elements in the queue to solve the optimization problem
         V = collect(gradient_queue)
-        C, cn = DEBUG_namgmSolver(h, g_old, V)
+        C, cn = DEBUG_namgmSolver(h, g_old, V, sys_mod)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
@@ -253,17 +254,18 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
     
     #Finalization of the method
     end_time = time()
-    speended_time = end_time-start_time
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solutions
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
+    #Print report of the execution 
+    @printf("Execution Info - Grads | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, gradient_his, ttime, x_path, k, gnorm, condition_his, ittpSec 
 end
 
 
 function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Vector, 
                                   tolerance:: Float64, maxIters:: Int, randomSize:: Int, 
-                                  hessian_mod::Function, epsilon::Float64)
+                                  hessian_mod::Function, epsilon::Float64, sys_mod::Function)
     """NAMGM Using the Random Vectors directive. 
     #Input
         - Gradient: Callable - Gradient of the function.
@@ -302,7 +304,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
 
         #Initialize an empty list specifically for Vectors
         V = Vector{Vector{Float64}}()
-        vectorsSample = randn(Float64, randomSize, dim)
+        vectorsSample = randn(Float64, randomSize-1, dim)
 
         #Add g_old as the FIRST whole vector
         push!(V, vec(Array(g_old)))
@@ -317,7 +319,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
         h = hessian_mod(h, g_old, epsilon)
   
         #Collect the currect elements in the queue to solve the optimization problem
-        C, cn = DEBUG_namgmSolver(h, g_old, V)
+        C, cn = DEBUG_namgmSolver(h, g_old, V, sys_mod)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
@@ -340,37 +342,15 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
 
     #Finalization of the method
     end_time = time()
-    speended_time = end_time-start_time
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solution
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x_old, gradient_his, speended_time, x_path, k, gnorm, condition_his
+    #Print report of the execution 
+    @printf("Execution Info - Random| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, gradient_his, ttime, x_path, k, gnorm, condition_his, ittpSec 
 end
 
 
-function elementsTestFunction(name::String)
-    """Function to use the function, gradient, Hessian of a fucntion, also
-    return the x_minima and the nlp_problem to close it latter."""
-
-    # Create a model for the 'name' problem
-    nlp_problem = CUTEstModel(name)
-
-    # Define callable functions
-    function f(x)
-        return obj(nlp_problem, x)
-    end
-
-    # Alternative gradient function that returns the gradient
-    function g(x)
-        return grad(nlp_problem, x)
-    end
-
-    # Alternative Hessian function
-    function h(x)
-        return hess(nlp_problem, x)
-    end
-    return f, g, h, nlp_problem.meta.x0, nlp_problem
-end
 
 function DEBUG_newtonMethod(gradient::Function, hessian::Function, 
                             x0::Vector, tolerance::Float64, maxIters:: Int)
@@ -396,10 +376,13 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
     gradient_his = []
     x_path = []
     dim = length(x0)
+    k = 0
+
+
     if dim == 2
         push!(x_path, x0)
     end
-    k = 0
+
 
     #Init the variables
     x = x0
@@ -429,9 +412,82 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
     end
     #Finalization of the method
     end_time = time()
-    speended_time = end_time-start_time
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
 
-    #Print report of solutions
-    println("The last gradient was ", gnorm, ", iteration = ", k, ", time = ", speended_time, ".")
-    return x, gradient_his, speended_time, x_path, k, gnorm
+    #Print report of the execution  
+    @printf("Execution Info - Newton| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x, gradient_his, ttime, x_path, k, gnorm, ittpSec 
+end
+
+
+function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x0::Vector, tolerance::Float64, maxIters:: Int)
+    #Start time of the method
+    start_time = time()
+    dim = length(x0)
+
+    #Debug variables
+    gradient_his = []
+    x_path = []
+    dim = length(x0)
+    if dim == 2
+        push!(x_path, x0)
+    end
+    k = 0
+
+    #Init the variables
+    x_old = x0
+    x_new = zeros(Float64, length(dim)) 
+    g_new = zeros(Float64, length(dim))
+
+    #Compute the inverse of the hessian (first approximation)
+    hk = I
+    try
+        hk = inv(Symmetric(Matrix(hessian(x_old))))
+    catch
+        @warn "BFGS - Error trying to compute the inverse, using the identity as first approximation."
+    end
+   
+    gnorm = Inf
+    while (k < maxIters && gnorm >= tolerance)
+        #Compute the gradient of the matrix
+        g_old = gradient(x_old)
+
+        #Compute the direction
+        pk = -hk*g_old
+
+        #Update the point using weak wolfe condition
+        actualfxk = fx(x_old)
+        alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk)
+        x_new = x_old+alpha*pk
+        g_new = gradient(x_new)
+
+        #Update the Variables
+        sk = x_new - x_old
+        yk = g_new - g_old
+        
+        #Update the approximation of the hessian
+        rho = 1/(dot(yk, sk) + 1e-9)
+        hk = (I-rho*sk*transpose(yk))*hk*(I-rho*yk*transpose(sk))+(rho*sk*transpose(sk))
+
+        #Update the variables
+        x_old = x_new
+        g_old = g_new
+        gnorm = norm(g_old) 
+
+        #Push the new results in the historial
+        push!(gradient_his, gnorm)
+        if dim == 2
+            push!(x_path, x_old)
+        end
+        k+=1
+    end
+    #Finalization of the method
+    end_time = time()
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
+
+    #Print report of the execution 
+    @printf("Execution Info - BFGSM | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
+    return x_old, gradient_his, ttime, x_path, k, gnorm, ittpSec 
 end
