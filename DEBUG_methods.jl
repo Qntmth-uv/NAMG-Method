@@ -20,6 +20,7 @@ using DataStructures
 using Arpack
 using Printf
 
+#Include the utils file where is the Line Search method.
 include("utils.jl")
 
 
@@ -94,6 +95,7 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
         -    k    :  Int    - Number of iterations taken
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
+        - ittpSec : Float64 - Iterations per second of the method.
     """
     #Start time
     start_time = time()
@@ -197,6 +199,7 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
         -    k    :  Int    - Number of iterations taken
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
+        - ittpSec : Float64 - Iterations per second of the method.
     """
     #Start time
     start_time = time()
@@ -279,6 +282,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
         -    k    :  Int    - Number of iterations taken
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
+        - ittpSec : Float64 - Iterations per second of the method.
     """
     #Start time
     x_old = x0
@@ -370,6 +374,7 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
         -    k    :  Int    - Number of iterations taken
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
+        - ittpSec : Float64 - Iterations per second of the method.
     """
     #Start time of the method
     start_time = time()
@@ -422,6 +427,24 @@ end
 
 
 function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x0::Vector, tolerance::Float64, maxIters:: Int)
+    """
+    Implementation of the BFGS method, inspired in the implementation of Nocedal and Stephen Wright.
+    It uses line search (standar backtaking).
+    # Input:
+        -    fx   : Callable - Function
+        - Gradient: Callable - Gradient of the function.
+        -  Hessian: Callable - Hessian of the fucnion.
+        -    x0   :  Vector  - Initial point of the sequence.
+        -tolerance:   Float  - Minimum norm of the critical point
+        - maxIters:    Int   - Maximum number of elements in the sequence.
+
+    # Output:
+        -    x    : Vector  - Final element of the sequence
+        -    k    :  Int    - Number of iterations taken
+        -  ttime  : Float64 - Execution time of the method in seconds
+        -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
+        - ittpSec : Float64 - Iterations per second of the method.
+    """
     #Start time of the method
     start_time = time()
     dim = length(x0)
