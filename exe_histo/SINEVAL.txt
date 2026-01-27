@@ -1,0 +1,30 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 2                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/SINEVAL.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+Normal mode
+Execution Info - Oviedo| Iters:      3 | TTime: 0.00023 | LastNorm: 9.70293e-20 | Iterations/sec: 12918.80082 |
+Execution Info - Grads | Iters:      2 | TTime: 0.10025 | LastNorm: 3.41405e-09 | Iterations/sec: 19.95031 |
+Execution Info - Random| Iters:      2 | TTime: 0.00004 | LastNorm: 6.24029e-10 | Iterations/sec: 48770.97674 |
+Execution Info - Newton| Iters:      3 | TTime: 0.02642 | LastNorm: 4.33247e-14 | Iterations/sec: 113.57136 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.54715 | LastNorm: 6.94333e+01 | Iterations/sec: 1827.63600 |
+----------------------------------------
+Files writed: 
+- csvs/results/SINEVAL_none.csv
+----------------------------------------

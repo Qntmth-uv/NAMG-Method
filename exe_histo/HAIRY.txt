@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/HAIRY.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:   1000 | TTime: 0.27887 | LastNorm: 2.90417e+02 | Iterations/sec: 3585.87435 |
+Execution Info - Grads | Iters:   1000 | TTime: 0.10871 | LastNorm: 1.18718e+02 | Iterations/sec: 9198.43853 |
+Execution Info - Random| Iters:   1000 | TTime: 0.00572 | LastNorm: 3.35697e+02 | Iterations/sec: 174879.25284 |
+Execution Info - Newton| Iters:   1000 | TTime: 0.04083 | LastNorm: 9.76232e+01 | Iterations/sec: 24492.42915 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.51285 | LastNorm: 1.22845e+02 | Iterations/sec: 1949.88045 |
+----------------------------------------
+Files writed: 
+- csvs/results/HAIRY_none.csv
+- csvs/historials/HAIRY_none.csv
+Images saved: 
+- images/historials_grads/HAIRY_none.png
+- images/condition_analysis/HAIRY_none.png
+- images/paths/HAIRY_none_path.svg
+----------------------------------------

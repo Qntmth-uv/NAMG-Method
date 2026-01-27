@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/EIGENALS.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 2550
+Random Vectors being used: 7
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:   1000 | TTime: 760.39931 | LastNorm: 1.66668e-01 | Iterations/sec: 1.31510 |
+Execution Info - Grads | Iters:   1000 | TTime: 769.37585 | LastNorm: 3.83551e+00 | Iterations/sec: 1.29975 |
+Execution Info - Random| Iters:   1000 | TTime: 768.05293 | LastNorm: 1.90096e+01 | Iterations/sec: 1.30199 |
+Used Fixed gradient descent
+Execution Info - Newton| Iters:     24 | TTime: 17.01258 | LastNorm: 5.47041e-11 | Iterations/sec: 1.41072 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 463.99245 | LastNorm: 1.64050e+03 | Iterations/sec: 2.15521 |
+----------------------------------------
+Files writed: 
+- csvs/results/EIGENALS_none.csv
+- csvs/historials/EIGENALS_none.csv
+Images saved: 
+- images/historials_grads/EIGENALS_none.png
+- images/condition_analysis/EIGENALS_none.png
+----------------------------------------

@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/KOWOSB.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 4
+Random Vectors being used: 3
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:    995 | TTime: 0.25914 | LastNorm: 5.61363e-09 | Iterations/sec: 3839.56310 |
+Execution Info - Grads | Iters:   1000 | TTime: 0.10938 | LastNorm: 1.49298e+05 | Iterations/sec: 9142.61799 |
+Execution Info - Random| Iters:    439 | TTime: 0.00423 | LastNorm: 6.09320e-09 | Iterations/sec: 103875.63218 |
+Used Fixed gradient descent
+Execution Info - Newton| Iters:     10 | TTime: 0.02748 | LastNorm: 6.74662e-15 | Iterations/sec: 363.84885 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.52299 | LastNorm: 5.22504e-02 | Iterations/sec: 1912.09731 |
+----------------------------------------
+Files writed: 
+- csvs/results/KOWOSB_none.csv
+- csvs/historials/KOWOSB_none.csv
+Images saved: 
+- images/historials_grads/KOWOSB_none.png
+- images/condition_analysis/KOWOSB_none.png
+----------------------------------------

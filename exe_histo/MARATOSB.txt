@@ -1,0 +1,30 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/MARATOSB.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+Normal mode
+Execution Info - Oviedo| Iters:     65 | TTime: 0.00041 | LastNorm: 5.23565e-09 | Iterations/sec: 159712.80609 |
+Execution Info - Grads | Iters:     65 | TTime: 0.09951 | LastNorm: 9.79914e-09 | Iterations/sec: 653.16812 |
+Execution Info - Random| Iters:     74 | TTime: 0.00024 | LastNorm: 9.35817e-11 | Iterations/sec: 303400.28935 |
+Execution Info - Newton| Iters:     80 | TTime: 0.02680 | LastNorm: 9.34183e-11 | Iterations/sec: 2984.97763 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.53990 | LastNorm: 2.29885e+01 | Iterations/sec: 1852.18154 |
+----------------------------------------
+Files writed: 
+- csvs/results/MARATOSB_none.csv
+----------------------------------------

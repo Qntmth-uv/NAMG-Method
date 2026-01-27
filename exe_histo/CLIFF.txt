@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/CLIFF.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:     27 | TTime: 0.24921 | LastNorm: 1.61533e-10 | Iterations/sec: 108.34272 |
+Execution Info - Grads | Iters:     28 | TTime: 0.09203 | LastNorm: 9.42055e-16 | Iterations/sec: 304.23900 |
+Execution Info - Random| Iters:     27 | TTime: 0.00017 | LastNorm: 1.60816e-10 | Iterations/sec: 160632.91915 |
+Execution Info - Newton| Iters:     28 | TTime: 0.02637 | LastNorm: 1.60816e-10 | Iterations/sec: 1061.93553 |
+Execution Info - BFGSM | Iters:     39 | TTime: 0.00017 | LastNorm: 5.30858e-09 | Iterations/sec: 231042.16949 |
+----------------------------------------
+Files writed: 
+- csvs/results/CLIFF_none.csv
+- csvs/historials/CLIFF_none.csv
+Images saved: 
+- images/historials_grads/CLIFF_none.png
+- images/condition_analysis/CLIFF_none.png
+- images/paths/CLIFF_none_path.svg
+----------------------------------------

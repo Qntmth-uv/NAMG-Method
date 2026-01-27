@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/EXTROSNB.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 1000
+Random Vectors being used: 7
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:   1000 | TTime: 35.90210 | LastNorm: 3.29426e-03 | Iterations/sec: 27.85352 |
+Execution Info - Grads | Iters:   1000 | TTime: 34.76061 | LastNorm: 2.50527e-03 | Iterations/sec: 28.76819 |
+Execution Info - Random| Iters:   1000 | TTime: 34.85738 | LastNorm: 1.15715e-01 | Iterations/sec: 28.68833 |
+Execution Info - Newton| Iters:    188 | TTime: 0.15384 | LastNorm: 2.46493e-09 | Iterations/sec: 1222.03321 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 35.93821 | LastNorm: 6.05859e-04 | Iterations/sec: 27.82554 |
+----------------------------------------
+Files writed: 
+- csvs/results/EXTROSNB_none.csv
+- csvs/historials/EXTROSNB_none.csv
+Images saved: 
+- images/historials_grads/EXTROSNB_none.png
+- images/condition_analysis/EXTROSNB_none.png
+----------------------------------------

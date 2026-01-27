@@ -1,0 +1,30 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/LOGHAIRY.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+Normal mode
+Execution Info - Oviedo| Iters:     29 | TTime: 0.00032 | LastNorm: 8.92639e-09 | Iterations/sec: 91523.56358 |
+Execution Info - Grads | Iters:     21 | TTime: 0.11646 | LastNorm: 3.00826e-09 | Iterations/sec: 180.32409 |
+Execution Info - Random| Iters:     56 | TTime: 0.00021 | LastNorm: 7.01168e-09 | Iterations/sec: 260689.26082 |
+Execution Info - Newton| Iters:      8 | TTime: 0.03230 | LastNorm: 2.18799e-09 | Iterations/sec: 247.64698 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.54547 | LastNorm: 1.73949e-03 | Iterations/sec: 1833.28860 |
+----------------------------------------
+Files writed: 
+- csvs/results/LOGHAIRY_none.csv
+----------------------------------------

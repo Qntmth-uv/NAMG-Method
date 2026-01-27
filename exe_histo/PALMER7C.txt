@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/PALMER7C.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 8
+Random Vectors being used: 7
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:   1000 | TTime: 0.27397 | LastNorm: 2.40580e-02 | Iterations/sec: 3650.00757 |
+Execution Info - Grads | Iters:     11 | TTime: 0.09165 | LastNorm: 7.50351e-09 | Iterations/sec: 120.01775 |
+Execution Info - Random| Iters:   1000 | TTime: 0.01457 | LastNorm: 4.84201e-03 | Iterations/sec: 68619.59296 |
+Execution Info - Newton| Iters:      5 | TTime: 0.02642 | LastNorm: 7.57144e-09 | Iterations/sec: 189.28048 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.00524 | LastNorm: 2.68636e-06 | Iterations/sec: 190693.52125 |
+----------------------------------------
+Files writed: 
+- csvs/results/PALMER7C_none.csv
+- csvs/historials/PALMER7C_none.csv
+Images saved: 
+- images/historials_grads/PALMER7C_none.png
+- images/condition_analysis/PALMER7C_none.png
+----------------------------------------

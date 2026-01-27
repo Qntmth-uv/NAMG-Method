@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/HEART6LS.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 6
+Random Vectors being used: 5
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:   1000 | TTime: 0.26476 | LastNorm: 4.49084e-02 | Iterations/sec: 3777.07677 |
+Execution Info - Grads | Iters:   1000 | TTime: 0.11211 | LastNorm: 2.04164e-08 | Iterations/sec: 8919.89477 |
+Execution Info - Random| Iters:   1000 | TTime: 0.01109 | LastNorm: 7.05871e+06 | Iterations/sec: 90194.26704 |
+Execution Info - Newton| Iters:      8 | TTime: 0.02795 | LastNorm: 6.29290e-11 | Iterations/sec: 286.22491 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.51429 | LastNorm: 9.67994e-01 | Iterations/sec: 1944.41707 |
+----------------------------------------
+Files writed: 
+- csvs/results/HEART6LS_none.csv
+- csvs/historials/HEART6LS_none.csv
+Images saved: 
+- images/historials_grads/HEART6LS_none.png
+- images/condition_analysis/HEART6LS_none.png
+----------------------------------------

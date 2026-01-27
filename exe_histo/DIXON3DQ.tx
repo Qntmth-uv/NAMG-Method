@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 100                 
+problem              | cutest-sif/DIXON3DQ.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 10000
+Random Vectors being used: 7
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:    100 | TTime: 4390.99752 | LastNorm: 6.77674e-03 | Iterations/sec: 0.02277 |
+Execution Info - Grads | Iters:    100 | TTime: 13013.91390 | LastNorm: 1.74008e-02 | Iterations/sec: 0.00768 |
+Execution Info - Random| Iters:    100 | TTime: 4452.62655 | LastNorm: 6.74422e-02 | Iterations/sec: 0.02246 |
+Execution Info - Newton| Iters:      2 | TTime: 0.04276 | LastNorm: 4.98172e-14 | Iterations/sec: 46.76941 |
+Execution Info - BFGSM | Iters:      1 | TTime: 38.91526 | LastNorm: 0.00000e+00 | Iterations/sec: 0.02570 |
+----------------------------------------
+Files writed: 
+- csvs/results/DIXON3DQ_none.csv
+- csvs/historials/DIXON3DQ_none.csv
+Images saved: 
+- images/historials_grads/DIXON3DQ_none.png
+- images/condition_analysis/DIXON3DQ_none.png
+----------------------------------------

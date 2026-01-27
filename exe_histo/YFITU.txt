@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/YFITU.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 3
+Random Vectors being used: 2
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:     37 | TTime: 0.25087 | LastNorm: 4.13271e-10 | Iterations/sec: 147.48493 |
+Execution Info - Grads | Iters:     88 | TTime: 0.09359 | LastNorm: 6.29790e-09 | Iterations/sec: 940.26160 |
+Execution Info - Random| Iters:    141 | TTime: 0.00128 | LastNorm: 6.58024e-09 | Iterations/sec: 110417.63704 |
+Execution Info - Newton| Iters:   1000 | TTime: 0.03729 | LastNorm: 9.99291e+212 | Iterations/sec: 26816.94319 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.52699 | LastNorm: 5.33624e+03 | Iterations/sec: 1897.56601 |
+----------------------------------------
+Files writed: 
+- csvs/results/YFITU_none.csv
+- csvs/historials/YFITU_none.csv
+Images saved: 
+- images/historials_grads/YFITU_none.png
+- images/condition_analysis/YFITU_none.png
+----------------------------------------

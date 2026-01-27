@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/DENSCHNC.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:     11 | TTime: 0.24901 | LastNorm: 1.25607e-15 | Iterations/sec: 44.17526 |
+Execution Info - Grads | Iters:     11 | TTime: 0.09123 | LastNorm: 0.00000e+00 | Iterations/sec: 120.57574 |
+Execution Info - Random| Iters:     10 | TTime: 0.00009 | LastNorm: 7.89882e-10 | Iterations/sec: 114912.43836 |
+Execution Info - Newton| Iters:     11 | TTime: 0.02608 | LastNorm: 7.89883e-10 | Iterations/sec: 421.73075 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.54142 | LastNorm: 1.87677e+00 | Iterations/sec: 1846.99825 |
+----------------------------------------
+Files writed: 
+- csvs/results/DENSCHNC_none.csv
+- csvs/historials/DENSCHNC_none.csv
+Images saved: 
+- images/historials_grads/DENSCHNC_none.png
+- images/condition_analysis/DENSCHNC_none.png
+- images/paths/DENSCHNC_none_path.svg
+----------------------------------------

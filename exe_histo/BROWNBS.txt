@@ -1,0 +1,35 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/BROWNBS.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | true                
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 1
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:     13 | TTime: 0.25128 | LastNorm: 0.00000e+00 | Iterations/sec: 51.73491 |
+Execution Info - Grads | Iters:     32 | TTime: 0.09293 | LastNorm: 0.00000e+00 | Iterations/sec: 344.36347 |
+Execution Info - Random| Iters:      8 | TTime: 0.00007 | LastNorm: 0.00000e+00 | Iterations/sec: 111107.39073 |
+Execution Info - Newton| Iters:    283 | TTime: 0.02854 | LastNorm: 1.77636e-09 | Iterations/sec: 9916.93777 |
+Execution Info - BFGSM | Iters:     13 | TTime: 0.00014 | LastNorm: 8.43769e-09 | Iterations/sec: 90876.58667 |
+----------------------------------------
+Files writed: 
+- csvs/results/BROWNBS_none.csv
+- csvs/historials/BROWNBS_none.csv
+Images saved: 
+- images/historials_grads/BROWNBS_none.png
+- images/condition_analysis/BROWNBS_none.png
+- images/paths/BROWNBS_none_path.svg
+----------------------------------------

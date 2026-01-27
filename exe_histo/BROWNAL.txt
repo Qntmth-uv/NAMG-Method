@@ -1,0 +1,34 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | true                
+epsilon              | 2.220446049250313e-16
+file_name            | default             
+image_name           | default             
+lqueue               | 8                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/BROWNAL.SIF
+seed                 | 2001                
+show_info            | false               
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 200
+Random Vectors being used: 7
+----------------------------------------
+DEBUG Mode
+Execution Info - Oviedo| Iters:      3 | TTime: 0.32952 | LastNorm: 4.87266e-09 | Iterations/sec: 9.10413 |
+Execution Info - Grads | Iters:      5 | TTime: 0.18036 | LastNorm: 1.61641e-09 | Iterations/sec: 27.72188 |
+Execution Info - Random| Iters:   1000 | TTime: 14.97705 | LastNorm: 1.64480e-06 | Iterations/sec: 66.76884 |
+Execution Info - Newton| Iters:     15 | TTime: 0.28655 | LastNorm: 4.68410e-09 | Iterations/sec: 52.34744 |
+Execution Info - BFGSM | Iters:   1000 | TTime: 2.88855 | LastNorm: 6.60171e-03 | Iterations/sec: 346.19422 |
+----------------------------------------
+Files writed: 
+- csvs/results/BROWNAL_none.csv
+- csvs/historials/BROWNAL_none.csv
+Images saved: 
+- images/historials_grads/BROWNAL_none.png
+- images/condition_analysis/BROWNAL_none.png
+----------------------------------------
