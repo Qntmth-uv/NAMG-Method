@@ -12,6 +12,7 @@ julia --project=venv_NAMGM main.jl --problem cutest-sif/DECONVU.SIF --seed 2 --u
 
 const minValue = 2.220446049250313e-16
 
+
 include("NAMGM_methods.jl")
 include("hessian_mod.jl")
 include("utils.jl")
@@ -46,7 +47,7 @@ function parse_commandline()
         "--lqueue"
             help = "Maximum number of elements in the NAMGMGradQueue"
             arg_type = Int
-            default = 8
+            default = 3
         "--tol"
             help = "Minimum aceptable gradient norm"
             arg_type = Float64
@@ -66,13 +67,17 @@ function parse_commandline()
         "--epsilon"
             help = "Epsion added to the Modfier in case of being needed"
             arg_type = Float64
-            default = minValue
+            default = 1.e-8
         "--DEBUG"
             help= "Use the DEBUG functions of the methos to create CSV's and some informative Plots"
             action = :store_true
         "--useDimProblem"
             help= "Use the same number of vectors as the dimension of the problem (valid only on RandomVectors)"
             action = :store_true
+        "--repetitions"
+            help = "Number of repetitions for the Random method. " 
+            arg_type = Int64
+            default = 30
     end
     return parse_args(s)
 end
@@ -98,6 +103,7 @@ end
     epsilonAdded = parsed_args["epsilon"]
     modH = lowercase(parsed_args["modifierH"])
     modS = lowercase(parsed_args["modifierS"])
+    repetitions = parsed_args["repetitions"]
 
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
@@ -112,6 +118,9 @@ end
     if file_name == "default"
         file_name_results = "csvs/results/"*name*"_"*modS*".csv"
         file_name_historials = "csvs/historials/"*name*"_"*modS*".csv"
+        file_name_results_historials = "csvs/results/random_historials/"*name*"_"*modS*".csv"
+    else
+        file_name_results = file_name
     end
     
     #Pritn thte values of the parser
@@ -130,6 +139,7 @@ end
     modH = get_modifier(modH)
     modS = get_modifier(modS)
 
+    
     #Get the CUTEST functions    
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
     
@@ -144,14 +154,14 @@ end
     println("Random Vectors being used: ", randomsize-1)
     println("-"^40)
     if debug_mode
-        println("DEBUG Mode")
+        println(">>DEBUG Mode")
 
         #Run the NAMGM algoritms using DEBUG mesuarements
-        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O, ttpSO = DEBUG_namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded, modS)
-        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS)
-        xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR = DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS)
-        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN = DEBUG_newtonMethod(g, h, x0, tol, nIters)
-        xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters)
+        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O, ttpSO, flagOviedo = DEBUG_namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded, modS)
+        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ, flagQueue = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS)
+        xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS)
+        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(g, h, x0, tol, nIters, modH, epsilonAdded)
+        xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
 
         #Clean the data if there is a 0.0 then the plot will explote.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs]
@@ -216,12 +226,20 @@ end
             savefig(ax, pathName)
         end
     else
-        println("Normal mode")
-        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO = namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded)
-        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ = namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded)
-        xf_random, iterRandom, t_random, normRandom, ttpSR = namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded)
-        xf_newton, iterNewton, t_newton, normNewton, ttpSN = newtonMethod(g, h, x0, tol, nIters)
-        xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB = BFGSMethod(f, g, h, x0, tol, nIters)
+        println(">>Normal mode")
+        U = Any[0, 0.0, 0.0, 0.0, 0.0]
+        M = vcat(fill(U', repetitions)...)
+        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded)
+        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded)
+        for i in 1:repetitions
+            M[i, :] .= namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, show_info)[2:end]
+            U.+=M[i, :]
+        end
+        U./=repetitions
+        iterRandom, t_random, normRandom, ttpSR, flagRandom = U
+        displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, Bool(flagRandom))
+        xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(g, h, x0, tol, nIters, modH, epsilonAdded)
+        xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
     end
 
     # Remember to finalize the model when you are done
@@ -233,20 +251,25 @@ end
     lastGrad = [normOviedo, normQueue, normRandom, normNewton, normBFGS]
     iterations =[iterOviedo, iterQueue, iterRandom, iterNewton, iterBFGS]
     iterationsPerSecond =[ttpSO, ttpSQ, ttpSR, ttpSN, ttpSB]
-    data = [iterations, lastGrad, times, iterationsPerSecond]
+    convergence = [flagOviedo, flagQueue, flagRandom, flagNewton, flagBFGS] 
+    data = [iterations, lastGrad, times, iterationsPerSecond, convergence]
 
     #Header of the DF
-    headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second"]
+    headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
 
     #Save the CSV file
     df = DataFrame(data, headers)
-
+    random_df = DataFrame(M, headers)
+    
     #Write the CSV file
     CSV.write(file_name_results, df)
+    CSV.write(file_name_results_historials, random_df)
+
     print("-"^40)
     #Print of information written
     println("\nFiles writed: ")
     println("- ",file_name_results)
+    println("- ",file_name_results_historials)
     if debug_mode
         println("- ", file_name_historials)
         println("Images saved: \n", "- "*hitorialName, "\n- "*cnName)

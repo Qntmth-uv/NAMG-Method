@@ -1,5 +1,5 @@
 using DataFrames
-
+using LinearAlgebra
 using CSV
 
 
@@ -114,7 +114,6 @@ function get_modifier(mod_name)
 end
 
 
-using LinearAlgebra
 
 """
     backtracking_line_search(f, x, p, ∇f_x, f_x; α=1.0, ρ=0.5, c1=1e-4)
@@ -139,19 +138,14 @@ Based on Algorithm 3.1 from Nocedal & Wright.
 - `f_new`: The function value at the new point (to avoid re-evaluating later).
 """
 function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, ∇f_x::AbstractVector, 
-                      f_x::Real; α::Real=1.0, ρ::Real=0.5, c1::Real=1e-4)
+                      f_x::Real; α::Real=1.0, ρ::Real=0.5, c1::Real=1e-4, show_info::Bool = false)
     
-    # 1. Pre-compute the directional derivative (slope)
     # This is the 'm' in f(x + αp) ≤ f(x) + c1 * α * m
     slope = dot(∇f_x, p)
 
     # Sanity check: Ensure p is a descent direction
+    slope > 0 && show_info ? println("Search direction p is not a descent direction (slope > 0). Line search may fail.") : nothing
 
-    if slope > 0
-        @warn "Search direction p is not a descent direction (slope > 0). Line search may fail."
-    end
-
-    # 2. Backtracking Loop
     # We limit the loop to avoid infinite cycles in case of numerical errors
     max_iter = 100
     iter = 0
@@ -172,10 +166,12 @@ function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, ∇f_x:
         
         iter += 1
     end
-
-    if iter == max_iter
-        @warn "Line search failed to converge within max iterations. Returning small α."
-    end
-
+    #Maximum number of iterations reached 
+    slope > 0 && show_info ? println("Line search failed to converge within max iterations. Returning small step size.") : nothing
     return α
+end
+
+function displayResults(name::String, iters::Any, Ttime:: Any, Gnorm::Any, IttpS::Any, convergence::Bool)
+    @printf("Execution Info - %s | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f | Convergence: %s |\n", 
+            name, iters, Ttime, Gnorm, IttpS, convergence)
 end

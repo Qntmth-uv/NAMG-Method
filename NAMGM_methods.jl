@@ -10,16 +10,16 @@ using Plots
 using DataStructures
 using Arpack
 
+#Add tools
 include("utils.jl")
 
-
-#Need to implement a BFGS method to compare.
-
 function namgmSolver(Bk, gk, list_of_vectors)
-    """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
+    """Function to solve the optimizaiton problem to find the factors in the linear combinatation
+    of the given vectors (list_of_vectors). This method does not allow the modification of Hessian
+    of the matrix. The DEBUG mode allows it, and other type of modification like BFGS should be implemented
+    in other function and file.
     
     # Input
-    
         - Bk: Matrix - Approximation of the hessian matrix.
         - gk: Vector - Gradient in the current iteration
         - lk: Array  - List of vectors to solve the system
@@ -27,7 +27,6 @@ function namgmSolver(Bk, gk, list_of_vectors)
     # Output:
         - C: Vector - Constans of the linear combination of the vectors
     """
-
      #Change the type of variable type of all cases to standarize the types
     list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
     gk = vec(Array(gk)) 
@@ -42,7 +41,7 @@ function namgmSolver(Bk, gk, list_of_vectors)
     #Construct the matrix system
     for i in (1:n_rows)
         for j in (i:n_rows) 
-            matrix[i, j] = V[i]' * V[j]
+            matrix[i, j] = dot(V[i], V[j])
             matrix[j, i] = matrix[i, j]
         end
     end
@@ -56,14 +55,15 @@ function namgmSolver(Bk, gk, list_of_vectors)
     try
         C = matrix \ b
     catch
-        matrix += 1e-5I
-        C = matrix \ b
+        C = namgmSolver(Bk, gk, list_of_vectors[1:end-1])
+        C = [i <= length(C) ? C[i] : 0.0 for i in 1:length(list_of_vectors)]
     end
     return C
 end 
 
 function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, hessian_mod, epsilon::Float64)
-    """NAMGM Using the Ovideo Directive. 
+    """The NAMGM algorithm using the set of vectors in the paper AMGM algorithm [1]. There are other authors, but
+    to mantain simple and memorable the name, we use only the first name of the main author.
     # Input:
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
@@ -77,38 +77,26 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
         - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
     """
     #Start time
     start_time = time()
+    
+    #Init variables
     x_old = x0
+    g_old = gradient(x_old) 
+    gnorm = norm(g_old)
     k = 1
+    archived_convergence_flag::Bool = false
 
-    #Init the values
-    g_old = gradient(x_old)
-
-    #We make the first iteration to be able to compute sk and yk
-    hg = Hessian(x_old) * g_old
-    alpha = (g_old' * hg)/(hg' * hg)
-
-    #Update the values in the first 
-    v = -alpha * g_old
-    x_new = x_old + v
-    g_new = gradient(x_new)
+    #Init the variables of this method
+    sk, yk = fill!(similar(x0), 0), fill!(similar(x0), 0)
     
-    #Creation of the others elements in the set of vectors
-    sk = x_new - x_old
-    yk = g_new - g_old
-
-    #Reasing the variables
-    g_old = g_new
-    x_old = x_new
-    
-    #Actual Norm
-    gnorm = norm(g_old) 
+    #Init the optimization process
     while (gnorm >= tolerance && k < maxIters)
         #Computing and making the hessian 
         h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, g_new, epsilon)
+        h = hessian_mod(h, g_old, epsilon)
  
         #Compute the coeficients
         V = [g_old, sk, yk]
@@ -119,25 +107,39 @@ function namgmOviedo(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIte
         x_new = x_old + v
         g_new = gradient(x_new)
 
-        #Creation of the others elements in the set of vectors
+        #Update the mometum and curvature variables
         sk = x_new - x_old
         yk = g_new - g_old
 
         #Reasing the variables
         g_old = g_new
         x_old = x_new
-        k+= 1
 
         #Update the gradient norm
-        gnorm = norm(g_old) 
+        gnorm = norm(g_old)
+        k+=1
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            println("Floating point overflow occurred, ending process.")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
     end
+
+    #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
+    
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k < maxIters)
+        archived_convergence_flag = true 
+    end
 
     #Print report of the execution 
-    @printf("Execution Info - Oviedo| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
-    return x_old, k, ttime, gnorm, ittpSec  
+    displayResults("Oviedo", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    return x_old, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end
 
 function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, queue_size:: Int, hessian_mod, epsilon::Float64)
@@ -156,62 +158,72 @@ function namgmGrads(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIter
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
         - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
     """
     #Start time
     start_time = time()
 
     #Init the variables.
-    x_old = x0
+    x = x0
+    gk = gradient(x)
+    gnorm = norm(gk)
+    k = 1
+    archived_convergence_flag::Bool = false
+
+    #Init the variables of this method
     gradient_queue = Queue{Vector}()
-    k = 0
-    gnorm = Inf
+    enqueue!(gradient_queue, gk)
 
     #Init the optimization process
     while (k < maxIters && gnorm >= tolerance)
-        #println("Iteration: ",k, " Queue size = ", length(gradient_queue))
-
-        #Compute the gradient
-        g_old = gradient(x_old)
-        enqueue!(gradient_queue, g_old)
 
         #Dequee if it's needed
-        if k >= queue_size
-            dequeue!(gradient_queue)
-        end
+        k > queue_size ? dequeue!(gradient_queue) :  nothing
 
         #Compute the hessian
-        h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, g_old, epsilon)
+        h = Matrix(Hessian(x))
+        h = hessian_mod(h, gk, epsilon)
         
         #Collect the current elements in the queue to solve the optimization problem
         V = collect(gradient_queue)
-        C = namgmSolver(h, g_old, V)
-
+        C = namgmSolver(h, gk, V)
+        
         #Update the squence and the set of vectors
         v = -sum(V .* C)
-        x_new = x_old + v
-        g_new = gradient(x_new)
-        
-        #Reasing the variables
-        g_old = g_new
-        x_old = x_new
+        x = x + v
 
         #Update 
-        gnorm = norm(g_old) 
+        gk = gradient(x)
+        gnorm = norm(gk) 
+        enqueue!(gradient_queue, gk)
         k+=1
+        
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            println("Floating point overflow occurred, ending process.")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
     end
     #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
 
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k < maxIters)
+        archived_convergence_flag = true 
+    end
+
     #Print report of the executation
-    @printf("Execution Info - Grads | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
-    return x_old, k, ttime, gnorm, ittpSec  
+    displayResults("Grads ", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    return x, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end
 
 
-function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, randomSize:: Int, hessian_mod, epsilon::Float64)
+function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int,
+                             randomSize:: Int, hessian_mod, epsilon::Float64, show_results::Bool = false)
     """NAMGM Using the Random Vectors directive. 
     
     #Input
@@ -227,27 +239,29 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         -   time  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence
         - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
     """
     #Start time
     start_time = time()
-    x_old = x0
-    dim = length(x0)
-    k = 0
-
-    #Init the variables
-    gnorm = Inf
     
-    #Initializate the sequcence generation
-    while (k < maxIters && gnorm >= tolerance)
-        #Compute the gradient
-        g_old = gradient(x_old)
+    #Init the Variables
+    x = x0
+    gk = gradient(x)
+    gnorm = norm(gk)
+    k = 1
+    archived_convergence_flag::Bool = false
+    
+    #Init the variables of this method
+    dim = length(x0)
 
+    #Optimization process
+    while (k < maxIters && gnorm >= tolerance)
         #Initialize an empty list specifically for the random Vectors
         V = Vector{Vector{Float64}}()
         vectorsSample = randn(Float64, randomSize-1, dim)
 
-        #Add g_old as the FIRST whole vector
-        push!(V, vec(Array(g_old)))
+        #Add gk as the FIRST whole vector
+        push!(V, vec(Array(gk)))
 
         #Append the random vectors
         for i in 1:size(vectorsSample, 1)
@@ -255,24 +269,28 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
         end
 
         #Get the approximation of the hessian
-        h = Matrix(Hessian(x_old))
-        h = hessian_mod(h, g_old, epsilon)
+        h = Matrix(Hessian(x))
+        h = hessian_mod(h, gk, epsilon)
   
         #Collect the currect elements in the queue to solve the optimization problem
-        C = namgmSolver(h, g_old, V)
+        C = namgmSolver(h, gk, V)
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
-        x_new = x_old + v
-        g_new = gradient(x_new)
-        
-        #Reasing the variables
-        g_old = g_new
-        x_old = x_new
+        x = x + v
 
         #Update 
-        gnorm = norm(g_old) 
-        k+=1
+        gk = gradient(x)
+        gnorm = norm(gk) 
+        k+=1 
+
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            println("Floating point overflow occurred, ending process.")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
     end
 
     #Finalization of the method
@@ -280,14 +298,19 @@ function namgmRandomVectors(gradient, Hessian, x0:: Vector, tolerance:: Float64,
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
 
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k < maxIters)
+        archived_convergence_flag = true 
+    end
+
     #Print report of the executation
-    @printf("Execution Info - Random| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
-    return x_old, k, ttime, gnorm, ittpSec 
+    show_results ? displayResults("Random", k, ttime, gnorm, ittpSec, archived_convergence_flag) : nothing
+    return x, k, ttime, gnorm, ittpSec, archived_convergence_flag 
 end
 
-function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int)
+function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int, hessian_mod, epsilon::Float64)
     """
-    Newton's method with applicable modifier in the Hessian matrix
+    Newton's method with applicable modifier in the Hessian matrix.
     (This is not the same as the BFGS method, such method use a unique modifer)
     # Input:
         - Gradient: Callable - Gradient of the function.
@@ -295,47 +318,61 @@ function newtonMethod(gradient, hessian, x0::Vector, tolerance::Float64, maxIter
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
+        -hessian_mod: Call   - Modifier of the hessian matrix
     # Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
         - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
     """
     #Start time of the method
     start_time = time()
+    
+    #Init the variables
     x = x0
-    k = 0
+    gk = gradient(x)
+    gnorm = norm(gk)
+    k = 1
+    archived_convergence_flag::Bool = false
 
-    #Init the variable
-    gnorm = Inf
+    #Optimization process
     while (k < maxIters && gnorm >= tolerance)
-        #Compute the gradient of the matrix
-        gk = gradient(x)
-        
-        #Implemented Try catch in case that the hessian it's not invertible.
-        hk = Symmetric(hessian(x))
-        s = nothing
-        try
-            s = -hk\gk    
-        catch
-            s = -1e-3gk
-            println("Used Fixed gradient descent")
-        end
+        #Compute the approximation of the hessian matrix
+        h = Matrix(hessian(x))
+        h = hessian_mod(h, gk, epsilon)
+
+        #Calculate the search direction and update the sequence point
+        s = -h\gk
         x = x+s
 
         #Update 
+        gk = gradient(x)
         gnorm = norm(gk) 
         k+=1
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            println("Floating point overflow occurred, ending process.")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
     end
+
     #Finalization of the method
     end_time = time()
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
 
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k < maxIters)
+        archived_convergence_flag = true 
+    end
+
     #Print report of the executation
-    @printf("Execution Info - Newton| Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
-    return x, k, ttime, gnorm, ittpSec  
+    displayResults("Newton", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    return x, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end
 
 
@@ -357,17 +394,22 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         -  ttime  : Float64 - Execution time of the method in seconds
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
         - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
     """
 
     #Start time of the method
     start_time = time()
-    x_old = x0
-    dim = length(x0)
-    k = 0
 
     #Init the variables
-    x_new = zeros(Float64, length(dim)) 
-    g_new = zeros(Float64, length(dim))
+    x_old = x0
+    g_old = gradient(x_old)
+    gnorm = norm(g_old)
+    k = 1
+    archived_convergence_flag::Bool = false
+    
+    #Init the other needed variables
+    x_new = fill!(similar(x0), 0)
+    g_new = fill!(similar(x0), 0)
 
     #Compute the inverse of the hessian (first approximation)
     hk = I
@@ -376,18 +418,17 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
     catch
         @warn "BFGS - Error trying to compute the inverse, using the identity as first approximation."
     end
-    gnorm = Inf
-    while (k < maxIters && gnorm >= tolerance)
-        #Compute the gradient of the matrix
-        g_old = gradient(x_old)
 
+    #Optimization process
+    while (k < maxIters && gnorm >= tolerance)
         #Compute the direction
         pk = -hk*g_old
 
         #Update the point using weak wolfe condition
         actualfxk = fx(x_old)
         alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk)
-        #alpha = 1e-3
+
+        #Update the sequence
         x_new = x_old+alpha*pk
         g_new = gradient(x_new)
 
@@ -404,6 +445,14 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         g_old = g_new
         gnorm = norm(g_old) 
         k+=1
+
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            println("Floating point overflow occurred, ending process.")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
     end
 
     #Finalization of the method
@@ -411,7 +460,12 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
 
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k <= maxIters)
+        archived_convergence_flag = true 
+    end
+
     #Print report of the executation
-    @printf("Execution Info - BFGSM | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f |\n", k, ttime, gnorm, ittpSec)
-    return x_old, k, ttime, gnorm, ittpSec 
+    displayResults("BFGSM", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    return x_old, k, ttime, gnorm, ittpSec, archived_convergence_flag 
 end
