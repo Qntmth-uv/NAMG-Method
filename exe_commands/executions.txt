@@ -10,7 +10,6 @@ julia --project=venv_NAMGM main.jl  --problem cutest-sif/CLIFF.SIF --seed 42 --s
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/CUBE.SIF --seed 42 --show_info > exe_histo/CUBE.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DECONVU.SIF --seed 42  > exe_histo/DECONVU.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNA.SIF --seed 42 --show_info > exe_histo/DENSCHNA.txt
-julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNB.SIF --seed 42 --show_info > exe_histo/DENSCHNB.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNC.SIF --seed 42 --show_info > exe_histo/DENSCHNC.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHND.SIF --seed 42 --show_info > exe_histo/DENSCHND.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNF.SIF --seed 42 --show_info > exe_histo/DENSCHNF.txt

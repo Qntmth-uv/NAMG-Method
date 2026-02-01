@@ -1,0 +1,1 @@
+julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNB.SIF --seed 42 --show_info > exe_histo/DENSCHNB.txt

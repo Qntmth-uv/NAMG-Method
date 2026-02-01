@@ -237,7 +237,8 @@ end
         end
         U./=repetitions
         iterRandom, t_random, normRandom, ttpSR, flagRandom = U
-        displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, Bool(flagRandom))
+        solve_most_of_problems = (flagRandom >= 0.5) ? true : false
+        displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
         xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(g, h, x0, tol, nIters, modH, epsilonAdded)
         xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
     end
