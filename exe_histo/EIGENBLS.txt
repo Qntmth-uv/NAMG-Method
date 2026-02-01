@@ -1,0 +1,43 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 100                 
+problem              | cutest-sif/EIGENBLS.SIF
+repetitions          | 10                  
+seed                 | 42                  
+show_info            | true                
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 2550
+Random Vectors being used: 2
+----------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:    100 | TTime: 78.03273 | LastNorm: 2.75552e-01 | Iterations/sec: 1.28151 | Convergence: false |
+Execution Info - Grads  | Iters:    100 | TTime: 76.56020 | LastNorm: 1.97332e-01 | Iterations/sec: 1.30616 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.33602 | LastNorm: 2.41251e-01 | Iterations/sec: 1.31000 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.91204 | LastNorm: 2.43276e-01 | Iterations/sec: 1.30019 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.59201 | LastNorm: 2.40749e-01 | Iterations/sec: 1.30562 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.71347 | LastNorm: 2.38348e-01 | Iterations/sec: 1.30355 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.52310 | LastNorm: 2.38952e-01 | Iterations/sec: 1.30679 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 77.11964 | LastNorm: 2.42262e-01 | Iterations/sec: 1.29669 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.87310 | LastNorm: 2.41444e-01 | Iterations/sec: 1.30085 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.76117 | LastNorm: 2.42874e-01 | Iterations/sec: 1.30274 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.61812 | LastNorm: 2.42209e-01 | Iterations/sec: 1.30517 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 76.84338 | LastNorm: 2.41660e-01 | Iterations/sec: 1.30135 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:    100 | TTime: 76.72921 | LastNorm: 2.41302e-01 | Iterations/sec: 1.30329 | Convergence: false |
+Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:    100 | TTime: 7.91660 | LastNorm: Inf | Iterations/sec: 12.63169 | Convergence: false |
+Execution Info - BFGSM | Iters:    100 | TTime: 49.40757 | LastNorm: 3.73095e+01 | Iterations/sec: 2.02398 | Convergence: false |
+----------------------------------------
+Files writed: 
+- csvs/results/EIGENBLS_none.csv
+- csvs/results/random_historials/EIGENBLS_none.csv
+----------------------------------------

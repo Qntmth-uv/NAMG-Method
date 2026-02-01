@@ -1,0 +1,63 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/MANCINO.SIF
+repetitions          | 30                  
+seed                 | 42                  
+show_info            | true                
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 100
+Random Vectors being used: 2
+----------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   1000 | TTime: 3.75055 | LastNorm: 6.70434e-08 | Iterations/sec: 266.62749 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 3.47636 | LastNorm: 6.70567e-08 | Iterations/sec: 287.65688 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35916 | LastNorm: 6.70468e-08 | Iterations/sec: 297.69356 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.36228 | LastNorm: 6.70497e-08 | Iterations/sec: 297.41724 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35306 | LastNorm: 6.70550e-08 | Iterations/sec: 298.23549 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35630 | LastNorm: 6.70529e-08 | Iterations/sec: 297.94758 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.36258 | LastNorm: 6.70565e-08 | Iterations/sec: 297.39096 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.36423 | LastNorm: 6.70586e-08 | Iterations/sec: 297.24466 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35208 | LastNorm: 6.70611e-08 | Iterations/sec: 298.32242 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35399 | LastNorm: 6.70500e-08 | Iterations/sec: 298.15251 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35298 | LastNorm: 6.70588e-08 | Iterations/sec: 298.24242 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35316 | LastNorm: 6.70695e-08 | Iterations/sec: 298.22624 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35058 | LastNorm: 6.70503e-08 | Iterations/sec: 298.45579 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.34937 | LastNorm: 6.70623e-08 | Iterations/sec: 298.56325 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35367 | LastNorm: 6.70674e-08 | Iterations/sec: 298.18043 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35251 | LastNorm: 6.70595e-08 | Iterations/sec: 298.28389 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35268 | LastNorm: 6.70540e-08 | Iterations/sec: 298.26849 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.36740 | LastNorm: 6.70665e-08 | Iterations/sec: 296.96538 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.38055 | LastNorm: 6.70468e-08 | Iterations/sec: 295.81003 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.37327 | LastNorm: 6.70444e-08 | Iterations/sec: 296.44861 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35669 | LastNorm: 6.70621e-08 | Iterations/sec: 297.91287 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.37046 | LastNorm: 6.70570e-08 | Iterations/sec: 296.69551 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35880 | LastNorm: 6.70579e-08 | Iterations/sec: 297.72547 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35412 | LastNorm: 6.70641e-08 | Iterations/sec: 298.14079 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.36043 | LastNorm: 6.70426e-08 | Iterations/sec: 297.58077 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35250 | LastNorm: 6.70654e-08 | Iterations/sec: 298.28520 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35006 | LastNorm: 6.70471e-08 | Iterations/sec: 298.50167 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35087 | LastNorm: 6.70681e-08 | Iterations/sec: 298.43005 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35533 | LastNorm: 6.70586e-08 | Iterations/sec: 298.03328 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35896 | LastNorm: 6.70616e-08 | Iterations/sec: 297.71110 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.34752 | LastNorm: 6.70480e-08 | Iterations/sec: 298.72818 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3.35347 | LastNorm: 6.70408e-08 | Iterations/sec: 298.19885 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 3.35730 | LastNorm: 6.70561e-08 | Iterations/sec: 297.85976 | Convergence: false |
+Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   1000 | TTime: 0.44062 | LastNorm: Inf | Iterations/sec: 2269.51362 | Convergence: false |
+Execution Info - BFGSM | Iters:   1000 | TTime: 15.87588 | LastNorm: 5.17965e+07 | Iterations/sec: 62.98862 | Convergence: false |
+----------------------------------------
+Files writed: 
+- csvs/results/MANCINO_none.csv
+- csvs/results/random_historials/MANCINO_none.csv
+----------------------------------------

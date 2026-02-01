@@ -1,0 +1,62 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/DENSCHNF.SIF
+repetitions          | 30                  
+seed                 | 42                  
+show_info            | true                
+tol                  | 1.0e-8              
+useDimProblem        | false               
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 2
+----------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      8 | TTime: 0.36414 | LastNorm: 1.91319e-14 | Iterations/sec: 21.96981 | Convergence: true |
+Execution Info - Grads  | Iters:      8 | TTime: 0.10317 | LastNorm: 1.91319e-14 | Iterations/sec: 77.54485 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00012 | LastNorm: 6.28888e-10 | Iterations/sec: 58254.22222 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00008 | LastNorm: 6.28987e-10 | Iterations/sec: 88701.29305 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28987e-10 | Iterations/sec: 269358.97248 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 302681.73196 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 319131.82609 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 333637.81818 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 305834.66667 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 333637.81818 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 333637.81818 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00004 | LastNorm: 6.28888e-10 | Iterations/sec: 158703.39459 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 259824.14159 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28987e-10 | Iterations/sec: 279620.26667 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 269358.97248 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28987e-10 | Iterations/sec: 248814.64407 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 269358.97248 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 269358.97248 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 282308.92308 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 367001.60000 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28942e-10 | Iterations/sec: 305834.66667 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 319131.82609 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 349525.33333 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 349525.33333 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 279620.26667 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 315700.30108 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28942e-10 | Iterations/sec: 233016.88889 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 349525.33333 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 319131.82609 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28888e-10 | Iterations/sec: 205315.58042 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 329889.07865 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00002 | LastNorm: 6.28888e-10 | Iterations/sec: 290694.33663 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      7 | TTime: 0.00003 | LastNorm: 6.28905e-10 | Iterations/sec: 279871.22752 | Convergence: true |
+Execution Info - Newton | Iters:      7 | TTime: 0.00006 | LastNorm: 6.28888e-10 | Iterations/sec: 127100.12121 | Convergence: true |
+Execution Info - BFGSM | Iters:     16 | TTime: 0.00016 | LastNorm: 2.57247e-09 | Iterations/sec: 98112.37427 | Convergence: true |
+----------------------------------------
+Files writed: 
+- csvs/results/DENSCHNF_none.csv
+- csvs/results/random_historials/DENSCHNF_none.csv
+----------------------------------------
