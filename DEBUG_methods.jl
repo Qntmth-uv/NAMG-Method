@@ -77,17 +77,20 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors, modifier::Function)
 end 
 
 
-function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
+function DEBUG_namgmOviedo(fx::Function, gradient::Function, Hessian::Function, x0:: Vector,
                            tolerance:: Float64, maxIters:: Int, hessian_mod::Function,
-                           epsilon::Float64, sys_mod::Function)
+                           epsilon::Float64, sys_mod::Function, addLS::Bool = false)
     """NAMGM Using the Ovideo Directive. 
     # Input:
+        -    fx   : Callable - Function 
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix.
+        -   addLS :   Bool   - Add line search (standar backtracking, default: false)
+
     # Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -130,7 +133,11 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
-        x_new = x_old + v
+
+        #Add the coeficient using line search
+        fxk = fx(x_old)
+        addLS ? alpha = backtrackWWC(fx, x_old, v, g_old, fxk) : alpha=1;
+        x_new = x_old + alpha*v
         g_new = gradient(x_new)
 
         #Update the mometum and curvature variables
@@ -144,7 +151,7 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
 
         #Verification of not divergence
         if isinf(gnorm) || isnan(gnorm) 
-            println("Floating point overflow occurred, ending process.")
+            displayOverflowError("Oviedo")
             gnorm = Inf32
             k = maxIters
             break
@@ -172,11 +179,12 @@ function DEBUG_namgmOviedo(gradient::Function, Hessian::Function, x0:: Vector,
     return x_old, gradient_his, ttime, x_path, k, gnorm, condition_his, ittpSec, archived_convergence_flag 
 end
 
-function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector, 
+function DEBUG_namgmGrads(fx::Function, gradient::Function, Hessian::Function, x0:: Vector, 
                           tolerance:: Float64, maxIters:: Int, queue_size:: Int, 
-                          hessian_mod::Function, epsilon::Float64, sys_mod::Function)
+                          hessian_mod::Function, epsilon::Float64, sys_mod::Function, addLS::Bool = false)
     """NAMGM Using the Gradient queue directive. 
     # Input:
+        -    fx   : Callable - Functiono
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
         -    x0   :  Vector  - Initial point of the sequence.
@@ -184,6 +192,7 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
         - maxIters:    Int   - Maximum number of elements in the sequence.
         - que_size:    Int   - Maximum number of elements in the queue (set of vectors).
         -hessian_mod: Call   - Modifier of the hessian matrix.
+        -   addLS :   Bool   - Add line search (standar backtracking, default: false)
     # Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -228,7 +237,11 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
-        x = x + v
+
+        #Add the coeficient using line search
+        fxk = fx(x)
+        addLS ? alpha = backtrackWWC(fx, x, v, gk, fxk) : alpha=1;
+        x = x + alpha*v
 
         #Update 
         gk = gradient(x)
@@ -238,7 +251,7 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
         
         #Verification of not divergence
         if isinf(gnorm) || isnan(gnorm) 
-            println("Floating point overflow occurred, ending process.")
+            displayOverflowError("Queue Gradients")
             gnorm = Inf32
             k = maxIters
             break
@@ -266,17 +279,20 @@ function DEBUG_namgmGrads(gradient::Function, Hessian::Function, x0:: Vector,
 end
 
 
-function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Vector, 
+function DEBUG_namgmRandomVectors(fx::Function, gradient::Function, Hessian::Function, x0:: Vector, 
                                   tolerance:: Float64, maxIters:: Int, randomSize:: Int, 
-                                  hessian_mod::Function, epsilon::Float64, sys_mod::Function)
+                                  hessian_mod::Function, epsilon::Float64, sys_mod::Function, addLS::Bool = false)
     """NAMGM Using the Random Vectors directive. 
     #Input
+        -    fx   : Callable - Function.
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         -randomSize:  Int.   - Number of random elements to take
         -hessian_mod: Call   - Modifier of the hessian matrix
+        -   addLS :   Bool   - Add line search (standar backtracking)
+
     # Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -327,8 +343,12 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
 
         #Update the squence and the set of vectors
         v = -sum(V .* C)
-        x = x + v
-
+        
+        #Add the coeficient using line search
+        fxk = fx(x)
+        addLS ? alpha = backtrackWWC(fx, x, v, gk, fxk) : alpha=1;
+        x = x + alpha*v
+    
         #Update 
         gk = gradient(x)
         gnorm = norm(gk) 
@@ -336,7 +356,7 @@ function DEBUG_namgmRandomVectors(gradient::Function, Hessian::Function, x0:: Ve
 
         #Verification of not divergence
         if isinf(gnorm) || isnan(gnorm) 
-            println("Floating point overflow occurred, ending process.")
+            displayOverflowError("Random")
             gnorm = Inf32
             k = maxIters
             break
@@ -365,18 +385,20 @@ end
 
 
 
-function DEBUG_newtonMethod(gradient::Function, hessian::Function, 
-                            x0::Vector, tolerance::Float64, maxIters:: Int, hessian_mod, epsilon::Float64)
+function DEBUG_newtonMethod(fx::Function, gradient::Function, hessian::Function,  x0::Vector, 
+                            tolerance::Float64, maxIters:: Int, hessian_mod, epsilon::Float64, addLS::Bool = false)
     """
     Newton's method with applicable modifier in the Hessian matrix
     (This is not the same as the BFGS method, such method use a unique modifer)
     # Input:
+        -    fx   : Callable - Function.
         - Gradient: Callable - Gradient of the function.
         -  Hessian: Callable - Hessian of the fucnion.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix.
+        -   addLS :   Bool   - Add line search (standar backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -409,14 +431,20 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
 
         #Calculate the search direction and update the sequence point
         s = -h\gk
-        x = x+s
+
+        #Add the coeficient using line search
+        fxk = fx(x)
+        addLS ? alpha = backtrackWWC(fx, x, s, gk, fxk) : alpha=1;
+        
+        #Uptdate the variables
+        x = x + alpha*s
         gk = gradient(x)
         gnorm = norm(gk) 
         k+=1 
 
         #Verification of no Inf or NaN value
         if isinf(gnorm) || isnan(gnorm) 
-            println("Floating point overflow occurred, ending process.")
+            displayOverflowError("Newton")
             gnorm = Inf32
             k = maxIters
             break
@@ -443,7 +471,8 @@ function DEBUG_newtonMethod(gradient::Function, hessian::Function,
 end
 
 
-function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x0::Vector, tolerance::Float64, maxIters:: Int, show_info::Bool = false)
+function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x0::Vector, 
+                        tolerance::Float64, maxIters:: Int, show_info::Bool = false, addLS::Bool = true)
     """
     Implementation of the BFGS method, inspired in the implementation of Nocedal and Stephen Wright.
     It uses line search (standar backtaking).
@@ -454,6 +483,7 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
+        -   addLS :   Bool   - Add line search (standar backtracking, default: true)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -496,7 +526,7 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
 
         #Update the point using weak wolfe condition
         actualfxk = fx(x_old)
-        alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk, show_info = show_info)
+        addLS ? alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk, show_info = show_info) : alpha = 1;
         x_new = x_old+alpha*pk
         g_new = gradient(x_new)
 
@@ -516,7 +546,7 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
 
         #Verification of not divergence
         if isinf(gnorm) || isnan(gnorm) 
-            println("Floating point overflow occurred, ending process.")
+            displayOverflowError("BFGS")
             gnorm = Inf32
             k = maxIters
             break

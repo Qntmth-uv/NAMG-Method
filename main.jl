@@ -78,6 +78,15 @@ function parse_commandline()
             help = "Number of repetitions for the Random method. " 
             arg_type = Int64
             default = 30
+        "--saveinfo"
+            help = "Boolean variable to indicate if it should write files"
+            action = :store_true 
+        "--useLS"
+            help = "Use linesearch in the tested methods"
+            action = :store_true
+        "--displaysG"
+            help = "Show the posible generated graphs"
+            action = :store_true
     end
     return parse_args(s)
 end
@@ -104,6 +113,9 @@ end
     modH = lowercase(parsed_args["modifierH"])
     modS = lowercase(parsed_args["modifierS"])
     repetitions = parsed_args["repetitions"]
+    saveinfo = parsed_args["saveinfo"]
+    use_LS = parsed_args["useLS"]
+    show_plots = parsed_args["displaysG"]
 
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
@@ -148,33 +160,38 @@ end
     println("Dimension of the problem: ", n)
     x0 = initial_point
 
-
     #Check the flag of the size of RandomVectors
     usedim_problem ? randomsize = n : nothing
     println("Random Vectors being used: ", randomsize-1)
-    println("-"^40)
+    println("-"^80)
+
+    #Header of the DF
+    headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
+
     if debug_mode
         println(">>DEBUG Mode")
 
         #Run the NAMGM algoritms using DEBUG mesuarements
-        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O, ttpSO, flagOviedo = DEBUG_namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded, modS)
-        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ, flagQueue = DEBUG_namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS)
-        xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS)
-        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(g, h, x0, tol, nIters, modH, epsilonAdded)
+        xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O, ttpSO, flagOviedo = DEBUG_namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, modS, use_LS)
+        xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ, flagQueue = DEBUG_namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS, use_LS)
+        xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(f, g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS, use_LS)
+        M = [iterRandom, t_random, normRandom, ttpSR]
+        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
 
         #Clean the data if there is a 0.0 then the plot will explote.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs]
         Hc = [CN_O, CN_Q, CN_R]
+
+
         for i in 1:length(H)
             if H[i][end] == 0.0 || isnan(H[i][end])
                 H[i][end] = 0.0
             end
         end
 
-        #Headers of the CSV file and creation 
-        headers = ["Oviedo", "Queue", "RD", "Newton", "BFGS"]
-        createCSV(H, file_name_historials, headers)
+        #It should save the data?
+        saveinfo ? createCSV(H, file_name_historials, headers) : nothing
 
         #Variables to plot the results
         problems_labels = ["Ovideo", "Queue", "RD", "Newton", "BFGS"]
@@ -184,8 +201,16 @@ end
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
-        plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, hitorialName)
-        plotEvolution(Hc, name, colors_list[1:end-1], problems_labels[1:end-1], styles_list[1:end-1], "κ(Hψ)", plot_titleCN, cnName)
+        gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, hitorialName)
+        conditionplt = plotEvolution(Hc, name, colors_list[1:end-1], problems_labels[1:end-1], styles_list[1:end-1], "κ(Hψ)", plot_titleCN, cnName)
+        
+        #Save the iamges if it's required
+        saveinfo ? savefig(gradplot, hitorialName) : nothing 
+        saveinfo ? savefig(conditionplt, ccName) : nothing 
+
+        #Display the Plots
+        show_plots ? display(gradplot) : nothing
+        show_plots ? display(conditionplt) : nothing
 
         #If the function is bidimensioal, then plot the sequence path
         if n === 2
@@ -223,29 +248,38 @@ end
             add_optimization_path!(ax, xP_bfgs, label="BFGS", color=:orange, linestyle=:dash)
 
             #Save the plot
-            savefig(ax, pathName)
+            saveinfo ? savefig(ax, pathName) : nothing
+            
+            #Display plot
+            show_plots ? display(ax) : nothing
+
         end
     else
         println(">>Normal mode")
         U = Any[0, 0.0, 0.0, 0.0, 0.0]
         M = vcat(fill(U', repetitions)...)
-        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(g, h, x0, tol, nIters, modH, epsilonAdded)
-        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(g, h, x0, tol, nIters, lqueue, modH, epsilonAdded)
+        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions
-            M[i, :] .= namgmRandomVectors(g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, show_info)[2:end]
+            M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, show_info, use_LS)[2:end]
             U.+=M[i, :]
         end
         U./=repetitions
         iterRandom, t_random, normRandom, ttpSR, flagRandom = U
         solve_most_of_problems = (flagRandom >= 0.5) ? true : false
         displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
-        xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(g, h, x0, tol, nIters, modH, epsilonAdded)
+        xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
+        xf_gdls, iterGDLS, t_GDLS, normGDLS, ttpGDLS, flagGDLS = steepestMethod(f, g, x0, tol, nIters)
+
+        #Create the frame for the random values
+        random_df = DataFrame(M, headers)
+        saveinfo ? CSV.write(file_name_results_historials, random_df) : nothing
+        
     end
 
     # Remember to finalize the model when you are done
     finalize(nlp_problem)
-
 
     #Creation of Dataframe of the results
     times = [t_oviedo, t_queue, t_random, t_newton, t_bfgs]
@@ -255,28 +289,31 @@ end
     convergence = [flagOviedo, flagQueue, flagRandom, flagNewton, flagBFGS] 
     data = [iterations, lastGrad, times, iterationsPerSecond, convergence]
 
-    #Header of the DF
-    headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
 
     #Save the CSV file
     df = DataFrame(data, headers)
-    random_df = DataFrame(M, headers)
-    
-    #Write the CSV file
-    CSV.write(file_name_results, df)
-    CSV.write(file_name_results_historials, random_df)
 
-    print("-"^40)
-    #Print of information written
-    println("\nFiles writed: ")
-    println("- ",file_name_results)
-    println("- ",file_name_results_historials)
-    if debug_mode
-        println("- ", file_name_historials)
-        println("Images saved: \n", "- "*hitorialName, "\n- "*cnName)
-        n==2 ? println("- ", pathName) : nothing
+    #Write the CSV file
+    if saveinfo
+        CSV.write(file_name_results, df)
+        CSV.write(file_name_results_historials, random_df)
     end
-    println("-"^40)
+
+    #Print the information of the writen files
+    println("-"^80)    
+    print("Files writed: ")
+    if saveinfo
+        println("- ",file_name_results)
+        println("- ",file_name_results_historials)
+        if debug_mode
+            println("- ", file_name_historials)
+            println("Images saved: \n", "- "*hitorialName, "\n- "*cnName)
+            n==2 ? println("- ", pathName) : nothing
+        end
+    else
+    end
+        println("Not saveinfo flag used, therefore any report has been saved.")
+    println("-"^80)
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__

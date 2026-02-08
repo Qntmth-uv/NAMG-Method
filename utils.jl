@@ -2,8 +2,6 @@ using DataFrames
 using LinearAlgebra
 using CSV
 
-
-
 function getIterationSpeed(numberOfIters, time::Float64)
     """Compute the avrg iteration speed."""
     return numberOfIters/time
@@ -98,8 +96,9 @@ function elementsTestFunction(name::String)
     return f, g, h, nlp_problem.meta.x0, nlp_problem
 end
 
-# Definir una función auxiliar para el mapeo
+
 function get_modifier(mod_name)
+    """Function to obtain the given modifier of the hessian"""
     if mod_name == "eigen"
         return modifyHessian_Eigen
     elseif mod_name == "diag"
@@ -115,31 +114,28 @@ end
 
 
 
-"""
-    backtracking_line_search(f, x, p, ∇f_x, f_x; α=1.0, ρ=0.5, c1=1e-4)
 
-Performs a backtracking line search to satisfy the Armijo (Weak Wolfe) condition.
-Based on Algorithm 3.1 from Nocedal & Wright.
-
-# Arguments
-- `f`: The objective function f(x).
-- `x`: Current position vector.
-- `p`: Search direction vector.
-- `∇f_x`: The gradient at current x (pre-computed).
-- `f_x`: The function value at current x (pre-computed).
-
-# Keywords
-- `α`: Initial step size (default 1.0, typical for Newton methods).
-- `ρ`: Contraction factor (default 0.5).
-- `c1`: Armijo parameter (default 1e-4).
-
-# Returns
-- `α`: The accepted step size.
-- `f_new`: The function value at the new point (to avoid re-evaluating later).
-"""
 function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, ∇f_x::AbstractVector, 
                       f_x::Real; α::Real=1.0, ρ::Real=0.5, c1::Real=1e-4, show_info::Bool = false)
-    
+    """Performs a backtracking line search to satisfy the Armijo (Weak Wolfe) condition.
+    Based on Algorithm 3.1 from Nocedal & Wright.
+
+    # Inputs
+        - f: The objective function f(x).
+        - x: Current position vector.
+        - p: Search direction vector.
+        - ∇f_x: The gradient at current x (pre-computed).
+        - f_x: The function value at current x (pre-computed).
+
+    # Returns
+        - α: The accepted step size.
+
+    # Keywords
+        - α: Initial step size (default 1.0, typical for Newton methods).
+        - ρ: Contraction factor (default 0.5).
+        - c1: Armijo parameter (default 1e-4).
+
+    """   
     # This is the 'm' in f(x + αp) ≤ f(x) + c1 * α * m
     slope = dot(∇f_x, p)
 
@@ -174,4 +170,16 @@ end
 function displayResults(name::String, iters::Any, Ttime:: Any, Gnorm::Any, IttpS::Any, convergence::Bool)
     @printf("Execution Info - %s | Iters: %6d | TTime: %.5f | LastNorm: %1.5e | Iterations/sec: %-6.5f | Convergence: %s |\n", 
             name, iters, Ttime, Gnorm, IttpS, convergence)
+end
+
+function displayOverflowError(method_name::String)
+    """Function to display a messege of overflow error over one method.
+    
+    #Input:
+        - method_name: String 
+
+    #Output:
+        - VOID
+    """
+    println("$method_name - Floating point overflow occurred, ending process.")
 end

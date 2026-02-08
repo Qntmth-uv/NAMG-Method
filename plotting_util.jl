@@ -135,7 +135,5 @@ function plotEvolution(list_of_Historials, problem::String, colors, labels,
             linewidth = 2
         )
     end
-
-    #Save plot 
-    savefig(plt, image_name)
+    return plt
 end
