@@ -1,0 +1,40 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 2500                
+problem              | cutest-sif/EIGENBLS.SIF
+repetitions          | 3                   
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+----------------------------------------
+Dimension of the problem: 2550
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   2500 | TTime: 1999.30231 | LastNorm: 1.25652e-03 | Iterations/sec: 1.25044 | Convergence: false |
+Execution Info - Grads  | Iters:   2500 | TTime: 1990.81042 | LastNorm: 5.96998e-02 | Iterations/sec: 1.25577 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 1987.69187 | LastNorm: 6.83956e-02 | Iterations/sec: 1.25774 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 1996.40228 | LastNorm: 5.75666e-02 | Iterations/sec: 1.25225 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 2002.48039 | LastNorm: 6.52198e-02 | Iterations/sec: 1.24845 | Convergence: false |
+Execution Info - Random Mean (3 repetitions) | Iters:   2500 | TTime: 1995.52484 | LastNorm: 6.37273e-02 | Iterations/sec: 1.25281 | Convergence: false |
+Execution Info - Newton | Iters:    470 | TTime: 420.53544 | LastNorm: 9.37233e-10 | Iterations/sec: 1.11762 | Convergence: true |
+Execution Info - BFGSM | Iters:   2500 | TTime: 1225.84725 | LastNorm: 3.73095e+01 | Iterations/sec: 2.03941 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   2500 | TTime: 7.28332 | LastNorm: 9.40928e-01 | Iterations/sec: 343.25025 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/addedLS/EIGENBLS_none.csv
+- csvs/results/random_historials/addedLS/EIGENBLS_none.csv
+--------------------------------------------------------------------------------

@@ -571,3 +571,79 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
     displayResults("BFGS", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x_old, gradient_his, ttime, x_path, k, gnorm, ittpSec, archived_convergence_flag 
 end
+
+function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
+    """Gradient descent method that uses line-search Strategys.
+    
+    #Input:
+        -    fx   : Callable - Function
+        - Gradient: Callable - Gradient of the function.
+        -    x0   :  Vector  - Initial point of the sequence.
+        -tolerance:   Float  - Minimum norm of the critical point
+        - maxIters:    Int   - Maximum number of elements in the sequence
+    
+    #Output:
+        -    x    : Vector  - Final element of the sequence
+        -    k    :  Int    - Number of iterations taken
+        -  ttime  : Float64 - Execution time of the method in seconds
+        -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
+        - ittpSec : Float64 - Iterations per second of the method.
+        -  Cflag  :  Bool   - The method converged (true or false)
+    
+    """
+    #Start time of the method
+    start_time = time()
+
+    #Init the variables
+    x = x0
+    gk = gradient(x)
+    gnorm = norm(gk)
+    k = 1 
+    archived_convergence_flag::Bool = false
+    
+    #DEBUG variables
+    gradient_his = []
+    x_path = []
+    dim = length(x0)
+    dim == 2 ? push!(x_path, x_old) : nothing
+
+    #Optimization process
+    while (k < maxIters && gnorm >= tolerance) 
+
+        #Compute the right steepsize
+        actualfxk = fx(x)
+        alpha = backtrackWWC(fx, x, -gk, gk, actualfxk)
+
+        #Update the sequence
+        x = x - alpha*gk
+        gk = gradient(x)
+        gnorm = norm(gk) 
+        k+=1
+
+        #Verification of not divergence
+        if isinf(gnorm) || isnan(gnorm) 
+            displayOverflowError("Step Descent")
+            gnorm = Inf32
+            k = maxIters
+            break
+        end
+
+        #Push the new results in the historial
+        push!(gradient_his, gnorm)
+        dim == 2 ? push!(x_path, x_old) : nothing
+    end
+
+    #Finalization of the method
+    end_time = time()
+    ttime = end_time-start_time
+    ittpSec = getIterationSpeed(k, ttime)
+
+    #Verification of convergence
+    if (gnorm <= tolerance) && (k <= maxIters)
+        archived_convergence_flag = true 
+    end
+
+    #Print report of the executation
+    displayResults("Gradient descent with LS", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    return x, gradient_his, ttime, x_path, k, gnorm, ittpSec, archived_convergence_flag  
+end

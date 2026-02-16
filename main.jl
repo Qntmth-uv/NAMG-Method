@@ -1,9 +1,7 @@
 using Random
 using ArgParse
 
-
 """
-
 Execution command (example)
 julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --nIters 5 --modifier eigen 
 julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --modifier eigen 
@@ -87,6 +85,10 @@ function parse_commandline()
         "--displaysG"
             help = "Show the posible generated graphs"
             action = :store_true
+        "--subdirectory"
+            help = "Subdirectory where to save the different results using different parameters (defaul, addedLS & usingDBFS)"
+            arg_type = String
+            default = "original/"
     end
     return parse_args(s)
 end
@@ -116,25 +118,45 @@ end
     saveinfo = parsed_args["saveinfo"]
     use_LS = parsed_args["useLS"]
     show_plots = parsed_args["displaysG"]
+    subdirectory = parsed_args["subdirectory"]
 
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
 
     #Name of the results
     name = first(splitext(basename(problem)))
+
+    #If it is using LS, then change the save directory
+    use_LS || subdirectory == "addedLS" ? subdirectory = "addedLS" : nothing
+
     if image_name == "default"
-        hitorialName = "images/historials_grads/"*name*"_"*modS*".png"
-        pathName = "images/paths/"*name*"_"*modS*"_path.svg"
-        cnName ="images/condition_analysis/"*name*"_"*modS*".png" 
+        images_path = "images/"
+        historiaName = joinpath(images_path, "historials_grads", subdirectory, name*"_"*modS*".png")
+        pathName = joinpath(images_path, "paths", name*"_"*modS*"_path.svg")
+        cnName = joinpath(images_path, "condition_analysis", name*"_"*modS*".png")
     end
     if file_name == "default"
-        file_name_results = "csvs/results/"*name*"_"*modS*".csv"
-        file_name_historials = "csvs/historials/"*name*"_"*modS*".csv"
-        file_name_results_historials = "csvs/results/random_historials/"*name*"_"*modS*".csv"
+        #Paths where to save the results
+        path_results = joinpath("csvs/results", subdirectory)
+        path_historials = joinpath("csvs/historials", subdirectory) 
+        path_results_randoms = joinpath("csvs/results/random_historials", subdirectory)
+
+        #Files to be writen
+        file_name_results = joinpath(path_results, name*"_"*modS*".csv")
+        file_name_historials = joinpath(path_historials, name*"_"*modS*".csv")
+        file_name_results_historials = joinpath(path_results_randoms, name*"_"*modS*".csv")
     else
         file_name_results = file_name
     end
-    
+
+    #Creation of the results directorys if there is not such path
+    if saveinfo
+        workdirectory = pwd()
+        mkpath(joinpath(workdirectory, path_results)) #Place where to save the results
+        mkpath(joinpath(workdirectory, path_historials)) #Place where to save the historials of the Gradients
+        mkpath(joinpath(workdirectory, path_results_randoms)) #Place where to save the historials of general results of the randoms executations
+    end
+
     #Pritn thte values of the parser
     println("-"^40)
     @printf("%-20s | %-20s\n", "Parameters", "Value")
@@ -178,9 +200,11 @@ end
         M = [iterRandom, t_random, normRandom, ttpSR]
         xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
+        xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
+
 
         #Clean the data if there is a 0.0 then the plot will explote.
-        H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs]
+        H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
         Hc = [CN_O, CN_Q, CN_R]
 
 
@@ -194,15 +218,15 @@ end
         saveinfo ? createCSV(H, file_name_historials, headers) : nothing
 
         #Variables to plot the results
-        problems_labels = ["Ovideo", "Queue", "RD", "Newton", "BFGS"]
-        colors_list = [:blue, :red, :purple, :green, :orange]
-        styles_list = [:solid, :dash, :dash, :solid, :dash]
+        problems_labels = ["Ovideo", "Queue", "RD", "Newton", "BFGS", "SGD"]
+        colors_list = [:blue, :red, :purple, :green, :orange, :salmon]
+        styles_list = [:solid, :dash, :dash, :solid, :dash, :solid]
 
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
         gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, hitorialName)
-        conditionplt = plotEvolution(Hc, name, colors_list[1:end-1], problems_labels[1:end-1], styles_list[1:end-1], "κ(Hψ)", plot_titleCN, cnName)
+        conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, cnName)
         
         #Save the iamges if it's required
         saveinfo ? savefig(gradplot, hitorialName) : nothing 
@@ -215,7 +239,7 @@ end
         #If the function is bidimensioal, then plot the sequence path
         if n === 2
             #Transformation of trajectorys
-            raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs]
+            raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd]
 
             #Init the variables to set the limits of the sequence path
             g_xlims = (Inf, -Inf) 
@@ -246,6 +270,7 @@ end
             add_optimization_path!(ax, xP_newton, label="Newton", color=:green)
             add_optimization_path!(ax, xP_random, label="Random", color=:purple, linestyle=:dash)
             add_optimization_path!(ax, xP_bfgs, label="BFGS", color=:orange, linestyle=:dash)
+            add_optimization_path!(ax, xP_sgd, label="SGD", color=:salmon, linestyle=:solid)
 
             #Save the plot
             saveinfo ? savefig(ax, pathName) : nothing
@@ -270,7 +295,7 @@ end
         displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
         xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
-        xf_gdls, iterGDLS, t_GDLS, normGDLS, ttpGDLS, flagGDLS = steepestMethod(f, g, x0, tol, nIters)
+        xf_SGD, iterSGD, t_sgd, normSGD, ttpSGD, flagSGD = steepestMethod(f, g, x0, tol, nIters)
 
         #Create the frame for the random values
         random_df = DataFrame(M, headers)
@@ -282,11 +307,11 @@ end
     finalize(nlp_problem)
 
     #Creation of Dataframe of the results
-    times = [t_oviedo, t_queue, t_random, t_newton, t_bfgs]
-    lastGrad = [normOviedo, normQueue, normRandom, normNewton, normBFGS]
-    iterations =[iterOviedo, iterQueue, iterRandom, iterNewton, iterBFGS]
-    iterationsPerSecond =[ttpSO, ttpSQ, ttpSR, ttpSN, ttpSB]
-    convergence = [flagOviedo, flagQueue, flagRandom, flagNewton, flagBFGS] 
+    times = [t_oviedo, t_queue, t_random, t_newton, t_bfgs, t_sgd]
+    lastGrad = [normOviedo, normQueue, normRandom, normNewton, normBFGS, normSGD]
+    iterations =[iterOviedo, iterQueue, iterRandom, iterNewton, iterBFGS, iterSGD]
+    iterationsPerSecond =[ttpSO, ttpSQ, ttpSR, ttpSN, ttpSB, ttpSGD]
+    convergence = [flagOviedo, flagQueue, flagRandom, flagNewton, flagBFGS, flagSGD] 
     data = [iterations, lastGrad, times, iterationsPerSecond, convergence]
 
 
@@ -301,7 +326,7 @@ end
 
     #Print the information of the writen files
     println("-"^80)    
-    print("Files writed: ")
+    println("Files writed: ")
     if saveinfo
         println("- ",file_name_results)
         println("- ",file_name_results_historials)
@@ -311,8 +336,9 @@ end
             n==2 ? println("- ", pathName) : nothing
         end
     else
-    end
         println("Not saveinfo flag used, therefore any report has been saved.")
+    end
+       
     println("-"^80)
 end
 

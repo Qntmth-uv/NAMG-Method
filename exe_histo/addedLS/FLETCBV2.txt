@@ -1,0 +1,40 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 5000                
+problem              | cutest-sif/FLETCBV2.SIF
+repetitions          | 3                   
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+----------------------------------------
+Dimension of the problem: 5000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   4850 | TTime: 28897.38205 | LastNorm: 9.98102e-09 | Iterations/sec: 0.16784 | Convergence: true |
+Execution Info - Grads  | Iters:   5000 | TTime: 29812.88369 | LastNorm: 4.29808e-06 | Iterations/sec: 0.16771 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 29726.06784 | LastNorm: 4.33285e-06 | Iterations/sec: 0.16820 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 29753.91831 | LastNorm: 4.33293e-06 | Iterations/sec: 0.16805 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 29889.24774 | LastNorm: 4.33274e-06 | Iterations/sec: 0.16728 | Convergence: false |
+Execution Info - Random Mean (3 repetitions) | Iters:   5000 | TTime: 29789.74463 | LastNorm: 4.33284e-06 | Iterations/sec: 0.16784 | Convergence: false |
+Execution Info - Newton | Iters:      3 | TTime: 12.70866 | LastNorm: 2.44883e-13 | Iterations/sec: 0.23606 | Convergence: true |
+Execution Info - BFGSM | Iters:      3 | TTime: 9.44946 | LastNorm: 6.20731e-11 | Iterations/sec: 0.31748 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:   5000 | TTime: 1.76576 | LastNorm: 1.18875e-05 | Iterations/sec: 2831.64505 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/addedLS/FLETCBV2_none.csv
+- csvs/results/random_historials/addedLS/FLETCBV2_none.csv
+--------------------------------------------------------------------------------

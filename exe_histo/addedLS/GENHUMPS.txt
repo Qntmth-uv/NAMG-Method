@@ -1,0 +1,40 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 5000                
+problem              | cutest-sif/GENHUMPS.SIF
+repetitions          | 3                   
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+----------------------------------------
+Dimension of the problem: 5000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   5000 | TTime: 30086.62090 | LastNorm: 2.85487e+03 | Iterations/sec: 0.16619 | Convergence: false |
+Execution Info - Grads  | Iters:   5000 | TTime: 30000.23047 | LastNorm: 2.92832e+03 | Iterations/sec: 0.16667 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 30314.14998 | LastNorm: 3.84511e+03 | Iterations/sec: 0.16494 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 30007.58465 | LastNorm: 3.84561e+03 | Iterations/sec: 0.16662 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 29974.41788 | LastNorm: 3.83441e+03 | Iterations/sec: 0.16681 | Convergence: false |
+Execution Info - Random Mean (3 repetitions) | Iters:   5000 | TTime: 30098.71751 | LastNorm: 3.84171e+03 | Iterations/sec: 0.16612 | Convergence: false |
+Execution Info - Newton | Iters:   5000 | TTime: 32576.70988 | LastNorm: 5.13410e+03 | Iterations/sec: 0.15348 | Convergence: false |
+Execution Info - BFGSM | Iters:   5000 | TTime: 16326.83649 | LastNorm: 6.02094e+03 | Iterations/sec: 0.30624 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   5000 | TTime: 3.90544 | LastNorm: 1.65835e-01 | Iterations/sec: 1280.26545 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/addedLS/GENHUMPS_none.csv
+- csvs/results/random_historials/addedLS/GENHUMPS_none.csv
+--------------------------------------------------------------------------------

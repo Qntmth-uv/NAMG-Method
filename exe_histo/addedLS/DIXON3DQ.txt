@@ -1,0 +1,40 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 100                 
+problem              | cutest-sif/DIXON3DQ.SIF
+repetitions          | 3                   
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+----------------------------------------
+Dimension of the problem: 10000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:    100 | TTime: 4285.61054 | LastNorm: 6.87665e-03 | Iterations/sec: 0.02333 | Convergence: false |
+Execution Info - Grads  | Iters:    100 | TTime: 4279.74001 | LastNorm: 3.69592e-02 | Iterations/sec: 0.02337 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 4380.61187 | LastNorm: 6.79774e-02 | Iterations/sec: 0.02283 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 4381.78773 | LastNorm: 6.79728e-02 | Iterations/sec: 0.02282 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 4392.22445 | LastNorm: 6.79657e-02 | Iterations/sec: 0.02277 | Convergence: false |
+Execution Info - Random Mean (3 repetitions) | Iters:    100 | TTime: 4384.87469 | LastNorm: 6.79720e-02 | Iterations/sec: 0.02281 | Convergence: false |
+Execution Info - Newton | Iters:      2 | TTime: 47.69452 | LastNorm: 4.99990e-14 | Iterations/sec: 0.04193 | Convergence: true |
+Execution Info - BFGSM | Iters:      2 | TTime: 40.31670 | LastNorm: 0.00000e+00 | Iterations/sec: 0.04961 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:    100 | TTime: 0.03462 | LastNorm: 2.13174e-01 | Iterations/sec: 2888.18162 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/addedLS/DIXON3DQ_none.csv
+- csvs/results/random_historials/addedLS/DIXON3DQ_none.csv
+--------------------------------------------------------------------------------

@@ -1,0 +1,5 @@
+julia --project=venv_NAMGM main.jl --problem cutest-sif/EIGENALS.SIF --seed 42 --nIters 2550 --show_info --repetitions 3 --useLS --saveinfo > exe_histo/addedLS/EIGENALS.txt
+julia --project=venv_NAMGM main.jl --problem cutest-sif/EIGENBLS.SIF --seed 42 --nIters 2500 --show_info --repetitions 3 --useLS --saveinfo > exe_histo/addedLS/EIGENBLS.txt
+julia --project=venv_NAMGM main.jl  --problem cutest-sif/FLETCBV2.SIF --seed 42 --nIters 5000 --show_info --repetitions 3 --useLS --saveinfo > exe_histo/addedLS/FLETCBV2.txt
+julia --project=venv_NAMGM main.jl --problem cutest-sif/GENHUMPS.SIF --seed 42 --nIters 5000 --show_info --repetitions 3 --useLS --saveinfo > exe_histo/addedLS/GENHUMPS.txt	
+julia --project=venv_NAMGM main.jl --problem cutest-sif/DIXON3DQ.SIF --seed 42 --nIters 100 --show_info --repetitions 3 --useLS --saveinfo > exe_histo/addedLS/DIXON3DQ.txt
