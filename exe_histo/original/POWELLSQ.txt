@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/POWELLSQ.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      1 | TTime: 0.00004 | LastNorm: 0.00000e+00 | Iterations/sec: 24385.48837 | Convergence: true |
+Execution Info - Grads  | Iters:      1 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 83886.08000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 113359.56757 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 123361.88235 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Newton | Iters:      1 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 123361.88235 | Convergence: true |
+Execution Info - BFGSM | Iters:      1 | TTime: 0.50342 | LastNorm: 0.00000e+00 | Iterations/sec: 1.98641 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:      1 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 99864.38095 | Convergence: true |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/POWELLSQ_none.csv
+- csvs/results/random_historials/original/POWELLSQ_none.csv
+--------------------------------------------------------------------------------

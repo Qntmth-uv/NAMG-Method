@@ -1,0 +1,69 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/BEALE.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Oviedo - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.39857 | LastNorm: Inf | Iterations/sec: 2508.95718 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 0.65005 | LastNorm: 6.84759e+07 | Iterations/sec: 1538.33379 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00337 | LastNorm: 6.66879e-04 | Iterations/sec: 296396.29708 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00339 | LastNorm: 1.43227e+12 | Iterations/sec: 295331.92508 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00332 | LastNorm: 5.11658e-06 | Iterations/sec: 301401.55217 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00332 | LastNorm: 1.00992e+02 | Iterations/sec: 301401.55217 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00329 | LastNorm: 3.70722e-04 | Iterations/sec: 304221.65808 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00325 | LastNorm: 1.36069e-01 | Iterations/sec: 307230.00293 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00326 | LastNorm: 6.90872e+01 | Iterations/sec: 307027.59681 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00326 | LastNorm: 2.01451e-05 | Iterations/sec: 307207.50018 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00328 | LastNorm: 2.96479e+30 | Iterations/sec: 304420.38032 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00322 | LastNorm: 4.84743e+16 | Iterations/sec: 310758.24257 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00322 | LastNorm: 4.89319e-08 | Iterations/sec: 310275.48454 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00328 | LastNorm: 1.62021e-03 | Iterations/sec: 304973.75118 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00350 | LastNorm: 8.60165e-04 | Iterations/sec: 285307.39405 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00348 | LastNorm: 1.64627e-05 | Iterations/sec: 287517.41157 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00381 | LastNorm: 2.66525e-06 | Iterations/sec: 262669.33868 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02233 | LastNorm: 3.02308e-05 | Iterations/sec: 44775.06272 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00319 | LastNorm: 2.42903e-03 | Iterations/sec: 313381.94860 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00318 | LastNorm: 8.49537e-03 | Iterations/sec: 314745.91025 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00324 | LastNorm: 2.11746e+02 | Iterations/sec: 308540.82684 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00322 | LastNorm: 3.05121e-03 | Iterations/sec: 310551.16245 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00325 | LastNorm: 2.71428e-01 | Iterations/sec: 307230.00293 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00335 | LastNorm: 6.62659e-02 | Iterations/sec: 298335.87026 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00336 | LastNorm: 4.64093e-03 | Iterations/sec: 297890.90909 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00330 | LastNorm: 1.15342e-05 | Iterations/sec: 303210.00506 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00319 | LastNorm: 1.85759e-07 | Iterations/sec: 313780.50423 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00323 | LastNorm: 2.12115e+07 | Iterations/sec: 309679.85824 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00323 | LastNorm: 8.91232e-05 | Iterations/sec: 309977.38526 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00322 | LastNorm: 3.67108e-06 | Iterations/sec: 310666.17288 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00339 | LastNorm: 5.04119e+01 | Iterations/sec: 294812.96127 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00342 | LastNorm: 5.80309e-02 | Iterations/sec: 292469.42333 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 0.00394 | LastNorm: 9.88262e+28 | Iterations/sec: 293872.93636 | Convergence: false |
+Newton - Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 11915636.36364 | Convergence: false |
+Execution Info - BFGSM | Iters:      2 | TTime: 0.00019 | LastNorm: 0.00000e+00 | Iterations/sec: 10472.66916 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00225 | LastNorm: 8.58231e-08 | Iterations/sec: 443466.27194 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/BEALE_none.csv
+- csvs/results/random_historials/original/BEALE_none.csv
+--------------------------------------------------------------------------------

@@ -1,0 +1,47 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 100                 
+problem              | cutest-sif/FLETCBV2.SIF
+repetitions          | 10                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 5000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:    100 | TTime: 717.68479 | LastNorm: 4.31386e-06 | Iterations/sec: 0.13934 | Convergence: false |
+Execution Info - Grads  | Iters:    100 | TTime: 669.30660 | LastNorm: 4.39422e-06 | Iterations/sec: 0.14941 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 591.04028 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16919 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 601.28854 | LastNorm: 4.40016e-06 | Iterations/sec: 0.16631 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 631.12818 | LastNorm: 4.40017e-06 | Iterations/sec: 0.15845 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 600.47712 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16653 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 590.98382 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16921 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 590.57241 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16933 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 592.20777 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16886 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 589.79572 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16955 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 592.27493 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16884 | Convergence: false |
+Execution Info - Random | Iters:    100 | TTime: 593.23124 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16857 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:    100 | TTime: 597.30000 | LastNorm: 4.40017e-06 | Iterations/sec: 0.16748 | Convergence: false |
+Execution Info - Newton | Iters:      3 | TTime: 12.65706 | LastNorm: 2.44883e-13 | Iterations/sec: 0.23702 | Convergence: true |
+Execution Info - BFGSM | Iters:      3 | TTime: 8.52005 | LastNorm: 6.20731e-11 | Iterations/sec: 0.35211 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:    100 | TTime: 0.03687 | LastNorm: 9.01406e-06 | Iterations/sec: 2712.30212 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/FLETCBV2_none.csv
+- csvs/results/random_historials/original/FLETCBV2_none.csv
+--------------------------------------------------------------------------------

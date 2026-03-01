@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/ARGLINA.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 200
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      2 | TTime: 0.44769 | LastNorm: 1.63979e-12 | Iterations/sec: 4.46741 | Convergence: true |
+Execution Info - Grads  | Iters:      2 | TTime: 0.13102 | LastNorm: 1.63979e-12 | Iterations/sec: 15.26473 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03231 | LastNorm: 1.62947e-12 | Iterations/sec: 61.89850 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03208 | LastNorm: 1.64723e-12 | Iterations/sec: 62.35168 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03171 | LastNorm: 1.63302e-12 | Iterations/sec: 63.06560 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03109 | LastNorm: 1.63565e-12 | Iterations/sec: 64.33771 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03065 | LastNorm: 1.64029e-12 | Iterations/sec: 65.24647 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03059 | LastNorm: 1.63365e-12 | Iterations/sec: 65.38938 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03051 | LastNorm: 1.64609e-12 | Iterations/sec: 65.55854 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03022 | LastNorm: 1.63027e-12 | Iterations/sec: 66.17500 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03025 | LastNorm: 1.64065e-12 | Iterations/sec: 66.11346 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03053 | LastNorm: 1.62526e-12 | Iterations/sec: 65.51399 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03017 | LastNorm: 1.63660e-12 | Iterations/sec: 66.29738 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03027 | LastNorm: 1.63594e-12 | Iterations/sec: 66.07024 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.04203 | LastNorm: 1.63614e-12 | Iterations/sec: 47.58387 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03229 | LastNorm: 1.62654e-12 | Iterations/sec: 61.94466 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03139 | LastNorm: 1.61935e-12 | Iterations/sec: 63.71659 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03093 | LastNorm: 1.62942e-12 | Iterations/sec: 64.66654 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03058 | LastNorm: 1.63973e-12 | Iterations/sec: 65.39601 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03067 | LastNorm: 1.65061e-12 | Iterations/sec: 65.21908 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03031 | LastNorm: 1.64696e-12 | Iterations/sec: 65.98656 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03036 | LastNorm: 1.63925e-12 | Iterations/sec: 65.86946 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03023 | LastNorm: 1.64090e-12 | Iterations/sec: 66.15048 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03006 | LastNorm: 1.63490e-12 | Iterations/sec: 66.53559 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03007 | LastNorm: 1.62865e-12 | Iterations/sec: 66.51396 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03007 | LastNorm: 1.62649e-12 | Iterations/sec: 66.50236 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03010 | LastNorm: 1.62257e-12 | Iterations/sec: 66.45389 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03007 | LastNorm: 1.63224e-12 | Iterations/sec: 66.51766 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03009 | LastNorm: 1.62306e-12 | Iterations/sec: 66.47601 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03084 | LastNorm: 1.63577e-12 | Iterations/sec: 64.84650 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03047 | LastNorm: 1.62956e-12 | Iterations/sec: 65.63188 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.03042 | LastNorm: 1.64022e-12 | Iterations/sec: 65.74196 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      2 | TTime: 0.03105 | LastNorm: 1.63455e-12 | Iterations/sec: 64.65903 | Convergence: true |
+Execution Info - Newton | Iters:      2 | TTime: 0.03313 | LastNorm: 1.67432e-12 | Iterations/sec: 60.37359 | Convergence: true |
+Execution Info - BFGSM | Iters:      2 | TTime: 0.03118 | LastNorm: 1.49231e-12 | Iterations/sec: 64.13750 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:      2 | TTime: 0.00051 | LastNorm: 1.00897e-12 | Iterations/sec: 3943.86836 | Convergence: true |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/ARGLINA_none.csv
+- csvs/results/random_historials/original/ARGLINA_none.csv
+--------------------------------------------------------------------------------

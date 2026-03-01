@@ -1,0 +1,68 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/ENGVAL2.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 3
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:     92 | TTime: 0.36307 | LastNorm: 3.33105e-13 | Iterations/sec: 253.39815 | Convergence: true |
+Execution Info - Grads  | Iters:     31 | TTime: 0.13387 | LastNorm: 9.73772e-13 | Iterations/sec: 231.57515 | Convergence: true |
+Execution Info - Random | Iters:    131 | TTime: 0.00061 | LastNorm: 3.72564e-10 | Iterations/sec: 216490.86840 | Convergence: true |
+Execution Info - Random | Iters:    175 | TTime: 0.00075 | LastNorm: 2.81742e-11 | Iterations/sec: 232426.59911 | Convergence: true |
+Execution Info - Random | Iters:    123 | TTime: 0.00049 | LastNorm: 3.95918e-12 | Iterations/sec: 250436.59806 | Convergence: true |
+Execution Info - Random | Iters:     66 | TTime: 0.00027 | LastNorm: 9.23022e-15 | Iterations/sec: 248272.70314 | Convergence: true |
+Execution Info - Random | Iters:     32 | TTime: 0.00013 | LastNorm: 1.43880e-12 | Iterations/sec: 254200.24242 | Convergence: true |
+Execution Info - Random | Iters:    221 | TTime: 0.00088 | LastNorm: 1.23318e-12 | Iterations/sec: 249984.13808 | Convergence: true |
+Execution Info - Random | Iters:     51 | TTime: 0.00020 | LastNorm: 6.96139e-13 | Iterations/sec: 257412.15884 | Convergence: true |
+Execution Info - Random | Iters:    106 | TTime: 0.00042 | LastNorm: 4.47766e-12 | Iterations/sec: 250054.11924 | Convergence: true |
+Execution Info - Random | Iters:    179 | TTime: 0.00071 | LastNorm: 1.35484e-14 | Iterations/sec: 253214.30556 | Convergence: true |
+Execution Info - Random | Iters:     68 | TTime: 0.00026 | LastNorm: 2.52412e-11 | Iterations/sec: 256717.07651 | Convergence: true |
+Execution Info - Random | Iters:    160 | TTime: 0.00064 | LastNorm: 4.44253e-10 | Iterations/sec: 251910.15015 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00009 | LastNorm: 3.44733e-09 | Iterations/sec: 261433.58266 | Convergence: true |
+Execution Info - Random | Iters:     20 | TTime: 0.00008 | LastNorm: 4.88842e-13 | Iterations/sec: 259709.22601 | Convergence: true |
+Execution Info - Random | Iters:     30 | TTime: 0.00012 | LastNorm: 8.71251e-09 | Iterations/sec: 252162.56513 | Convergence: true |
+Execution Info - Random | Iters:    150 | TTime: 0.00059 | LastNorm: 1.75275e-12 | Iterations/sec: 256062.51526 | Convergence: true |
+Execution Info - Random | Iters:     18 | TTime: 0.00007 | LastNorm: 3.84593e-16 | Iterations/sec: 261236.92734 | Convergence: true |
+Execution Info - Random | Iters:     84 | TTime: 0.00032 | LastNorm: 1.23468e-12 | Iterations/sec: 259250.57837 | Convergence: true |
+Execution Info - Random | Iters:    202 | TTime: 0.00078 | LastNorm: 4.58526e-14 | Iterations/sec: 259653.51149 | Convergence: true |
+Execution Info - Random | Iters:    163 | TTime: 0.00064 | LastNorm: 9.53241e-15 | Iterations/sec: 255482.64275 | Convergence: true |
+Execution Info - Random | Iters:     71 | TTime: 0.00028 | LastNorm: 1.77636e-14 | Iterations/sec: 254526.14017 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00009 | LastNorm: 4.98750e-13 | Iterations/sec: 264298.60822 | Convergence: true |
+Execution Info - Random | Iters:     41 | TTime: 0.00016 | LastNorm: 0.00000e+00 | Iterations/sec: 261347.20973 | Convergence: true |
+Execution Info - Random | Iters:     99 | TTime: 0.00039 | LastNorm: 4.67840e-12 | Iterations/sec: 251963.65049 | Convergence: true |
+Execution Info - Random | Iters:    103 | TTime: 0.00042 | LastNorm: 8.69537e-13 | Iterations/sec: 247005.89594 | Convergence: true |
+Execution Info - Random | Iters:     97 | TTime: 0.00038 | LastNorm: 3.84593e-16 | Iterations/sec: 253329.69365 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00008 | LastNorm: 5.79374e-12 | Iterations/sec: 259824.14159 | Convergence: true |
+Execution Info - Random | Iters:     25 | TTime: 0.00010 | LastNorm: 1.23530e-12 | Iterations/sec: 260839.80100 | Convergence: true |
+Execution Info - Random | Iters:    300 | TTime: 0.00120 | LastNorm: 8.45412e-10 | Iterations/sec: 249611.42630 | Convergence: true |
+Execution Info - Random | Iters:     31 | TTime: 0.00012 | LastNorm: 9.19162e-10 | Iterations/sec: 252472.66796 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00009 | LastNorm: 1.95032e-10 | Iterations/sec: 261433.58266 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:     95 | TTime: 0.00038 | LastNorm: 5.00604e-10 | Iterations/sec: 253425.44421 | Convergence: true |
+Newton - Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   1000 | TTime: 0.00179 | LastNorm: Inf | Iterations/sec: 557382.59136 | Convergence: false |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.01387 | LastNorm: 5.84295e+01 | Iterations/sec: 72093.09201 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00359 | LastNorm: 1.90523e+00 | Iterations/sec: 278783.91492 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/ENGVAL2_none.csv
+- csvs/results/random_historials/original/ENGVAL2_none.csv
+--------------------------------------------------------------------------------

@@ -1,0 +1,68 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/BROWNAL.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original/           
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 200
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      4 | TTime: 0.45261 | LastNorm: 9.37440e-09 | Iterations/sec: 8.83765 | Convergence: true |
+Execution Info - Grads  | Iters:      6 | TTime: 0.17994 | LastNorm: 3.65010e-09 | Iterations/sec: 33.34463 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 15.35043 | LastNorm: 1.01869e-06 | Iterations/sec: 65.14474 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.36486 | LastNorm: 1.28743e-06 | Iterations/sec: 65.08357 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.32636 | LastNorm: 1.05827e-06 | Iterations/sec: 65.24708 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.76919 | LastNorm: 1.03577e-06 | Iterations/sec: 63.41481 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.72672 | LastNorm: 1.05688e-06 | Iterations/sec: 63.58605 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.77063 | LastNorm: 1.14181e-06 | Iterations/sec: 63.40901 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.73319 | LastNorm: 8.31455e-07 | Iterations/sec: 63.55990 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.95448 | LastNorm: 1.19172e-06 | Iterations/sec: 62.67832 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 16.43701 | LastNorm: 1.19040e-06 | Iterations/sec: 60.83831 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.93502 | LastNorm: 5.89044e-07 | Iterations/sec: 62.75485 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.69487 | LastNorm: 1.18937e-06 | Iterations/sec: 63.71509 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.57958 | LastNorm: 6.63006e-07 | Iterations/sec: 64.18657 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.85089 | LastNorm: 1.42913e-06 | Iterations/sec: 63.08796 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.43067 | LastNorm: 2.92307e-07 | Iterations/sec: 64.80602 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.35942 | LastNorm: 1.11940e-06 | Iterations/sec: 65.10662 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.55672 | LastNorm: 8.77429e-07 | Iterations/sec: 64.28091 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.35473 | LastNorm: 1.07404e-06 | Iterations/sec: 65.12650 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.31112 | LastNorm: 1.05155e-06 | Iterations/sec: 65.31200 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.33448 | LastNorm: 1.32214e-06 | Iterations/sec: 65.21253 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.40531 | LastNorm: 1.14848e-06 | Iterations/sec: 64.91266 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.36152 | LastNorm: 1.09388e-06 | Iterations/sec: 65.09774 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.35191 | LastNorm: 1.52322e-06 | Iterations/sec: 65.13846 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 16.06503 | LastNorm: 1.85926e-06 | Iterations/sec: 62.24700 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 16.23615 | LastNorm: 1.12491e-06 | Iterations/sec: 61.59095 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.80799 | LastNorm: 1.67372e-06 | Iterations/sec: 63.25915 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.56604 | LastNorm: 1.11628e-06 | Iterations/sec: 64.24240 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.34238 | LastNorm: 9.02945e-07 | Iterations/sec: 65.17895 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.33535 | LastNorm: 1.28689e-06 | Iterations/sec: 65.20884 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.34023 | LastNorm: 7.60162e-07 | Iterations/sec: 65.18809 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 15.34358 | LastNorm: 8.24346e-07 | Iterations/sec: 65.17384 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 15.59986 | LastNorm: 1.09113e-06 | Iterations/sec: 64.12630 | Convergence: false |
+Newton - Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   1000 | TTime: 0.16110 | LastNorm: Inf | Iterations/sec: 6207.24541 | Convergence: false |
+Execution Info - BFGSM | Iters:   1000 | TTime: 2.29699 | LastNorm: 6.60171e-03 | Iterations/sec: 435.35237 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.65634 | LastNorm: 1.26951e-02 | Iterations/sec: 1523.60970 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/original/BROWNAL_none.csv
+- csvs/results/random_historials/original/BROWNAL_none.csv
+--------------------------------------------------------------------------------
