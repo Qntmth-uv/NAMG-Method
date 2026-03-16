@@ -51,11 +51,13 @@ function parse_commandline()
             arg_type = Float64
             default = 1.e-8
         "--modifierH"
-            help = "Hessian modifier Strategy"
+            help = "Hessian modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
+                    'remove'}"
             arg_type = String
             default = "eigen"
         "--modifierS"
-            help = "System modifier Strategy"
+            help = "System modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
+                    'remove'}"
             arg_type = String
             default = "none"
         "--seed"

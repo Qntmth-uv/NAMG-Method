@@ -60,7 +60,7 @@ function getConditionNumber(M)
     # Input:
         - M: Matrix - Hψ(B_k, g_k, V) matrix of the linear system
     
-    # Output:
+    # Outputs:
         - C: Float64 - Condition number of Hψ(B_k, g_k, V) 
         - em:Float64 - Smallest eigenvalue of M
         - eM:Float64 - Biggest eigenvalue of M
@@ -103,6 +103,10 @@ function get_modifier(mod_name)
         return modifyHessian_Eigen
     elseif mod_name == "diag"
         return diagonalModifier_Hessian
+    elseif mode_name == "sabsdiag"
+        return diagonalModifier_sabs_Hessian
+    elseif  mode_name == "maxdiag"
+        return diagonalModifier_max_Hessian
     elseif mod_name == "tridiag"
         return tridiagonalModifier_Hessian
     elseif mod_name == "remove"
