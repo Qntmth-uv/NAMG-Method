@@ -16,8 +16,7 @@ function modifyHessian_Eigen(hessianMatrix, gradient = Nothing,  epsilon::Float6
     h = Symmetric(hessianMatrix)
     #val_max = eigmax(H)
     val_min = eigmin(h)
-    #val_min < 0.0 ? H += (abs(val_min) + epsilon)*I : nothing
-    h .+= (maximum([0.0, -val_min]) + epsilon)*I
+    val_min < 0.0 ? h += (abs(val_min) + epsilon)*I : nothing
     return h
 end
 

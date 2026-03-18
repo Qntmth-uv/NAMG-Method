@@ -1,0 +1,47 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 2500                
+problem              | cutest-sif/EIGENALS.SIF
+repetitions          | 10                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 2550
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:     47 | TTime: 12.76902 | LastNorm: 6.94392e-09 | Iterations/sec: 3.68078 | Convergence: true |
+Execution Info - Grads  | Iters:     68 | TTime: 15.84715 | LastNorm: 8.10740e-09 | Iterations/sec: 4.29099 | Convergence: true |
+Execution Info - Random | Iters:   2500 | TTime: 446.71872 | LastNorm: 5.85216e-03 | Iterations/sec: 5.59636 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 434.80751 | LastNorm: 5.93892e-03 | Iterations/sec: 5.74967 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 438.81528 | LastNorm: 6.52348e-03 | Iterations/sec: 5.69716 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 425.60853 | LastNorm: 7.60080e-01 | Iterations/sec: 5.87394 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 437.24187 | LastNorm: 4.50058e-03 | Iterations/sec: 5.71766 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 421.20780 | LastNorm: 5.85866e-03 | Iterations/sec: 5.93531 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 420.71973 | LastNorm: 1.87335e+00 | Iterations/sec: 5.94220 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 416.82808 | LastNorm: 5.08413e-03 | Iterations/sec: 5.99768 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 422.72553 | LastNorm: 5.28245e-03 | Iterations/sec: 5.91400 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 426.44808 | LastNorm: 3.89974e-03 | Iterations/sec: 5.86238 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   2500 | TTime: 429.11211 | LastNorm: 2.67637e-01 | Iterations/sec: 5.82864 | Convergence: false |
+An error was found in the exectution of the Newton method: SingularException(103)
+Execution Info - BFGSM | Iters:   2500 | TTime: 1191.44227 | LastNorm: 1.64050e+03 | Iterations/sec: 2.09830 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   2500 | TTime: 11.15550 | LastNorm: 5.48866e+00 | Iterations/sec: 224.10472 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/EIGENALS_none.csv
+- csvs/results/random_historials/simplest/EIGENALS_none.csv
+--------------------------------------------------------------------------------

@@ -191,7 +191,8 @@ end
 
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
-
+    xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
+    #Variables of the TRY-CATCH
     if debug_mode
         println(">>DEBUG Mode")
 
@@ -200,7 +201,12 @@ end
         xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ, flagQueue = DEBUG_namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS, use_LS)
         xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(f, g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS, use_LS)
         M = [iterRandom, t_random, normRandom, ttpSR]
-        xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        try
+            xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        catch e
+            println("An error was found in the exectution of the Newton method: $e")
+            xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= x0, [], Inf, [], Inf, Inf, 0.0, false
+        end
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
         xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
 
@@ -295,7 +301,13 @@ end
         iterRandom, t_random, normRandom, ttpSR, flagRandom = U
         solve_most_of_problems = (flagRandom >= 0.5) ? true : false
         displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
-        xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        try
+
+            xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        catch e
+            println("An error was found in the exectution of the Newton method: $e")
+            xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = x0, Inf, Inf, Inf, 0.0, false
+        end    
         xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
         xf_SGD, iterSGD, t_sgd, normSGD, ttpSGD, flagSGD = steepestMethod(f, g, x0, tol, nIters)
 

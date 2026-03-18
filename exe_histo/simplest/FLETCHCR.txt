@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/FLETCHCR.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 1000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:     53 | TTime: 0.50237 | LastNorm: 5.64577e-09 | Iterations/sec: 105.49971 | Convergence: true |
+Execution Info - Grads  | Iters:    619 | TTime: 0.87757 | LastNorm: 9.54881e-09 | Iterations/sec: 705.35518 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 1.21074 | LastNorm: 2.95661e-01 | Iterations/sec: 825.93915 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17216 | LastNorm: 1.96594e-01 | Iterations/sec: 853.12661 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.19572 | LastNorm: 4.03819e-01 | Iterations/sec: 836.31622 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17127 | LastNorm: 4.35394e-01 | Iterations/sec: 853.77262 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15806 | LastNorm: 6.06154e-01 | Iterations/sec: 863.51075 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17680 | LastNorm: 1.72760e-01 | Iterations/sec: 849.76567 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16244 | LastNorm: 3.83284e-01 | Iterations/sec: 860.25800 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15680 | LastNorm: 1.84323e-01 | Iterations/sec: 864.45079 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17040 | LastNorm: 1.32433e-01 | Iterations/sec: 854.40812 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.21494 | LastNorm: 1.48803e-01 | Iterations/sec: 823.08667 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.25936 | LastNorm: 1.81756e-01 | Iterations/sec: 794.05167 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16672 | LastNorm: 1.54935e-01 | Iterations/sec: 857.10374 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16024 | LastNorm: 2.59406e-01 | Iterations/sec: 861.88998 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16355 | LastNorm: 1.72701e-01 | Iterations/sec: 859.44238 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15989 | LastNorm: 1.68106e-01 | Iterations/sec: 862.14846 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.21646 | LastNorm: 2.47750e-01 | Iterations/sec: 822.05745 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17618 | LastNorm: 1.64891e-01 | Iterations/sec: 850.21146 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.18173 | LastNorm: 1.38355e-01 | Iterations/sec: 846.21782 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17734 | LastNorm: 2.05997e-01 | Iterations/sec: 849.37023 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15635 | LastNorm: 1.91099e-01 | Iterations/sec: 864.78926 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.17405 | LastNorm: 1.90935e-01 | Iterations/sec: 851.75397 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16681 | LastNorm: 5.41998e-01 | Iterations/sec: 857.04122 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16056 | LastNorm: 1.69523e-01 | Iterations/sec: 861.65591 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15720 | LastNorm: 2.52084e-01 | Iterations/sec: 864.15710 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15993 | LastNorm: 1.67533e-01 | Iterations/sec: 862.11728 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16464 | LastNorm: 1.75513e-01 | Iterations/sec: 858.63306 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15620 | LastNorm: 1.91710e-01 | Iterations/sec: 864.90446 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15895 | LastNorm: 2.00256e-01 | Iterations/sec: 862.85135 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.16242 | LastNorm: 2.47723e-01 | Iterations/sec: 860.27564 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 1.15562 | LastNorm: 2.57056e-01 | Iterations/sec: 865.33485 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 1.17412 | LastNorm: 2.41285e-01 | Iterations/sec: 852.02140 | Convergence: false |
+Execution Info - Newton | Iters:    326 | TTime: 3.99748 | LastNorm: 1.42243e-13 | Iterations/sec: 81.55140 | Convergence: true |
+Execution Info - BFGSM | Iters:   1000 | TTime: 34.21866 | LastNorm: 7.35199e+00 | Iterations/sec: 29.22382 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.17158 | LastNorm: 3.84323e-01 | Iterations/sec: 5828.32019 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/FLETCHCR_none.csv
+- csvs/results/random_historials/simplest/FLETCHCR_none.csv
+--------------------------------------------------------------------------------

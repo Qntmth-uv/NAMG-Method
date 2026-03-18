@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/LOGHAIRY.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 2
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      9 | TTime: 0.41721 | LastNorm: 2.49111e-13 | Iterations/sec: 21.57212 | Convergence: true |
+Execution Info - Grads  | Iters:      9 | TTime: 0.09664 | LastNorm: 2.49111e-13 | Iterations/sec: 93.12628 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00006 | LastNorm: 2.18799e-09 | Iterations/sec: 127100.12121 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00005 | LastNorm: 2.18799e-09 | Iterations/sec: 148470.93805 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 381300.36364 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 364722.08696 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 447392.42667 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 360800.34409 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 364722.08696 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 447392.42667 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 447392.42667 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 500812.41791 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 447392.42667 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 447392.42667 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 441505.68421 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 472597.63380 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      8 | TTime: 0.00002 | LastNorm: 2.18799e-09 | Iterations/sec: 425961.35930 | Convergence: true |
+Execution Info - Newton | Iters:      8 | TTime: 0.00004 | LastNorm: 2.18799e-09 | Iterations/sec: 211034.16352 | Convergence: true |
+Execution Info - BFGSM | Iters:   1000 | TTime: 0.01469 | LastNorm: 1.73949e-03 | Iterations/sec: 68063.93717 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00084 | LastNorm: 1.42944e-03 | Iterations/sec: 1193258.60597 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/LOGHAIRY_none.csv
+- csvs/results/random_historials/simplest/LOGHAIRY_none.csv
+--------------------------------------------------------------------------------

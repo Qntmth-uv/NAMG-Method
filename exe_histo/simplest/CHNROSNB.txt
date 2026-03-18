@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/CHNROSNB.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 50
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.38963 | LastNorm: 8.35541e+00 | Iterations/sec: 2566.56994 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 0.13621 | LastNorm: 2.83928e+00 | Iterations/sec: 7341.70958 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01420 | LastNorm: 2.52629e+00 | Iterations/sec: 70421.49093 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01773 | LastNorm: 2.52517e+00 | Iterations/sec: 56392.48692 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01488 | LastNorm: 2.59416e+00 | Iterations/sec: 67221.79662 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01205 | LastNorm: 2.62046e+00 | Iterations/sec: 82953.68063 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01190 | LastNorm: 2.52628e+00 | Iterations/sec: 84025.56243 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01174 | LastNorm: 2.54565e+00 | Iterations/sec: 85151.43025 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01255 | LastNorm: 2.59420e+00 | Iterations/sec: 79674.48664 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01161 | LastNorm: 2.57929e+00 | Iterations/sec: 86125.33881 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01247 | LastNorm: 2.59857e+00 | Iterations/sec: 80212.35418 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01252 | LastNorm: 2.54729e+00 | Iterations/sec: 79879.33267 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01150 | LastNorm: 2.52427e+00 | Iterations/sec: 86919.57310 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01254 | LastNorm: 2.59348e+00 | Iterations/sec: 79719.91713 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01250 | LastNorm: 2.52273e+00 | Iterations/sec: 79975.28840 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01155 | LastNorm: 2.56998e+00 | Iterations/sec: 86573.31572 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01247 | LastNorm: 2.60492e+00 | Iterations/sec: 80218.49061 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01245 | LastNorm: 2.52649e+00 | Iterations/sec: 80307.57448 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01163 | LastNorm: 2.60186e+00 | Iterations/sec: 85948.85246 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01251 | LastNorm: 2.59135e+00 | Iterations/sec: 79967.66444 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01245 | LastNorm: 2.59755e+00 | Iterations/sec: 80333.72278 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01160 | LastNorm: 2.54710e+00 | Iterations/sec: 86185.50939 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01251 | LastNorm: 2.56963e+00 | Iterations/sec: 79967.66444 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01252 | LastNorm: 2.60079e+00 | Iterations/sec: 79865.64351 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01160 | LastNorm: 2.57570e+00 | Iterations/sec: 86206.76614 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01260 | LastNorm: 2.60227e+00 | Iterations/sec: 79377.44133 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01261 | LastNorm: 2.58851e+00 | Iterations/sec: 79320.39790 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01160 | LastNorm: 2.54929e+00 | Iterations/sec: 86185.50939 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01246 | LastNorm: 2.57662e+00 | Iterations/sec: 80282.97986 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01245 | LastNorm: 2.55930e+00 | Iterations/sec: 80346.03375 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01163 | LastNorm: 2.54700e+00 | Iterations/sec: 85969.99262 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.01265 | LastNorm: 2.52559e+00 | Iterations/sec: 79082.60271 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 0.01252 | LastNorm: 2.56773e+00 | Iterations/sec: 80493.76334 | Convergence: false |
+Execution Info - Newton | Iters:     35 | TTime: 0.00048 | LastNorm: 2.84847e-11 | Iterations/sec: 72315.58621 | Convergence: true |
+Execution Info - BFGSM | Iters:    227 | TTime: 0.01652 | LastNorm: 5.72976e-09 | Iterations/sec: 13738.52137 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00762 | LastNorm: 6.21888e+00 | Iterations/sec: 131215.51697 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/CHNROSNB_none.csv
+- csvs/results/random_historials/simplest/CHNROSNB_none.csv
+--------------------------------------------------------------------------------

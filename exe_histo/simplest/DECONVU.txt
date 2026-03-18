@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/DECONVU.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 63
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.45763 | LastNorm: 5.84728e-07 | Iterations/sec: 2185.16157 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 0.17290 | LastNorm: 4.82484e-04 | Iterations/sec: 5783.58761 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06939 | LastNorm: 1.72143e-03 | Iterations/sec: 14412.12813 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.07034 | LastNorm: 1.30297e-03 | Iterations/sec: 14216.43754 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06287 | LastNorm: 5.33368e-04 | Iterations/sec: 15905.83096 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06276 | LastNorm: 1.17395e-03 | Iterations/sec: 15932.65768 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06336 | LastNorm: 1.38221e-03 | Iterations/sec: 15783.54701 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06279 | LastNorm: 1.72096e-03 | Iterations/sec: 15927.15204 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06277 | LastNorm: 8.36772e-04 | Iterations/sec: 15931.44732 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06315 | LastNorm: 1.25794e-03 | Iterations/sec: 15835.80884 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06270 | LastNorm: 1.31211e-03 | Iterations/sec: 15949.19746 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06313 | LastNorm: 1.46785e-03 | Iterations/sec: 15841.37116 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06320 | LastNorm: 1.18124e-03 | Iterations/sec: 15822.00963 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06261 | LastNorm: 1.26721e-03 | Iterations/sec: 15971.36482 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06288 | LastNorm: 3.43460e-03 | Iterations/sec: 15903.29797 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06280 | LastNorm: 7.51596e-04 | Iterations/sec: 15923.34267 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06308 | LastNorm: 1.00876e-03 | Iterations/sec: 15854.12540 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06268 | LastNorm: 2.59400e-03 | Iterations/sec: 15953.80806 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06270 | LastNorm: 7.33104e-04 | Iterations/sec: 15949.68266 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06320 | LastNorm: 1.28708e-03 | Iterations/sec: 15823.08403 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06266 | LastNorm: 1.42740e-03 | Iterations/sec: 15958.60348 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06262 | LastNorm: 6.90260e-04 | Iterations/sec: 15969.60132 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06317 | LastNorm: 5.80409e-04 | Iterations/sec: 15831.02717 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06423 | LastNorm: 1.75137e-03 | Iterations/sec: 15567.84364 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06985 | LastNorm: 1.75073e-03 | Iterations/sec: 14317.03412 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06358 | LastNorm: 2.43091e-03 | Iterations/sec: 15728.44339 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06297 | LastNorm: 6.39020e-04 | Iterations/sec: 15880.83798 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06320 | LastNorm: 1.21332e-03 | Iterations/sec: 15823.02434 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06305 | LastNorm: 1.41788e-03 | Iterations/sec: 15859.22086 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06259 | LastNorm: 7.34568e-04 | Iterations/sec: 15976.47507 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06362 | LastNorm: 6.05340e-04 | Iterations/sec: 15718.83538 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.06345 | LastNorm: 3.70557e-04 | Iterations/sec: 15759.23261 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 0.06371 | LastNorm: 1.28596e-03 | Iterations/sec: 15710.88243 | Convergence: false |
+An error was found in the exectution of the Newton method: SingularException(12)
+Execution Info - BFGSM | Iters:    271 | TTime: 0.51328 | LastNorm: 8.96914e-09 | Iterations/sec: 527.97579 | Convergence: true |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.01183 | LastNorm: 2.27355e-03 | Iterations/sec: 84559.17100 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/DECONVU_none.csv
+- csvs/results/random_historials/simplest/DECONVU_none.csv
+--------------------------------------------------------------------------------

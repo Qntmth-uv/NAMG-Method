@@ -1,0 +1,47 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 5000                
+problem              | cutest-sif/GENHUMPS.SIF
+repetitions          | 10                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 5000
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   5000 | TTime: 183.43719 | LastNorm: 4.29973e+03 | Iterations/sec: 27.25729 | Convergence: false |
+Execution Info - Grads  | Iters:   5000 | TTime: 185.98380 | LastNorm: 4.35932e+03 | Iterations/sec: 26.88406 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 190.60313 | LastNorm: 6.09849e+03 | Iterations/sec: 26.23252 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 185.25650 | LastNorm: 4.49487e+03 | Iterations/sec: 26.98961 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 183.79039 | LastNorm: 5.07414e+03 | Iterations/sec: 27.20490 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 185.26592 | LastNorm: 6.47095e+03 | Iterations/sec: 26.98823 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 183.68850 | LastNorm: 6.09889e+03 | Iterations/sec: 27.21999 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 184.83839 | LastNorm: 6.15775e+03 | Iterations/sec: 27.05066 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 183.42235 | LastNorm: 7.19967e+03 | Iterations/sec: 27.25949 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 185.68284 | LastNorm: 6.34288e+03 | Iterations/sec: 26.92764 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 184.62822 | LastNorm: 6.10118e+03 | Iterations/sec: 27.08145 | Convergence: false |
+Execution Info - Random | Iters:   5000 | TTime: 184.14904 | LastNorm: 4.49323e+03 | Iterations/sec: 27.15192 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   5000 | TTime: 185.13253 | LastNorm: 5.85321e+03 | Iterations/sec: 27.01064 | Convergence: false |
+Execution Info - Newton | Iters:   5000 | TTime: 3239.88266 | LastNorm: 1.74834e+11 | Iterations/sec: 1.54327 | Convergence: false |
+Execution Info - BFGSM | Iters:   5000 | TTime: 17061.67547 | LastNorm: 6.02094e+03 | Iterations/sec: 0.29305 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   5000 | TTime: 3.93085 | LastNorm: 1.65835e-01 | Iterations/sec: 1271.98951 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/GENHUMPS_none.csv
+- csvs/results/random_historials/simplest/GENHUMPS_none.csv
+--------------------------------------------------------------------------------

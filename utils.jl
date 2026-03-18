@@ -103,9 +103,9 @@ function get_modifier(mod_name)
         return modifyHessian_Eigen
     elseif mod_name == "diag"
         return diagonalModifier_Hessian
-    elseif mode_name == "sabsdiag"
+    elseif mod_name == "sabsdiag"
         return diagonalModifier_sabs_Hessian
-    elseif  mode_name == "maxdiag"
+    elseif  mod_name == "maxdiag"
         return diagonalModifier_max_Hessian
     elseif mod_name == "tridiag"
         return tridiagonalModifier_Hessian

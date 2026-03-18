@@ -1,0 +1,48 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 2500                
+problem              | cutest-sif/EIGENBLS.SIF
+repetitions          | 10                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 2550
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   2500 | TTime: 399.64992 | LastNorm: 7.13854e-08 | Iterations/sec: 6.25547 | Convergence: false |
+Execution Info - Grads  | Iters:   2500 | TTime: 408.36906 | LastNorm: 1.19072e-01 | Iterations/sec: 6.12191 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 407.48324 | LastNorm: 2.11339e-01 | Iterations/sec: 6.13522 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 404.05445 | LastNorm: 2.09767e-01 | Iterations/sec: 6.18728 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 406.17804 | LastNorm: 2.14109e-01 | Iterations/sec: 6.15494 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 409.02371 | LastNorm: 2.11105e-01 | Iterations/sec: 6.11212 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 408.86292 | LastNorm: 2.06003e-01 | Iterations/sec: 6.11452 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 409.13094 | LastNorm: 2.10704e-01 | Iterations/sec: 6.11051 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 409.16809 | LastNorm: 2.10582e-01 | Iterations/sec: 6.10996 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 410.07849 | LastNorm: 2.10779e-01 | Iterations/sec: 6.09639 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 408.18623 | LastNorm: 2.12037e-01 | Iterations/sec: 6.12466 | Convergence: false |
+Execution Info - Random | Iters:   2500 | TTime: 413.25094 | LastNorm: 2.10727e-01 | Iterations/sec: 6.04959 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   2500 | TTime: 408.54171 | LastNorm: 2.10715e-01 | Iterations/sec: 6.11952 | Convergence: false |
+Newton - Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   2500 | TTime: 29.75689 | LastNorm: Inf | Iterations/sec: 84.01416 | Convergence: false |
+Execution Info - BFGSM | Iters:   2500 | TTime: 1176.58588 | LastNorm: 3.73095e+01 | Iterations/sec: 2.12479 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   2500 | TTime: 7.26409 | LastNorm: 9.40928e-01 | Iterations/sec: 344.15882 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/EIGENBLS_none.csv
+- csvs/results/random_historials/simplest/EIGENBLS_none.csv
+--------------------------------------------------------------------------------

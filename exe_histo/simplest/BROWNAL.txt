@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+displaysG            | false               
+epsilon              | 1.0e-8              
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | cutest-sif/BROWNAL.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+----------------------------------------
+Dimension of the problem: 200
+Random Vectors being used: 2
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      4 | TTime: 0.43662 | LastNorm: 4.87266e-09 | Iterations/sec: 9.16137 | Convergence: true |
+Execution Info - Grads  | Iters:      6 | TTime: 0.17577 | LastNorm: 1.61779e-09 | Iterations/sec: 34.13495 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 14.57517 | LastNorm: 1.02074e-06 | Iterations/sec: 68.60984 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.57226 | LastNorm: 1.29024e-06 | Iterations/sec: 68.62353 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.63539 | LastNorm: 1.05184e-06 | Iterations/sec: 68.32752 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.57254 | LastNorm: 1.03639e-06 | Iterations/sec: 68.62222 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.61589 | LastNorm: 1.05696e-06 | Iterations/sec: 68.41867 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.53746 | LastNorm: 1.14577e-06 | Iterations/sec: 68.78782 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.55691 | LastNorm: 8.35000e-07 | Iterations/sec: 68.69591 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.52874 | LastNorm: 1.19378e-06 | Iterations/sec: 68.82908 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.50636 | LastNorm: 1.19334e-06 | Iterations/sec: 68.93530 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.50601 | LastNorm: 5.88981e-07 | Iterations/sec: 68.93694 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.54508 | LastNorm: 1.19430e-06 | Iterations/sec: 68.75178 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.57383 | LastNorm: 6.60979e-07 | Iterations/sec: 68.61613 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.50352 | LastNorm: 1.43402e-06 | Iterations/sec: 68.94876 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.51365 | LastNorm: 2.92732e-07 | Iterations/sec: 68.90068 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.54125 | LastNorm: 1.11755e-06 | Iterations/sec: 68.76986 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.63464 | LastNorm: 8.77054e-07 | Iterations/sec: 68.33103 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.56309 | LastNorm: 1.07480e-06 | Iterations/sec: 68.66673 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.49899 | LastNorm: 1.05360e-06 | Iterations/sec: 68.97031 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.46255 | LastNorm: 1.32057e-06 | Iterations/sec: 69.14409 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.85285 | LastNorm: 1.14884e-06 | Iterations/sec: 67.32716 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.46676 | LastNorm: 1.09244e-06 | Iterations/sec: 69.12398 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.46567 | LastNorm: 1.51383e-06 | Iterations/sec: 69.12918 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.47231 | LastNorm: 1.85775e-06 | Iterations/sec: 69.09746 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.60038 | LastNorm: 1.12650e-06 | Iterations/sec: 68.49135 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.52697 | LastNorm: 1.66435e-06 | Iterations/sec: 68.83748 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.46164 | LastNorm: 1.11818e-06 | Iterations/sec: 69.14846 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.46730 | LastNorm: 8.99508e-07 | Iterations/sec: 69.12138 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.52756 | LastNorm: 1.28893e-06 | Iterations/sec: 68.83470 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.45833 | LastNorm: 7.55245e-07 | Iterations/sec: 69.16429 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 14.45749 | LastNorm: 8.27608e-07 | Iterations/sec: 69.16831 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 14.54002 | LastNorm: 1.09106e-06 | Iterations/sec: 68.77767 | Convergence: false |
+Execution Info - Newton | Iters:     15 | TTime: 0.28634 | LastNorm: 7.98305e-09 | Iterations/sec: 52.38602 | Convergence: true |
+Execution Info - BFGSM | Iters:   1000 | TTime: 2.31822 | LastNorm: 6.60171e-03 | Iterations/sec: 431.36453 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.65453 | LastNorm: 1.26951e-02 | Iterations/sec: 1527.80483 | Convergence: false |
+--------------------------------------------------------------------------------
+Files writed: 
+- csvs/results/simplest/BROWNAL_none.csv
+- csvs/results/random_historials/simplest/BROWNAL_none.csv
+--------------------------------------------------------------------------------
