@@ -1,11 +1,15 @@
 using DataFrames
 using LinearAlgebra
 using CSV
+using Printf
+
+include("hessian_mod.jl")
 
 function getIterationSpeed(numberOfIters, time::Float64)
     """Compute the avrg iteration speed."""
     return numberOfIters/time
 end
+
 
 
 function createCSV(arrayofHistorials, CSV_fileName::String, headers )

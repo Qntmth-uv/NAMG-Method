@@ -96,7 +96,7 @@ function parse_commandline()
 end
 
 
-  function main()
+function main()
 
     #Load the arguments
     parsed_args = parse_commandline()
@@ -191,8 +191,10 @@ end
 
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
-    xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
+
     #Variables of the TRY-CATCH
+    xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
+
     if debug_mode
         println(">>DEBUG Mode")
 
@@ -302,7 +304,6 @@ end
         solve_most_of_problems = (flagRandom >= 0.5) ? true : false
         displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
         try
-
             xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         catch e
             println("An error was found in the exectution of the Newton method: $e")
