@@ -2,6 +2,19 @@ using ArgParse
 using Random
 using Distributions
 using CUTEst
+"""
+Execution examples
+
+#https://www.sfu.ca/~ssurjano/beale.html
+julia robust_main.jl --problem cutest-sif/BEALE.SIF --LB -4.5 --UB 4.5 
+
+# https://www.sfu.ca/~ssurjano/hart6.html
+julia robust_main.jl --problem cutest-sif/HEART6LS.SIF --LB 0.0 --UB 1
+
+# https://www.sfu.ca/~ssurjano/rosen.html
+julia robust_main.jl --problem cutest-sif/ROSENBR.SIF --LB -5.0 --UB 10.0
+"""
+
 
 include("utils.jl")
 include("NAMGM_methods.jl")
@@ -118,7 +131,6 @@ function main()
     #Variables where store the results of the current iteration.
     U = Any[0, 0.0, 0.0, 0.0, 0.0]
     M = vcat(fill(U', repetitions)...)
-    iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = nothing, nothing, nothing, nothing, nothing
     solve_most_of_problems = nothing
     for i in (1:repetitions)
         # Muestrear N elementos
@@ -143,8 +155,9 @@ function main()
     displayResults("Oviedo Mean ($repetitions repetitions)",
                     iterOviedo, t_oviedo, normOviedo, ttpSO, solve_most_of_problems)
 
-    #Finalize the CUTEst model 
+    #Finalize the model
     finalize(nlp_problem)
+
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__

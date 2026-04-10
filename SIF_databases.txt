@@ -1,0 +1,5 @@
+# Database of SIF problems (OLD, Last update 2013)
+https://github.com/lpoo/cutest-sif
+
+# Databases of SIF files (New, Last update 2025)
+https://bitbucket.org/optrove/workspace/repositories/

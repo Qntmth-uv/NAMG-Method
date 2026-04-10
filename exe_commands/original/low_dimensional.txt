@@ -38,7 +38,6 @@ julia --project=venv_NAMGM main.jl  --problem cutest-sif/PALMER5C.SIF --seed 42 
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/PALMER6C.SIF --seed 42 --show_info --saveinfo > exe_histo/original/PALMER6C.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/PALMER7C.SIF --seed 42 --show_info --saveinfo > exe_histo/original/PALMER7C.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/PALMER8C.SIF --seed 42 --show_info --saveinfo > exe_histo/original/PALMER8C.txt
-julia --project=venv_NAMGM main.jl  --problem cutest-sif/POWELLSQ.SIF --seed 42 --show_info --saveinfo > exe_histo/original/POWELLSQ.txt 
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/ROSENBR.SIF  --seed 42 --show_info --saveinfo > exe_histo/original/ROSENBR.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/SINEVAL.SIF  --seed 42 --show_info --saveinfo > exe_histo/original/SINEVAL.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/SISSER.SIF --seed 42 --show_info --saveinfo > exe_histo/original/SISSER.txt
