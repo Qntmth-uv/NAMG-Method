@@ -131,12 +131,22 @@ function main()
     #If it is using LS, then change the save directory
     use_LS || subdirectory == "addedLS" ? subdirectory = "addedLS" : nothing
 
+    #Images paths formatting
     if image_name == "default"
         images_path = "images/"
-        historiaName = joinpath(images_path, "historials_grads", subdirectory, name*"_"*modS*".png")
-        pathName = joinpath(images_path, "paths", name*"_"*modS*"_path.svg")
-        cnName = joinpath(images_path, "condition_analysis", name*"_"*modS*".png")
+        
+        #Paths of folders. In such directory will be created folders
+        path_image_historial = joinpath(images_path, "historials_grads", subdirectory) 
+        path_image_path = joinpath(images_path, "paths", subdirectory) 
+        path_image_conditionEvo = joinpath(images_path, "condition_analysis", subdirectory)  
+
+        #Images names to write
+        image_historial = joinpath(path_image_historial, name*"_"*modH*".svg")
+        image_path = joinpath(path_image_path, name*"_"*modH*"_path.svg") 
+        image_conditionEvolution = joinpath(path_image_conditionEvo, name*"_"*modH*"CN_Evolution.png") 
     end
+
+    #Files path formatting
     if file_name == "default"
         #Paths where to save the results
         path_results = joinpath("csvs/results", subdirectory)
@@ -144,16 +154,24 @@ function main()
         path_results_randoms = joinpath("csvs/results/random_historials", subdirectory)
 
         #Files to be write
-        file_name_results = joinpath(path_results, name*"_"*modS*".csv")
-        file_name_historials = joinpath(path_historials, name*"_"*modS*".csv")
-        file_name_results_historials = joinpath(path_results_randoms, name*"_"*modS*".csv")
+        file_name_results = joinpath(path_results, name*"_"*modH*".csv")
+        file_name_historials = joinpath(path_historials, name*"_"*modH*".csv")
+        file_name_results_historials = joinpath(path_results_randoms, name*"_"*modH*".csv")
     else
         file_name_results = file_name
     end
 
     #Creation of the results directory, if there is not such path
     if saveinfo
+        #Get the current working directory
         workdirectory = pwd()
+
+        #Create directory in case it does not exists (Images)
+        mkpath(joinpath(workdirectory, path_image_historial))
+        mkpath(joinpath(workdirectory, path_image_path))
+        mkpath(joinpath(workdirectory, path_image_conditionEvo))
+
+        #Create directory in case it does not exist (FILES)
         mkpath(joinpath(workdirectory, path_results)) #Place where to save the results
         mkpath(joinpath(workdirectory, path_historials)) #Place where to save the historials of the Gradients
         mkpath(joinpath(workdirectory, path_results_randoms)) #Place where to save the historials of general results of the randoms executions
@@ -177,7 +195,7 @@ function main()
     #Get the CUTEST functions    
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
     
-    # Initialize random vector of same dimension
+    #Initialize random vector of same dimension
     n = length(initial_point)
     println("Dimension of the problem: ", n)
     x0 = initial_point
@@ -189,6 +207,7 @@ function main()
 
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
+    headers_methods = ["Oviedo", "Gradient Queue", "Random", "Newton", "BFGS", "GDLS"]
 
     #Variables in a TRY-CATCH
     xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
@@ -215,7 +234,7 @@ function main()
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
         Hc = [CN_O, CN_Q, CN_R]
 
-
+        #If the last value is zero convert it into 0.0 
         for i in 1:length(H)
             if H[i][end] == 0.0 || isnan(H[i][end])
                 H[i][end] = 0.0
@@ -223,7 +242,7 @@ function main()
         end
 
         #It should save the data?
-        saveinfo ? createCSV(H, file_name_historials, headers) : nothing
+        saveinfo ? createCSV(H, file_name_historials, headers_methods) : nothing
 
         #Variables to plot the results
         problems_labels = ["Ovideo", "Queue", "RD", "Newton", "BFGS", "SGD"]
@@ -233,19 +252,16 @@ function main()
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
-        gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, hitorialName)
-        conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, cnName)
+        gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, image_historial)
+        conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, image_conditionEvolution)
         
         #Save the images if it's required
-        saveinfo ? savefig(gradplot, hitorialName) : nothing 
-        saveinfo ? savefig(conditionplt, ccName) : nothing 
+        saveinfo ? savefig(gradplot, image_historial) : nothing 
+        saveinfo ? savefig(conditionplt, image_conditionEvolution) : nothing 
 
-        #Display the Plots
-        show_plots ? display(gradplot) : nothing
-        show_plots ? display(conditionplt) : nothing
+        #If the function is bidimensional and we are saving the information, then we construct the plot of the followed path
+        if (n === 2) && (saveinfo)
 
-        #If the function is bidimensioal, then plot the sequence path
-        if n === 2
             #Transformation of trajectories
             raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd]
 
@@ -268,7 +284,7 @@ function main()
             end
 
             #Unpack the trajectories 
-            xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs = matrices_procesadas
+            xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = matrices_procesadas
 
             #Visual path of the algorithms
             ax = plot_optimization_path(f, xP_oviedo, levels=20, label="Oviedo", g_xlims=g_xlims, g_ylims=g_ylims, function_name=name)
@@ -281,10 +297,7 @@ function main()
             add_optimization_path!(ax, xP_sgd, label="SGD", color=:salmon, linestyle=:solid)
 
             #Save the plot
-            saveinfo ? savefig(ax, pathName) : nothing
-            
-            #Display plot
-            show_plots ? display(ax) : nothing
+            savefig(ax, image_path)
 
         end
     else
@@ -333,7 +346,7 @@ function main()
     #Write the CSV file
     if saveinfo
         CSV.write(file_name_results, df)
-        CSV.write(file_name_results_historials, random_df)
+        !debug_mode ? CSV.write(file_name_results_historials, random_df) : nothing        
     end
 
     #Print the information of the written files
@@ -344,8 +357,8 @@ function main()
         println("- ",file_name_results_historials)
         if debug_mode
             println("- ", file_name_historials)
-            println("Images saved: \n", "- "*hitorialName, "\n- "*cnName)
-            n==2 ? println("- ", pathName) : nothing
+            println("Images saved: \n", "- "*image_historial, "\n- "*image_conditionEvolution)
+            n==2 ? println("- ", image_path) : nothing
         end
     else
         println("Not saveinfo flag was used, therefore any report has been saved.")

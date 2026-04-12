@@ -1,11 +1,10 @@
 """
-This is the same script that the NAMGM methods
-only that this file contains other measurements needed
-for the analysis. For example, this methods measure 
-the condition number of the NAMGM system, the used
-paths of the methods for low dimensions (bidimensional),
-the gradient historial, and other standard measurements
-like solution, number of iterations, executation time
+
+This is the same script that the NAMGM methods only that this file contains other measurements needed
+for the analysis. For example, this methods measure the condition number of the NAMGM system, the used
+paths of the methods for low dimensions (bidimensional), the gradient historial, and other standard 
+measurements like solution, number of iterations, execution time and convergence flag.
+
 """
 
 using LinearAlgebra
@@ -24,18 +23,21 @@ using Printf
 include("utils.jl")
 
 function DEBUG_namgmSolver(Bk, gk, list_of_vectors, modifier::Function)
-    """Suponemos que el primer vector en la lista es necesariamente el vector del gradiente
-    
+    """
+    # Function description
+    Function to solve the linear system of equations to obtain the corresponding 
+    coefficients in the linear combination. It is supposed that the first vector
+    in the array is the gradient vector ∇f(x).
     # Input
         - Bk: Matrix - Approximation of the hessian matrix.
         - gk: Vector - Gradient in the current iteration
         - lk: Array  - List of vectors to solve the system
         - modifier: Callable - Modifier of the System (to reduce the CN).
     # Output:
-        - C:  Vector  - Constans of the linear combination of the vectors
+        - C:  Vector  - Constants of the linear combination of the vectors
         -CN: Float64  - Condition number of the system
     """
-    #Change the type of variable type of all cases to standarize the types
+    #Change the type of variable type of all cases to standardize the types
     list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
     gk = vec(Array(gk)) 
 
@@ -43,7 +45,7 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors, modifier::Function)
     n_rows = length(list_of_vectors)
     matrix = zeros(Float64, n_rows, n_rows)
 
-    #Precompute the right part of the matrix coeficients and the vector b
+    #Precompute the right part of the matrix coefficients and the vector b
     V = [Bk * v for v in list_of_vectors]
     
     #Construct the matrix system
@@ -65,8 +67,8 @@ function DEBUG_namgmSolver(Bk, gk, list_of_vectors, modifier::Function)
     val_min = eigmin(matrix)
     cn = abs(val_max/val_min)
 
+    #Try-Catch initialization variable
     C=nothing
-    #display(matrix)
     try
         C = matrix \ b
     catch
@@ -80,16 +82,16 @@ end
 function DEBUG_namgmOviedo(fx::Function, gradient::Function, Hessian::Function, x0:: Vector,
                            tolerance:: Float64, maxIters:: Int, hessian_mod::Function,
                            epsilon::Float64, sys_mod::Function, addLS::Bool = false)
-    """NAMGM Using the Ovideo Directive. 
+    """NAMGM - Using the Ovideo Directive. 
     # Input:
         -    fx   : Callable - Function 
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix.
-        -   addLS :   Bool   - Add line search (standar backtracking, default: false)
+        -   addLS :   Bool   - Add line search (standard backtracking, default: false)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -127,24 +129,24 @@ function DEBUG_namgmOviedo(fx::Function, gradient::Function, Hessian::Function, 
         h = Matrix(Hessian(x_old))
         h = hessian_mod(h, g_old, epsilon)
  
-        #Compute the coeficients
+        #Compute the coefficients
         V = [g_old, sk, yk]
         C, cn = DEBUG_namgmSolver(h, g_old, V, sys_mod)
 
-        #Update the squence and the set of vectors
+        #Update the sequence and the set of vectors
         v = -sum(V .* C)
 
-        #Add the coeficient using line search
+        #Add the coefficient using line search
         fxk = fx(x_old)
         addLS ? alpha = backtrackWWC(fx, x_old, v, g_old, fxk) : alpha=1;
         x_new = x_old + alpha*v
         g_new = gradient(x_new)
 
-        #Update the mometum and curvature variables
+        #Update the momentum and curvature variables
         sk = x_new - x_old
         yk = g_new - g_old
 
-        #Reasing the variables
+        #Reassign the variables
         g_old = g_new
         x_old = x_new
         k+= 1
@@ -182,17 +184,17 @@ end
 function DEBUG_namgmGrads(fx::Function, gradient::Function, Hessian::Function, x0:: Vector, 
                           tolerance:: Float64, maxIters:: Int, queue_size:: Int, 
                           hessian_mod::Function, epsilon::Float64, sys_mod::Function, addLS::Bool = false)
-    """NAMGM Using the Gradient queue directive. 
+    """NAMGM - Using the Gradient queue directive. 
     # Input:
-        -    fx   : Callable - Functiono
+        -    fx   : Callable - Objective function.
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         - que_size:    Int   - Maximum number of elements in the queue (set of vectors).
         -hessian_mod: Call   - Modifier of the hessian matrix.
-        -   addLS :   Bool   - Add line search (standar backtracking, default: false)
+        -   addLS :   Bool   - Add line search (standard backtracking, default: false)
     # Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -282,16 +284,16 @@ end
 function DEBUG_namgmRandomVectors(fx::Function, gradient::Function, Hessian::Function, x0:: Vector, 
                                   tolerance:: Float64, maxIters:: Int, randomSize:: Int, 
                                   hessian_mod::Function, epsilon::Float64, sys_mod::Function, addLS::Bool = false)
-    """NAMGM Using the Random Vectors directive. 
+    """NAMGM - Using the Random Vectors directive. 
     #Input
         -    fx   : Callable - Function.
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         -randomSize:  Int.   - Number of random elements to take
         -hessian_mod: Call   - Modifier of the hessian matrix
-        -   addLS :   Bool   - Add line search (standar backtracking)
+        -   addLS :   Bool   - Add line search (standard backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -317,7 +319,7 @@ function DEBUG_namgmRandomVectors(fx::Function, gradient::Function, Hessian::Fun
     x_path = []
     dim = length(x)
 
-    #If the dimension of the objetive function is 2 then we save the path
+    #If the dimension of the objective function is 2 then we save the path
     dim == 2 ? push!(x_path, x) : nothing
 
     #Optimization process
@@ -338,13 +340,13 @@ function DEBUG_namgmRandomVectors(fx::Function, gradient::Function, Hessian::Fun
         h = Matrix(Hessian(x))
         h = hessian_mod(h, gk, epsilon)
   
-        #Collect the currect elements in the queue to solve the optimization problem
+        #Collect the correct elements in the queue to solve the optimization problem
         C, cn = DEBUG_namgmSolver(h, gk, V, sys_mod)
 
-        #Update the squence and the set of vectors
+        #Update the sequence and the set of vectors
         v = -sum(V .* C)
         
-        #Add the coeficient using line search
+        #Add the coefficient using line search
         fxk = fx(x)
         addLS ? alpha = backtrackWWC(fx, x, v, gk, fxk) : alpha=1;
         x = x + alpha*v
@@ -389,16 +391,16 @@ function DEBUG_newtonMethod(fx::Function, gradient::Function, hessian::Function,
                             tolerance::Float64, maxIters:: Int, hessian_mod, epsilon::Float64, addLS::Bool = false)
     """
     Newton's method with applicable modifier in the Hessian matrix
-    (This is not the same as the BFGS method, such method use a unique modifer)
+    (This is not the same as the BFGS method, such method use a unique modifier)
     # Input:
         -    fx   : Callable - Function.
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix.
-        -   addLS :   Bool   - Add line search (standar backtracking)
+        -   addLS :   Bool   - Add line search (standard backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -432,11 +434,11 @@ function DEBUG_newtonMethod(fx::Function, gradient::Function, hessian::Function,
         #Calculate the search direction and update the sequence point
         s = -h\gk
 
-        #Add the coeficient using line search
+        #Add the coefficient using line search
         fxk = fx(x)
         addLS ? alpha = backtrackWWC(fx, x, s, gk, fxk) : alpha=1;
         
-        #Uptdate the variables
+        #Update the variables
         x = x + alpha*s
         gk = gradient(x)
         gnorm = norm(gk) 
@@ -475,15 +477,15 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
                         tolerance::Float64, maxIters:: Int, show_info::Bool = false, addLS::Bool = true)
     """
     Implementation of the BFGS method, inspired in the implementation of Nocedal and Stephen Wright.
-    It uses line search (standar backtaking).
+    It uses line search (standard backtracking).
     # Input:
         -    fx   : Callable - Function
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
-        -   addLS :   Bool   - Add line search (standar backtracking, default: true)
+        -   addLS :   Bool   - Add line search (standard backtracking, default: true)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -573,7 +575,7 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
 end
 
 function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
-    """Gradient descent method that uses line-search Strategys.
+    """Gradient descent method that uses line-search strategy.
     
     #Input:
         -    fx   : Callable - Function
@@ -605,12 +607,12 @@ function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tole
     gradient_his = []
     x_path = []
     dim = length(x0)
-    dim == 2 ? push!(x_path, x_old) : nothing
+    dim == 2 ? push!(x_path, x) : nothing
 
     #Optimization process
     while (k < maxIters && gnorm >= tolerance) 
 
-        #Compute the right steepsize
+        #Compute the right steep size
         actualfxk = fx(x)
         alpha = backtrackWWC(fx, x, -gk, gk, actualfxk)
 
@@ -630,7 +632,7 @@ function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tole
 
         #Push the new results in the historial
         push!(gradient_his, gnorm)
-        dim == 2 ? push!(x_path, x_old) : nothing
+        dim == 2 ? push!(x_path, x) : nothing
     end
 
     #Finalization of the method
@@ -638,12 +640,10 @@ function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tole
     ttime = end_time-start_time
     ittpSec = getIterationSpeed(k, ttime)
 
-    #Verification of convergence
-    if (gnorm <= tolerance) && (k <= maxIters)
-        archived_convergence_flag = true 
-    end
+    #Verification of convergence    
+    archived_convergence_flag = (gnorm <= tolerance) && (k <= maxIters) ? true : false
 
-    #Print report of the executation
+    #Print report of the execution
     displayResults("Gradient descent with LS", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x, gradient_his, ttime, x_path, k, gnorm, ittpSec, archived_convergence_flag  
 end

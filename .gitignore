@@ -4,3 +4,13 @@ cutest-sif/*
 
 #workspace configurations
 .vscode/*
+
+#Not important files
+#-------------------- IMAGES --------------------#
+images/condition_analysis/test/*
+images/historials_grads/test/*
+images/paths/test/*
+
+#--------------------FILES --------------------#
+csvs/historials/test/*
+csvs/results/test/*
