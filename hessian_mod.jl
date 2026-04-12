@@ -11,7 +11,7 @@ function modifyHessian_Eigen(hessianMatrix, gradient = Nothing,  epsilon::Float6
         - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
 
     # Output:
-        -h: Diagonal - The main diagonal of the approximation of the hesssian.        
+        - h: Diagonal - The main diagonal of the approximation of the Hesssian.        
     """
     h = Symmetric(hessianMatrix)
     #val_max = eigmax(H)
@@ -21,7 +21,7 @@ function modifyHessian_Eigen(hessianMatrix, gradient = Nothing,  epsilon::Float6
 end
 
 function notModifierHessian(hessianMatrix::Matrix, gradient = Nothing, epsilon::Float64 = 1e-12)
-    """As its name suggest, this does not realice any transformation to the hessian.
+    """As its name suggest, this does not realize any transformation to the hessian.
     The code name in get_modifier is 'none'"""
     return Symmetric(hessianMatrix)
 end
@@ -38,7 +38,7 @@ function diagonalModifier_Hessian(hessianMatrix::Matrix, gradient = Nothing, eps
         - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
 
     # Output:
-        -h: Diagonal - The main diagonal of the approximation of the hesssian.        
+        -h: Diagonal - The main diagonal of the approximation of the Hesssian.        
     
     # Remark:
         This is not a good choice because it doubles the condition number of the resulting approximation.
@@ -49,7 +49,7 @@ function diagonalModifier_Hessian(hessianMatrix::Matrix, gradient = Nothing, eps
 end
 
 function diagonalModifier_sabs_Hessian(hessianMatrix::Matrix, gradient = Nothing, epsilon::Float64 = 1e-12)
-    """Function that gets the main diagonal of the Hessian Matrix take the absolut value
+    """Function that gets the main diagonal of the Hessian Matrix take the absolute value
     and sum an epsilon- if it's stated. This is the implementation of the Example 4.3.5 of 
     my masters thesis. The code name in get_modifier is 'sabsdiag'.
     
@@ -59,10 +59,10 @@ function diagonalModifier_sabs_Hessian(hessianMatrix::Matrix, gradient = Nothing
         - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
 
     # Output:
-        -h: Diaognal - The main diagonal of the approximation of the hesssian.       
+        -h: Diagonal - The main diagonal of the approximation of the Hesssian.       
     
     # Remark:
-        Sabs comes from 'Squared Absolute Value'.
+        'Sabs'-Comes from 'Squared Absolute Value'.
     """
     d = Diagonal(sqrt.(abs.(diag(hessianMatrix)))) + epsilon*I 
     return Symmetric(d)
@@ -79,13 +79,13 @@ function diagonalModifier_max_Hessian(hessianMatrix::Matrix, gradient = Nothing,
         - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
 
     # Output:
-        -h: Diaognal - The main diagonal of the approximation of the hesssian.       
+        -h: Diagonal - The main diagonal of the approximation of the Hesssian.       
     
     # Remark:
         In some sense this approximation is the analogue of the modifyHessian Routine just that for
         diagonal matrices.
     """
-    #Compute the minimial eigenvalue
+    #Compute the minimal eigenvalue
     val_min = eigmin(Symmetric(hessianMatrix))
     
     #Construct the lambda value
@@ -101,15 +101,15 @@ end
 
 function tridiagonalModifier_Hessian(hessianMatrix::Matrix, gradient = Nothing, epsilon::Float64 = 1e-12)
     """Function that gets the main diagonal of the Hessian Matrix plus an epsilon- if it's
-    needed. The code name in get_modifier is 'tridiag'.
+    needed. The code name in get_modifier is 'tridiagonal'.
     
     # Inputs:
         - hessianMatrix: Symmetric - Approximation of the hessian matrix
         - gradient:  Vector/Array  - Gradient of the function in the present iteration
         - epsilon:       Float64   - A small real number to prevent the hessian to be the 0 matrix.
 
-    # Outpu:
-        -h: Tridiaognal - The tridiagonal of the approximation of the hesssian.        
+    # Output:
+        -h: tridiagonal - The tridiagonal of the approximation of the Hesssian.        
         """
     h = Tridiagonal(hessianMatrix) + epsilon*I
     return Symmetric(h)
@@ -124,7 +124,7 @@ function removeConvergenceModifier(hessian, gradient = nothing, epsilon::Float64
     # Inputs: 
         - Hessian: Matrix - Hessian on an iteration
         - gradient:  Vector/Array  - Gradient of the function in the present iteration
-        - Epsion: Float64 - Small value to shift the matrix if it's needed
+        - Epsilon: Float64 - Small value to shift the matrix if it's needed
     
     # Output:
         - Bk: Matrix - Approximation of a hessian matrix making it a bad choice for the method

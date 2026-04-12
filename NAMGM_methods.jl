@@ -1,4 +1,3 @@
-# Converted from julia_notebook.ipynb
 using LinearAlgebra
 using Random
 using Distributions
@@ -14,7 +13,7 @@ using Arpack
 include("utils.jl")
 
 function namgmSolver(Bk, gk, list_of_vectors)
-    """Function to solve the optimizaiton problem to find the factors in the linear combinatation
+    """Function to solve the optimization problem to find the factors in the linear combination
     of the given vectors (list_of_vectors). This method does not allow the modification of Hessian
     of the matrix. The DEBUG mode allows it, and other type of modification like BFGS should be implemented
     in other function and file.
@@ -25,9 +24,9 @@ function namgmSolver(Bk, gk, list_of_vectors)
         - lk: Array  - List of vectors to solve the system
 
     # Output:
-        - C: Vector - Constans of the linear combination of the vectors
+        - C: Vector - Constants of the linear combination of the vectors
     """
-     #Change the type of variable type of all cases to standarize the types
+     #Change the type of variable type of all cases to standardize the types
     list_of_vectors = [vec(Array(v)) for v in list_of_vectors]
     gk = vec(Array(gk)) 
 
@@ -35,7 +34,7 @@ function namgmSolver(Bk, gk, list_of_vectors)
     n_rows = length(list_of_vectors)
     matrix = zeros(Float64, n_rows, n_rows)
 
-    #Precompute the right part of the matrix coeficients and the vector b
+    #Precompute the right part of the matrix coefficients and the vector b
     V = [Bk * v for v in list_of_vectors]
     
     #Construct the matrix system
@@ -64,16 +63,16 @@ end
 function namgmOviedo(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: Float64, 
                     maxIters:: Int, hessian_mod, epsilon::Float64, add_lineSearch::Bool = false)
     """The NAMGM algorithm using the set of vectors in the paper AMGM algorithm [1]. There are other authors, but
-    to mantain simple and memorable the name, we use only the first name of the main author.
+    to maintain simple and memorable the name, we use only the first name of the main author.
     # Input:
-        -    fx   : Function  - Objetive optimization function
+        -    fx   : Function  - Objective optimization function
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix.
-        -   addLS :   Bool   - Add line search (standar backtaking).
+        -   addLS :   Bool   - Add line search (standard backtracking).
         
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -102,24 +101,24 @@ function namgmOviedo(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: F
         h = Matrix(Hessian(x_old))
         h = hessian_mod(h, g_old, epsilon)
  
-        #Compute the coeficients
+        #Compute the coefficients
         V = [g_old, sk, yk]
         C = namgmSolver(h, g_old, V)
 
-        #Update the squence and the set of vectors
+        #Update the sequence and the set of vectors
         v = -sum(V .* C)
 
-        #Add the coeficient using line search
+        #Add the factor using line search
         fxk = fx(x_old)
         add_lineSearch ? alpha = backtrackWWC(fx, x_old, v, g_old, fxk) : alpha=1;
         x_new = x_old + alpha*v
         g_new = gradient(x_new)
 
-        #Update the mometum and curvature variables
+        #Update the momentum and curvature variables
         sk = x_new - x_old
         yk = g_new - g_old
 
-        #Reasing the variables
+        #Reassign the variables
         g_old = g_new
         x_old = x_new
 
@@ -128,7 +127,7 @@ function namgmOviedo(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: F
         k+=1
         #Verification of not divergence
         if isinf(gnorm) || isnan(gnorm) 
-            displayOverflowError("Oviedo")
+            displayOverflowError("AMG")
             gnorm = Inf32
             k = maxIters
             break
@@ -152,17 +151,17 @@ end
 
 function namgmGrads(fx, gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, 
                     queue_size:: Int, hessian_mod, epsilon::Float64,add_lineSearch::Bool = false)
-    """NAMGM Using the Gradient queue directive. 
+    """NAMGM - Using the Gradient queue directive. 
     # Input:
-        -    fx   : Function  - Objetive optimization function.
+        -    fx   : Function  - Objective optimization function.
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         - que_size:    Int   - Maximum number of elements in the queue (set of vectors).
         -hessian_mod: Call   - Modifier of the hessian matrix.
-        -  addLS  :   Boool  - Add line search (standar backtracking)
+        -  addLS  :   Bool  - Add line search (standard backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -200,15 +199,15 @@ function namgmGrads(fx, gradient, Hessian, x0:: Vector, tolerance:: Float64, max
         V = collect(gradient_queue)
         C = namgmSolver(h, gk, V)
         
-        #Update the squence and the set of vectors
+        #Update the sequence and the set of vectors
         v = -sum(V .* C)
 
-        #Add the coeficient using line search
+        #Add the coefficient using line search
         fxk = fx(x)
         add_lineSearch ? alpha = backtrackWWC(fx, x, v, gk, fxk) : alpha=1;
         x = x + alpha*v
 
-        #Update 
+        #Update the measured variables
         gk = gradient(x)
         gnorm = norm(gk) 
         enqueue!(gradient_queue, gk)
@@ -232,72 +231,25 @@ function namgmGrads(fx, gradient, Hessian, x0:: Vector, tolerance:: Float64, max
         archived_convergence_flag = true 
     end
 
-    #Print report of the executation
+    #Print report of the execution 
     displayResults("Grads ", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end
 
-# function namgmUniformGrads(gradient::Function, Hessian::Function, x0::Vector, tolerance::Float64, maxIters::Int, 
-#                             memorySize::Int, hessian_mod::Function, epsilon::Float64)
-#     #Start time
-#     start_time = time()
-
-#     #Init the variables.
-#     x = x0
-#     gk = gradient(x)
-#     gnorm = norm(gk)
-#     k = 1
-#     archived_convergence_flag::Bool = false
-
-#     #Memory of the method
-#     V = [Random(n) for _ in 1:memorySize]
-    
-#     #Optimization process
-#     while (k < maxIters && gnorm >= tolerance)
-#         #Compute the approximation of the hessian matrix
-#         h = Matrix(hessian(x))
-#         h = hessian_mod(h, gk, epsilon)
-
-#         #Add the now the present gradient
-#         V[0] .= gk
-
-#         while 
-       
-#         #Compute the coeficients
-#         C = namgmSolver(h, g_old, V)
-
-#         #Update the squence and the set of vectors
-#         v = -sum(V .* C)
-#         x_new = x_old + v
-#         #Update 
-#         gk = gradient(x)
-#         gnorm = norm(gk) 
-#         k+=1
-#         #Verification of not divergence
-#         if isinf(gnorm) || isnan(gnorm) 
-#             println("Floating point overflow occurred, ending process.")
-#             gnorm = Inf32
-#             k = maxIters
-#             break
-#         end
-#     end
-# end
-
-
 function namgmRandomVectors(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int,
                              randomSize:: Int, hessian_mod, epsilon::Float64, show_results::Bool = false,
                              add_lineSearch::Bool = false)
-    """NAMGM Using the Random Vectors directive. 
+    """NAMGM - Using the Random Vectors directive. 
     
     #Input
-        -    fx   : Function  - Objetive optimization function.
+        -    fx   : Function  - Objective optimization function.
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         -randomSize:  Int.   - Number of random elements to take
         -hessian_mod: Call   - Modifier of the hessian matrix
-        -  addLS  ;   Bool   - Add line search (standar backtracking)
+        -  addLS  ;   Bool   - Add line search (standard backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -338,13 +290,13 @@ function namgmRandomVectors(fx::Function, gradient, Hessian, x0:: Vector, tolera
         h = Matrix(Hessian(x))
         h = hessian_mod(h, gk, epsilon)
   
-        #Collect the currect elements in the queue to solve the optimization problem
+        #Collect the current elements in the queue to solve the optimization problem
         C = namgmSolver(h, gk, V)
 
-        #Update the squence and the set of vectors
+        #Update the sequence and the set of vectors
         v = -sum(V .* C)
 
-        #Add the coeficient using line search
+        #Add the factor using line search
         fxk = fx(x)
         add_lineSearch ? alpha = backtrackWWC(fx, x, v, gk, fxk) : alpha=1;
         x = x + alpha*v
@@ -373,7 +325,7 @@ function namgmRandomVectors(fx::Function, gradient, Hessian, x0:: Vector, tolera
         archived_convergence_flag = true 
     end
 
-    #Print report of the executation
+    #Print report of the execution
     show_results ? displayResults("Random", k, ttime, gnorm, ittpSec, archived_convergence_flag) : nothing
     return x, k, ttime, gnorm, ittpSec, archived_convergence_flag 
 end
@@ -382,16 +334,16 @@ function newtonMethod(fx::Function, gradient, hessian, x0::Vector, tolerance::Fl
                         hessian_mod, epsilon::Float64, addLS::Bool = false)
     """
     Newton's method with applicable modifier in the Hessian matrix.
-    (This is not the same as the BFGS method, such method use a unique modifer)
+    (This is not the same as the BFGS method, such method use a unique modifier)
     # Input:
-        -    fx   : Function  - Objetive optimization function. 
+        -    fx   : Function  - Objective optimization function. 
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
         -hessian_mod: Call   - Modifier of the hessian matrix
-        -  addLS  :   Bool   - Add line search (standar backtracking)
+        -  addLS  :   Bool   - Add line search (standard backtracking)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -413,6 +365,7 @@ function newtonMethod(fx::Function, gradient, hessian, x0::Vector, tolerance::Fl
 
     #Optimization process
     while (k < maxIters && gnorm >= tolerance)
+
         #Compute the approximation of the hessian matrix
         h = Matrix(hessian(x))
         h = hessian_mod(h, gk, epsilon)
@@ -420,7 +373,7 @@ function newtonMethod(fx::Function, gradient, hessian, x0::Vector, tolerance::Fl
         #Calculate the search direction and update the sequence point
         s = -h\gk
         
-        #Add the coeficient using line search
+        #Add the factor using line search
         fxk = fx(x)
         addLS ? alpha = backtrackWWC(fx, x, s, gk, fxk) : alpha=1;
         x = x + alpha*s
@@ -449,7 +402,7 @@ function newtonMethod(fx::Function, gradient, hessian, x0::Vector, tolerance::Fl
         archived_convergence_flag = true 
     end
 
-    #Print report of the executation
+    #Print report of the execution
     displayResults("Newton", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end
@@ -458,15 +411,15 @@ end
 function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIters:: Int, add_lineSearch::Bool = true)
     """
     Implementation of the BFGS method, inspired in the implementation of Nocedal and Stephen Wright.
-    It uses line search (standar backtaking).
+    It uses line search (standard backtracking).
     # Input:
         -    fx   : Callable - Function
         - Gradient: Callable - Gradient of the function.
-        -  Hessian: Callable - Hessian of the fucnion.
+        -  Hessian: Callable - Hessian of the function.
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence.
-        -   addLS :   Bool   - Add line search (using backtaking, default: true)
+        -   addLS :   Bool   - Add line search (using backtracking, default: true)
 
     # Output:
         -    x    : Vector  - Final element of the sequence
@@ -475,6 +428,11 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         -  gnorm  : Float64 - Gradient of the last element of the generated sequence    
         - ittpSec : Float64 - Iterations per second of the method.
         -  Cflag  :  Bool   - The method converged (true or false)
+
+    # Remark:
+        According to J. Nocedal & Wright the use of backtrack is discouraged or not situate for Quasi-Newton 
+        methods. Nevertheless, to make comparative the results of the methods. 
+
     """
 
     #Start time of the method
@@ -517,7 +475,7 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         yk = g_new - g_old
         
         #Update the approximation of the hessian
-        rho = 1/(dot(yk, sk) + 1e-9) #<- Added a small epsilon to avoid a posible NaN
+        rho = 1/(dot(yk, sk) + 1e-9) #<- Added a small epsilon to avoid a possible NaN
         hk = (I-rho*sk*transpose(yk))*hk*(I-rho*yk*transpose(sk))+(rho*sk*transpose(sk))
 
         #Update the variables
@@ -545,14 +503,14 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         archived_convergence_flag = true 
     end
 
-    #Print report of the executation
-    displayResults("BFGSM", k, ttime, gnorm, ittpSec, archived_convergence_flag)
+    #Print report of the execution
+    displayResults("BFGS", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x_old, k, ttime, gnorm, ittpSec, archived_convergence_flag 
 end
 
 
 function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
-    """Gradient descent method that uses line-search Strategys.
+    """Gradient descent method that uses line-search strategy (backtrack).
     
     #Input:
         -    fx   : Callable - Function
@@ -583,7 +541,7 @@ function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance:
     #Optimization process
     while (k < maxIters && gnorm >= tolerance) 
 
-        #Compute the right steepsize
+        #Compute the right steep size
         actualfxk = fx(x)
         alpha = backtrackWWC(fx, x, -gk, gk, actualfxk)
 
@@ -612,7 +570,7 @@ function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance:
         archived_convergence_flag = true 
     end
 
-    #Print report of the executation
+    #Print report of the execution
     displayResults("Gradient descent with LS", k, ttime, gnorm, ittpSec, archived_convergence_flag)
     return x, k, ttime, gnorm, ittpSec, archived_convergence_flag  
 end

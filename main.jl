@@ -47,7 +47,7 @@ function parse_commandline()
             arg_type = Int
             default = 3
         "--tol"
-            help = "Minimum aceptable gradient norm"
+            help = "Minimum acceptable gradient norm"
             arg_type = Float64
             default = 1.e-8
         "--modifierH"
@@ -65,11 +65,11 @@ function parse_commandline()
             arg_type = Int
             default = 0
         "--epsilon"
-            help = "Epsion added to the Modfier in case of being needed"
+            help = "Epsilon added to the Modifier in case of being needed"
             arg_type = Float64
             default = 1.e-8
         "--DEBUG"
-            help= "Use the DEBUG functions of the methos to create CSV's and some informative Plots"
+            help= "Use the DEBUG functions of the methods to create CSV's and some informative Plots"
             action = :store_true
         "--useDimProblem"
             help= "Use the same number of vectors as the dimension of the problem (valid only on RandomVectors)"
@@ -82,13 +82,13 @@ function parse_commandline()
             help = "Boolean variable to indicate if it should write files"
             action = :store_true 
         "--useLS"
-            help = "Use linesearch in the tested methods"
+            help = "Use lines search in the tested methods (backtracking)"
             action = :store_true
         "--displaysG"
-            help = "Show the posible generated graphs"
+            help = "Show the possible generated graphs"
             action = :store_true
         "--subdirectory"
-            help = "Subdirectory where to save the different results using different parameters (defaul, addedLS & usingDBFS)"
+            help = "Subdirectory where to save the different results using different parameters (default, addedLS & usingDBFS)"
             arg_type = String
             default = "original/"
     end
@@ -101,7 +101,7 @@ function main()
     #Load the arguments
     parsed_args = parse_commandline()
     
-    #Definied variables
+    #Defined variables
     problem = parsed_args["problem"]
     show_info = parsed_args["show_info"]
     debug_mode = parsed_args["DEBUG"]
@@ -143,7 +143,7 @@ function main()
         path_historials = joinpath("csvs/historials", subdirectory) 
         path_results_randoms = joinpath("csvs/results/random_historials", subdirectory)
 
-        #Files to be writen
+        #Files to be write
         file_name_results = joinpath(path_results, name*"_"*modS*".csv")
         file_name_historials = joinpath(path_historials, name*"_"*modS*".csv")
         file_name_results_historials = joinpath(path_results_randoms, name*"_"*modS*".csv")
@@ -151,30 +151,28 @@ function main()
         file_name_results = file_name
     end
 
-    #Creation of the results directorys if there is not such path
+    #Creation of the results directory, if there is not such path
     if saveinfo
         workdirectory = pwd()
         mkpath(joinpath(workdirectory, path_results)) #Place where to save the results
         mkpath(joinpath(workdirectory, path_historials)) #Place where to save the historials of the Gradients
-        mkpath(joinpath(workdirectory, path_results_randoms)) #Place where to save the historials of general results of the randoms executations
+        mkpath(joinpath(workdirectory, path_results_randoms)) #Place where to save the historials of general results of the randoms executions
     end
 
-    #Pritn thte values of the parser
+    #Pritn the values of the parser
     println("-"^40)
     @printf("%-20s | %-20s\n", "Parameters", "Value")
     println("-"^40)
 
-    # 'sort' convierte el Dict en un vector de pares ordenados por la llave
+    #Convert the Dict in a set of bidimensioal vectors sorted by the keys
     for (key) in sort(collect(keys(parsed_args)))
         @printf("%-20s | %-20s\n", key, parsed_args[key])
     end
     println("-"^40)
 
-
     #println("Modifier Hessian: ", modH, " | Modifier System: ", modS)
     modH = get_modifier(modH)
     modS = get_modifier(modS)
-
     
     #Get the CUTEST functions    
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
@@ -192,13 +190,13 @@ function main()
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
 
-    #Variables of the TRY-CATCH
+    #Variables in a TRY-CATCH
     xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
 
     if debug_mode
         println(">>DEBUG Mode")
 
-        #Run the NAMGM algoritms using DEBUG mesuarements
+        #Run the NAMGM algorithms using DEBUG measurements
         xf_Oviedo, historial_Ovideo, t_oviedo, xP_oviedo, iterOviedo, normOviedo, CN_O, ttpSO, flagOviedo = DEBUG_namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, modS, use_LS)
         xf_Queue, historial_Queue, t_queue, xP_queue, iterQueue, normQueue, CN_Q, ttpSQ, flagQueue = DEBUG_namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, modS, use_LS)
         xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(f, g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS, use_LS)
@@ -206,14 +204,14 @@ function main()
         try
             xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         catch e
-            println("An error was found in the exectution of the Newton method: $e")
+            println("An error was found in the execution of the Newton method: $e")
             xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= x0, [], Inf, [], Inf, Inf, 0.0, false
         end
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
         xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
 
 
-        #Clean the data if there is a 0.0 then the plot will explote.
+        #Clean the data if there is a 0.0 then the plot will explode.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
         Hc = [CN_O, CN_Q, CN_R]
 
@@ -238,7 +236,7 @@ function main()
         gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, hitorialName)
         conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, cnName)
         
-        #Save the iamges if it's required
+        #Save the images if it's required
         saveinfo ? savefig(gradplot, hitorialName) : nothing 
         saveinfo ? savefig(conditionplt, ccName) : nothing 
 
@@ -248,7 +246,7 @@ function main()
 
         #If the function is bidimensioal, then plot the sequence path
         if n === 2
-            #Transformation of trajectorys
+            #Transformation of trajectories
             raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd]
 
             #Init the variables to set the limits of the sequence path
@@ -259,7 +257,7 @@ function main()
             matrices_procesadas = map(raw_inputs) do raw_data
                 mat = Float64.(stack(raw_data, dims=1)) 
                 
-                #Update the global boundries searching in each historial
+                #Update the global boundaries searching in each historial
                 if !isempty(mat)
                     lx, ux = extrema(view(mat, :, 1))
                     g_xlims = (min(g_xlims[1], lx), max(g_xlims[2], ux))
@@ -269,7 +267,7 @@ function main()
                 return mat
             end
 
-            #Unpack the trajectorys 
+            #Unpack the trajectories 
             xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs = matrices_procesadas
 
             #Visual path of the algorithms
@@ -306,7 +304,7 @@ function main()
         try
             xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         catch e
-            println("An error was found in the exectution of the Newton method: $e")
+            println("An error was found in the execution of the Newton method: $e")
             xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = x0, Inf, Inf, Inf, 0.0, false
         end    
         xf_bfgs, iterBFGS, t_bfgs, normBFGS, ttpSB, flagBFGS = BFGSMethod(f, g, h, x0, tol, nIters)
@@ -318,7 +316,7 @@ function main()
         
     end
 
-    # Remember to finalize the model when you are done
+    #Remember to finalize the model when you are done
     finalize(nlp_problem)
 
     #Creation of Dataframe of the results
@@ -329,7 +327,6 @@ function main()
     convergence = [flagOviedo, flagQueue, flagRandom, flagNewton, flagBFGS, flagSGD] 
     data = [iterations, lastGrad, times, iterationsPerSecond, convergence]
 
-
     #Save the CSV file
     df = DataFrame(data, headers)
 
@@ -339,9 +336,9 @@ function main()
         CSV.write(file_name_results_historials, random_df)
     end
 
-    #Print the information of the writen files
+    #Print the information of the written files
     println("-"^80)    
-    println("Files writed: ")
+    println("Files written: ")
     if saveinfo
         println("- ",file_name_results)
         println("- ",file_name_results_historials)
@@ -351,7 +348,7 @@ function main()
             n==2 ? println("- ", pathName) : nothing
         end
     else
-        println("Not saveinfo flag used, therefore any report has been saved.")
+        println("Not saveinfo flag was used, therefore any report has been saved.")
     end
        
     println("-"^80)

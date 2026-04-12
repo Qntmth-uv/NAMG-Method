@@ -1,3 +1,6 @@
 #Databases of SIF Files
 cutest-sif/*
 1-cutest-sif/*
+
+#workspace configurations
+.vscode/*

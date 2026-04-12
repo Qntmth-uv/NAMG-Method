@@ -2,6 +2,7 @@ using ArgParse
 using Random
 using Distributions
 using CUTEst
+
 """
 Execution examples
 
@@ -15,13 +16,12 @@ julia robust_main.jl --problem cutest-sif/HEART6LS.SIF --LB 0.0 --UB 1
 julia robust_main.jl --problem cutest-sif/ROSENBR.SIF --LB -5.0 --UB 10.0
 """
 
-
 include("utils.jl")
 include("NAMGM_methods.jl")
 
 function parse_commandline()
     s = ArgParseSettings()
-    s.description = "Main Script of the set of experiments of the NAMGM method."
+    s.description = "Main Script of the set robust experiments of the NAMGM method."
 
      
     @add_arg_table! s begin
@@ -40,7 +40,7 @@ function parse_commandline()
             default = 30
 
         "--epsilon"
-            help = "Epsion added to the Modfier in case of being needed"
+            help = "Epsilon added to the Modifier in case of being needed"
             arg_type = Float64
             default = 1.e-8
 
@@ -55,7 +55,7 @@ function parse_commandline()
             default = 1000
 
         "--tol"
-            help = "Minimum aceptable gradient norm"
+            help = "Minimum acceptable gradient norm"
             arg_type = Float64
             default = 1.e-8
 
@@ -98,7 +98,7 @@ function main()
     problem = parsed_args["problem"]
     show_info = parsed_args["show_info"]
     
-    #Parameters of the mehtod
+    #Parameters of the method
     nIters = parsed_args["nIters"]
     lqueue = parsed_args["lqueue"]
     randomsize = lqueue
@@ -122,8 +122,9 @@ function main()
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
     N = length(initial_point)
 
+    #Print information
     println("Initial point: ", initial_point)
-    println("Interval to drawn from a Uniform Distributio: [$LB, $UB]")
+    println("Interval to drawn from a Uniform Distribution: [$LB, $UB]")
     
     #Draw from a uniform given the box where are evaluating
     d = Uniform(LB, UB)
@@ -132,8 +133,9 @@ function main()
     U = Any[0, 0.0, 0.0, 0.0, 0.0]
     M = vcat(fill(U', repetitions)...)
     solve_most_of_problems = nothing
+
     for i in (1:repetitions)
-        # Muestrear N elementos
+        # Draw a random vector from a standard normal
         x0 = rand(d, N)
 
         #New point where to evaluate
@@ -147,7 +149,7 @@ function main()
     #Take the mean of the results
     U./=repetitions
 
-    #Assing the variables
+    #Assign the variables
     iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = U
     solve_most_of_problems = (flagOviedo >= 0.5) ? true : false
 

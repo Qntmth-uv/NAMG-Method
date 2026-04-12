@@ -2,7 +2,7 @@ using LaTeXStrings
 using Plots; pythonplot()
 using LinearAlgebra
 
-#Change  the ploting function to GR instead of matplotlib. There is a problem with matplotlib in the creation of the 
+#Change  the plotting function to GR instead of matplotlib. There is a problem with matplotlib in the creation of the 
 #levels graph.
 gr()
 
@@ -69,7 +69,7 @@ function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix;
             markersize=1, 
             alpha=0.7
         )
-        # Nota: label=nothing para no ensuciar la leyenda
+        #Note. label=nothing 
         scatter!(plt, [xs_path[1]], [ys_path[1]], 
             markercolor=:green, 
             markerstrokecolor=:black,

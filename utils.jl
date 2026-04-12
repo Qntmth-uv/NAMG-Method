@@ -6,7 +6,7 @@ using Printf
 include("hessian_mod.jl")
 
 function getIterationSpeed(numberOfIters, time::Float64)
-    """Compute the avrg iteration speed."""
+    """Compute the average iteration speed."""
     return numberOfIters/time
 end
 
@@ -21,7 +21,7 @@ function createCSV(arrayofHistorials, CSV_fileName::String, headers )
     #This creates a new vector for each column, filling the gap with `missing`
     arrayofHistorials = [ [v; fill(missing, max_len - length(v))] for v in arrayofHistorials]
 
-    #Save the CSV fike
+    #Save the CSV file
     df = DataFrame(arrayofHistorials, headers)
 
     #Write the CSV file
@@ -42,23 +42,8 @@ function fastCosineSim(u::Vector, v::Vector)
     return dot_prod / (sqrt(norm_u) * sqrt(norm_v))
 end
 
-function getHeatmapCosine(listOfVectors)
-    """Creation """
-    dim = length(listOfVectors)
-    similaritys = zeros(Float64, dim, dim)
-
-    for i in 1:dim
-        for j in i:dim
-            similaritys[i, j] = fastCosineSim(listOfVectors[i], listOfVectors[j])
-            similaritys[j, i] = similaritys[i, j]
-        end
-    end
-    return similaritys
-end
-
-
 function getConditionNumber(M)
-    """Function to get the Condition Number of the NAMGM_system, this is posible because
+    """Function to get the Condition Number of the NAMGM_system, this is possible because
     the dimension of this matrix is easy to compute due his dimension.
     
     # Input:
@@ -77,7 +62,7 @@ function getConditionNumber(M)
 end
 
 function elementsTestFunction(name::String)
-    """Function to use the function, gradient, Hessian of a fucntion, also
+    """Function to use the function, gradient, Hessian of a function, also
     return the x_minima and the nlp_problem to close it latter."""
 
     # Create a model for the 'name' problem
@@ -120,11 +105,8 @@ function get_modifier(mod_name)
     end
 end
 
-
-
-
-function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, ∇f_x::AbstractVector, 
-                      f_x::Real; α::Real=1.0, ρ::Real=0.5, c1::Real=1e-4, show_info::Bool = false)
+function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, g_x::AbstractVector, 
+                      f_x::Real; alpha::Real=1.0, factor::Real=0.5, c1::Real=1e-4, show_info::Bool = false)
     """Performs a backtracking line search to satisfy the Armijo (Weak Wolfe) condition.
     Based on Algorithm 3.1 from Nocedal & Wright.
 
@@ -132,47 +114,46 @@ function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, ∇f_x:
         - f: The objective function f(x).
         - x: Current position vector.
         - p: Search direction vector.
-        - ∇f_x: The gradient at current x (pre-computed).
+        - g_x: The gradient at current x (pre-computed).
         - f_x: The function value at current x (pre-computed).
 
     # Returns
-        - α: The accepted step size.
+        - alpha: The accepted step size.
 
     # Keywords
-        - α: Initial step size (default 1.0, typical for Newton methods).
-        - ρ: Contraction factor (default 0.5).
+        - alpha: Initial step size (default 1.0, typical for Newton methods).
+        - factor: Contraction factor (default 0.5).
         - c1: Armijo parameter (default 1e-4).
 
     """   
-    # This is the 'm' in f(x + αp) ≤ f(x) + c1 * α * m
-    slope = dot(∇f_x, p)
-
-    # Sanity check: Ensure p is a descent direction
-    slope > 0 && show_info ? println("Search direction p is not a descent direction (slope > 0). Line search may fail.") : nothing
-
-    # We limit the loop to avoid infinite cycles in case of numerical errors
+    #Limits of the backtracking variables
     max_iter = 100
     iter = 0
     
-    # Evaluate target function once inside the loop structure
-    x_new = x + α * p
+    #This is the 'm' in f(x + αp) ≤ f(x) + c1 * α * m
+    slope = dot(g_x, p)
+
+    #Sanity check: Ensure p is a descent direction
+    slope > 0 && show_info ? println("Search direction p is not a descent direction (slope > 0). Line search may fail.") : nothing
+
+    #Evaluate target function once inside the loop structure
+    x_new = x + alpha * p
     f_new = f(x_new)
 
-    # While the Armijo condition is NOT met:
-    # f(x + αp) > f(x) + c1 * α * (∇f'p)
-    while f_new > f_x + c1 * α * slope && iter < max_iter
-        # Backtrack: reduce alpha by contraction factor ρ
-        α *= ρ
+    #While the Armijo condition is satisfied:
+    while f_new > f_x + c1 * alpha * slope && iter < max_iter
+        #Contract  alpha by factor ρ
+        alpha *= factor
         
         # Update candidate point
-        x_new = x + α * p
+        x_new = x + alpha * p
         f_new = f(x_new)
-        
         iter += 1
     end
+
     #Maximum number of iterations reached 
-    slope > 0 && show_info ? println("Line search failed to converge within max iterations. Returning small step size.") : nothing
-    return α
+    iter == maximum && show_info ? println("Line search failed to converge within max iterations. Returning small step size.") : nothing
+    return alpha
 end
 
 function displayResults(name::String, iters::Any, Ttime:: Any, Gnorm::Any, IttpS::Any, convergence::Bool)
@@ -181,7 +162,7 @@ function displayResults(name::String, iters::Any, Ttime:: Any, Gnorm::Any, IttpS
 end
 
 function displayOverflowError(method_name::String)
-    """Function to display a messege of overflow error over one method.
+    """Function to display a message of overflow error over one method.
     
     #Input:
         - method_name: String 
