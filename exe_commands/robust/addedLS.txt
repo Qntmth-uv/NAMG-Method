@@ -49,11 +49,11 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --
 
 # WOODS VARIABLES DIMENSIONS (4, 100, 1000, 4000, 10000; default (varP) = 100, dimension variable name = "n")
 
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4 --varN "n" > > exe_histo/robust/addedLS/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4000 --varN "n" > > exe_histo/robust/addedLS/WOODS.txt
 
 # ------------------------------------------------------- #
 
-# WATSON VARIABLES DIMENSIONS (12, 31; default=12)
+# WATSON VARIABLES DIMENSIONS (12, 31; default=12, used=31)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 31 > exe_histo/robust/addedLS/WATSON.txt
 

@@ -26,7 +26,7 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/VARDIM.SIF --se
 
 # ------------------------------------------------------- #
 
-# PENALTY VARIABLES DIMENSIONS (4, 10, 50, 100, 500, 1000; default=1000)
+# PENALTY VARIABLES DIMENSIONS (4, 10, 50, 100, 500, 1000; default=1000, used=1000)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 1000 > exe_histo/robust/original/PENALTY1.txt
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --NTRIES 4 --show_info --modifierH eigen --subdirectory original --varP 1000 > exe_histo/robust/original/PENALTY2.txt
@@ -35,13 +35,13 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --
 
 # ------------------------------------------------------- #
 
-# TRIGON1 VARIABLES DIMENSIONS (10, 100, 1000; default = 10)
+# TRIGON1 VARIABLES DIMENSIONS (10, 100, 1000; default = 10, used=1000)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --repetitions 10 --varP 1000 > exe_histo/robust/original/TRIGON1.txt
 
 # ------------------------------------------------------- #
 
-# EXTROSNB VARIABLES DIMENSIONS (5, 10, 100, 1000; used: 100)
+# EXTROSNB VARIABLES DIMENSIONS (5, 10, 100, 1000; default=5,100, used=100)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 100 > exe_histo/robust/original/EXTROSNB.txt
 
@@ -49,11 +49,11 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --
 
 # WOODS VARIABLES DIMENSIONS (4, 100, 1000, 4000, 10000; default (varP) = 100, dimension variable name = "n")
 
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 4 --varN "n" > > exe_histo/robust/original/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 4000 --varN "n" > > exe_histo/robust/original/WOODS.txt
 
 # ------------------------------------------------------- #
 
-# WATSON VARIABLES DIMENSIONS (12, 31; default=12)
+# WATSON VARIABLES DIMENSIONS (12, 31; default=12, used=31)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 31 > exe_histo/robust/original/WATSON.txt
 

@@ -35,7 +35,7 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --
 
 # ------------------------------------------------------- #
 
-# TRIGON1 VARIABLES DIMENSIONS (10, 100, 1000; default = 10)
+# TRIGON1 VARIABLES DIMENSIONS (10, 100, 1000; default = 10, used=1000)
 
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --repetitions 10 --varP 1000 > exe_histo/robust/simplest/TRIGON1.txt
 
@@ -49,7 +49,7 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --
 
 # WOODS VARIABLES DIMENSIONS (4, 100, 1000, 4000, 10000; default (varP) = 100, dimension variable name = "n")
 
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 4 --varN "n" > exe_histo/robust/simplest/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 4000 --varN "n" > exe_histo/robust/simplest/WOODS.txt
 
 # ------------------------------------------------------- #
 

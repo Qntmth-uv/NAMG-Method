@@ -1,0 +1,60 @@
+# LOW DIMENSIONAL
+# SIMPLEST 
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/HELIX.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/HELIX.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/BIGGS6.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/GAUSSIAN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/BOX3.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BEALE.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/BEALE.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNBDS.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/BROWNBDS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNDEN.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/BROWNDEN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest > exe_histo/robust/simplest/GULF.txt
+
+# ORIGINAL 
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/HELIX.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/HELIX.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/BIGGS6.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/GAUSSIAN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/BOX3.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BEALE.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/BEALE.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNBDS.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/BROWNBDS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNDEN.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/BROWNDEN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original > exe_histo/robust/original/GULF.txt
+
+# ADDEDLS
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/HELIX.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/HELIX.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BIGGS6.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/GAUSSIAN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BOX3.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BEALE.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BEALE.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNBDS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BROWNBDS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNDEN.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BROWNDEN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/GULF.txt
+
+# HIGH DIMENSIONAL (could take some time to execute, the problems are sorted by dimension)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 31 > exe_histo/robust/simplest/WATSON.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 31 > exe_histo/robust/original/WATSON.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 31 > exe_histo/robust/addedLS/WATSON.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 100 > exe_histo/robust/simplest/EXTROSNB.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 100 > exe_histo/robust/original/EXTROSNB.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 100 > exe_histo/robust/addedLS/EXTROSNB.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/VARDIM.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 200 > exe_histo/robust/simplest/VARDIM.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/VARDIM.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 200 > exe_histo/robust/original/VARDIM.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/VARDIM.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 200 > exe_histo/robust/addedLS/VARDIM.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 1000 > exe_histo/robust/simplest/PENALTY1.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 1000 > exe_histo/robust/original/PENALTY1.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 1000 > exe_histo/robust/addedLS/PENALTY1.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --NTRIES 4 --show_info --subdirectory simplest --varP 1000 > exe_histo/robust/simplest/PENALTY2.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --NTRIES 4 --show_info --modifierH eigen --subdirectory original --varP 1000 > exe_histo/robust/original/PENALTY2.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --NTRIES 4 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 1000 > exe_histo/robust/addedLS/PENALTY2.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --repetitions 10 --varP 1000 > exe_histo/robust/simplest/TRIGON1.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --repetitions 10 --varP 1000 > exe_histo/robust/original/TRIGON1.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --repetitions 10 --varP 1000 > exe_histo/robust/addedLS/TRIGON1.txt
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 4000 --varN "n" > exe_histo/robust/simplest/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 4000 --varN "n" > > exe_histo/robust/original/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4000 --varN "n" > > exe_histo/robust/addedLS/WOODS.txt
