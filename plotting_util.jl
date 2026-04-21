@@ -79,10 +79,10 @@ function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix;
         )
         # 3. Graficar Fin (mismo color del camino o Rojo/Estrella distintivo)
         scatter!(plt, [xs_path[end]], [ys_path[end]], 
-            markercolor=:red, 
+            markercolor=color, 
             markerstrokecolor=:black,
             marker=:star5, 
-            markersize=9, 
+            markersize=5, 
             label=nothing
         )
     end
@@ -91,22 +91,27 @@ end
 
 function plotEvolution(list_of_Historials, problem::String, colors, labels, 
                             styleLine, ylabel::String, plotTitle::String, image_name::String)
-    """Function to plot the evolution of a phenomena. 
+    """
+    # Definition
+    Function to plot the evolution of a phenomena. 
     
-    # Input:
-        - list_of_Historials: Array[Vetors] - Array of several historials of the phenomena
-        - problem: String - Name of the phenomena
-        - colors: Array - Array of colors for the historials (e. g. :blue, :red)
-        - labels: Array - Array of labels of each historial 
-        - styline: Array - Array of lineStyles to plot the historial (e. g; :dash, :solid)
-        - ylabel: String - Name of the Y axis
-        - plotTitle: String - Title of the plot
-        - image_name: String - Path where to save the plot
+    ## Inputs
 
-    # Output:
-        - None: Void - Only creates the plot and save it
+    - list_of_Historials: Array[Vetors] - Array of several historials of the phenomena
+    - problem: String - Name of the phenomena
+    - colors: Array - Array of colors for the historials (e. g. :blue, :red)
+    - labels: Array - Array of labels of each historial 
+    - styline: Array - Array of lineStyles to plot the historial (e. g; :dash, :solid)
+    - ylabel: String - Name of the Y axis
+    - plotTitle: String - Title of the plot
+    - image_name: String - Path where to save the plot
+
+    ## Output:
+
+    - None: Void - Only creates the plot and save it
         
-    # Remark. There is not a check if the length of the historials is the same as for the colors
+    ## Remark 
+    There is not a check if the length of the historials is the same as for the colors
     and the styleLine. If the lengths does not match, then the function will raise a Error.
     """
     #Number of the elements in the historial 
@@ -132,7 +137,7 @@ function plotEvolution(list_of_Historials, problem::String, colors, labels,
             label = labels[i],
             linestyle = styleLine[i],
             color = colors[i],
-            linewidth = 2
+            linewidth = 1.5
         )
     end
     return plt

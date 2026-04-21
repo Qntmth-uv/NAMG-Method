@@ -61,12 +61,32 @@ function getConditionNumber(M)
     return abs(val_max/val_min), val_min, val_max
 end
 
-function elementsTestFunction(name::String)
-    """Function to use the function, gradient, Hessian of a function, also
-    return the x_minima and the nlp_problem to close it latter."""
+function elementsTestFunction(name::String, dimension_var::Int = -1, variable_name::String = "N")
+    """
+    # Definition.
 
-    # Create a model for the 'name' problem
-    nlp_problem = CUTEstModel(name)
+    Function to use the function, gradient, Hessian of a function, also
+    return the x_minima and the nlp_problem to close it latter.
+    
+    ## Input.
+
+    - ``name``: String - Name of the optimization problem (SIF name problem)
+    -``dimension_var``: Int - Variable dimension from the optimization problem (default -1)
+    
+    The ``dimension_var == -1`` refers to the default value of the optimization problem variable.
+    Most of the problems does not have a several dimension definitions, nevertheless, functions used
+    in the Robust Experiments have such feature.
+
+    ## Output.
+
+    - (objective, gradient, hessian, X0, NLP Problem)
+    
+    Where objective, gradient, hessian, are the analytical definition of the function. The point
+    X0 is the given initial point of the problem, and NLP is the environment the non linear problem.
+    """
+
+    #Create a model for the name of the problem depending the dimension of the problem
+    nlp_problem = (dimension_var == -1) ? CUTEstModel(name) : CUTEstModel(name, "-param", "$variable_name=$dimension_var") 
 
     # Define callable functions
     function f(x)
@@ -82,6 +102,8 @@ function elementsTestFunction(name::String)
     function h(x)
         return hess(nlp_problem, x)
     end
+
+    println("Number of variables: ", nlp_problem.meta.nvar)
     return f, g, h, nlp_problem.meta.x0, nlp_problem
 end
 

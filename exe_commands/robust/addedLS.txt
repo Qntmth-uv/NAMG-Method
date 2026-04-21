@@ -1,0 +1,60 @@
+"""
+This problems come from the paper Jorge J. et al 'Testing Optimization Software' p. 30; 
+specifically from the unconstraint minimization list.
+Here 1-cutes-sif refers to the database 1.
+
+
+This is the file for the addedLS configuration (just --useLS flag)
+"""
+
+#------------------------ Execution commands (Without dimension variable changeable) ------------------------#
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/HELIX.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/HELIX.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BIGGS6.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/GAUSSIAN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BOX3.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BEALE.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BEALE.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNBDS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BROWNBDS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/BROWNDEN.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/BROWNDEN.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS > exe_histo/robust/addedLS/GULF.txt
+
+# ------------------------------------------------------- #
+
+# VARDIM VARIABLES DIMENSIONS (10, 50, 100, 200; default = 200)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/VARDIM.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 200 > exe_histo/robust/addedLS/VARDIM.txt
+
+# ------------------------------------------------------- #
+
+# PENALTY VARIABLES DIMENSIONS (4, 10, 50, 100, 500, 1000; default=1000)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 1000 > exe_histo/robust/addedLS/PENALTY1.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --NTRIES 4 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 1000 > exe_histo/robust/addedLS/PENALTY2.txt
+
+[NOTE] Due the definition of PENALTY2 (exponential functions are used) the use of a factor greater that 1000 causes a NaN value. Therefore the maximum number of tries that we allow is 4
+
+# ------------------------------------------------------- #
+
+# TRIGON1 VARIABLES DIMENSIONS (10, 100, 1000; default = 10)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --repetitions 10 --varP 1000 > exe_histo/robust/addedLS/TRIGON1.txt
+
+# ------------------------------------------------------- #
+
+# EXTROSNB VARIABLES DIMENSIONS (5, 10, 100, 1000; used: 100)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 100 > exe_histo/robust/addedLS/EXTROSNB.txt
+
+# ------------------------------------------------------- #
+
+# WOODS VARIABLES DIMENSIONS (4, 100, 1000, 4000, 10000; default (varP) = 100, dimension variable name = "n")
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4 --varN "n" > > exe_histo/robust/addedLS/WOODS.txt
+
+# ------------------------------------------------------- #
+
+# WATSON VARIABLES DIMENSIONS (12, 31; default=12)
+
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WATSON.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 31 > exe_histo/robust/addedLS/WATSON.txt
+
+# ------------------------------------------------------- #

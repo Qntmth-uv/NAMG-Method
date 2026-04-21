@@ -42,6 +42,11 @@ function parse_commandline()
             help = "Maximum number of iterations of the method"
             arg_type = Int
             default = 1000
+        "--varP"
+            help = "Number of variables in the optimization problem (default -1,
+            which means that the problem does not have other dimensions definitions)"
+            arg_type = Int
+            default = -1
         "--lqueue"
             help = "Maximum number of elements in the NAMGMGradQueue"
             arg_type = Int
@@ -91,6 +96,9 @@ function parse_commandline()
             help = "Subdirectory where to save the different results using different parameters (default, addedLS & usingDBFS)"
             arg_type = String
             default = "original/"
+        "--dontuse_ModifierNewton"
+            help = "It removes the given modifier of the Hessian and uses the none mode."
+            action = :store_true
     end
     return parse_args(s)
 end
@@ -109,6 +117,7 @@ function main()
     image_name = parsed_args["image_name"]
     file_name = parsed_args["file_name"]
     nIters = parsed_args["nIters"]
+    varproblem = parsed_args["varP"]
     lqueue = parsed_args["lqueue"]
     randomsize = lqueue
     tol = parsed_args["tol"]
@@ -121,6 +130,10 @@ function main()
     use_LS = parsed_args["useLS"]
     show_plots = parsed_args["displaysG"]
     subdirectory = parsed_args["subdirectory"]
+    dont_use_modifier_newton = parsed_args["dontuse_ModifierNewton"] 
+
+    #The debug mode makes save info true
+    saveinfo = debug_mode ? true : saveinfo
 
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
@@ -129,7 +142,7 @@ function main()
     name = first(splitext(basename(problem)))
 
     #If it is using LS, then change the save directory
-    use_LS || subdirectory == "addedLS" ? subdirectory = "addedLS" : nothing
+    use_LS && subdirectory == "original/" ? subdirectory = "addedLS" : nothing
 
     #Images paths formatting
     if image_name == "default"
@@ -177,7 +190,7 @@ function main()
         mkpath(joinpath(workdirectory, path_results_randoms)) #Place where to save the historials of general results of the randoms executions
     end
 
-    #Pritn the values of the parser
+    #Print the values of the parser
     println("-"^40)
     @printf("%-20s | %-20s\n", "Parameters", "Value")
     println("-"^40)
@@ -191,13 +204,20 @@ function main()
     #println("Modifier Hessian: ", modH, " | Modifier System: ", modS)
     modH = get_modifier(modH)
     modS = get_modifier(modS)
-    
-    #Get the CUTEST functions    
-    f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
+
+    #We make that the approximation of the Newton Method is null, i. e., the approximation is the hessian matrix
+    if dont_use_modifier_newton
+        println("The Newton Method is set up as the with the Null/Trivial approximation of the Hessian, i. e., the Hessian Matrix ")
+        modN = get_modifier("none")
+    else
+        modN = modH     
+    end
+
+    #Get the CUTEST functions (according to the dimension variable)
+    f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, varproblem)
     
     #Initialize random vector of same dimension
     n = length(initial_point)
-    println("Dimension of the problem: ", n)
     x0 = initial_point
 
     #Check the flag of the size of RandomVectors
@@ -207,7 +227,7 @@ function main()
 
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
-    headers_methods = ["Oviedo", "Gradient Queue", "Random", "Newton", "BFGS", "GDLS"]
+    headers_methods = ["AMG", "Gradient Queue", "Random", "Newton", "BFGS", "GDLS"]
 
     #Variables in a TRY-CATCH
     xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton = nothing, nothing, nothing, nothing, nothing, nothing, nothing, nothing
@@ -221,7 +241,7 @@ function main()
         xf_random, historial_random, t_random, xP_random, iterRandom, normRandom, CN_R, ttpSR, flagRandom = DEBUG_namgmRandomVectors(f, g, h, x0, tol, nIters, randomsize, modH, epsilonAdded, modS, use_LS)
         M = [iterRandom, t_random, normRandom, ttpSR]
         try
-            xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+            xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= DEBUG_newtonMethod(f, g, h, x0, tol, nIters, modN, epsilonAdded, use_LS)
         catch e
             println("An error was found in the execution of the Newton method: $e")
             xf_newton, historial_newton, t_newton, xP_newton, iterNewton, normNewton, ttpSN, flagNewton= x0, [], Inf, [], Inf, Inf, 0.0, false
@@ -234,18 +254,20 @@ function main()
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
         Hc = [CN_O, CN_Q, CN_R]
 
-        #If the last value is zero convert it into 0.0 
         for i in 1:length(H)
-            if H[i][end] == 0.0 || isnan(H[i][end])
-                H[i][end] = 0.0
+            if !isempty(H[i])
+                if isnan(H[i][end]) || H[i][end] == 0
+                    H[i][end] = 0.0
+                elseif (H[i] == Inf)
+                    H[i][end] = 1e104
+                end
             end
         end
-
         #It should save the data?
         saveinfo ? createCSV(H, file_name_historials, headers_methods) : nothing
 
         #Variables to plot the results
-        problems_labels = ["Ovideo", "Queue", "RD", "Newton", "BFGS", "SGD"]
+        problems_labels = ["AMG", "Queue", "RD", "Newton", "BFGS", "SGD"]
         colors_list = [:blue, :red, :purple, :green, :orange, :salmon]
         styles_list = [:solid, :dash, :dash, :solid, :dash, :solid]
 
@@ -262,7 +284,7 @@ function main()
         #If the function is bidimensional and we are saving the information, then we construct the plot of the followed path
         if (n === 2) && (saveinfo)
 
-            #Transformation of trajectories
+            #Paths generated for each method
             raw_inputs = [xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd]
 
             #Init the variables to set the limits of the sequence path
@@ -315,7 +337,7 @@ function main()
         solve_most_of_problems = (flagRandom >= 0.5) ? true : false
         displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
         try
-            xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+            xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = newtonMethod(f, g, h, x0, tol, nIters, modN, epsilonAdded, use_LS)
         catch e
             println("An error was found in the execution of the Newton method: $e")
             xf_newton, iterNewton, t_newton, normNewton, ttpSN, flagNewton = x0, Inf, Inf, Inf, 0.0, false
@@ -354,7 +376,7 @@ function main()
     println("Files written: ")
     if saveinfo
         println("- ",file_name_results)
-        println("- ",file_name_results_historials)
+        !debug_mode ? println("- ",file_name_results_historials) : nothing
         if debug_mode
             println("- ", file_name_historials)
             println("Images saved: \n", "- "*image_historial, "\n- "*image_conditionEvolution)

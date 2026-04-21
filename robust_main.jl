@@ -42,7 +42,7 @@ function parse_commandline()
         "--epsilon"
             help = "Epsilon added to the Modifier in case of being needed"
             arg_type = Float64
-            default = 1.e-8
+            default = 1.0e-8
 
         "--seed"
             help = "Fix a seed for the random process"
@@ -57,35 +57,49 @@ function parse_commandline()
         "--tol"
             help = "Minimum acceptable gradient norm"
             arg_type = Float64
-            default = 1.e-8
+            default = 1.0e-8
 
         "--modifierH"
-            help = "Hessian modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
-                    'remove'}"
+            help = "Hessian modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag', 'remove'}"
             arg_type = String
             default = "none"
 
         "--modifierS"
-            help = "System modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
-                    'remove'}"
+            help = "System modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag','remove'}"
             arg_type = String
             default = "none"
         
         "--lqueue"
-            help = "Maximum number of elements in the NAMGMGradQueue"
+            help = "Maximum number of elements in the Queue Gradients - NAMGMG"
             arg_type = Int
             default = 3
+        
+        "--NTRIES"
+            help = "Number of times that the init point will be multiplied by 10"
+            arg_type = Int
+            default = 1
 
-        "--LB"
-            help= "Lower bound where to draw from a Uniform distribution"
-            arg_type = Float64
-            default = -1.0
+        "--useLS"
+            help = "Use lines search in the tested methods (backtracking)"
+            action = :store_true
+        
+        "--varP"
+            help = "Number of variables in the optimization problem (default -1,
+            which means that the problem does not have other dimensions definitions)"
+            arg_type = Int
+            default = -1
 
-        "--UB"
-            help= "Upper bound where to draw from a Uniform distribution"
-            arg_type = Float64
-            default = 1.0
-    end
+        "--varN"
+            help = "Name of the dimension variable (it is not a standard name, most of the problems assigns the
+            dimension variable 'N', but others assign the variable 'n'; e.g., WOODS)"
+            arg_type = String
+            default = "N"
+        
+        "--subdirectory"
+            help = "Subdirectory where to save the different results"
+            arg_type = String
+            default = "original/"
+        end
     return parse_args(s)
 end
 
@@ -94,10 +108,15 @@ function main()
     #Load the arguments
     parsed_args = parse_commandline()
     
-    #Principal information
+    #Principal information of the script
     problem = parsed_args["problem"]
     show_info = parsed_args["show_info"]
-    
+    NTRIES = parsed_args["NTRIES"]
+    name = first(splitext(basename(problem)))
+    varN = parsed_args["varN"] 
+    varP = parsed_args["varP"]
+    subdirectory = parsed_args["subdirectory"]
+
     #Parameters of the method
     nIters = parsed_args["nIters"]
     lqueue = parsed_args["lqueue"]
@@ -105,57 +124,99 @@ function main()
     tol = parsed_args["tol"]
     seed = parsed_args["seed"]
     epsilonAdded = parsed_args["epsilon"]
+    use_LS = parsed_args["useLS"]
 
+    #Path were the results will be saved
+    path_results = joinpath("csvs/results/robust", subdirectory)
+    workdirectory = pwd()
+    mkpath(joinpath(workdirectory, path_results)) #Place where to save the results 
+
+    #Print the values of the parser
+    println("-"^40)
+    @printf("%-20s | %-20s\n", "Parameters", "Value")
+    println("-"^40)
+
+    #Convert the Dict in a set of bidimensional vectors sorted by the keys
+    for (key) in sort(collect(keys(parsed_args)))
+        @printf("%-20s | %-20s\n", key, parsed_args[key])
+    end
+    println("-"^40)
+
+    #methods
     modH = lowercase(parsed_args["modifierH"])
     modS = lowercase(parsed_args["modifierS"])
     repetitions = parsed_args["repetitions"]
-    LB = parsed_args["LB"]
-    UB = parsed_args["UB"] 
+    
+    #File where we save the results
+    file_basis = joinpath(path_results, name*"_FACTOR_")
+
+    #Generator of the uniform distribution
+    # LB = parsed_args["LB"]
+    # UB = parsed_args["UB"] 
+
+    #Draw from a uniform given the box where are evaluating
+    #d = Uniform(LB, UB)
 
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
 
     #Obtain the used modifier
     modH = get_modifier(modH)
+    headers = [ "Archived Convergence", "Iterations", "Execution time", "Last Gradient"]
 
     #Get the CUTEST functions    
-    f, g, h, initial_point, nlp_problem = elementsTestFunction(problem)
-    N = length(initial_point)
+    f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, varP, varN)
+    x0 = initial_point
+    Factor = 1.0
+    #println("Initial point: ", initial_point)
 
-    #Print information
-    println("Initial point: ", initial_point)
-    println("Interval to drawn from a Uniform Distribution: [$LB, $UB]")
-    
-    #Draw from a uniform given the box where are evaluating
-    d = Uniform(LB, UB)
+    #Number of executions that will be executed
+    for i in (1:NTRIES)
 
-    #Variables where store the results of the current iteration.
-    U = Any[0, 0.0, 0.0, 0.0, 0.0]
-    M = vcat(fill(U', repetitions)...)
-    solve_most_of_problems = nothing
+        #Variables where store the results of the current iteration.
+        U = Any[0, 0.0, 0.0, 0.0, 0.0]
+        M = vcat(fill(U', repetitions)...)
+        solve_most_of_problems = nothing
 
-    for i in (1:repetitions)
+        println("Factor: $Factor")
+        
+        #Execution of the NAMGM methods
+        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
+        for i in 1:repetitions
+            M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
+            U.+=M[i, :]
+        end
+        
+        #Compute the mean of the results for the Random - NAMGM Method.
+        U./=repetitions
+        iterRandom, t_random, normRandom, ttpSR, flagRandom = U
+        solve_most_of_problems = (flagRandom >= 0.5) ? true : false
+        displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
+
+        #Creation of the columns for the results
+        times = [t_oviedo, t_queue, t_random]
+        lastGrad = [normOviedo, normQueue, normRandom]
+        iterations =[iterOviedo, iterQueue, iterRandom]
+        convergence = [flagOviedo, flagQueue, flagRandom] 
+        data = [convergence, iterations, times, lastGrad]
+
+        #Save the information of the current file
+        current_file = file_basis*string(i)*".csv"
+
+        #Save the CSV file
+        df = DataFrame(data, headers)
+        CSV.write(current_file, df)
+
+        #Information of the saved files
+        println("Saved results at: $current_file")
+
         # Draw a random vector from a standard normal
-        x0 = rand(d, N)
+        x0 *= 10.0
+        Factor *= 10.0
 
-        #New point where to evaluate
-        println("Drawn Point: ", x0)
 
-        #Execute the algorithms
-        M[i, :] .= namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, false)[2:end]
-        U.+=M[i, :]
     end
-
-    #Take the mean of the results
-    U./=repetitions
-
-    #Assign the variables
-    iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = U
-    solve_most_of_problems = (flagOviedo >= 0.5) ? true : false
-
-    #Show the results of the method
-    displayResults("Oviedo Mean ($repetitions repetitions)",
-                    iterOviedo, t_oviedo, normOviedo, ttpSO, solve_most_of_problems)
 
     #Finalize the model
     finalize(nlp_problem)
