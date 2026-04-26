@@ -4,16 +4,49 @@ using Distributions
 using CUTEst
 
 """
-Execution examples
+# Intention of this script
 
-#https://www.sfu.ca/~ssurjano/beale.html
-julia robust_main.jl --problem cutest-sif/BEALE.SIF --LB -4.5 --UB 4.5 
+Code to execute the second series of experiments proposed in my master's degree thesis.
 
-# https://www.sfu.ca/~ssurjano/hart6.html
-julia robust_main.jl --problem cutest-sif/HEART6LS.SIF --LB 0.0 --UB 1
+The purpose of this experiments is to investigate how the proposed methods work under 
+far initial points. Normally all the given points in the optimization problems are 
+relatively close to the solution. This is not the usage case of most of the optimization
+algorithms; where usually starts on a random position (for instance DNNs). 
 
-# https://www.sfu.ca/~ssurjano/rosen.html
-julia robust_main.jl --problem cutest-sif/ROSENBR.SIF --LB -5.0 --UB 10.0
+# What it does
+
+The methodology used to investigate that is the famous paper 'testing optimization software (1981)' 
+by Jorge J. More et. al. They proposes a simple testing schema. It consist of using the given initial
+point X0 and moving it by a factor of 10 on each new execution of the algorithms (this is NTRIES variable).
+There is not a standard value for NTRIES, it depends completely on the optimization problem.
+
+This script execute the before mentioned methodology, and saves the results in each new execution. 
+For that we create a directory of results for the optimization problem (not optional), the path were all the results
+of the executions is
+
+pwd/csv/results/robust/PROBLEM_NAME/* #(csvs/results/robust/ is hardcoded)
+
+and the result are named as
+
+PROBLEM_FACTOR_X.csv
+
+Where pwd is the current execution folder, PROBLEM_NAME is the name of SIF file (without the .sif extension)
+and X is the factor used in the experiments (determined by the NTRIES hyperparameter).
+
+# Side notes
+
+All the used set of configurations and problems that used this script are located in the path 'exe_commands/robust/*'
+
+There are parameters for the execution of the optimization problems, please read the parser parameters.
+
+This clearly can be implemented in the 'main.jl' this methodology, but right now that code is kinda messy, so I created 
+another new script to not mess more that script.
+
+# Contact information
+
+Contact: jose.quiroz@cimat.max
+Date: April 2026
+
 """
 
 include("utils.jl")
@@ -125,13 +158,23 @@ function main()
     seed = parsed_args["seed"]
     epsilonAdded = parsed_args["epsilon"]
     use_LS = parsed_args["useLS"]
+    repetitions = parsed_args["repetitions"]
+    
+    #Covert the modifier name in lowercase (the function get_modifier matches lowercases strings)
+    modH = lowercase(parsed_args["modifierH"]) 
 
-    #Path were the results will be saved
-    path_results = joinpath("csvs/results/robust", subdirectory)
-    workdirectory = pwd()
-    mkpath(joinpath(workdirectory, path_results)) #Place where to save the results 
+    #Path were the results will be saved. We create a folder for each problem inside the subdirectory
+    #In this case all the results will be saved in ./csvs/results/subdirectory/PROBLEM_NAME/*
+    factors_folder_path = joinpath("csvs/results/robust", subdirectory, name)
+    
+    #We create the paths in case that not exists
+    working_directory = pwd()
+    mkpath(joinpath(working_directory, factors_folder_path))
 
-    #Print the values of the parser
+    #File where we save the results
+    file_basis = joinpath(factors_folder_path, name*"_FACTOR_")
+
+    #Print the values in the parser (problem configuration)
     println("-"^40)
     @printf("%-20s | %-20s\n", "Parameters", "Value")
     println("-"^40)
@@ -141,34 +184,18 @@ function main()
         @printf("%-20s | %-20s\n", key, parsed_args[key])
     end
     println("-"^40)
-
-    #methods
-    modH = lowercase(parsed_args["modifierH"])
-    modS = lowercase(parsed_args["modifierS"])
-    repetitions = parsed_args["repetitions"]
     
-    #File where we save the results
-    file_basis = joinpath(path_results, name*"_FACTOR_")
-
-    #Generator of the uniform distribution
-    # LB = parsed_args["LB"]
-    # UB = parsed_args["UB"] 
-
-    #Draw from a uniform given the box where are evaluating
-    #d = Uniform(LB, UB)
-
     #Fix a Seed for generation
     seed == 0 ? Random.seed!() : Random.seed!(seed)
 
-    #Obtain the used modifier
+    #Obtain the asked Hessian modifier
     modH = get_modifier(modH)
     headers = [ "Archived Convergence", "Iterations", "Execution time", "Last Gradient"]
 
-    #Get the CUTEST functions    
+    #Get the problem functions and initialize the variables for the robust optimization
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, varP, varN)
     x0 = initial_point
     Factor = 1.0
-    #println("Initial point: ", initial_point)
 
     #Number of executions that will be executed
     for i in (1:NTRIES)
@@ -178,8 +205,9 @@ function main()
         M = vcat(fill(U', repetitions)...)
         solve_most_of_problems = nothing
 
-        println("Factor: $Factor")
-        
+        #Show information of the evolution of the factor if it is required
+        show_info ? println("Factor: $Factor") : nothing
+
         #Execution of the NAMGM methods
         xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
@@ -211,11 +239,9 @@ function main()
         #Information of the saved files
         println("Saved results at: $current_file")
 
-        # Draw a random vector from a standard normal
+        #Factor the variables for the next execution
         x0 *= 10.0
         Factor *= 10.0
-
-
     end
 
     #Finalize the model

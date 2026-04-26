@@ -2,12 +2,24 @@ import numpy as np
 import pandas as pd
 import glob 
 import math
+import argparse
 from pathlib import Path
 
+
+#Table constants 
 TAB_LINKER = " & "
 TAB_END = "\\\\"
 CHECK_SYMBOL = "\\checkmark"
 CROSS_SYMBOL = "\\texttimes"
+
+#Parser variables
+parser = argparse.ArgumentParser(description="Path to the directories were to search")
+
+#Variables 
+parser.add_argument("-s", "--simplest", help="Path to the simplets folder for the problem")
+parser.add_argument("-o", "--original", help="Path to the original folder for the problem")
+parser.add_argument("-w", "--withLs", help="Path to the addedLS folder for the problem")
+
 
 def get_ListOfDF(directory:str, verbose:int = 0):
     # Read all the results tables in the directory
@@ -18,7 +30,10 @@ def get_ListOfDF(directory:str, verbose:int = 0):
 
     # Read all the csv files from the directory, and save we save them in a list
     dataframes = [pd.read_csv(f) for f in csv_files]
+
+    #Get the names of the read csv files    
     names_frames_complete = [Path(csv).stem.split('.csv')[0] for csv in csv_files] 
+    problem_name = [Path(csv).stem.split('_')[0] for csv in csv_files][0]
 
     #We print the name of the read tables if it's required
     if verbose in [-1, 0]: 
@@ -34,7 +49,7 @@ def get_ListOfDF(directory:str, verbose:int = 0):
     if verbose in [-1,0,1]:
         print(f"{len(dataframes)} tables has been read.")
 
-    return dataframes, names_frames_complete 
+    return dataframes, names_frames_complete , problem_name
 
 def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     """
@@ -77,7 +92,8 @@ def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     return result_matrix
 
 def construct_cell_color(color1:str, alpha1:int, color2:str =None, alpha2:int=None)->str:
-    """# Usage
+    """
+    # Definition
     
     Function to construct the color cell on a LaTeX table. If color2 and alpha 2 are
     not provided, it still works.
@@ -111,9 +127,20 @@ def __elementTable__(information:np.ndarray, times_symbol:str = "\\times",
     gradient_norms = [information[i].item() for i in range(3, information.shape[0], 4)]
     g_formatted = []
     for g in gradient_norms:
-        exponent = int(math.floor(math.log10(abs(g))))
-        decimal = g / (10 ** exponent)
-        g_formatted.append(f"${decimal: .3f}{times_symbol} 10^{{{int(exponent)}}} $")
+
+        #If the number is infinite
+        if np.isinf(g):
+            g_formatted.append("$\infty$")
+        
+        #If the number is exactly zero
+        elif g == 0.0:
+           g_formatted.append("0.0") 
+
+        else:
+            #If the number it is not a infinite number
+            exponent = int(math.floor(math.log10(abs(g))))
+            decimal = g / (10 ** exponent)
+            g_formatted.append(f"${decimal: .3f}{times_symbol} 10^{{{int(exponent)}}} $")
     
     for i in range(0, 3):
         c = CHECK_SYMBOL if convergence_flags[i] else CROSS_SYMBOL            
@@ -147,7 +174,7 @@ def __tableBody__(factors_matrices: list[np.ndarray], times_symbol="\\times",
     - not_convergence_color:str: = 'BrickRed' - Color of the cell for the not converged methods (only visible if add_cell_color is true) 
     - cell_alpha:       int: = 10         - Transparency of the convergence cells, the values must be in the interval [0, 100].
 
-        ## Outputs:
+    ## Outputs:
 
     -  None: This functions is just to print the body of the table, and will be invoked to get that part.
     
@@ -219,28 +246,30 @@ def generateTable(function_name:str, factors_matrices: list[np.ndarray],scalebox
     return None
 
 def main()->None:
-    
+
+    #Get the values from the parser
+    args = parser.parse_args() 
 
     #Directory of the results original
-    directory_original = "csvs/results/robust/original/*.csv"
-    directory_simplest = "csvs/results/robust/simplest/*.csv"
-    directory_addedLS = "csvs/results/robust/addedLS/*.csv"
-
+    directory_simplest = args.simplest + "*.csv"
+    directory_original = args.original + "*.csv"
+    directory_addedLS = args.withLs + "*.csv"
+    print("Hello")
 
     #Read all the results of the dataframes
-    dataframes_orig, names_frames = get_ListOfDF(directory_original, 0)
-    dataframes_LS, names_frames = get_ListOfDF(directory_addedLS, 0)
-    dataframes_SP, names_frames = get_ListOfDF(directory_simplest, 0)
+    dataframes_orig, names_frames, problem_name = get_ListOfDF(directory_original, 0)
+    dataframes_LS, names_frames = get_ListOfDF(directory_addedLS, 0)[0:-1]
+    dataframes_SP, names_frames = get_ListOfDF(directory_simplest, 0)[0:-1]
 
     matrix_simplest = create_matrix_results(dataframes_SP)  
     matrix_original = create_matrix_results(dataframes_orig) 
     matrix_addedLS = create_matrix_results(dataframes_LS) 
 
     #List of matrix results
-    list_matrices = [matrix_simplest, matrix_original, matrix_simplest]
+    list_matrices = [matrix_simplest, matrix_original, matrix_addedLS]
 
 
-    generateTable("WATSON", list_matrices, 0.65, "\\cdot")
+    generateTable(problem_name, list_matrices, 0.65, "\\cdot")
     #__tableBody__(list_matrices, "\\cdot")
 
     return
