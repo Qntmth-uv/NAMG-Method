@@ -60,45 +60,67 @@ function parse_commandline()
                     'remove'}"
             arg_type = String
             default = "eigen"
+
         "--modifierS"
             help = "System modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
                     'remove'}"
             arg_type = String
             default = "none"
+
         "--seed"
             help = "Fix a seed for the random process"
             arg_type = Int
             default = 0
+
         "--epsilon"
             help = "Epsilon added to the Modifier in case of being needed"
             arg_type = Float64
             default = 1.e-8
+
         "--DEBUG"
             help= "Use the DEBUG functions of the methods to create CSV's and some informative Plots"
             action = :store_true
+        
         "--useDimProblem"
             help= "Use the same number of vectors as the dimension of the problem (valid only on RandomVectors)"
             action = :store_true
+
         "--repetitions"
             help = "Number of repetitions for the Random method. " 
             arg_type = Int64
             default = 30
+
         "--saveinfo"
             help = "Boolean variable to indicate if it should write files"
             action = :store_true 
+
         "--useLS"
             help = "Use lines search in the tested methods (backtracking)"
             action = :store_true
+
         "--displaysG"
             help = "Show the possible generated graphs"
             action = :store_true
+        
         "--subdirectory"
             help = "Subdirectory where to save the different results using different parameters (default, addedLS & usingDBFS)"
             arg_type = String
             default = "original/"
+
         "--dontuse_ModifierNewton"
             help = "It removes the given modifier of the Hessian and uses the none mode."
             action = :store_true
+
+        "--factorX0"
+            help = "Multiple the initial point by a factor (default = 1.0)"
+            arg_type = Float64
+            default = 1.0
+            
+        "--DM"
+            help = "Prints the result points of the optimization process (ONLY IN DEBUGMODE)"
+            action = :store_true
+
+
     end
     return parse_args(s)
 end
@@ -131,6 +153,8 @@ function main()
     show_plots = parsed_args["displaysG"]
     subdirectory = parsed_args["subdirectory"]
     dont_use_modifier_newton = parsed_args["dontuse_ModifierNewton"] 
+    factor = parsed_args["factorX0"]  
+    display_results = parsed_args["DM"]
 
     #The debug mode makes save info true
     saveinfo = debug_mode ? true : saveinfo
@@ -218,12 +242,14 @@ function main()
     
     #Initialize random vector of same dimension
     n = length(initial_point)
-    x0 = initial_point
+    x0 = initial_point * factor
 
     #Check the flag of the size of RandomVectors
     usedim_problem ? randomsize = n : nothing
     println("Random Vectors being used: ", randomsize-1)
+    println("The factor for the initial point is: $factor")
     println("-"^80)
+
 
     #Header of the DF
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
@@ -248,6 +274,19 @@ function main()
         end
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
         xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
+
+
+        if(display_results)
+            println("-"^80)
+            println("Solutions of the optimization algorithms")
+            println("."^80)
+            display("SGLS Solution: $xf_SGD")
+            display("AMG Solution: $xf_Oviedo")
+            display("Queue Solution: $xf_Queue")
+            display("Random Solution: $xf_random")
+            display("BFGS Solution: $xf_bfgs")
+            display("Newton Solution: $xf_newton")
+        end
 
 
         #Clean the data if there is a 0.0 then the plot will explode.
@@ -292,7 +331,7 @@ function main()
             g_ylims = (Inf, -Inf)
 
             #Transform the matrices and update the global limits 
-            matrices_procesadas = map(raw_inputs) do raw_data
+            processed_matrices = map(raw_inputs) do raw_data
                 mat = Float64.(stack(raw_data, dims=1)) 
                 
                 #Update the global boundaries searching in each historial
@@ -306,7 +345,7 @@ function main()
             end
 
             #Unpack the trajectories 
-            xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = matrices_procesadas
+            xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = processed_matrices
 
             #Visual path of the algorithms
             ax = plot_optimization_path(f, xP_oviedo, levels=20, label="Oviedo", g_xlims=g_xlims, g_ylims=g_ylims, function_name=name)
@@ -324,8 +363,12 @@ function main()
         end
     else
         println(">>Normal mode")
+
+        #Variables for the Random - NAMGM
         U = Any[0, 0.0, 0.0, 0.0, 0.0]
         M = vcat(fill(U', repetitions)...)
+
+        #Execution of the NAMGM - methods and comparative methods
         xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
         xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions

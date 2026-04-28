@@ -11,6 +11,10 @@ images/condition_analysis/test/*
 images/historials_grads/test/*
 images/paths/test/*
 
-#--------------------FILES --------------------#
+#--------------------- FILES ---------------------#
 csvs/historials/test/*
 csvs/results/test/*
+
+#--------------------- FILES ---------------------##
+tables_creation/robust_execution_generation_commands.txt
+tables_creation/TEXTABS/*.tex

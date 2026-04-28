@@ -55,7 +55,6 @@ include("NAMGM_methods.jl")
 function parse_commandline()
     s = ArgParseSettings()
     s.description = "Main Script of the set robust experiments of the NAMGM method."
-
      
     @add_arg_table! s begin
         "--problem"
@@ -190,12 +189,13 @@ function main()
 
     #Obtain the asked Hessian modifier
     modH = get_modifier(modH)
-    headers = [ "Archived Convergence", "Iterations", "Execution time", "Last Gradient"]
+    headers = [ "Archived Convergence", "Iterations", "Execution time", "Last Gradient", "Not divergency number"]
 
     #Get the problem functions and initialize the variables for the robust optimization
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, varP, varN)
     x0 = initial_point
     Factor = 1.0
+
 
     #Number of executions that will be executed
     for i in (1:NTRIES)
@@ -203,32 +203,41 @@ function main()
         #Variables where store the results of the current iteration.
         U = Any[0, 0.0, 0.0, 0.0, 0.0]
         M = vcat(fill(U', repetitions)...)
+        divergent_results::Int = 0;
         solve_most_of_problems = nothing
 
         #Show information of the evolution of the factor if it is required
         show_info ? println("Factor: $Factor") : nothing
 
         #Execution of the NAMGM methods
-        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)
+        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)    
         xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions
             M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
-            U.+=M[i, :]
+            if isinf(M[i, 3]) || M[i, 3] > 1.0^12
+                divergent_results+=1;
+            else
+                U.+=M[i, :]
+            end
         end
+
         
-        #Compute the mean of the results for the Random - NAMGM Method.
-        U./=repetitions
+        #Compute the mean of the results for the Random - NAMGM.
+        total_successful_experiments = repetitions-divergent_results
+        U./=(total_successful_experiments)
         iterRandom, t_random, normRandom, ttpSR, flagRandom = U
         solve_most_of_problems = (flagRandom >= 0.5) ? true : false
-        displayResults("Random Mean ($repetitions repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
+        displayResults("Random Mean ($total_successful_experiments repetitions)", iterRandom, t_random, normRandom, ttpSR, solve_most_of_problems)
+        println("The number of divergent results in Random - NAMGM: $divergent_results")
 
         #Creation of the columns for the results
         times = [t_oviedo, t_queue, t_random]
         lastGrad = [normOviedo, normQueue, normRandom]
         iterations =[iterOviedo, iterQueue, iterRandom]
         convergence = [flagOviedo, flagQueue, flagRandom] 
-        data = [convergence, iterations, times, lastGrad]
-
+        times_that_diverged = [isinf(normOviedo) ? 0 : 1, isinf(normQueue) ? 0 : 1, Float64(total_successful_experiments)] 
+        data = [convergence, iterations, times, lastGrad, times_that_diverged]
+        
         #Save the information of the current file
         current_file = file_basis*string(i)*".csv"
 
@@ -243,6 +252,8 @@ function main()
         x0 *= 10.0
         Factor *= 10.0
     end
+
+
 
     #Finalize the model
     finalize(nlp_problem)
