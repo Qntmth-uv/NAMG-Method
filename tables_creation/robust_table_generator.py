@@ -91,6 +91,7 @@ def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     - matrix_results: np.ndarray - Numpy array with the results for the Configuration/Problem
 
     """
+    
     # We have 5 methods and 5 variables, then in total we have N \times 5 elements in the dataframe
     result_matrix = np.zeros((len(dataframes_list), 15)) #(Number of factors, Variables (5 variables, but 3 methods))
 

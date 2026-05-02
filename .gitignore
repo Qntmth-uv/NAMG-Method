@@ -15,6 +15,6 @@ images/paths/test/*
 csvs/historials/test/*
 csvs/results/test/*
 
-#--------------------- FILES ---------------------##
+#------------------ TABLES FILES ------------------#
 tables_creation/robust_execution_generation_commands.txt
 tables_creation/TEXTABS/*.tex

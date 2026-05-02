@@ -275,7 +275,7 @@ function main()
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
         xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
 
-
+        #Displays the obtained solutions
         if(display_results)
             println("-"^80)
             println("Solutions of the optimization algorithms")
@@ -287,7 +287,6 @@ function main()
             display("BFGS Solution: $xf_bfgs")
             display("Newton Solution: $xf_newton")
         end
-
 
         #Clean the data if there is a 0.0 then the plot will explode.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
@@ -302,6 +301,7 @@ function main()
                 end
             end
         end
+
         #It should save the data?
         saveinfo ? createCSV(H, file_name_historials, headers_methods) : nothing
 
@@ -313,8 +313,8 @@ function main()
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
-        gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, image_historial)
-        conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, image_conditionEvolution)
+        gradplot = plotEvolution(H, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title)
+        conditionplt = plotEvolution(Hc, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN)
         
         #Save the images if it's required
         saveinfo ? savefig(gradplot, image_historial) : nothing 

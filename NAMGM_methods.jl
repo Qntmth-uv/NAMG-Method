@@ -61,7 +61,8 @@ function namgmSolver(Bk, gk, list_of_vectors)
 end 
 
 function namgmOviedo(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: Float64, 
-                    maxIters:: Int, hessian_mod, epsilon::Float64, add_lineSearch::Bool = false)
+                    maxIters:: Int, hessian_mod, epsilon::Float64, add_lineSearch::Bool = false,
+                    show_results::Bool = false)
     """The NAMGM algorithm using the set of vectors in the paper AMGM algorithm [1]. There are other authors, but
     to maintain simple and memorable the name, we use only the first name of the main author.
     # Input:
@@ -150,7 +151,8 @@ function namgmOviedo(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: F
 end
 
 function namgmGrads(fx, gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int, 
-                    queue_size:: Int, hessian_mod, epsilon::Float64,add_lineSearch::Bool = false)
+                    queue_size:: Int, hessian_mod, epsilon::Float64, add_lineSearch::Bool = false,
+                    show_results::Bool = false)
     """NAMGM - Using the Gradient queue directive. 
     # Input:
         -    fx   : Function  - Objective optimization function.
@@ -237,8 +239,7 @@ function namgmGrads(fx, gradient, Hessian, x0:: Vector, tolerance:: Float64, max
 end
 
 function namgmRandomVectors(fx::Function, gradient, Hessian, x0:: Vector, tolerance:: Float64, maxIters:: Int,
-                             randomSize:: Int, hessian_mod, epsilon::Float64, show_results::Bool = false,
-                             add_lineSearch::Bool = false)
+                             randomSize:: Int, hessian_mod, epsilon::Float64, add_lineSearch::Bool = false, show_results::Bool = false)
     """NAMGM - Using the Random Vectors directive. 
     
     #Input
@@ -509,7 +510,7 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
 end
 
 
-function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
+function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int, show_results::Bool = false)
     """Gradient descent method that uses line-search strategy (backtrack).
     
     #Input:
