@@ -348,7 +348,7 @@ function main()
             xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = processed_matrices
 
             #Visual path of the algorithms
-            ax = plot_optimization_path(f, xP_oviedo, levels=20, label="Oviedo", g_xlims=g_xlims, g_ylims=g_ylims, function_name=name)
+            ax = plot_optimization_path(f, xP_oviedo, function_name = name, levels = 20, label = "AMG", g_xlims = g_xlims, g_ylims = g_ylims)
 
             #Add others paths in the plot
             add_optimization_path!(ax, xP_queue, label="Queue", color=:blue, linestyle=:dash)

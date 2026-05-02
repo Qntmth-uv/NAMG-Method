@@ -32,14 +32,14 @@ function plot_optimization_path(f::Function, eval_points::AbstractMatrix; functi
         clabels=false, cbar=false, label=nothing,
         title="$(function_name) Landscape", xlabel="x", ylabel="y")
 
-    add_optimization_path!(p, eval_points, label=label, color=:crimson)
+    add_optimization_path!(p, eval_points; label=label, color=:crimson)
     
     return p
 end
 
 
 function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix; label::String="Path", color::Symbol=:crimson, linestyle::Symbol = :solid, markersize::Int = 5, 
-                                alpha::Float16=0.7, init_end_points_alpha::Float16 = 1.0) 
+                                alpha::Real=0.7, init_end_points_alpha::Real = 1.0) 
     # Extraemos coordenadas (Igual que en tu código original)
     xs_path = eval_points[:, 1]
     ys_path = eval_points[:, 2]
@@ -53,7 +53,7 @@ function add_optimization_path!(plt::Plots.Plot, eval_points::AbstractMatrix; la
         scatter!(plt, [xs_path[1]], [ys_path[1]], markercolor=:green, markerstrokecolor=:black, marker=:circle, markersize=markersize, label=nothing, alpha=init_end_points_alpha)
         
         #End point
-        scatter!(plt, [xs_path[end]], [ys_path[end]], markercolor=color, markerstrokecolor=:black, marker=:star5, markersize=markersize5, label=nothing, alpha=init_end_points_alpha)
+        scatter!(plt, [xs_path[end]], [ys_path[end]], markercolor=color, markerstrokecolor=:black, marker=:star5, markersize=markersize, label=nothing, alpha=init_end_points_alpha)
     end
     return plt
 end
@@ -66,7 +66,7 @@ function plot_area_optimization_paths(f::Function, array_paths::AbstractArray, l
     canvas = plot_optimization_path(f, array_paths[1]; config_canvas)
     number_paths = length(array_paths)
     for i in (1:number_paths)
-        add_optimization_path!(canvas, array_paths[i], "", color, :solid, markersize, 0.1, 0.1)
+        add_optimization_path!(canvas, array_paths[i]; label="", color=color, markersize=1, alpha=0.1, init_end_points_alpha=0.1)
     end
     #Save the plot
     savefig(canvas, image_path)
