@@ -1,0 +1,23 @@
+# –------ Modifiers of the table generator –------#
+
+1. '-ts' Scientific notation for the time columns (for small time executions). 
+
+
+#–-----–------–------–------–------–------–-------#
+
+
+python3 robust_table_generator.py -o ../csvs/results/robust/original/BEALE/ -w ../csvs/results/robust/addedLS/BEALE/ -s ../csvs/results/robust/simplest/BEALE/ > TEXTABS/BEALE.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/BIGGS6/ -w ../csvs/results/robust/addedLS/BIGGS6/ -s ../csvs/results/robust/simplest/BIGGS6/ > TEXTABS/BIGGS6.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/BOX3/ -w ../csvs/results/robust/addedLS/BOX3/ -s ../csvs/results/robust/simplest/BOX3/ > TEXTABS/BOX3.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/BROWNBS/ -w ../csvs/results/robust/addedLS/BROWNBS/ -s ../csvs/results/robust/simplest/BROWNBS/ > TEXTABS/BROWNBS.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/BROWNDEN/ -w ../csvs/results/robust/addedLS/BROWNDEN/ -s ../csvs/results/robust/simplest/BROWNDEN/ > TEXTABS/BROWNDEN.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/EXTROSBN/ -w ../csvs/results/robust/addedLS/EXTROSBN/ -s ../csvs/results/robust/simplest/EXTROSBN/ > TEXTABS/EXTROSBN.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/GAUSSIAN/ -w ../csvs/results/robust/addedLS/GAUSSIAN/ -s ../csvs/results/robust/simplest/GAUSSIAN/ > TEXTABS/GAUSSIAN.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/GULF/ -w ../csvs/results/robust/addedLS/GULF/ -s ../csvs/results/robust/simplest/GULF/ > TEXTABS/GULF.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/HELIX/ -w ../csvs/results/robust/addedLS/HELIX/ -s ../csvs/results/robust/simplest/HELIX/ > TEXTABS/HELIX.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/PENALTY1/ -w ../csvs/results/robust/addedLS/PENALTY1/ -s ../csvs/results/robust/simplest/PENALTY1/ > TEXTABS/PENALTY1.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/PENALTY2/ -w ../csvs/results/robust/addedLS/PENALTY2/ -s ../csvs/results/robust/simplest/PENALTY2/ > TEXTABS/PENALTY2.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/TRIGON1/ -w ../csvs/results/robust/addedLS/TRIGON1/ -s ../csvs/results/robust/simplest/TRIGON1/ > TEXTABS/TRIGON1.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/VARDIM/ -w ../csvs/results/robust/addedLS/VARDIM/ -s ../csvs/results/robust/simplest/VARDIM/ > TEXTABS/VARDIM.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/WATSON/ -w ../csvs/results/robust/addedLS/WATSON/ -s ../csvs/results/robust/simplest/WATSON/ > TEXTABS/WATSON.tex
+python3 robust_table_generator.py -o ../csvs/results/robust/original/WOODS/ -w ../csvs/results/robust/addedLS/WOODS/ -s ../csvs/results/robust/simplest/BOX3/ > TEXTABS/WOODS.tex

@@ -4,6 +4,14 @@ import numpy as np
 #Table constants 
 TAB_LINKER = " & "
 TAB_END = "\\\\"
+B_RULE = "\\bottomrule"
+M_RULE = "\\midrule"
+T_RULE = "\\toprule"
+C_RULE = lambda l,r: "\\cmidrule(lr){"+str(l)+"-"+str(r)+"}"
+SCALE_BOX_TAB = lambda s: f"\\scalebox{{{s}}}"+"{"
+
+
+#Symbols
 CHECK_SYMBOL = "\\checkmark"
 CROSS_SYMBOL = "\\texttimes"
 
