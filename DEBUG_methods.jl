@@ -574,7 +574,7 @@ function DEBUG_BFGSMethod(fx::Function, gradient::Function, hessian::Function, x
     return x_old, gradient_his, ttime, x_path, k, gnorm, ittpSec, archived_convergence_flag 
 end
 
-function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
+function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int, add_lineSearch::Bool = true)
     """Gradient descent method that uses line-search strategy.
     
     #Input:
@@ -583,7 +583,8 @@ function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tole
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence
-    
+        -  add_LS :    Bool  - Add line search (standard backtracking) 
+
     #Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -614,7 +615,7 @@ function DEGUB_steepestMethod(fx::Function, gradient::Function, x0::Vector, tole
 
         #Compute the right steep size
         actualfxk = fx(x)
-        alpha = backtrackWWC(fx, x, -gk, gk, actualfxk)
+        alpha = add_lineSearch ? backtrackWWC(fx, x, -gk, gk, actualfxk) : 1.0
 
         #Update the sequence
         x = x - alpha*gk

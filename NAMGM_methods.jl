@@ -509,7 +509,7 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
 end
 
 
-function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int)
+function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int, add_lineSearch::Bool = true)
     """Gradient descent method that uses line-search strategy (backtrack).
     
     #Input:
@@ -518,7 +518,7 @@ function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance:
         -    x0   :  Vector  - Initial point of the sequence.
         -tolerance:   Float  - Minimum norm of the critical point
         - maxIters:    Int   - Maximum number of elements in the sequence
-    
+        -  add_LS :    Bool  - Add line search (standard backtracking) 
     #Output:
         -    x    : Vector  - Final element of the sequence
         -    k    :  Int    - Number of iterations taken
@@ -543,7 +543,7 @@ function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance:
 
         #Compute the right steep size
         actualfxk = fx(x)
-        alpha = backtrackWWC(fx, x, -gk, gk, actualfxk)
+        alpha = add_lineSearch ? backtrackWWC(fx, x, -gk, gk, actualfxk) : 1.0
 
         #Update the sequence
         x = x - alpha*gk

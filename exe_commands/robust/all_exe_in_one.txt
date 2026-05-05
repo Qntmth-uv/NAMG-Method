@@ -62,6 +62,6 @@ julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --s
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --repetitions 10 --varP 1000 > exe_histo/robust/original/TRIGON1.txt
 julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --repetitions 10 --varP 1000 > exe_histo/robust/addedLS/TRIGON1.txt
 
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --subdirectory simplest --varP 4000 --varN "n" > exe_histo/robust/simplest/WOODS.txt
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --modifierH eigen --subdirectory original --varP 4000 --varN "n" > > exe_histo/robust/original/WOODS.txt
-julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 6 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4000 --varN "n" > > exe_histo/robust/addedLS/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 4 --show_info --subdirectory simplest --varP 4000 --varN "n" > exe_histo/robust/simplest/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 4 --show_info --modifierH eigen --subdirectory original --varP 4000 --varN "n" > exe_histo/robust/original/WOODS.txt
+julia --project=venv_NAMGM robust_main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --NTRIES 4 --show_info --useLS --modifierH eigen --subdirectory addedLS --varP 4000 --varN "n" > exe_histo/robust/addedLS/WOODS.txt

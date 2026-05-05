@@ -152,7 +152,6 @@ function main()
     #Parameters of the method
     nIters = parsed_args["nIters"]
     lqueue = parsed_args["lqueue"]
-    randomsize = lqueue
     tol = parsed_args["tol"]
     seed = parsed_args["seed"]
     epsilonAdded = parsed_args["epsilon"]
@@ -189,13 +188,12 @@ function main()
 
     #Obtain the asked Hessian modifier
     modH = get_modifier(modH)
-    headers = [ "Archived Convergence", "Iterations", "Execution time", "Last Gradient", "Not divergency number"]
+    headers = ["Archived Convergence", "Iterations", "Execution time", "Last Gradient", "Number of times that the method converged"]
 
     #Get the problem functions and initialize the variables for the robust optimization
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, varP, varN)
     x0 = initial_point
     Factor = 1.0
-
 
     #Number of executions that will be executed
     for i in (1:NTRIES)
@@ -210,17 +208,13 @@ function main()
         show_info ? println("Factor: $Factor") : nothing
 
         #Execution of the NAMGM methods
-        xf_Oviedo, iterOviedo, t_oviedo, normOviedo, ttpSO, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)    
-        xf_Queue, iterQueue, t_queue, normQueue, ttpSQ, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
+        _, iterSGLS, t_sgls, normSGLS, _, flagSGLS = steepestMethod(f, g, x0, tol, nIters, use_LS)     
+        _, iterOviedo, t_oviedo, normOviedo, _, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)    
+        _, iterQueue, t_queue, normQueue, _, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions
             M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
-            if isinf(M[i, 3]) || M[i, 3] > 1.0^12
-                divergent_results+=1;
-            else
-                U.+=M[i, :]
-            end
+            (isinf(M[i, 3]) || M[i, 3] > 1.0e12) ? divergent_results+=1 : U.+=M[i, :]
         end
-
         
         #Compute the mean of the results for the Random - NAMGM.
         total_successful_experiments = repetitions-divergent_results
@@ -231,12 +225,12 @@ function main()
         println("The number of divergent results in Random - NAMGM: $divergent_results")
 
         #Creation of the columns for the results
-        times = [t_oviedo, t_queue, t_random]
-        lastGrad = [normOviedo, normQueue, normRandom]
-        iterations =[iterOviedo, iterQueue, iterRandom]
-        convergence = [flagOviedo, flagQueue, flagRandom] 
-        times_that_diverged = [isinf(normOviedo) ? 0 : 1, isinf(normQueue) ? 0 : 1, Float64(total_successful_experiments)] 
-        data = [convergence, iterations, times, lastGrad, times_that_diverged]
+        times = [t_sgls, t_oviedo, t_queue, t_random]
+        lastGrad = [normSGLS, normOviedo, normQueue, normRandom]
+        iterations =[iterSGLS,iterOviedo, iterQueue, iterRandom]
+        convergence = [flagSGLS, flagOviedo, flagQueue, flagRandom] 
+        times_that_converged = [isinf(normOviedo) ? 0 : 1, isinf(normQueue) ? 0 : 1, isinf(normSGLS) ? 0 : 1, Float64(total_successful_experiments)]
+        data = [convergence, iterations, times, lastGrad, times_that_converged]
         
         #Save the information of the current file
         current_file = file_basis*string(i)*".csv"
