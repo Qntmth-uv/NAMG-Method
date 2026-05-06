@@ -1,0 +1,124 @@
+-----------------------------------------------------------------------------------------------
+¡¡Disclamer!!
+
+This was the most expensive problem to solve in optimization in line. All the configurations experiments took 1 week of computational power. This executions were performed before the addition of the gradient descent with line search (SGLS). The that's why the execution of that method does not appear here. 
+
+	We performed isolated executions of the SGLSM in this problem, and then we append the results to cvs files.
+
+The files affected were: 
+	- robust/simplest/TRIGON1.txt
+	- robust/original/TRIGON1.txt
+	- robust/addedLS/TRIGON1.txt
+This was the only problem with this problem.
+-----------------------------------------------------------------------------------------------
+
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+NTRIES               | 6                   
+epsilon              | 1.0e-8              
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/TRIGON1.SIF
+repetitions          | 10                  
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | 1000                
+----------------------------------------
+Number of variables: 1000
+Factor: 1.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 2786.75435 | LastNorm: 1.05702e+00 | Iterations/sec: 0.35884 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 2769.29367 | LastNorm: 1.13396e+02 | Iterations/sec: 0.36110 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2761.59372 | LastNorm: 2.50577e+02 | Iterations/sec: 0.36211 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2774.08403 | LastNorm: 2.48701e+02 | Iterations/sec: 0.36048 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2774.64898 | LastNorm: 2.50011e+02 | Iterations/sec: 0.36041 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2772.83498 | LastNorm: 2.50137e+02 | Iterations/sec: 0.36064 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2771.44169 | LastNorm: 2.49886e+02 | Iterations/sec: 0.36082 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2760.69856 | LastNorm: 2.50619e+02 | Iterations/sec: 0.36223 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2757.78291 | LastNorm: 2.53143e+02 | Iterations/sec: 0.36261 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2760.26729 | LastNorm: 2.51502e+02 | Iterations/sec: 0.36228 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2758.58876 | LastNorm: 2.44170e+02 | Iterations/sec: 0.36250 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2746.82020 | LastNorm: 2.51563e+02 | Iterations/sec: 0.36406 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2763.87611 | LastNorm: 2.50031e+02 | Iterations/sec: 0.36181 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_1.csv
+Factor: 10.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 2723.01958 | LastNorm: 2.03105e+05 | Iterations/sec: 0.36724 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 2742.51432 | LastNorm: 1.66780e+05 | Iterations/sec: 0.36463 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2774.38600 | LastNorm: 1.95857e+05 | Iterations/sec: 0.36044 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2802.03523 | LastNorm: 1.90764e+05 | Iterations/sec: 0.35688 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2772.16250 | LastNorm: 1.91901e+05 | Iterations/sec: 0.36073 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2775.33149 | LastNorm: 1.89342e+05 | Iterations/sec: 0.36032 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2773.57930 | LastNorm: 1.89940e+05 | Iterations/sec: 0.36054 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2775.65903 | LastNorm: 1.90200e+05 | Iterations/sec: 0.36027 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2776.05598 | LastNorm: 2.00978e+05 | Iterations/sec: 0.36022 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2776.22253 | LastNorm: 1.97103e+05 | Iterations/sec: 0.36020 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2778.46598 | LastNorm: 1.94388e+05 | Iterations/sec: 0.35991 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2776.94527 | LastNorm: 2.03002e+05 | Iterations/sec: 0.36011 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2778.08433 | LastNorm: 1.94348e+05 | Iterations/sec: 0.35996 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_2.csv
+Factor: 100.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 2768.60951 | LastNorm: 1.84268e-07 | Iterations/sec: 0.36119 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 2764.48546 | LastNorm: 1.85308e-07 | Iterations/sec: 0.36173 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2763.89099 | LastNorm: 1.91831e-07 | Iterations/sec: 0.36181 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2764.09056 | LastNorm: 1.87065e-07 | Iterations/sec: 0.36178 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2763.14738 | LastNorm: 1.87106e-07 | Iterations/sec: 0.36191 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2778.06666 | LastNorm: 1.90244e-07 | Iterations/sec: 0.35996 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2788.01687 | LastNorm: 1.91207e-07 | Iterations/sec: 0.35868 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2783.56106 | LastNorm: 1.89425e-07 | Iterations/sec: 0.35925 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2779.73974 | LastNorm: 1.87411e-07 | Iterations/sec: 0.35975 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2785.27942 | LastNorm: 1.87743e-07 | Iterations/sec: 0.35903 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2798.57793 | LastNorm: 1.90296e-07 | Iterations/sec: 0.35732 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2791.66364 | LastNorm: 1.88237e-07 | Iterations/sec: 0.35821 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2779.60342 | LastNorm: 1.89056e-07 | Iterations/sec: 0.35977 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_3.csv
+Factor: 1000.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 2778.16618 | LastNorm: 3.51720e-01 | Iterations/sec: 0.35995 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 2785.60620 | LastNorm: 1.07209e+02 | Iterations/sec: 0.35899 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2783.50082 | LastNorm: 2.79594e+02 | Iterations/sec: 0.35926 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2798.27890 | LastNorm: 2.74105e+02 | Iterations/sec: 0.35736 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2793.57492 | LastNorm: 2.82364e+02 | Iterations/sec: 0.35796 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2776.16677 | LastNorm: 2.86070e+02 | Iterations/sec: 0.36021 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2768.26660 | LastNorm: 2.71165e+02 | Iterations/sec: 0.36124 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2780.45390 | LastNorm: 2.81273e+02 | Iterations/sec: 0.35965 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2783.96296 | LastNorm: 2.75851e+02 | Iterations/sec: 0.35920 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2789.17570 | LastNorm: 2.78287e+02 | Iterations/sec: 0.35853 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2787.55254 | LastNorm: 2.56823e+02 | Iterations/sec: 0.35874 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2785.47878 | LastNorm: 2.71264e+02 | Iterations/sec: 0.35900 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2784.64119 | LastNorm: 2.75680e+02 | Iterations/sec: 0.35912 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_4.csv
+Factor: 10000.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 2773.28510 | LastNorm: 1.54656e+05 | Iterations/sec: 0.36058 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 2781.31915 | LastNorm: 9.52489e+04 | Iterations/sec: 0.35954 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2801.46795 | LastNorm: 1.78924e+05 | Iterations/sec: 0.35696 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2797.60982 | LastNorm: 2.05506e+05 | Iterations/sec: 0.35745 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2815.81251 | LastNorm: 9.60221e+04 | Iterations/sec: 0.35514 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2827.44611 | LastNorm: 2.00677e+05 | Iterations/sec: 0.35368 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2801.06958 | LastNorm: 1.99733e+05 | Iterations/sec: 0.35701 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2779.08252 | LastNorm: 1.97572e+05 | Iterations/sec: 0.35983 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2791.74098 | LastNorm: 1.81976e+05 | Iterations/sec: 0.35820 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2916.41188 | LastNorm: 1.15817e+05 | Iterations/sec: 0.34289 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3346.61405 | LastNorm: 1.89770e+05 | Iterations/sec: 0.29881 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3329.61966 | LastNorm: 1.95845e+05 | Iterations/sec: 0.30033 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2920.68751 | LastNorm: 1.76184e+05 | Iterations/sec: 0.34403 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_5.csv
+Factor: 100000.0
+Execution Info - Oviedo | Iters:   1000 | TTime: 3210.45534 | LastNorm: 1.91648e-04 | Iterations/sec: 0.31148 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 3210.35739 | LastNorm: 1.87281e-04 | Iterations/sec: 0.31149 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3154.02220 | LastNorm: 1.90196e-04 | Iterations/sec: 0.31706 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 3267.01050 | LastNorm: 1.94541e-04 | Iterations/sec: 0.30609 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2721.09532 | LastNorm: 1.95787e-04 | Iterations/sec: 0.36750 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2723.97528 | LastNorm: 1.91785e-04 | Iterations/sec: 0.36711 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2722.75500 | LastNorm: 1.93450e-04 | Iterations/sec: 0.36728 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2719.42918 | LastNorm: 1.94203e-04 | Iterations/sec: 0.36772 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2728.92039 | LastNorm: 1.93915e-04 | Iterations/sec: 0.36645 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2719.07990 | LastNorm: 1.94126e-04 | Iterations/sec: 0.36777 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2719.29125 | LastNorm: 1.95523e-04 | Iterations/sec: 0.36774 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 2725.53236 | LastNorm: 1.94059e-04 | Iterations/sec: 0.36690 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   1000 | TTime: 2820.11114 | LastNorm: 1.93759e-04 | Iterations/sec: 0.35616 | Convergence: false |
+Saved results at: csvs/results/robust/simplest/TRIGON1_FACTOR_6.csv

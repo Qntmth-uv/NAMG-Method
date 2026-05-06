@@ -229,7 +229,7 @@ function main()
         lastGrad = [normSGLS, normOviedo, normQueue, normRandom]
         iterations =[iterSGLS,iterOviedo, iterQueue, iterRandom]
         convergence = [flagSGLS, flagOviedo, flagQueue, flagRandom] 
-        times_that_converged = [isinf(normOviedo) ? 0 : 1, isinf(normQueue) ? 0 : 1, isinf(normSGLS) ? 0 : 1, Float64(total_successful_experiments)]
+        times_that_converged = [isinf(normSGLS) ? 0 : 1, isinf(normOviedo) ? 0 : 1, isinf(normQueue) ? 0 : 1, Float64(total_successful_experiments)]
         data = [convergence, iterations, times, lastGrad, times_that_converged]
         
         #Save the information of the current file

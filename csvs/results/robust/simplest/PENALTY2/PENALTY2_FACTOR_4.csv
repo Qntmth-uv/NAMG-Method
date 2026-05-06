@@ -1,0 +1,5 @@
+Archived Convergence,Iterations,Execution time,Last Gradient,Number of times that the method converged
+0.0,1000.0,0.00013184547424316406,Inf,0.0
+0.0,1000.0,11.113492012023926,2.7823349967847334e34,1.0
+0.0,1000.0,11.371197938919067,4.166757173575551e37,1.0
+NaN,NaN,NaN,NaN,0.0
