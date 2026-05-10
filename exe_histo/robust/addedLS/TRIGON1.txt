@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------------
-¡¡Disclamer!!
+¡¡Disclaimer!!
 
 This was the most expensive problem to solve in optimization in line. All the configurations experiments took 1 week of computational power. This executions were performed before the addition of the gradient descent with line search (SGLS). The that's why the execution of that method does not appear here. 
 

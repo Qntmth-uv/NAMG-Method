@@ -15,7 +15,6 @@ julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHND.SIF --seed 42 
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/DENSCHNF.SIF --seed 42 --show_info --saveinfo > exe_histo/original/DENSCHNF.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/FLETCHCR.SIF --seed 42 --show_info --saveinfo > exe_histo/original/FLETCHCR.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/ENGVAL2.SIF --seed 42 --show_info --saveinfo > exe_histo/original/ENGVAL2.txt
-julia --project=venv_NAMGM main.jl  --problem cutest-sif/EXTROSBN.SIF --seed 42 --show_info --saveinfo > exe_histo/original/EXTROSBN.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/HAIRY.SIF --seed 42 --show_info --saveinfo > exe_histo/original/HAIRY.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/HEART6LS.SIF --seed 42 --show_info --saveinfo > exe_histo/original/HEART6LS.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/HELIX.SIF --seed 42 --show_info --saveinfo > exe_histo/original/HELIX.txt
@@ -45,3 +44,15 @@ julia --project=venv_NAMGM main.jl  --problem cutest-sif/TOINTQOR.SIF --seed 42 
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/VARDIM.SIF --seed 42 --show_info --saveinfo > exe_histo/original/VARDIM.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/WATSON.SIF --seed 42 --show_info --saveinfo > exe_histo/original/WATSON.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/YFITU.SIF --seed 42 --show_info --saveinfo > exe_histo/original/YFITU.txt
+
+# Added later
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --show_info --saveinfo --subdirectory original > exe_histo/original/BIGGS6.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --show_info --saveinfo --subdirectory original > exe_histo/original/GAUSSIAN.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --show_info --saveinfo --subdirectory original > exe_histo/original/BOX3.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BROWNBS.SIF --seed 42 --show_info --saveinfo --subdirectory original > exe_histo/original/BROWNBS.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --show_info --saveinfo --subdirectory original > exe_histo/original/GULF.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --show_info --saveinfo --subdirectory original --varP 100 > exe_histo/original/EXTROSNB.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --show_info --saveinfo --subdirectory original --varP 1000 > exe_histo/original/PENALTY1.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --show_info --saveinfo --subdirectory original --varP 1000 > exe_histo/original/PENALTY2.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --show_info --saveinfo --subdirectory original --varP 1000 > exe_histo/original/TRIGON1.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --show_info --saveinfo --subdirectory original --varP 4000 > exe_histo/original/WOODS.txt
