@@ -315,6 +315,7 @@ function main()
     #Information of the saved files
     println("Saved results at: $current_file")
     println("The results of the execution were saved at: $historial_file")
+    
     #Finalize the model
     finalize(nlp_problem)
 

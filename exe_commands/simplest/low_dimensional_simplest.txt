@@ -44,3 +44,16 @@ julia --project=venv_NAMGM main.jl  --problem cutest-sif/TOINTQOR.SIF --seed 42 
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/VARDIM.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/VARDIM.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/WATSON.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/WATSON.txt
 julia --project=venv_NAMGM main.jl  --problem cutest-sif/YFITU.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/YFITU.txt
+
+
+#Added later
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BIGGS6.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/BIGGS6.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/GAUSSIAN.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/GAUSSIAN.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BOX3.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/BOX3.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/BROWNBS.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/BROWNBS.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/GULF.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo > exe_histo/simplest/GULF.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo --varP 100 > exe_histo/simplest/EXTROSNB.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo --varP 1000 > exe_histo/simplest/PENALTY1.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo --varP 1000 > exe_histo/simplest/PENALTY2.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo --varP 1000 > exe_histo/simplest/TRIGON1.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --show_info --modifierH none --subdirectory simplest --saveinfo --varP 4000 > exe_histo/simplest/WOODS.txt
