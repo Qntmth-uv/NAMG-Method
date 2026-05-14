@@ -1,0 +1,73 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/GULF.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | addedLS             
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+varP                 | -1                  
+----------------------------------------
+Number of variables: 3
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:     27 | TTime: 0.35328 | LastNorm: 4.27081e-10 | Iterations/sec: 76.42662 | Convergence: true |
+Execution Info - Grads  | Iters:     34 | TTime: 0.09485 | LastNorm: 5.76707e-09 | Iterations/sec: 358.47941 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00009 | LastNorm: 0.00000e+00 | Iterations/sec: 22982.48767 | Convergence: true |
+Execution Info - Random | Iters:     27 | TTime: 0.00176 | LastNorm: 2.91473e-10 | Iterations/sec: 15349.17430 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00099 | LastNorm: 3.82470e-10 | Iterations/sec: 21193.54764 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 41734.36816 | Convergence: true |
+Execution Info - Random | Iters:     28 | TTime: 0.00172 | LastNorm: 1.17684e-10 | Iterations/sec: 16232.27533 | Convergence: true |
+Execution Info - Random | Iters:     35 | TTime: 0.00312 | LastNorm: 1.10747e-13 | Iterations/sec: 11221.57468 | Convergence: true |
+Execution Info - Random | Iters:     30 | TTime: 0.00239 | LastNorm: 8.00047e-10 | Iterations/sec: 12577.88085 | Convergence: true |
+Execution Info - Random | Iters:     32 | TTime: 0.00221 | LastNorm: 1.42734e-11 | Iterations/sec: 14447.54876 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 43464.29016 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00125 | LastNorm: 1.64128e-12 | Iterations/sec: 17613.03455 | Convergence: true |
+Execution Info - Random | Iters:     35 | TTime: 0.00325 | LastNorm: 1.12325e-12 | Iterations/sec: 10768.82629 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00124 | LastNorm: 2.13157e-10 | Iterations/sec: 17683.91874 | Convergence: true |
+Execution Info - Random | Iters:      3 | TTime: 0.00036 | LastNorm: 0.00000e+00 | Iterations/sec: 8450.57891 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00370 | LastNorm: Inf | Iterations/sec: 270565.34641 | Convergence: false |
+Execution Info - Random | Iters:      2 | TTime: 0.00009 | LastNorm: 0.00000e+00 | Iterations/sec: 22982.48767 | Convergence: true |
+Execution Info - Random | Iters:     25 | TTime: 0.00165 | LastNorm: 8.87586e-10 | Iterations/sec: 15152.83237 | Convergence: true |
+Execution Info - Random | Iters:     35 | TTime: 0.00439 | LastNorm: 4.07996e-10 | Iterations/sec: 7980.03044 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 43464.29016 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 42581.76650 | Convergence: true |
+Execution Info - Random | Iters:     26 | TTime: 0.00194 | LastNorm: 8.79364e-11 | Iterations/sec: 13410.21938 | Convergence: true |
+Execution Info - Random | Iters:     27 | TTime: 0.00158 | LastNorm: 1.37412e-11 | Iterations/sec: 17068.00422 | Convergence: true |
+Execution Info - Random | Iters:     24 | TTime: 0.00131 | LastNorm: 8.12201e-11 | Iterations/sec: 18362.51295 | Convergence: true |
+Execution Info - Random | Iters:     33 | TTime: 0.00294 | LastNorm: 2.21527e-09 | Iterations/sec: 11216.53420 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00152 | LastNorm: 0.00000e+00 | Iterations/sec: 7246.32386 | Convergence: true |
+Execution Info - Random | Iters:     29 | TTime: 0.00286 | LastNorm: 5.73334e-11 | Iterations/sec: 10122.73768 | Convergence: true |
+Execution Info - Random | Iters:     31 | TTime: 0.00258 | LastNorm: 1.61973e-14 | Iterations/sec: 12034.74861 | Convergence: true |
+Execution Info - Random | Iters:     33 | TTime: 0.00260 | LastNorm: 5.51228e-10 | Iterations/sec: 12703.01322 | Convergence: true |
+Execution Info - Random | Iters:     24 | TTime: 0.00100 | LastNorm: 2.52093e-09 | Iterations/sec: 23927.57214 | Convergence: true |
+Execution Info - Random | Iters:     24 | TTime: 0.00179 | LastNorm: 2.29807e-09 | Iterations/sec: 13391.41892 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 43464.29016 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:     53 | TTime: 0.00162 | LastNorm: Inf | Iterations/sec: 27979.78783 | Convergence: true |
+Execution Info - Newton | Iters:     21 | TTime: 0.00115 | LastNorm: 1.43303e-10 | Iterations/sec: 18228.55629 | Convergence: true |
+Execution Info - BFGS | Iters:   1000 | TTime: 0.24905 | LastNorm: 5.25378e+00 | Iterations/sec: 4015.20959 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.04820 | LastNorm: 1.98743e-01 | Iterations/sec: 20745.60041 | Convergence: false |
+--------------------------------------------------------------------------------
+Files written: 
+- csvs/results/addedLS/GULF_eigen.csv
+- csvs/results/random_historials/addedLS/GULF_eigen.csv
+--------------------------------------------------------------------------------

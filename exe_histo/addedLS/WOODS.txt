@@ -1,0 +1,37 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/WOODS.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | addedLS             
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+varP                 | -1                  
+----------------------------------------
+Number of variables: 1000
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:    863 | TTime: 29.20825 | LastNorm: 7.78592e-09 | Iterations/sec: 29.54645 | Convergence: true |
+Execution Info - Grads  | Iters:    714 | TTime: 31.26818 | LastNorm: 9.98319e-09 | Iterations/sec: 22.83471 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 33.82779 | LastNorm: 1.50232e-02 | Iterations/sec: 29.56149 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 32.18272 | LastNorm: 2.06289e-02 | Iterations/sec: 31.07258 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 34.35851 | LastNorm: 1.50136e-02 | Iterations/sec: 29.10488 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 41.38759 | LastNorm: 2.32010e-02 | Iterations/sec: 24.16183 | Convergence: false |

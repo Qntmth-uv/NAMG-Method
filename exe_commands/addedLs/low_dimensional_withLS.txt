@@ -55,4 +55,4 @@ julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/EXTROSNB.SIF --seed 42
 julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY1.SIF --seed 42 --show_info --useLS --saveinfo --subdirectory addedLS --varP 1000 > exe_histo/addedLS/PENALTY1.txt
 julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/PENALTY2.SIF --seed 42 --show_info --useLS --saveinfo --subdirectory addedLS --varP 1000 > exe_histo/addedLS/PENALTY2.txt
 julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/TRIGON1.SIF --seed 42 --show_info --useLS --saveinfo --subdirectory addedLS --varP 1000 > exe_histo/addedLS/TRIGON1.txt
-julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --show_info --useLS --saveinfo --subdirectory addedLS --varP 4000 --varN "n" > exe_histo/addedLS/WOODS.txt
+julia --project=venv_NAMGM main.jl --problem 1-cutest-sif/WOODS.SIF --seed 42 --show_info --useLS --saveinfo --subdirectory addedLS --varP 4000 > exe_histo/addedLS/WOODS.txt

@@ -1,0 +1,106 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/PENALTY2.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+varP                 | 1000                
+----------------------------------------
+Number of variables: 1000
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 2.20432 | LastNorm: Inf | Iterations/sec: 453.65401 | Convergence: false |
+Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.43198 | LastNorm: Inf | Iterations/sec: 2314.94811 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.45997 | LastNorm: Inf | Iterations/sec: 684.94458 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 5.69804 | LastNorm: Inf | Iterations/sec: 175.49910 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.22719 | LastNorm: Inf | Iterations/sec: 814.86973 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.10237 | LastNorm: Inf | Iterations/sec: 907.13976 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06219 | LastNorm: Inf | Iterations/sec: 941.45554 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.86333 | LastNorm: Inf | Iterations/sec: 1158.31122 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.99141 | LastNorm: Inf | Iterations/sec: 334.29028 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.09991 | LastNorm: Inf | Iterations/sec: 909.16193 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.79509 | LastNorm: Inf | Iterations/sec: 357.77012 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 5.78336 | LastNorm: Inf | Iterations/sec: 172.90989 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.20646 | LastNorm: Inf | Iterations/sec: 453.21544 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.97432 | LastNorm: Inf | Iterations/sec: 506.50297 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.86883 | LastNorm: Inf | Iterations/sec: 348.57451 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06592 | LastNorm: Inf | Iterations/sec: 938.15325 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.24365 | LastNorm: Inf | Iterations/sec: 445.70133 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.95619 | LastNorm: Inf | Iterations/sec: 338.27327 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.90337 | LastNorm: Inf | Iterations/sec: 1106.96246 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06098 | LastNorm: Inf | Iterations/sec: 942.52307 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.14712 | LastNorm: Inf | Iterations/sec: 871.74602 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.36364 | LastNorm: Inf | Iterations/sec: 423.07592 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 47.49353 | LastNorm: 3.61416e+79 | Iterations/sec: 21.05550 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.60103 | LastNorm: Inf | Iterations/sec: 384.46278 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 3.97378 | LastNorm: Inf | Iterations/sec: 251.64963 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06187 | LastNorm: Inf | Iterations/sec: 941.73837 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06088 | LastNorm: Inf | Iterations/sec: 942.61648 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 1.06156 | LastNorm: Inf | Iterations/sec: 942.01079 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 3.18698 | LastNorm: Inf | Iterations/sec: 313.77698 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 2.24351 | LastNorm: Inf | Iterations/sec: 445.72975 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 3.85143 | LastNorm: Inf | Iterations/sec: 259.64370 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 4.09272 | LastNorm: Inf | Iterations/sec: 244.33604 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 3.78335 | LastNorm: Inf | Iterations/sec: 585.93668 | Convergence: false |
+Newton - Floating point overflow occurred, ending process.
+Execution Info - Newton | Iters:   1000 | TTime: 0.05440 | LastNorm: Inf | Iterations/sec: 18381.63898 | Convergence: false |
+Floating point overflow occurred, ending process.
+Execution Info - BFGS | Iters:   1000 | TTime: 0.17216 | LastNorm: Inf | Iterations/sec: 5808.61757 | Convergence: false |
+Step Descent - Floating point overflow occurred, ending process.
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00206 | LastNorm: Inf | Iterations/sec: 485227.20963 | Convergence: false |
+--------------------------------------------------------------------------------
+Files written: 
+- csvs/results/original/PENALTY2_eigen.csv
+- csvs/results/random_historials/original/PENALTY2_eigen.csv
+--------------------------------------------------------------------------------

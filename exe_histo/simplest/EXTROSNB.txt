@@ -1,0 +1,72 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/EXTROSNB.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+varP                 | 100                 
+----------------------------------------
+Number of variables: 100
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.40371 | LastNorm: 3.45202e-03 | Iterations/sec: 2477.00140 | Convergence: false |
+Execution Info - Grads  | Iters:   1000 | TTime: 0.12430 | LastNorm: 2.58582e-02 | Iterations/sec: 8045.25271 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02815 | LastNorm: 1.08585e-01 | Iterations/sec: 35528.99122 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02880 | LastNorm: 1.07565e-01 | Iterations/sec: 34722.20934 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02524 | LastNorm: 1.08479e-01 | Iterations/sec: 39619.73853 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02479 | LastNorm: 1.08965e-01 | Iterations/sec: 40343.81132 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02533 | LastNorm: 1.08246e-01 | Iterations/sec: 39481.74784 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02567 | LastNorm: 1.08865e-01 | Iterations/sec: 38960.60564 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02445 | LastNorm: 1.08927e-01 | Iterations/sec: 40903.27866 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02551 | LastNorm: 1.09396e-01 | Iterations/sec: 39201.66740 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02471 | LastNorm: 1.09194e-01 | Iterations/sec: 40474.62076 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02557 | LastNorm: 1.08915e-01 | Iterations/sec: 39109.55289 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02449 | LastNorm: 1.09013e-01 | Iterations/sec: 40833.19379 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02546 | LastNorm: 1.08018e-01 | Iterations/sec: 39278.76160 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02474 | LastNorm: 1.09010e-01 | Iterations/sec: 40427.02651 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02460 | LastNorm: 1.08837e-01 | Iterations/sec: 40646.81313 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02531 | LastNorm: 1.08296e-01 | Iterations/sec: 39510.01338 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02490 | LastNorm: 1.07724e-01 | Iterations/sec: 40162.24601 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02547 | LastNorm: 1.08894e-01 | Iterations/sec: 39255.96893 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02459 | LastNorm: 1.08175e-01 | Iterations/sec: 40666.91229 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02539 | LastNorm: 1.09605e-01 | Iterations/sec: 39388.68385 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02477 | LastNorm: 1.09017e-01 | Iterations/sec: 40374.49102 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02471 | LastNorm: 1.06686e-01 | Iterations/sec: 40467.59161 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02498 | LastNorm: 1.08476e-01 | Iterations/sec: 40030.38806 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02476 | LastNorm: 1.07285e-01 | Iterations/sec: 40384.20951 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02524 | LastNorm: 1.08953e-01 | Iterations/sec: 39617.86736 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02472 | LastNorm: 1.09460e-01 | Iterations/sec: 40456.27200 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02508 | LastNorm: 1.08920e-01 | Iterations/sec: 39875.49556 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02460 | LastNorm: 1.07871e-01 | Iterations/sec: 40650.35860 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02528 | LastNorm: 1.08929e-01 | Iterations/sec: 39553.97963 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02464 | LastNorm: 1.08917e-01 | Iterations/sec: 40589.38404 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.02548 | LastNorm: 1.07812e-01 | Iterations/sec: 39241.64515 | Convergence: false |
+Execution Info - Random Mean (30 repetitions) | Iters:   1000 | TTime: 0.02525 | LastNorm: 1.08568e-01 | Iterations/sec: 39658.58419 | Convergence: false |
+Execution Info - Newton | Iters:    186 | TTime: 0.01804 | LastNorm: 2.64461e-09 | Iterations/sec: 10312.22630 | Convergence: true |
+Execution Info - BFGS | Iters:   1000 | TTime: 0.10420 | LastNorm: 5.72627e-04 | Iterations/sec: 9597.02729 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:    135 | TTime: 0.00149 | LastNorm: 8.13579e-09 | Iterations/sec: 90727.61416 | Convergence: true |
+--------------------------------------------------------------------------------
+Files written: 
+- csvs/results/simplest/EXTROSNB_none.csv
+- csvs/results/random_historials/simplest/EXTROSNB_none.csv
+--------------------------------------------------------------------------------

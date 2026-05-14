@@ -1,0 +1,72 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/BIGGS6.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | false               
+varP                 | -1                  
+----------------------------------------
+Number of variables: 6
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:     15 | TTime: 0.34585 | LastNorm: 4.92213e-09 | Iterations/sec: 43.37102 | Convergence: true |
+Execution Info - Grads  | Iters:    599 | TTime: 0.12169 | LastNorm: 9.87463e-09 | Iterations/sec: 4922.42905 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00547 | LastNorm: 4.75169e-06 | Iterations/sec: 182718.53627 | Convergence: false |
+Execution Info - Random | Iters:     35 | TTime: 0.00022 | LastNorm: 9.96986e-09 | Iterations/sec: 156838.29060 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00012 | LastNorm: 5.53685e-09 | Iterations/sec: 188784.72016 | Convergence: true |
+Execution Info - Random | Iters:    377 | TTime: 0.00197 | LastNorm: 9.96969e-09 | Iterations/sec: 191458.11938 | Convergence: true |
+Execution Info - Random | Iters:     50 | TTime: 0.00025 | LastNorm: 9.93662e-09 | Iterations/sec: 198406.05487 | Convergence: true |
+Execution Info - Random | Iters:     60 | TTime: 0.00031 | LastNorm: 7.30804e-09 | Iterations/sec: 194781.91950 | Convergence: true |
+Execution Info - Random | Iters:     18 | TTime: 0.00009 | LastNorm: 4.97023e-09 | Iterations/sec: 197637.36126 | Convergence: true |
+Execution Info - Random | Iters:    124 | TTime: 0.00064 | LastNorm: 9.73715e-09 | Iterations/sec: 193487.23810 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00520 | LastNorm: 3.77449e-06 | Iterations/sec: 192390.44081 | Convergence: false |
+Execution Info - Random | Iters:     28 | TTime: 0.00014 | LastNorm: 6.66060e-09 | Iterations/sec: 194437.93377 | Convergence: true |
+Execution Info - Random | Iters:     12 | TTime: 0.00006 | LastNorm: 4.54665e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:    414 | TTime: 0.00213 | LastNorm: 7.50916e-09 | Iterations/sec: 194254.59850 | Convergence: true |
+Execution Info - Random | Iters:     55 | TTime: 0.00028 | LastNorm: 6.25904e-09 | Iterations/sec: 198525.57659 | Convergence: true |
+Execution Info - Random | Iters:     43 | TTime: 0.00022 | LastNorm: 3.09126e-09 | Iterations/sec: 195400.94475 | Convergence: true |
+Execution Info - Random | Iters:     35 | TTime: 0.00017 | LastNorm: 8.60250e-10 | Iterations/sec: 200000.87193 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00513 | LastNorm: 7.95492e-07 | Iterations/sec: 194775.88929 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00512 | LastNorm: 4.10821e-05 | Iterations/sec: 195429.31693 | Convergence: false |
+Execution Info - Random | Iters:     38 | TTime: 0.00019 | LastNorm: 8.26118e-09 | Iterations/sec: 197746.34243 | Convergence: true |
+Execution Info - Random | Iters:     20 | TTime: 0.00010 | LastNorm: 1.23102e-09 | Iterations/sec: 202135.13253 | Convergence: true |
+Execution Info - Random | Iters:     28 | TTime: 0.00014 | LastNorm: 6.85734e-09 | Iterations/sec: 201441.70154 | Convergence: true |
+Execution Info - Random | Iters:     46 | TTime: 0.00023 | LastNorm: 3.40611e-09 | Iterations/sec: 198291.86434 | Convergence: true |
+Execution Info - Random | Iters:     39 | TTime: 0.00020 | LastNorm: 3.22394e-09 | Iterations/sec: 195901.62395 | Convergence: true |
+Execution Info - Random | Iters:    122 | TTime: 0.00062 | LastNorm: 4.95932e-09 | Iterations/sec: 196507.33026 | Convergence: true |
+Execution Info - Random | Iters:     17 | TTime: 0.00008 | LastNorm: 6.49820e-09 | Iterations/sec: 204894.16092 | Convergence: true |
+Execution Info - Random | Iters:     81 | TTime: 0.00041 | LastNorm: 2.49109e-10 | Iterations/sec: 197982.88112 | Convergence: true |
+Execution Info - Random | Iters:     53 | TTime: 0.00027 | LastNorm: 3.79147e-09 | Iterations/sec: 197774.12100 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00544 | LastNorm: 1.98106e-05 | Iterations/sec: 183855.87165 | Convergence: false |
+Execution Info - Random | Iters:     14 | TTime: 0.00007 | LastNorm: 4.81461e-09 | Iterations/sec: 203184.27682 | Convergence: true |
+Execution Info - Random | Iters:     39 | TTime: 0.00020 | LastNorm: 2.87777e-09 | Iterations/sec: 197081.75422 | Convergence: true |
+Execution Info - Random | Iters:     32 | TTime: 0.00016 | LastNorm: 9.21421e-09 | Iterations/sec: 198841.07852 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:    227 | TTime: 0.00119 | LastNorm: 2.34520e-06 | Iterations/sec: 194823.15713 | Convergence: true |
+Execution Info - Newton | Iters:     23 | TTime: 0.00014 | LastNorm: 6.49641e-09 | Iterations/sec: 167772.16000 | Convergence: true |
+Execution Info - BFGS | Iters:   1000 | TTime: 0.02135 | LastNorm: 1.66973e-01 | Iterations/sec: 46838.08864 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00243 | LastNorm: 2.68195e-02 | Iterations/sec: 411367.59514 | Convergence: false |
+--------------------------------------------------------------------------------
+Files written: 
+- csvs/results/simplest/BIGGS6_none.csv
+- csvs/results/random_historials/simplest/BIGGS6_none.csv
+--------------------------------------------------------------------------------

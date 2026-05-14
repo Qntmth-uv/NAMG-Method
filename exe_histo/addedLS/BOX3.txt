@@ -1,0 +1,75 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+DEBUG                | false               
+DM                   | false               
+displaysG            | false               
+dontuse_ModifierNewton | false               
+epsilon              | 1.0e-8              
+factorX0             | 1.0                 
+file_name            | default             
+image_name           | default             
+lqueue               | 3                   
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/BOX3.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | addedLS             
+tol                  | 1.0e-8              
+useDimProblem        | false               
+useLS                | true                
+varP                 | -1                  
+----------------------------------------
+Number of variables: 3
+Random Vectors being used: 2
+The factor for the initial point is: 1.0
+--------------------------------------------------------------------------------
+>>Normal mode
+Execution Info - Oviedo | Iters:      9 | TTime: 0.35408 | LastNorm: 4.61746e-13 | Iterations/sec: 25.41783 | Convergence: true |
+Execution Info - Grads  | Iters:      9 | TTime: 0.09402 | LastNorm: 4.95310e-13 | Iterations/sec: 95.72443 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00011 | LastNorm: 2.40068e-10 | Iterations/sec: 98164.56170 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00005 | LastNorm: Inf | Iterations/sec: 20360699.02913 | Convergence: false |
+Execution Info - Random | Iters:     11 | TTime: 0.00011 | LastNorm: 9.36011e-12 | Iterations/sec: 101848.44150 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00002 | LastNorm: Inf | Iterations/sec: 50533783.13253 | Convergence: false |
+Execution Info - Random | Iters:     12 | TTime: 0.00008 | LastNorm: 7.64712e-12 | Iterations/sec: 149796.57143 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00007 | LastNorm: 2.51255e-10 | Iterations/sec: 161885.41754 | Convergence: true |
+Execution Info - Random | Iters:     10 | TTime: 0.00006 | LastNorm: 8.46183e-09 | Iterations/sec: 169125.16129 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 6.30835e-10 | Iterations/sec: 196329.12340 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 2.38417e-13 | Iterations/sec: 189087.47541 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 2.96333e-10 | Iterations/sec: 186790.86640 | Convergence: true |
+Execution Info - Random | Iters:      9 | TTime: 0.00004 | LastNorm: 3.97023e-10 | Iterations/sec: 209715.20000 | Convergence: true |
+Execution Info - Random | Iters:     13 | TTime: 0.00009 | LastNorm: 7.21465e-13 | Iterations/sec: 146182.17694 | Convergence: true |
+Execution Info - Random | Iters:     13 | TTime: 0.00007 | LastNorm: 6.02038e-15 | Iterations/sec: 180549.50993 | Convergence: true |
+Execution Info - Random | Iters:     10 | TTime: 0.00005 | LastNorm: 2.04800e-10 | Iterations/sec: 208671.84080 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 3.07029e-10 | Iterations/sec: 189087.47541 | Convergence: true |
+Execution Info - Random | Iters:     12 | TTime: 0.00006 | LastNorm: 4.20766e-14 | Iterations/sec: 193583.26154 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 1.90902e-13 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      9 | TTime: 0.00004 | LastNorm: 5.20332e-09 | Iterations/sec: 219469.39535 | Convergence: true |
+Execution Info - Random | Iters:      9 | TTime: 0.00004 | LastNorm: 2.11898e-12 | Iterations/sec: 205156.17391 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 5.13120e-10 | Iterations/sec: 196329.12340 | Convergence: true |
+Execution Info - Random | Iters:     18 | TTime: 0.00010 | LastNorm: 1.52946e-10 | Iterations/sec: 173159.33945 | Convergence: true |
+Execution Info - Random | Iters:     12 | TTime: 0.00006 | LastNorm: 1.09482e-12 | Iterations/sec: 187106.49814 | Convergence: true |
+Execution Info - Random | Iters:     10 | TTime: 0.00005 | LastNorm: 4.47165e-11 | Iterations/sec: 208671.84080 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00005 | LastNorm: Inf | Iterations/sec: 21290883.24873 | Convergence: false |
+Execution Info - Random | Iters:     25 | TTime: 0.00025 | LastNorm: 2.70896e-10 | Iterations/sec: 98829.02922 | Convergence: true |
+Execution Info - Random | Iters:     12 | TTime: 0.00007 | LastNorm: 2.28529e-14 | Iterations/sec: 181702.70036 | Convergence: true |
+Execution Info - Random | Iters:      9 | TTime: 0.00004 | LastNorm: 2.92667e-10 | Iterations/sec: 204047.22162 | Convergence: true |
+Execution Info - Random | Iters:     13 | TTime: 0.00008 | LastNorm: 1.01031e-12 | Iterations/sec: 154464.45326 | Convergence: true |
+Execution Info - Random | Iters:     11 | TTime: 0.00006 | LastNorm: 3.35218e-14 | Iterations/sec: 196329.12340 | Convergence: true |
+Execution Info - Random | Iters:     12 | TTime: 0.00006 | LastNorm: 4.73049e-14 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:    111 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 3233030.16388 | Convergence: true |
+Execution Info - Newton | Iters:     12 | TTime: 0.00010 | LastNorm: 5.42777e-13 | Iterations/sec: 122461.43066 | Convergence: true |
+Execution Info - BFGS | Iters:   1000 | TTime: 0.01780 | LastNorm: 9.67372e-01 | Iterations/sec: 56179.48271 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00176 | LastNorm: 5.11409e-05 | Iterations/sec: 567181.06829 | Convergence: false |
+--------------------------------------------------------------------------------
+Files written: 
+- csvs/results/addedLS/BOX3_eigen.csv
+- csvs/results/random_historials/addedLS/BOX3_eigen.csv
+--------------------------------------------------------------------------------
