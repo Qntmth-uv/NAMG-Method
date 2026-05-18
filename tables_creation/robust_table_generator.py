@@ -425,7 +425,7 @@ class latexTable:
 
         #Print the elements in the bottom part of the table
         for (e,i) in zip(footers, idnttn_levels): print(self.einTab*i + e) 
-        self.last_indentation_level-=2       
+        self.last_indentation_level-=1 
 
         #Verification that the indentation was closed correctly
         assert self.original_indentation == self.last_indentation_level, "There was an error with the indentation variable. It did not ended in their initial place. "
@@ -460,12 +460,13 @@ class latexTable:
         #Print the elements of the NAMGM table results
         self.__headerNAMGM_Table__(15)
         self.__tableBody__(factors_matrices)
-        self.__footer_Table__(True)
+
+        self.__footer_Tabular__(True)
 
         #Print the table of the SGLS table results
         self.__headerSGLS__Table(5)
         self.__table_SGLS__(SGLS_array)
-        self.__footer_Table__(True)
+        self.__footer_Tabular__(True)
 
         #End the table
         self.__bottomTable__(caption)

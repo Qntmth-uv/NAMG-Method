@@ -200,11 +200,17 @@ def format_column(value:any, variable_int: int, use_symbols:bool, use_colors:boo
         #If it is a local best the and global, we use the special 
         if is_local_best and is_global_best:
             s += TU.scientific_notation_converter(value, remove_math_mode=True)
-            s = TU.add_bold_to_element(s, True, is_best_value=True, add_math_mode=True, it_converged=it_converged)
+            if it_converged:
+                s = TU.add_bold_to_element(s, True, is_best_value=True, add_math_mode=True, it_converged=it_converged)
+            else:
+                s = f"${s}$"                        
         #If it is a local best, then we use normal bold.
         elif is_local_best:
             s += TU.scientific_notation_converter(value, remove_math_mode=True)
-            s = TU.add_bold_to_element(s, True, is_best_value=False, add_math_mode=True, it_converged=it_converged)
+            if it_converged:
+                s = TU.add_bold_to_element(s, True, is_best_value=False, add_math_mode=True)
+            else:
+                s = f"${s}$"
         else: 
             s +=TU.scientific_notation_converter(value, remove_math_mode=False)
 
@@ -487,8 +493,9 @@ def main()->int:
     nProblems:int = result_tensor_simplest.shape[1]
     
     #Get the result table for the current problem
-    last_index = 0
-    for i in range(0,nProblems,8):
+    
+    for i in range(nProblems):
+        last_index = 0
         #List of matrices result1s
         info = np.array([result_tensor_simplest[:,i,:], 
                 result_tensor_original[:,i,:],
