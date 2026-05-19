@@ -9,18 +9,18 @@ using CUTEst
 Code to execute a third series of experiments proposed in my master's degree thesis.
 
 The purpose of this experiments is to investigate how the proposed methods work under a small modification
-of the initial point given by a normal. This scenario is more realistic that the reasearched in the second 
+of the initial point given by a normal. This scenario is more realistic that the researched in the second 
 set of experiments, due that the initial points often have small round off errors.
 
 # What it does
 
 This script calls a method and then execute 'exp_rep' repetitions of the experiment. In each iteration, the initial
 point is modified by a vector P such that P∼N(0, σI), where σ=√dim(x0). It's allowed to not create a folder to save
-the results, nevertheless is encourage. If the asked to save the results of this experiments, then those are saved in
+the results, nevertheless is encourage. If is asked to save the results of this experiments, then those are saved in
 the following two paths
 
 (1) pwd/csv/results/area_robust/PROBLEM/subdirectory #(csvs/results/area_robust/ is hardcoded)
-(2) pwd/csv/historial/area_robust/PROBLEM/subdirectory  #(csvs/historial/area_robust/ is hardcoded)
+(2) pwd/csv/historial/area_robust/PROBLEM/subdirectory  #(csvs/historial/area_robust/ is also hardcoded)
 
 and the results are named as
 
@@ -101,7 +101,7 @@ function parse_commandline()
         "--modifierH"
             help = "Hessian modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag', 'remove'}"
             arg_type = String
-            default = "none"
+            default = "eigen"
 
         "--modifierS"
             help = "System modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag','remove'}"

@@ -1,0 +1,347 @@
+#DEFAULT VALUES OF 'area_main.jl'
+## Customable variables:
+## --repetitions: 30, --epsilon: 1.0e-8, --seed: 0 (random), --nIters 1000, --tol 1.8e-8, --modifierH 'eigen', --modifierS 'none'. --lqueue 3
+## --varN: -1 (default value), --method: 'AMG', --exp_rep: 30,
+## Flags: --show_info, --useLS, --saveinfo
+BRKMCC
+#----------------------------------------------------------------------------- ARGLINA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- BRKMCC -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- BROWNBS -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWBNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- CLIFF -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- DENSCHNA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- DENSCHNC -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- DENSCHNF -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- GAUSSIAN -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- HILBERTA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- HILBERTB -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- HIMMELBH -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- JENSMP -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- MARATOSB -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- PENALTY1 -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- ROSENBR -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- SINEVAL -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- SISSER -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+
+#----------------------------------------------------------------------------- VARDIM -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo
