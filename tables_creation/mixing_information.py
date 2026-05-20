@@ -33,6 +33,9 @@ PWD/csvs/results/PROBLEM/Joint_CSV/CONF.csv
 Where PROBLEM is the name of the optimization problem, 'Joint_CSV' is a hardcoded path name where the
 joined methods will be saved, and CONF is one of three configurations (Simplest, original, WithLS).
 
+## Execution instance
+python3 mixing_information.py -p ../csvs/results/area_robust/
+
 
 # Contact information
 
@@ -133,8 +136,8 @@ def main()->None:
 
     print("Reading from path:", path)
     existing_problems = existing_folders(path)
-    #available_paths = [Path(os.path.join(path, p)) for p in existing_problems] 
-    available_paths = [Path(os.path.join(path, "BRKMCC"))]
+    available_paths = [Path(os.path.join(path, p)) for p in existing_problems] 
+    #available_paths = [Path(os.path.join(path, "BRKMCC"))]
     
     for p in available_paths:
         #Path where to storage the joined results.
@@ -162,7 +165,7 @@ def main()->None:
         #Write each of the joined dataframes
         for (df, c) in zip(final_df, configs):
             file_path = os.path.join(writing_path, c+".csv")
-            df.to_csv(file_path)
+            df.to_csv(file_path, index=False)
             print(f"---> The CSV file for {c} configuration was created at: {file_path}")
         
     return 1

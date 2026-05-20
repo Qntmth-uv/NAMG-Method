@@ -7,6 +7,14 @@ TAB_END = "\\\\"
 CHECK_SYMBOL = "\\checkmark"
 CROSS_SYMBOL = "\\texttimes"
 
+#
+T_RULE = "\\toprule"
+B_RULE = "\\bottomrule"
+M_RULE = "\\midrule"
+C_RULE = lambda l,r: "\\cmidrule(lr){"+f"{l}-{r}"+"}"
+SCALE_BOX_TAB = lambda val: f"\\scalebox{{{val}}}" + "{"
+
+
 def construct_cell_color(color1:str, alpha1:int, color2:str =None, alpha2:int=None)->str:
     """
     # Definition
