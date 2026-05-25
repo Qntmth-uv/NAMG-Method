@@ -1,0 +1,78 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | AMG                 
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/JENSMP.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.38444 | LastNorm: Inf | Iterations/sec: 2601.21878 | Convergence: false |
+| 2 |Execution Info - Oviedo | Iters:     17 | TTime: 0.00060 | LastNorm: 1.15401e-09 | Iterations/sec: 28339.89189 | Convergence: true |
+| 3 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00051 | LastNorm: Inf | Iterations/sec: 1957211.38591 | Convergence: false |
+| 4 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00039 | LastNorm: Inf | Iterations/sec: 2584290.81947 | Convergence: false |
+| 5 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00032 | LastNorm: Inf | Iterations/sec: 3086316.40912 | Convergence: false |
+| 6 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00030 | LastNorm: Inf | Iterations/sec: 3377056.36071 | Convergence: false |
+| 7 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00034 | LastNorm: Inf | Iterations/sec: 2976794.88999 | Convergence: false |
+| 8 |Execution Info - Oviedo | Iters:     25 | TTime: 0.00031 | LastNorm: 9.25122e-13 | Iterations/sec: 81920.00000 | Convergence: true |
+| 9 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00042 | LastNorm: Inf | Iterations/sec: 2398115.49457 | Convergence: false |
+| 10 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00045 | LastNorm: Inf | Iterations/sec: 2207528.42105 | Convergence: false |
+| 11 |Execution Info - Oviedo | Iters:    115 | TTime: 0.00068 | LastNorm: 2.46343e-12 | Iterations/sec: 169899.59845 | Convergence: true |
+| 12 |Execution Info - Oviedo | Iters:     57 | TTime: 0.00050 | LastNorm: 3.79772e-10 | Iterations/sec: 112877.86969 | Convergence: true |
+| 13 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00055 | LastNorm: Inf | Iterations/sec: 1818077.15648 | Convergence: false |
+| 14 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00048 | LastNorm: Inf | Iterations/sec: 2079476.45017 | Convergence: false |
+| 15 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00059 | LastNorm: Inf | Iterations/sec: 1697411.57426 | Convergence: false |
+| 16 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00056 | LastNorm: Inf | Iterations/sec: 1798586.62093 | Convergence: false |
+| 17 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00055 | LastNorm: Inf | Iterations/sec: 1827583.44227 | Convergence: false |
+| 18 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00045 | LastNorm: Inf | Iterations/sec: 2232200.10644 | Convergence: false |
+| 19 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00060 | LastNorm: Inf | Iterations/sec: 1653253.44896 | Convergence: false |
+| 20 |Execution Info - Oviedo | Iters:    117 | TTime: 0.00073 | LastNorm: 9.25122e-13 | Iterations/sec: 160475.33290 | Convergence: true |
+| 21 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00091 | LastNorm: Inf | Iterations/sec: 1100289.61175 | Convergence: false |
+| 22 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00093 | LastNorm: Inf | Iterations/sec: 1072986.44155 | Convergence: false |
+| 23 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00089 | LastNorm: Inf | Iterations/sec: 1119675.38708 | Convergence: false |
+| 24 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00084 | LastNorm: Inf | Iterations/sec: 1197346.27462 | Convergence: false |
+| 25 |Execution Info - Oviedo | Iters:   1000 | TTime: 0.20989 | LastNorm: 2.02940e+80 | Iterations/sec: 4764.30551 | Convergence: false |
+| 26 |Execution Info - Oviedo | Iters:   1000 | TTime: 0.20893 | LastNorm: 1.45757e+79 | Iterations/sec: 4786.29170 | Convergence: false |
+| 27 |Execution Info - Oviedo | Iters:    173 | TTime: 0.00089 | LastNorm: 5.92248e-11 | Iterations/sec: 194848.17186 | Convergence: true |
+| 28 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00093 | LastNorm: Inf | Iterations/sec: 1074085.53137 | Convergence: false |
+| 29 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00090 | LastNorm: Inf | Iterations/sec: 1112547.48011 | Convergence: false |
+| 30 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.00079 | LastNorm: Inf | Iterations/sec: 1261065.54420 | Convergence: false |
+Execution Info - amg Mean (6 repetitions) | Iters:     84 | TTime: 0.00062 | LastNorm: 2.66221e-10 | Iterations/sec: 124726.81080 | Convergence: false |
+The number of divergent results in method amg: 24
+Saved results at: csvs/results/area_robust/JENSMP/original/amg.csv
+The results of the execution were saved at: csvs/historials/area_robust/JENSMP/original/amg

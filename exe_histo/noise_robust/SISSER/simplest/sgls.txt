@@ -1,0 +1,56 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | SGLS                
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/SISSER.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00079 | LastNorm: 3.45526e-06 | Iterations/sec: 1269078.36611 | Convergence: false |
+| 2 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00080 | LastNorm: 3.75447e-06 | Iterations/sec: 1251657.41570 | Convergence: false |
+| 3 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00080 | LastNorm: 3.87778e-06 | Iterations/sec: 1243862.39620 | Convergence: false |
+| 4 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00077 | LastNorm: 3.85029e-06 | Iterations/sec: 1290555.07692 | Convergence: false |
+| 5 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.67824e-06 | Iterations/sec: 1314005.01253 | Convergence: false |
+| 6 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00077 | LastNorm: 3.22498e-06 | Iterations/sec: 1303793.59652 | Convergence: false |
+| 7 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.90506e-06 | Iterations/sec: 1320624.68514 | Convergence: false |
+| 8 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00079 | LastNorm: 3.25877e-06 | Iterations/sec: 1269078.36611 | Convergence: false |
+| 9 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.46476e-06 | Iterations/sec: 1319378.42089 | Convergence: false |
+| 10 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00074 | LastNorm: 3.08408e-06 | Iterations/sec: 1356501.94049 | Convergence: false |
+| 11 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00075 | LastNorm: 3.79618e-06 | Iterations/sec: 1326052.48182 | Convergence: false |
+| 12 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00077 | LastNorm: 3.56256e-06 | Iterations/sec: 1292145.40974 | Convergence: false |
+| 13 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.90668e-06 | Iterations/sec: 1324377.64446 | Convergence: false |
+| 14 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00082 | LastNorm: 3.87650e-06 | Iterations/sec: 1215035.92121 | Convergence: false |
+| 15 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00082 | LastNorm: 3.21683e-06 | Iterations/sec: 1216445.47564 | Convergence: false |
+| 16 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.42698e-06 | Iterations/sec: 1314005.01253 | Convergence: false |
+| 17 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.53399e-06 | Iterations/sec: 1321040.62992 | Convergence: false |
+| 18 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.89094e-06 | Iterations/sec: 1321040.62992 | Convergence: false |
+| 19 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00075 | LastNorm: 3.21267e-06 | Iterations/sec: 1328151.99493 | Convergence: false |
+| 20 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.68661e-06 | Iterations/sec: 1317720.38957 | Convergence: false |
+| 21 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.63872e-06 | Iterations/sec: 1314005.01253 | Convergence: false |
+| 22 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.89404e-06 | Iterations/sec: 1323124.29022 | Convergence: false |
+| 23 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.92473e-06 | Iterations/sec: 1321040.62992 | Convergence: false |
+| 24 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.22401e-06 | Iterations/sec: 1312360.45056 | Convergence: false |
+| 25 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.31262e-06 | Iterations/sec: 1321040.62992 | Convergence: false |
+| 26 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00078 | LastNorm: 3.68815e-06 | Iterations/sec: 1280312.57631 | Convergence: false |
+| 27 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00081 | LastNorm: 3.02177e-06 | Iterations/sec: 1237622.89761 | Convergence: false |
+| 28 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00078 | LastNorm: 3.92912e-06 | Iterations/sec: 1282269.64231 | Convergence: false |
+| 29 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00076 | LastNorm: 3.89877e-06 | Iterations/sec: 1309083.64544 | Convergence: false |
+| 30 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00075 | LastNorm: 3.21289e-06 | Iterations/sec: 1326471.85326 | Convergence: false |
+Execution Info - sgls Mean (30 repetitions) | Iters:   1000 | TTime: 0.00077 | LastNorm: 3.58028e-06 | Iterations/sec: 1298062.74981 | Convergence: false |
+The number of divergent results in method sgls: 0
+Saved results at: csvs/results/area_robust/SISSER/simplest/sgls.csv
+The results of the execution were saved at: csvs/historials/area_robust/SISSER/simplest/sgls

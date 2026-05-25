@@ -1,0 +1,366 @@
+#DEFAULT VALUES OF 'area_main.jl'
+## Customable variables:
+## --repetitions: 30, --epsilon: 1.0e-8, --seed: 0 (random), --nIters 1000, --tol 1.8e-8, --modifierH 'eigen', --modifierS 'none'. --lqueue 3
+## --varN: -1 (default value), --method: 'AMG', --exp_rep: 30,
+## Flags: --show_info, --useLS, --saveinfo
+BRKMCC
+#----------------------------------------------------------------------------- ARGLINA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ARGLINA/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ARGLINA/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ARGLINA/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ARGLINA/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ARGLINA/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ARGLINA/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ARGLINA/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ARGLINA/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/ARGLINA/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ARGLINA/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ARGLINA/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ARGLINA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ARGLINA/addedLS/random.txt
+
+#----------------------------------------------------------------------------- BRKMCC -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinf | tee exe_histo/noise_robust/BRKMCC/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BRKMCC/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BRKMCC/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BRKMCC/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BRKMCC/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BRKMCC/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BRKMCC/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BRKMCC/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/BRKMCC/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BRKMCC/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BRKMCC/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BRKMCC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BRKMCC/addedLS/random.txt
+
+#----------------------------------------------------------------------------- BROWNBS -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BROWNBS/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BROWNBS/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BROWNBS/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWNBS.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/BROWNBS/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BROWNBS/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BROWNBS/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BROWNBS/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWNBS.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/BROWNBS/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/BROWNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/BROWNBS/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/BROWNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BROWNBS/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/BROWNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BROWNBS/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/BROWNBS.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/BROWNBS/addedLS/random.txt
+
+#----------------------------------------------------------------------------- CLIFF -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/CLIFF/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/CLIFF/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/CLIFF/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/CLIFF/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/CLIFF/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/CLIFF/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/CLIFF/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/CLIFF/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/CLIFF/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/CLIFF/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/CLIFF/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/CLIFF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/CLIFF/addedLS/random.txt
+
+#----------------------------------------------------------------------------- DENSCHNA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNA/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNA/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNA/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNA/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNA/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNA/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNA/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNA/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/DENSCHNA/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNA/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNA/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNA/addedLS/random.txt
+
+#----------------------------------------------------------------------------- DENSCHNC -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNC/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNC/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNC/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNC/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNC/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNC/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNC/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNC/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/DENSCHNC/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNC/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNC/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNC.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNC/addedLS/random.txt
+
+#----------------------------------------------------------------------------- DENSCHNF -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNF/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNF/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNF/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/DENSCHNF/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNF/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNF/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNF/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/DENSCHNF/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/DENSCHNF/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNF/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNF/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/DENSCHNF.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/DENSCHNF/addedLS/random.txt
+
+#----------------------------------------------------------------------------- GAUSSIAN -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/GAUSSIAN/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/GAUSSIAN/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/GAUSSIAN/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/GAUSSIAN.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/GAUSSIAN/addedLS/random.txt
+
+#----------------------------------------------------------------------------- HILBERTA -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTA/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTA/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTA/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTA/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTA/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTA/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTA/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTA/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/HILBERTA/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTA/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTA/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTA.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTA/addedLS/random.txt
+
+#----------------------------------------------------------------------------- HILBERTB -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTB/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTB/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTB/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HILBERTB/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTB/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTB/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTB/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HILBERTB/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/HILBERTB/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTB/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTB/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HILBERTB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HILBERTB/addedLS/random.txt
+
+#----------------------------------------------------------------------------- HIMMELBB -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBB/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBB/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBB/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBB/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBB/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBB/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBB/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBB/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/HIMMELBB/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBB/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBB/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBB/addedLS/random.txt
+
+#----------------------------------------------------------------------------- HIMMELBH -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBH/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBH/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBH/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/HIMMELBH/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBH/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBH/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBH/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/HIMMELBH/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/HIMMELBH/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBH/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBH/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/HIMMELBH.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/HIMMELBH/addedLS/random.txt
+
+#----------------------------------------------------------------------------- JENSMP -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/JENSMP/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/JENSMP/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/JENSMP/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/JENSMP/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/JENSMP/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/JENSMP/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/JENSMP/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/JENSMP/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/JENSMP/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/JENSMP/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/JENSMP/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/JENSMP.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/JENSMP/addedLS/random.txt
+
+#----------------------------------------------------------------------------- MARATOSB -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/MARATOSB/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/MARATOSB/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/MARATOSB/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/MARATOSB/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/MARATOSB/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/MARATOSB/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/MARATOSB/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/MARATOSB/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/MARATOSB/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/MARATOSB/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/MARATOSB/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/MARATOSB.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/MARATOSB/addedLS/random.txt
+
+#----------------------------------------------------------------------------- PENALTY1 -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/PENALTY1/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/PENALTY1/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/PENALTY1/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/PENALTY1/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/PENALTY1/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/PENALTY1/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/PENALTY1/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/PENALTY1/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/PENALTY1/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/PENALTY1/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/PENALTY1/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/PENALTY1.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/PENALTY1/addedLS/random.txt
+
+#----------------------------------------------------------------------------- ROSENBR -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ROSENBR/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ROSENBR/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ROSENBR/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/ROSENBR/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ROSENBR/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ROSENBR/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ROSENBR/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/ROSENBR/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/ROSENBR/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ROSENBR/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ROSENBR/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/ROSENBR.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/ROSENBR/addedLS/random.txt
+
+#----------------------------------------------------------------------------- SINEVAL -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SINEVAL/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SINEVAL/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SINEVAL/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SINEVAL/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SINEVAL/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SINEVAL/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SINEVAL/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SINEVAL/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/SINEVAL/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SINEVAL/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SINEVAL/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SINEVAL.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SINEVAL/addedLS/random.txt
+
+#----------------------------------------------------------------------------- SISSER -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SISSER/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SISSER/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SISSER/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/SISSER/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SISSER/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SISSER/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SISSER/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/SISSER/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/SISSER/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SISSER/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SISSER/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/SISSER.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/SISSER/addedLS/random.txt
+
+#----------------------------------------------------------------------------- VARDIM -----------------------------------------------------------------------------#
+#Original
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/VARDIM/original/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/VARDIM/original/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/VARDIM/original/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory original --show_info --seed 42 --modifierH eigen --saveinfo | tee exe_histo/noise_robust/VARDIM/original/random.txt
+
+#Simplest
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/VARDIM/simplest/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/VARDIM/simplest/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/VARDIM/simplest/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory simplest --show_info --seed 42 --modifierH none --saveinfo | tee exe_histo/noise_robust/VARDIM/simplest/random.txt
+
+#AddedLS
+julia --project=venv_NAMGM area_main.jl --method AMG --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_histo/noise_robust/VARDIM/addedLS/amg.txt
+julia --project=venv_NAMGM area_main.jl --method SGLS --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/VARDIM/addedLS/sgls.txt
+julia --project=venv_NAMGM area_main.jl --method QUEUE --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/VARDIM/addedLS/queue.txt
+julia --project=venv_NAMGM area_main.jl --method RANDOM --problem 1-cutest-sif/VARDIM.SIF --subdirectory addedLS --show_info --seed 42 --modifierH eigen --useLS --saveinfo | tee exe_hist/noise_robust/VARDIM/addedLS/random.txt

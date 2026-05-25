@@ -259,15 +259,22 @@ function main()
 
             #Inner repetitions of the experiments, given that Random - NAMGM is stochastic.
             for j in 1:repetitions
-                N[j, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
+                N[j, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, use_LS, show_info)[2:end]
 
                 #Assertion that the results are not divergent
                 (isinf(N[j, 3]) || N[j, 3] > 1.0e12) ? divergent_results_random+=1 : V.+=N[j, :]
             end
 
             #Get the mean of the results for the Random method
-            total_successful_experiments_random = repetitions-divergent_results_random
-            V./=(total_successful_experiments_random)
+            total_successful_experiments_random::Int = 0;
+            if divergent_results_random == elements_to_draw
+                V = [0.0, Inf, Inf, Inf, 0.0]
+            else
+                total_successful_experiments_random = repetitions-divergent_results_random
+                V./=(total_successful_experiments_random)
+                V[5] *= total_successful_experiments_random/repetitions
+            end
+            
             solve_most_of_problems_random = (V[5] >= 0.5) ? true : false
             displayResults("Random Mean ($total_successful_experiments_random repetitions)", V[1], V[2], V[3], V[4], solve_most_of_problems_random) 
             #println("The number of divergent results Random - NAMGM: $divergent_results_random")
@@ -284,9 +291,15 @@ function main()
             U.+=M[i, :]
         end 
     end 
+    total_successful_experiments::Int = 0;
     #Compute the mean of the results for the method and saved it.
-    total_successful_experiments = elements_to_draw-divergent_results
-    U./=(total_successful_experiments)
+    if divergent_results == elements_to_draw
+        U = [0.0, Inf, Inf, Inf, 0]
+    else
+        total_successful_experiments = elements_to_draw-divergent_results
+        U./=(total_successful_experiments)
+        U[5] *= total_successful_experiments/elements_to_draw
+    end
 
     #Display information of the experiment
     iters, time, norm, itersPerSec, convergence_percent = U
@@ -296,7 +309,7 @@ function main()
 
     #Save the information
     headers = [ "Percentage of convergence", "Iterations", "Execution time", "Last Gradient", "Not divergency number"]
-    headers_historial = ["Iterations", "Execution time", "Last Gradient", "Not divergency number", "Percentage of convergence"] 
+    headers_historial = ["Iterations", "Execution time", "Last Gradient", "Itters Per Second* ", "Percentage of convergence"] 
     data = [convergence_percent iters time norm total_successful_experiments]
     
     #Save the information of the current file

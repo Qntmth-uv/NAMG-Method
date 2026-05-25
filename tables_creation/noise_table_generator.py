@@ -34,7 +34,7 @@ parser = argparse.ArgumentParser(description="Path to the directories were to se
 
 #Variables (paths of the factors results) 
 parser.add_argument("-p", "--problems_path", help="Path were all the results of the noise/area robustness were saved.")
-
+parser.add_argument("-sgls","--sgls", action="store_true", help="Create the body of the elements for the SGLS table.")
 
 def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     """
@@ -74,12 +74,10 @@ def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     for i in range(0, len(dataframes_list)):
         results_variables_per_factor = dataframes_list[i].to_numpy()        
         result_matrix[i,:] = results_variables_per_factor[0:-1, :].flatten()
-        results_sgls
         results_sgls += results_variables_per_factor[-1,:]
 
     #Post process
     results_sgls /= len(dataframes_list)
-    results_sgls = results_sgls[1:]
     return result_matrix, results_sgls
 
 class latexTable:
@@ -260,7 +258,7 @@ class latexTable:
 
         #Each variable has its own format
         convergence_flags = [information[i] for i in range(0, information.shape[0], 5)]
-        iterations = [int(information[i]) for i in range(1, information.shape[0], 5)]
+        iterations = [information[i] for i in range(1, information.shape[0], 5)]
         convergent_executions = [int(information[i]) for i in range(4, information.shape[0], 5)]
         gradient_norms = [information[i].item() for i in range(3, information.shape[0], 5)]
         
@@ -305,7 +303,7 @@ class latexTable:
             c += TU.TAB_LINKER + f"{{\\scriptsize {convergent_executions[i]}}}"
 
             #Add the other variables
-            s += c + TU.TAB_LINKER + str(iterations[i]) + TU.TAB_LINKER + exe_time[i] + TU.TAB_LINKER + g_formatted[i]
+            s += c + TU.TAB_LINKER + f"{iterations[i]:.2f}" + TU.TAB_LINKER + exe_time[i] + TU.TAB_LINKER + g_formatted[i]
             if i!=2:
                 s += TU.TAB_LINKER
             else:
@@ -505,6 +503,10 @@ class latexTable:
 
             #Get the elements of this problem
             c_flag, iters, time, last_norm, convergent_executions  = row
+            
+            #Formats
+            iters = f"{iters: .2f}"
+            convergent_executions = f"{int(convergent_executions): d}"
             time = TU.scientific_notation_converter(time, self.times_symbol, self.decimals) if self.time_in_scientific else f"{time: .4f}"
             gnorm = TU.scientific_notation_converter(last_norm, self.times_symbol, self.decimals)
 
@@ -524,17 +526,18 @@ class latexTable:
                         c = f"\\textcolor{{{self.not_convergence_color}}}{{{TU.CROSS_SYMBOL}}}"
                     else:
                         c = TU.CROSS_SYMBOL
-            #Adds color to the convergence cell             
-            if self.add_colors:
-                c+= TU.construct_cell_color(self.convergence_color, self.convergence_alpha) if bool(c_flag) else TU.construct_cell_color(self.not_convergence_color, self.convergence_alpha)
+
+                #Adds color to the convergence cell             
+                if self.add_colors:
+                    c+= TU.construct_cell_color(self.convergence_color, self.convergence_alpha) if bool(c_flag) else TU.construct_cell_color(self.not_convergence_color, self.convergence_alpha)
 
             #Add the number of times that the method converged.
-            c += convergent_executions +TU.TAB_LINKER
+            c += TU.TAB_LINKER + convergent_executions +TU.TAB_LINKER
 
             #Add the other variables
-            s += c + TU.TAB_LINKER + str(iters) + TU.TAB_LINKER + time + TU.TAB_LINKER + gnorm + TU.TAB_END
+            s += c + str(iters) + TU.TAB_LINKER + time + TU.TAB_LINKER + gnorm + TU.TAB_END
             print(s)
-        print(actual_indentation+TU.B_RULE)
+        #print(actual_indentation+TU.B_RULE)
         return None
 
 
@@ -545,9 +548,10 @@ def main()->None:
 
     #Directory of the results original
     problem_path = Path(args.problems_path)
+    sgls_table = args.sgls
 
     #We get all the available problems and we search for the files inside Joint_CSV
-    problems = existing_folders(problem_path)
+    problems = sorted(existing_folders(problem_path))
     #problems_paths = [os.path.join(problem_path,"BRKMCC", "Joined_CSVS")]
     problems_paths = [os.path.join(problem_path, p, "Joined_CSVS") for p in problems]
 
@@ -565,7 +569,7 @@ def main()->None:
 
         #List of matrix results
         list_matrices = results_matrix
-        list_arrays_SGLS = sgls_mean_array
+        list_arrays_SGLS = [sgls_mean_array]
 
         #Creation of latexTable object
         table = latexTable(problem, extra_indentation=doomie.last_indentation_level)
@@ -574,10 +578,12 @@ def main()->None:
         table.decimals = 3
         table.time_in_scientific = True
 
-        if i==0:
-            table.__tableBody__(list_matrices, add_config_info=True)
-        else:
-            table.__tableBody__(list_matrices, add_config_info=False) 
+        table.__table_SGLS__(list_arrays_SGLS)
+
+        # if i==0:
+        #     table.__tableBody__(list_matrices, add_config_info=True)
+        # else:
+        #     table.__tableBody__(list_matrices, add_config_info=False) 
         
         i+=1;
     doomie.__footer_Tabular__(True)

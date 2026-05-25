@@ -1,0 +1,996 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | RANDOM              
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/GAUSSIAN.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 3
+| 1 |Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.14320 | LastNorm: Inf | Iterations/sec: 6983.38362 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00019 | LastNorm: Inf | Iterations/sec: 5184553.77009 | Convergence: false |
+Execution Info - Random | Iters:    315 | TTime: 0.00162 | LastNorm: 0.00000e+00 | Iterations/sec: 194466.55284 | Convergence: true |
+Execution Info - Random | Iters:    172 | TTime: 0.00095 | LastNorm: 6.29270e-09 | Iterations/sec: 181261.37889 | Convergence: true |
+Execution Info - Random | Iters:     66 | TTime: 0.00037 | LastNorm: 6.17067e-19 | Iterations/sec: 180812.58263 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00464 | LastNorm: 1.77041e-07 | Iterations/sec: 215700.89997 | Convergence: false |
+Execution Info - Random | Iters:     60 | TTime: 0.00035 | LastNorm: 3.88340e-09 | Iterations/sec: 172486.79918 | Convergence: true |
+Execution Info - Random | Iters:    117 | TTime: 0.00063 | LastNorm: 1.00664e-09 | Iterations/sec: 184555.68560 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00029 | LastNorm: Inf | Iterations/sec: 3460646.86469 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00063 | LastNorm: Inf | Iterations/sec: 1575029.66579 | Convergence: false |
+Execution Info - Random | Iters:    349 | TTime: 0.00182 | LastNorm: 4.94009e-09 | Iterations/sec: 192076.11809 | Convergence: true |
+Execution Info - Random | Iters:     42 | TTime: 0.00023 | LastNorm: 4.61338e-10 | Iterations/sec: 181049.09353 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00471 | LastNorm: 9.10425e-07 | Iterations/sec: 212133.52215 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00071 | LastNorm: Inf | Iterations/sec: 1408429.81867 | Convergence: false |
+Execution Info - Random | Iters:    114 | TTime: 0.00067 | LastNorm: 7.73684e-09 | Iterations/sec: 170160.37580 | Convergence: true |
+Execution Info - Random | Iters:    288 | TTime: 0.00150 | LastNorm: 6.23250e-09 | Iterations/sec: 191770.05112 | Convergence: true |
+Execution Info - Random | Iters:     39 | TTime: 0.00022 | LastNorm: 9.51833e-09 | Iterations/sec: 178189.38562 | Convergence: true |
+Execution Info - Random | Iters:     44 | TTime: 0.00023 | LastNorm: 2.73456e-09 | Iterations/sec: 188893.93654 | Convergence: true |
+Execution Info - Random | Iters:     27 | TTime: 0.00015 | LastNorm: 4.48640e-09 | Iterations/sec: 180041.66614 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00471 | LastNorm: 6.00318e+13 | Iterations/sec: 212273.09074 | Convergence: false |
+Execution Info - Random | Iters:     58 | TTime: 0.00030 | LastNorm: 7.09562e-09 | Iterations/sec: 195240.47512 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00012 | LastNorm: 8.29947e-09 | Iterations/sec: 185517.29231 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00037 | LastNorm: Inf | Iterations/sec: 2673233.90695 | Convergence: false |
+Execution Info - Random | Iters:     31 | TTime: 0.00016 | LastNorm: 5.61214e-09 | Iterations/sec: 187895.12139 | Convergence: true |
+Execution Info - Random | Iters:      5 | TTime: 0.00003 | LastNorm: 1.18318e-26 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:     29 | TTime: 0.00015 | LastNorm: 3.99714e-09 | Iterations/sec: 187130.48615 | Convergence: true |
+Execution Info - Random | Iters:     98 | TTime: 0.00060 | LastNorm: 8.39323e-09 | Iterations/sec: 163566.17270 | Convergence: true |
+Execution Info - Random | Iters:    146 | TTime: 0.00074 | LastNorm: 9.62830e-09 | Iterations/sec: 197601.93095 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00466 | LastNorm: 1.95277e-06 | Iterations/sec: 214498.51693 | Convergence: false |
+Execution Info - Random | Iters:      3 | TTime: 0.00002 | LastNorm: 0.00000e+00 | Iterations/sec: 165564.63158 | Convergence: true |
+Execution Info - Random Mean (23 repetitions) | Iters:    219 | TTime: 0.00108 | LastNorm: 1.36111e-07 | Iterations/sec: 187840.93205 | Convergence: true |
+| 2 |Execution Info - Random | Iters:     93 | TTime: 0.00051 | LastNorm: 4.02949e-09 | Iterations/sec: 181681.54262 | Convergence: true |
+Execution Info - Random | Iters:     75 | TTime: 0.00043 | LastNorm: 6.14727e-09 | Iterations/sec: 176034.02350 | Convergence: true |
+Execution Info - Random | Iters:     16 | TTime: 0.00010 | LastNorm: 1.00993e-33 | Iterations/sec: 166937.47264 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00491 | LastNorm: 1.02333e+01 | Iterations/sec: 203537.82695 | Convergence: false |
+Execution Info - Random | Iters:    107 | TTime: 0.00062 | LastNorm: 2.99496e-09 | Iterations/sec: 173680.54489 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00041 | LastNorm: Inf | Iterations/sec: 2445658.30904 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00033 | LastNorm: Inf | Iterations/sec: 3048186.04651 | Convergence: false |
+Execution Info - Random | Iters:     42 | TTime: 0.00024 | LastNorm: 5.96175e-09 | Iterations/sec: 172200.16422 | Convergence: true |
+Execution Info - Random | Iters:     94 | TTime: 0.00051 | LastNorm: 6.32959e-09 | Iterations/sec: 185013.87893 | Convergence: true |
+Execution Info - Random | Iters:    265 | TTime: 0.00144 | LastNorm: 3.76301e-09 | Iterations/sec: 183656.73496 | Convergence: true |
+Execution Info - Random | Iters:     76 | TTime: 0.00041 | LastNorm: 5.90643e-09 | Iterations/sec: 184899.71230 | Convergence: true |
+Execution Info - Random | Iters:    100 | TTime: 0.00054 | LastNorm: 0.00000e+00 | Iterations/sec: 185178.98455 | Convergence: true |
+Execution Info - Random | Iters:    224 | TTime: 0.00121 | LastNorm: 3.12657e-82 | Iterations/sec: 185273.92940 | Convergence: true |
+Execution Info - Random | Iters:    291 | TTime: 0.00158 | LastNorm: 7.05150e-09 | Iterations/sec: 183816.63614 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00012 | LastNorm: Inf | Iterations/sec: 8065969.23077 | Convergence: false |
+Execution Info - Random | Iters:    117 | TTime: 0.00062 | LastNorm: 5.52897e-09 | Iterations/sec: 188092.59026 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00480 | LastNorm: 2.87751e-06 | Iterations/sec: 208123.05860 | Convergence: false |
+Execution Info - Random | Iters:     73 | TTime: 0.00040 | LastNorm: 9.20090e-09 | Iterations/sec: 181603.90985 | Convergence: true |
+Execution Info - Random | Iters:     90 | TTime: 0.00048 | LastNorm: 9.67472e-10 | Iterations/sec: 186321.50049 | Convergence: true |
+Execution Info - Random | Iters:     39 | TTime: 0.00022 | LastNorm: 1.20903e-28 | Iterations/sec: 178969.20788 | Convergence: true |
+Execution Info - Random | Iters:    159 | TTime: 0.00082 | LastNorm: 6.06489e-09 | Iterations/sec: 194146.82271 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00022 | LastNorm: Inf | Iterations/sec: 4462025.53191 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00468 | LastNorm: 7.68058e-06 | Iterations/sec: 213766.06697 | Convergence: false |
+Execution Info - Random | Iters:     81 | TTime: 0.00045 | LastNorm: 7.76671e-09 | Iterations/sec: 179946.30508 | Convergence: true |
+Execution Info - Random | Iters:     65 | TTime: 0.00036 | LastNorm: 6.90686e-09 | Iterations/sec: 181632.08528 | Convergence: true |
+Execution Info - Random | Iters:     87 | TTime: 0.00047 | LastNorm: 1.57616e-09 | Iterations/sec: 184668.24291 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00026 | LastNorm: Inf | Iterations/sec: 3862158.37937 | Convergence: false |
+Execution Info - Random | Iters:     74 | TTime: 0.00040 | LastNorm: 3.52724e-09 | Iterations/sec: 183222.25266 | Convergence: true |
+Execution Info - Random | Iters:     14 | TTime: 0.00008 | LastNorm: 1.79899e-169 | Iterations/sec: 181796.45820 | Convergence: true |
+Execution Info - Random | Iters:     87 | TTime: 0.00048 | LastNorm: 4.67511e-09 | Iterations/sec: 181634.86710 | Convergence: true |
+Execution Info - Random Mean (25 repetitions) | Iters:    211 | TTime: 0.00107 | LastNorm: 4.09333e-01 | Iterations/sec: 185033.39276 | Convergence: true |
+| 3 |Execution Info - Random | Iters:     75 | TTime: 0.00040 | LastNorm: 0.00000e+00 | Iterations/sec: 187023.06778 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00467 | LastNorm: 3.20163e+10 | Iterations/sec: 214038.78343 | Convergence: false |
+Execution Info - Random | Iters:     56 | TTime: 0.00031 | LastNorm: 9.76805e-15 | Iterations/sec: 182361.04348 | Convergence: true |
+Execution Info - Random | Iters:    115 | TTime: 0.00061 | LastNorm: 4.90480e-09 | Iterations/sec: 188784.72016 | Convergence: true |
+Execution Info - Random | Iters:     88 | TTime: 0.00048 | LastNorm: 1.38684e-201 | Iterations/sec: 184826.61592 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00034 | LastNorm: Inf | Iterations/sec: 2959988.70854 | Convergence: false |
+Execution Info - Random | Iters:    217 | TTime: 0.00116 | LastNorm: 8.29124e-09 | Iterations/sec: 187392.21083 | Convergence: true |
+Execution Info - Random | Iters:     87 | TTime: 0.00047 | LastNorm: 7.69015e-09 | Iterations/sec: 185418.92683 | Convergence: true |
+Execution Info - Random | Iters:    229 | TTime: 0.00120 | LastNorm: 7.59947e-09 | Iterations/sec: 191600.96070 | Convergence: true |
+Execution Info - Random | Iters:     99 | TTime: 0.00054 | LastNorm: 5.34648e-09 | Iterations/sec: 181961.47940 | Convergence: true |
+Execution Info - Random | Iters:    143 | TTime: 0.00076 | LastNorm: 8.72421e-09 | Iterations/sec: 189147.10564 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00033 | LastNorm: Inf | Iterations/sec: 3068254.57206 | Convergence: false |
+Execution Info - Random | Iters:    131 | TTime: 0.00068 | LastNorm: 3.97489e-33 | Iterations/sec: 191514.05507 | Convergence: true |
+Execution Info - Random | Iters:     48 | TTime: 0.00025 | LastNorm: 9.95816e-09 | Iterations/sec: 194330.68726 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.18278 | LastNorm: 2.70596e-07 | Iterations/sec: 5471.02874 | Convergence: false |
+Execution Info - Random | Iters:     22 | TTime: 0.00014 | LastNorm: 7.71140e-299 | Iterations/sec: 159644.78893 | Convergence: true |
+Execution Info - Random | Iters:     40 | TTime: 0.00021 | LastNorm: 6.17711e-09 | Iterations/sec: 193063.47526 | Convergence: true |
+Execution Info - Random | Iters:     30 | TTime: 0.00016 | LastNorm: 3.53772e-113 | Iterations/sec: 191229.66565 | Convergence: true |
+Execution Info - Random | Iters:     57 | TTime: 0.00030 | LastNorm: 4.67675e-10 | Iterations/sec: 191874.26003 | Convergence: true |
+Execution Info - Random | Iters:     57 | TTime: 0.00029 | LastNorm: 1.01759e-28 | Iterations/sec: 196608.00000 | Convergence: true |
+Execution Info - Random | Iters:     63 | TTime: 0.00032 | LastNorm: 0.00000e+00 | Iterations/sec: 197489.65022 | Convergence: true |
+Execution Info - Random | Iters:     51 | TTime: 0.00026 | LastNorm: 9.69873e-09 | Iterations/sec: 196970.07735 | Convergence: true |
+Execution Info - Random | Iters:     49 | TTime: 0.00025 | LastNorm: 5.46420e-09 | Iterations/sec: 192977.36714 | Convergence: true |
+Execution Info - Random | Iters:     74 | TTime: 0.00039 | LastNorm: 0.00000e+00 | Iterations/sec: 190182.90196 | Convergence: true |
+Execution Info - Random | Iters:    207 | TTime: 0.00102 | LastNorm: 8.04041e-09 | Iterations/sec: 203140.13290 | Convergence: true |
+Execution Info - Random | Iters:     37 | TTime: 0.00020 | LastNorm: 1.41394e-96 | Iterations/sec: 189717.90709 | Convergence: true |
+Execution Info - Random | Iters:     50 | TTime: 0.00026 | LastNorm: 4.67627e-09 | Iterations/sec: 194541.00186 | Convergence: true |
+Execution Info - Random | Iters:    188 | TTime: 0.00091 | LastNorm: 2.53743e-09 | Iterations/sec: 207289.47213 | Convergence: true |
+Execution Info - Random | Iters:     31 | TTime: 0.00018 | LastNorm: 3.67375e-30 | Iterations/sec: 174294.13405 | Convergence: true |
+Execution Info - Random | Iters:     42 | TTime: 0.00025 | LastNorm: 0.00000e+00 | Iterations/sec: 167932.09533 | Convergence: true |
+Execution Info - Random Mean (28 repetitions) | Iters:    153 | TTime: 0.00712 | LastNorm: 1.14344e+09 | Iterations/sec: 183243.77197 | Convergence: true |
+| 4 |Execution Info - Random | Iters:    121 | TTime: 0.00063 | LastNorm: 4.00159e-09 | Iterations/sec: 191513.50340 | Convergence: true |
+Execution Info - Random | Iters:    877 | TTime: 0.00436 | LastNorm: 0.00000e+00 | Iterations/sec: 200917.88333 | Convergence: true |
+Execution Info - Random | Iters:     92 | TTime: 0.00049 | LastNorm: 7.54121e-23 | Iterations/sec: 189619.64029 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00054 | LastNorm: Inf | Iterations/sec: 1842030.74220 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00058 | LastNorm: Inf | Iterations/sec: 1736052.98013 | Convergence: false |
+Execution Info - Random | Iters:    124 | TTime: 0.00068 | LastNorm: 6.01761e-09 | Iterations/sec: 181533.57627 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00125 | LastNorm: Inf | Iterations/sec: 802584.00306 | Convergence: false |
+Execution Info - Random | Iters:   1000 | TTime: 0.00456 | LastNorm: 5.15750e-08 | Iterations/sec: 219401.78898 | Convergence: false |
+Execution Info - Random | Iters:    224 | TTime: 0.00113 | LastNorm: 5.23661e-09 | Iterations/sec: 197545.01598 | Convergence: true |
+Execution Info - Random | Iters:     94 | TTime: 0.00048 | LastNorm: 3.60644e-157 | Iterations/sec: 194219.00296 | Convergence: true |
+Execution Info - Random | Iters:    103 | TTime: 0.00053 | LastNorm: 1.23297e-234 | Iterations/sec: 193208.10018 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00093 | LastNorm: Inf | Iterations/sec: 1074085.53137 | Convergence: false |
+Execution Info - Random | Iters:    144 | TTime: 0.00084 | LastNorm: 8.48606e-09 | Iterations/sec: 170808.76018 | Convergence: true |
+Execution Info - Random | Iters:    118 | TTime: 0.00063 | LastNorm: 4.61548e-09 | Iterations/sec: 188543.95124 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00077 | LastNorm: Inf | Iterations/sec: 1293739.66687 | Convergence: false |
+Execution Info - Random | Iters:    322 | TTime: 0.00164 | LastNorm: 3.64167e-09 | Iterations/sec: 196932.90872 | Convergence: true |
+Execution Info - Random | Iters:    180 | TTime: 0.00091 | LastNorm: 3.93252e-09 | Iterations/sec: 197844.52830 | Convergence: true |
+Execution Info - Random | Iters:    102 | TTime: 0.00051 | LastNorm: 3.37134e-35 | Iterations/sec: 198431.82189 | Convergence: true |
+Execution Info - Random | Iters:    285 | TTime: 0.00145 | LastNorm: 4.92247e-09 | Iterations/sec: 196964.34998 | Convergence: true |
+Execution Info - Random | Iters:    165 | TTime: 0.00085 | LastNorm: 5.57250e-09 | Iterations/sec: 194126.27209 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00096 | LastNorm: Inf | Iterations/sec: 1044918.78426 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00050 | LastNorm: Inf | Iterations/sec: 2016492.30769 | Convergence: false |
+Execution Info - Random | Iters:    250 | TTime: 0.00135 | LastNorm: 8.53278e-20 | Iterations/sec: 184901.42832 | Convergence: true |
+Execution Info - Random | Iters:    190 | TTime: 0.00102 | LastNorm: 6.53583e-09 | Iterations/sec: 186631.79391 | Convergence: true |
+Execution Info - Random | Iters:    260 | TTime: 0.00132 | LastNorm: 5.06757e-09 | Iterations/sec: 197557.79710 | Convergence: true |
+Execution Info - Random | Iters:    168 | TTime: 0.00086 | LastNorm: 2.61240e-09 | Iterations/sec: 194652.78232 | Convergence: true |
+Execution Info - Random | Iters:    127 | TTime: 0.00070 | LastNorm: 7.49505e-09 | Iterations/sec: 181429.36240 | Convergence: true |
+Execution Info - Random | Iters:    264 | TTime: 0.00134 | LastNorm: 5.73601e-09 | Iterations/sec: 196294.31945 | Convergence: true |
+Execution Info - Random | Iters:    116 | TTime: 0.00060 | LastNorm: 7.53337e-09 | Iterations/sec: 193994.92185 | Convergence: true |
+Execution Info - Random | Iters:    100 | TTime: 0.00051 | LastNorm: 3.45728e-17 | Iterations/sec: 196915.68075 | Convergence: true |
+Execution Info - Random Mean (23 repetitions) | Iters:    236 | TTime: 0.00119 | LastNorm: 5.78182e-09 | Iterations/sec: 193216.92130 | Convergence: true |
+| 5 |Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00023 | LastNorm: Inf | Iterations/sec: 4401158.44701 | Convergence: false |
+Execution Info - Random | Iters:     91 | TTime: 0.00047 | LastNorm: 0.00000e+00 | Iterations/sec: 193256.53873 | Convergence: true |
+Execution Info - Random | Iters:    285 | TTime: 0.00147 | LastNorm: 9.62910e-09 | Iterations/sec: 193740.13614 | Convergence: true |
+Execution Info - Random | Iters:    151 | TTime: 0.00082 | LastNorm: 7.47723e-09 | Iterations/sec: 184378.42911 | Convergence: true |
+Execution Info - Random | Iters:     63 | TTime: 0.00037 | LastNorm: 6.72443e-09 | Iterations/sec: 172593.82887 | Convergence: true |
+Execution Info - Random | Iters:     66 | TTime: 0.00037 | LastNorm: 5.65314e-09 | Iterations/sec: 176096.73282 | Convergence: true |
+Execution Info - Random | Iters:    118 | TTime: 0.00062 | LastNorm: 9.69113e-09 | Iterations/sec: 190944.39506 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00023 | LastNorm: Inf | Iterations/sec: 4405781.51261 | Convergence: false |
+Execution Info - Random | Iters:     44 | TTime: 0.00024 | LastNorm: 5.18911e-09 | Iterations/sec: 184919.21443 | Convergence: true |
+Execution Info - Random | Iters:     89 | TTime: 0.00044 | LastNorm: 9.61650e-09 | Iterations/sec: 200911.22497 | Convergence: true |
+Execution Info - Random | Iters:    133 | TTime: 0.00068 | LastNorm: 4.96763e-09 | Iterations/sec: 194777.38547 | Convergence: true |
+Execution Info - Random | Iters:     27 | TTime: 0.00014 | LastNorm: 1.80999e-86 | Iterations/sec: 194247.35506 | Convergence: true |
+Execution Info - Random | Iters:     61 | TTime: 0.00033 | LastNorm: 7.14902e-09 | Iterations/sec: 186074.57745 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00049 | LastNorm: Inf | Iterations/sec: 2049000.48852 | Convergence: false |
+Execution Info - Random | Iters:     55 | TTime: 0.00028 | LastNorm: 7.03885e-09 | Iterations/sec: 197844.52830 | Convergence: true |
+Execution Info - Random | Iters:    234 | TTime: 0.00118 | LastNorm: 1.45563e-22 | Iterations/sec: 198959.48429 | Convergence: true |
+Execution Info - Random | Iters:     65 | TTime: 0.00034 | LastNorm: 1.26798e-155 | Iterations/sec: 192263.58251 | Convergence: true |
+Execution Info - Random | Iters:     30 | TTime: 0.00015 | LastNorm: 2.27383e-15 | Iterations/sec: 194781.91950 | Convergence: true |
+Execution Info - Random | Iters:     45 | TTime: 0.00023 | LastNorm: 9.26188e-09 | Iterations/sec: 197430.62762 | Convergence: true |
+Execution Info - Random | Iters:     45 | TTime: 0.00023 | LastNorm: 6.21678e-09 | Iterations/sec: 197224.32602 | Convergence: true |
+Execution Info - Random | Iters:     71 | TTime: 0.00037 | LastNorm: 0.00000e+00 | Iterations/sec: 191385.33676 | Convergence: true |
+Execution Info - Random | Iters:     68 | TTime: 0.00035 | LastNorm: 0.00000e+00 | Iterations/sec: 194817.39891 | Convergence: true |
+Execution Info - Random | Iters:      5 | TTime: 0.00003 | LastNorm: 4.67752e-302 | Iterations/sec: 192399.26606 | Convergence: true |
+Execution Info - Random | Iters:    131 | TTime: 0.00067 | LastNorm: 6.88012e-09 | Iterations/sec: 194703.69383 | Convergence: true |
+Execution Info - Random | Iters:     51 | TTime: 0.00027 | LastNorm: 5.57070e-09 | Iterations/sec: 188300.61972 | Convergence: true |
+Execution Info - Random | Iters:     56 | TTime: 0.00029 | LastNorm: 8.43875e-09 | Iterations/sec: 191739.61143 | Convergence: true |
+Execution Info - Random | Iters:     91 | TTime: 0.00049 | LastNorm: 8.41601e-09 | Iterations/sec: 184654.89308 | Convergence: true |
+Execution Info - Random | Iters:     74 | TTime: 0.00043 | LastNorm: 5.66795e-09 | Iterations/sec: 171764.52463 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00112 | LastNorm: Inf | Iterations/sec: 896218.80342 | Convergence: false |
+Execution Info - Random | Iters:    125 | TTime: 0.00063 | LastNorm: 7.47984e-09 | Iterations/sec: 197471.93974 | Convergence: true |
+Execution Info - Random Mean (26 repetitions) | Iters:     87 | TTime: 0.00046 | LastNorm: 5.04108e-09 | Iterations/sec: 190680.06040 | Convergence: true |
+| 6 |Execution Info - Random | Iters:     25 | TTime: 0.00014 | LastNorm: 9.48353e-09 | Iterations/sec: 184934.03880 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00020 | LastNorm: Inf | Iterations/sec: 5077849.87893 | Convergence: false |
+Execution Info - Random | Iters:    117 | TTime: 0.00059 | LastNorm: 1.60159e-09 | Iterations/sec: 199647.50529 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00005 | LastNorm: 2.17005e-21 | Iterations/sec: 153919.41284 | Convergence: true |
+Execution Info - Random | Iters:     24 | TTime: 0.00013 | LastNorm: 6.20433e-09 | Iterations/sec: 184703.29541 | Convergence: true |
+Execution Info - Random | Iters:     28 | TTime: 0.00016 | LastNorm: 3.27448e-42 | Iterations/sec: 177135.01056 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00005 | LastNorm: 1.08505e-11 | Iterations/sec: 152125.01554 | Convergence: true |
+Execution Info - Random | Iters:     17 | TTime: 0.00009 | LastNorm: 9.15687e-09 | Iterations/sec: 188632.71958 | Convergence: true |
+Execution Info - Random | Iters:    180 | TTime: 0.00091 | LastNorm: 0.00000e+00 | Iterations/sec: 198677.55789 | Convergence: true |
+Execution Info - Random | Iters:      7 | TTime: 0.00004 | LastNorm: 0.00000e+00 | Iterations/sec: 158703.39459 | Convergence: true |
+Execution Info - Random | Iters:    207 | TTime: 0.00102 | LastNorm: 2.85016e-09 | Iterations/sec: 201958.81089 | Convergence: true |
+Execution Info - Random | Iters:     19 | TTime: 0.00010 | LastNorm: 5.84274e-09 | Iterations/sec: 184471.70370 | Convergence: true |
+Execution Info - Random | Iters:    242 | TTime: 0.00120 | LastNorm: 8.18379e-09 | Iterations/sec: 201513.11654 | Convergence: true |
+Execution Info - Random | Iters:    427 | TTime: 0.00218 | LastNorm: 8.83606e-09 | Iterations/sec: 195969.77875 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00035 | LastNorm: Inf | Iterations/sec: 2849391.30435 | Convergence: false |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13888423.84106 | Convergence: false |
+Execution Info - Random | Iters:     24 | TTime: 0.00013 | LastNorm: 2.18367e-14 | Iterations/sec: 187454.92737 | Convergence: true |
+Execution Info - Random | Iters:     16 | TTime: 0.00009 | LastNorm: 8.44315e-16 | Iterations/sec: 183859.90137 | Convergence: true |
+Execution Info - Random | Iters:    142 | TTime: 0.00077 | LastNorm: 4.67868e-10 | Iterations/sec: 183937.97653 | Convergence: true |
+Execution Info - Random | Iters:     50 | TTime: 0.00029 | LastNorm: 7.77084e-09 | Iterations/sec: 170638.89341 | Convergence: true |
+Execution Info - Random | Iters:    308 | TTime: 0.00155 | LastNorm: 6.17543e-09 | Iterations/sec: 198837.25289 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 3.93600e-09 | Iterations/sec: 196329.12340 | Convergence: true |
+Execution Info - Random | Iters:    125 | TTime: 0.00065 | LastNorm: 5.85858e-288 | Iterations/sec: 193535.62200 | Convergence: true |
+Execution Info - Random | Iters:     19 | TTime: 0.00010 | LastNorm: 9.50975e-09 | Iterations/sec: 181117.67273 | Convergence: true |
+Execution Info - Random | Iters:     91 | TTime: 0.00046 | LastNorm: 4.66070e-09 | Iterations/sec: 195734.18667 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 6.52891e-09 | Iterations/sec: 198440.18925 | Convergence: true |
+Execution Info - Random | Iters:     63 | TTime: 0.00034 | LastNorm: 5.84700e-09 | Iterations/sec: 187538.07807 | Convergence: true |
+Execution Info - Random | Iters:     40 | TTime: 0.00021 | LastNorm: 3.20210e-27 | Iterations/sec: 186828.68597 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00461 | LastNorm: 4.51419e-07 | Iterations/sec: 217051.54212 | Convergence: false |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 9.12934e-09 | Iterations/sec: 187932.15479 | Convergence: true |
+Execution Info - Random Mean (27 repetitions) | Iters:    120 | TTime: 0.00060 | LastNorm: 2.06524e-08 | Iterations/sec: 187097.31729 | Convergence: true |
+| 7 |Execution Info - Random | Iters:   1000 | TTime: 0.00465 | LastNorm: 3.20178e-07 | Iterations/sec: 215059.42675 | Convergence: false |
+Execution Info - Random | Iters:     19 | TTime: 0.00011 | LastNorm: 7.40103e-09 | Iterations/sec: 169918.49893 | Convergence: true |
+Execution Info - Random | Iters:    103 | TTime: 0.00053 | LastNorm: 6.94504e-09 | Iterations/sec: 195127.96387 | Convergence: true |
+Execution Info - Random | Iters:     87 | TTime: 0.00045 | LastNorm: 4.73177e-09 | Iterations/sec: 194201.40926 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00013 | LastNorm: 5.97215e-09 | Iterations/sec: 165254.00375 | Convergence: true |
+Execution Info - Random | Iters:     47 | TTime: 0.00024 | LastNorm: 7.57556e-09 | Iterations/sec: 199123.52323 | Convergence: true |
+Execution Info - Random | Iters:      2 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 220752.84211 | Convergence: true |
+Execution Info - Random | Iters:      9 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 186874.93069 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00015 | LastNorm: Inf | Iterations/sec: 6668209.85692 | Convergence: false |
+Execution Info - Random | Iters:     37 | TTime: 0.00020 | LastNorm: 4.26143e-09 | Iterations/sec: 185190.03341 | Convergence: true |
+Execution Info - Random | Iters:     41 | TTime: 0.00021 | LastNorm: 2.00271e-36 | Iterations/sec: 196308.74886 | Convergence: true |
+Execution Info - Random | Iters:     30 | TTime: 0.00016 | LastNorm: 3.79046e-09 | Iterations/sec: 187524.76900 | Convergence: true |
+Execution Info - Random | Iters:     38 | TTime: 0.00020 | LastNorm: 5.89415e-191 | Iterations/sec: 192958.29540 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00059 | LastNorm: Inf | Iterations/sec: 1683783.21959 | Convergence: false |
+Execution Info - Random | Iters:      2 | TTime: 0.00001 | LastNorm: 2.48614e-16 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:     18 | TTime: 0.00009 | LastNorm: 6.81954e-09 | Iterations/sec: 193583.26154 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00024 | LastNorm: Inf | Iterations/sec: 4132319.21182 | Convergence: false |
+Execution Info - Random | Iters:     28 | TTime: 0.00016 | LastNorm: 6.93731e-09 | Iterations/sec: 171948.04100 | Convergence: true |
+Execution Info - Random | Iters:     19 | TTime: 0.00010 | LastNorm: 4.18702e-09 | Iterations/sec: 182361.04348 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00468 | LastNorm: 4.16020e-07 | Iterations/sec: 213537.52164 | Convergence: false |
+Execution Info - Random | Iters:    166 | TTime: 0.00083 | LastNorm: 5.98425e-09 | Iterations/sec: 198816.23758 | Convergence: true |
+Execution Info - Random | Iters:     98 | TTime: 0.00049 | LastNorm: 2.24295e-11 | Iterations/sec: 199534.85049 | Convergence: true |
+Execution Info - Random | Iters:     37 | TTime: 0.00019 | LastNorm: 1.36851e-09 | Iterations/sec: 198960.57436 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00098 | LastNorm: Inf | Iterations/sec: 1020263.68280 | Convergence: false |
+Execution Info - Random | Iters:     47 | TTime: 0.00024 | LastNorm: 2.15934e-09 | Iterations/sec: 195180.48317 | Convergence: true |
+Execution Info - Random | Iters:     20 | TTime: 0.00010 | LastNorm: 5.22693e-09 | Iterations/sec: 191958.99314 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00499 | LastNorm: 6.93876e-03 | Iterations/sec: 200205.44153 | Convergence: false |
+Execution Info - Random | Iters:     17 | TTime: 0.00009 | LastNorm: 6.07785e-09 | Iterations/sec: 182361.04348 | Convergence: true |
+Execution Info - Random | Iters:     32 | TTime: 0.00017 | LastNorm: 7.77777e-09 | Iterations/sec: 188243.65778 | Convergence: true |
+Execution Info - Random | Iters:     83 | TTime: 0.00042 | LastNorm: 9.06579e-09 | Iterations/sec: 195357.59371 | Convergence: true |
+Execution Info - Random Mean (26 repetitions) | Iters:    154 | TTime: 0.00075 | LastNorm: 2.66907e-04 | Iterations/sec: 193079.69039 | Convergence: true |
+| 8 |Execution Info - Random | Iters:    288 | TTime: 0.00145 | LastNorm: 4.46475e-09 | Iterations/sec: 199168.92861 | Convergence: true |
+Execution Info - Random | Iters:    123 | TTime: 0.00062 | LastNorm: 2.52735e-09 | Iterations/sec: 199419.94279 | Convergence: true |
+Execution Info - Random | Iters:     93 | TTime: 0.00047 | LastNorm: 1.38789e-17 | Iterations/sec: 197804.39757 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 12826617.73700 | Convergence: false |
+Execution Info - Random | Iters:      2 | TTime: 0.00001 | LastNorm: 0.00000e+00 | Iterations/sec: 220752.84211 | Convergence: true |
+Execution Info - Random | Iters:    127 | TTime: 0.00064 | LastNorm: 8.55175e-09 | Iterations/sec: 199057.02840 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13662228.01303 | Convergence: false |
+Execution Info - Random | Iters:    138 | TTime: 0.00072 | LastNorm: 7.13999e-09 | Iterations/sec: 192745.23876 | Convergence: true |
+Execution Info - Random | Iters:    132 | TTime: 0.00069 | LastNorm: 0.00000e+00 | Iterations/sec: 190191.73068 | Convergence: true |
+Execution Info - Random | Iters:   1000 | TTime: 0.00472 | LastNorm: 3.27349e-06 | Iterations/sec: 211961.99717 | Convergence: false |
+Execution Info - Random | Iters:    139 | TTime: 0.00071 | LastNorm: 5.37242e-09 | Iterations/sec: 196035.05582 | Convergence: true |
+Execution Info - Random | Iters:    199 | TTime: 0.00102 | LastNorm: 9.15461e-13 | Iterations/sec: 194924.45026 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00013 | LastNorm: Inf | Iterations/sec: 7516673.83513 | Convergence: false |
+Execution Info - Random | Iters:    154 | TTime: 0.00079 | LastNorm: 5.50930e-10 | Iterations/sec: 196150.26298 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00040 | LastNorm: Inf | Iterations/sec: 2480369.01242 | Convergence: false |
+Execution Info - Random | Iters:      2 | TTime: 0.00001 | LastNorm: 1.13530e-11 | Iterations/sec: 182361.04348 | Convergence: true |
+Execution Info - Random | Iters:     75 | TTime: 0.00039 | LastNorm: 6.89685e-09 | Iterations/sec: 191812.68293 | Convergence: true |
+Execution Info - Random | Iters:     32 | TTime: 0.00017 | LastNorm: 0.00000e+00 | Iterations/sec: 193676.37518 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00038 | LastNorm: Inf | Iterations/sec: 2652943.70651 | Convergence: false |
+Execution Info - Random | Iters:      8 | TTime: 0.00005 | LastNorm: 0.00000e+00 | Iterations/sec: 174762.66667 | Convergence: true |
+Execution Info - Random | Iters:     45 | TTime: 0.00023 | LastNorm: 4.88085e-09 | Iterations/sec: 199096.70886 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00083 | LastNorm: Inf | Iterations/sec: 1204913.53059 | Convergence: false |
+Execution Info - Random | Iters:    178 | TTime: 0.00087 | LastNorm: 9.17065e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:    122 | TTime: 0.00064 | LastNorm: 6.52821e-09 | Iterations/sec: 190934.73433 | Convergence: true |
+Execution Info - Random | Iters:    122 | TTime: 0.00064 | LastNorm: 7.42379e-09 | Iterations/sec: 191865.42482 | Convergence: true |
+Execution Info - Random | Iters:     94 | TTime: 0.00049 | LastNorm: 4.68989e-09 | Iterations/sec: 193077.65720 | Convergence: true |
+Execution Info - Random | Iters:      3 | TTime: 0.00002 | LastNorm: 2.55889e-205 | Iterations/sec: 177224.11268 | Convergence: true |
+Execution Info - Random | Iters:     14 | TTime: 0.00007 | LastNorm: 4.91959e-09 | Iterations/sec: 200410.43003 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14463117.24138 | Convergence: false |
+Execution Info - Random | Iters:    166 | TTime: 0.00092 | LastNorm: 4.33592e-09 | Iterations/sec: 180798.35471 | Convergence: true |
+Execution Info - Random Mean (23 repetitions) | Iters:    142 | TTime: 0.00071 | LastNorm: 1.45693e-07 | Iterations/sec: 194731.83744 | Convergence: true |
+| 9 |Execution Info - Random | Iters:     21 | TTime: 0.00010 | LastNorm: 7.18864e-09 | Iterations/sec: 202019.22936 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00010 | LastNorm: 7.48103e-09 | Iterations/sec: 200182.69091 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00011 | LastNorm: 7.16603e-09 | Iterations/sec: 182739.38589 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 5.73761e-09 | Iterations/sec: 182001.35700 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 5.41946e-09 | Iterations/sec: 180224.00000 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00013 | LastNorm: 9.26519e-09 | Iterations/sec: 166503.56144 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00012 | LastNorm: 8.36512e-09 | Iterations/sec: 175110.10736 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00013 | LastNorm: 6.24603e-09 | Iterations/sec: 170248.50185 | Convergence: true |
+Execution Info - Random | Iters:     14 | TTime: 0.00009 | LastNorm: 6.88437e-35 | Iterations/sec: 153717.94764 | Convergence: true |
+Execution Info - Random | Iters:    122 | TTime: 0.00065 | LastNorm: 6.78178e-09 | Iterations/sec: 187095.09616 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00012 | LastNorm: 7.20433e-09 | Iterations/sec: 179389.78411 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 6.21254e-09 | Iterations/sec: 177451.32308 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00016 | LastNorm: Inf | Iterations/sec: 6413308.86850 | Convergence: false |
+Execution Info - Random | Iters:     12 | TTime: 0.00006 | LastNorm: 4.41575e-09 | Iterations/sec: 189930.74717 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 6.64296e-09 | Iterations/sec: 194672.33755 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 6.15211e-09 | Iterations/sec: 193043.28033 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 4.69421e-09 | Iterations/sec: 182001.35700 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 7.64622e-09 | Iterations/sec: 194672.33755 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 4.19417e-09 | Iterations/sec: 184919.21443 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 8.51275e-09 | Iterations/sec: 184919.21443 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 5.50983e-09 | Iterations/sec: 193043.28033 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00011 | LastNorm: 4.38431e-09 | Iterations/sec: 201473.11790 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 4.37967e-09 | Iterations/sec: 176096.73282 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00013 | LastNorm: 4.35535e-09 | Iterations/sec: 170563.19409 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 5.65870e-09 | Iterations/sec: 191044.90269 | Convergence: true |
+Execution Info - Random | Iters:     21 | TTime: 0.00012 | LastNorm: 8.29123e-09 | Iterations/sec: 179389.78411 | Convergence: true |
+Execution Info - Random | Iters:     22 | TTime: 0.00012 | LastNorm: 4.62243e-09 | Iterations/sec: 189475.74538 | Convergence: true |
+Random - Floating point overflow occurred, ending process.
+Execution Info - Random | Iters:   1000 | TTime: 0.00017 | LastNorm: Inf | Iterations/sec: 5949367.37589 | Convergence: false |
+Execution Info - Random | Iters:     20 | TTime: 0.00011 | LastNorm: 5.32559e-09 | Iterations/sec: 183558.16193 | Convergence: true |
+Execution Info - Random | Iters:     23 | TTime: 0.00012 | LastNorm: 4.95304e-09 | Iterations/sec: 191787.26044 | Convergence: true |
+Execution Info - Random Mean (28 repetitions) | Iters:     25 | TTime: 0.00013 | LastNorm: 5.95736e-09 | Iterations/sec: 184188.34475 | Convergence: true |
+| 10 |Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35194e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35154e-09 | Iterations/sec: 189573.06215 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34963e-09 | Iterations/sec: 190650.18182 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35493e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35050e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35382e-09 | Iterations/sec: 200924.74251 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35746e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35280e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.31906e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34557e-09 | Iterations/sec: 200924.74251 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35246e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35627e-09 | Iterations/sec: 189573.06215 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35036e-09 | Iterations/sec: 190650.18182 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34725e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35227e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35180e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34662e-09 | Iterations/sec: 200924.74251 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35452e-09 | Iterations/sec: 211034.16352 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34777e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35137e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35429e-09 | Iterations/sec: 205855.41104 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35760e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35354e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35227e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35648e-09 | Iterations/sec: 204600.19512 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35163e-09 | Iterations/sec: 195083.90698 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.33934e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35602e-09 | Iterations/sec: 199728.76190 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35463e-09 | Iterations/sec: 190650.18182 | Convergence: true |
+Execution Info - Random | Iters:      8 | TTime: 0.00004 | LastNorm: 5.34943e-09 | Iterations/sec: 186413.51111 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      8 | TTime: 0.00004 | LastNorm: 5.35077e-09 | Iterations/sec: 198136.34063 | Convergence: true |
+| 11 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 1.12089e-28 | Iterations/sec: Inf    | Convergence: true |
+| 12 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 7.04635e-14 | Iterations/sec: 939834.78519 | Convergence: true |
+| 13 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 4.13135e-37 | Iterations/sec: Inf    | Convergence: true |
+| 14 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 8.79764e-76 | Iterations/sec: Inf    | Convergence: true |
+| 15 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 883522.37037 | Convergence: true |
+| 16 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 915368.01185 | Convergence: true |
+| 17 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 966243.36593 | Convergence: true |
+| 18 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 19 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 20 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 966243.36593 | Convergence: true |
+| 21 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 22 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 23 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 24 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 25 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 26 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 27 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 948767.09926 | Convergence: true |
+| 28 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 29 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 466033.77778 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: Inf    | Convergence: true |
+| 30 |Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 838860.80000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 524288.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 1048576.00000 | Convergence: true |
+Execution Info - Random Mean (30 repetitions) | Iters:      1 | TTime: 0.00000 | LastNorm: 0.00000e+00 | Iterations/sec: 905270.61333 | Convergence: true |
+Execution Info - random Mean (30 repetitions) | Iters:     46 | TTime: 0.00044 | LastNorm: 3.81146e+07 | Iterations/sec: Inf    | Convergence: true |
+The number of divergent results in method random: 0
+Saved results at: csvs/results/area_robust/GAUSSIAN/original/random.csv
+The results of the execution were saved at: csvs/historials/area_robust/GAUSSIAN/original/random

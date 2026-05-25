@@ -1,0 +1,56 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | QUEUE               
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/BROWNBS.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | addedLS             
+tol                  | 1.0e-8              
+useLS                | true                
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |Execution Info - Grads  | Iters:     12 | TTime: 0.48354 | LastNorm: 0.00000e+00 | Iterations/sec: 24.81702 | Convergence: true |
+| 2 |Execution Info - Grads  | Iters:     13 | TTime: 0.00059 | LastNorm: 0.00000e+00 | Iterations/sec: 22030.68768 | Convergence: true |
+| 3 |Execution Info - Grads  | Iters:     11 | TTime: 0.00037 | LastNorm: 0.00000e+00 | Iterations/sec: 29804.48579 | Convergence: true |
+| 4 |Execution Info - Grads  | Iters:     12 | TTime: 0.00034 | LastNorm: 0.00000e+00 | Iterations/sec: 35394.97046 | Convergence: true |
+| 5 |Execution Info - Grads  | Iters:     12 | TTime: 0.00008 | LastNorm: 0.00000e+00 | Iterations/sec: 157779.46082 | Convergence: true |
+| 6 |Execution Info - Grads  | Iters:      9 | TTime: 0.00033 | LastNorm: 0.00000e+00 | Iterations/sec: 26944.13704 | Convergence: true |
+| 7 |Execution Info - Grads  | Iters:     10 | TTime: 0.00007 | LastNorm: 0.00000e+00 | Iterations/sec: 151418.91697 | Convergence: true |
+| 8 |Execution Info - Grads  | Iters:     11 | TTime: 0.00006 | LastNorm: 0.00000e+00 | Iterations/sec: 196329.12340 | Convergence: true |
+| 9 |Execution Info - Grads  | Iters:     13 | TTime: 0.00027 | LastNorm: 0.00000e+00 | Iterations/sec: 48902.19910 | Convergence: true |
+| 10 |Execution Info - Grads  | Iters:     12 | TTime: 0.00012 | LastNorm: 0.00000e+00 | Iterations/sec: 99078.04724 | Convergence: true |
+| 11 |Execution Info - Grads  | Iters:     11 | TTime: 0.00010 | LastNorm: 0.00000e+00 | Iterations/sec: 111174.32289 | Convergence: true |
+| 12 |Execution Info - Grads  | Iters:     11 | TTime: 0.00007 | LastNorm: 0.00000e+00 | Iterations/sec: 150775.63399 | Convergence: true |
+| 13 |Execution Info - Grads  | Iters:     11 | TTime: 0.00009 | LastNorm: 0.00000e+00 | Iterations/sec: 121095.39108 | Convergence: true |
+| 14 |Execution Info - Grads  | Iters:     13 | TTime: 0.00028 | LastNorm: 0.00000e+00 | Iterations/sec: 46924.22719 | Convergence: true |
+| 15 |Execution Info - Grads  | Iters:     11 | TTime: 0.00010 | LastNorm: 0.00000e+00 | Iterations/sec: 109850.81905 | Convergence: true |
+| 16 |Execution Info - Grads  | Iters:     12 | TTime: 0.00008 | LastNorm: 0.00000e+00 | Iterations/sec: 153919.41284 | Convergence: true |
+| 17 |Execution Info - Grads  | Iters:     14 | TTime: 0.00008 | LastNorm: 8.88178e-10 | Iterations/sec: 181796.45820 | Convergence: true |
+| 18 |Execution Info - Grads  | Iters:     13 | TTime: 0.00010 | LastNorm: 9.31323e-10 | Iterations/sec: 125059.52294 | Convergence: true |
+| 19 |Execution Info - Grads  | Iters:     11 | TTime: 0.00041 | LastNorm: 0.00000e+00 | Iterations/sec: 27028.32103 | Convergence: true |
+| 20 |Execution Info - Grads  | Iters:     15 | TTime: 0.00062 | LastNorm: 0.00000e+00 | Iterations/sec: 24310.10819 | Convergence: true |
+| 21 |Execution Info - Grads  | Iters:     11 | TTime: 0.00008 | LastNorm: 0.00000e+00 | Iterations/sec: 132198.69341 | Convergence: true |
+| 22 |Execution Info - Grads  | Iters:     12 | TTime: 0.00010 | LastNorm: 0.00000e+00 | Iterations/sec: 121281.07952 | Convergence: true |
+| 23 |Execution Info - Grads  | Iters:     13 | TTime: 0.00027 | LastNorm: 0.00000e+00 | Iterations/sec: 48295.79451 | Convergence: true |
+| 24 |Execution Info - Grads  | Iters:     12 | TTime: 0.00035 | LastNorm: 0.00000e+00 | Iterations/sec: 33916.20485 | Convergence: true |
+| 25 |Execution Info - Grads  | Iters:     11 | TTime: 0.00009 | LastNorm: 0.00000e+00 | Iterations/sec: 125033.45257 | Convergence: true |
+| 26 |Execution Info - Grads  | Iters:     12 | TTime: 0.00011 | LastNorm: 0.00000e+00 | Iterations/sec: 112347.42857 | Convergence: true |
+| 27 |Execution Info - Grads  | Iters:     11 | TTime: 0.00008 | LastNorm: 0.00000e+00 | Iterations/sec: 146467.75873 | Convergence: true |
+| 28 |Execution Info - Grads  | Iters:     11 | TTime: 0.00007 | LastNorm: 0.00000e+00 | Iterations/sec: 166560.80866 | Convergence: true |
+| 29 |Execution Info - Grads  | Iters:     14 | TTime: 0.00021 | LastNorm: 0.00000e+00 | Iterations/sec: 66052.03150 | Convergence: true |
+| 30 |Execution Info - Grads  | Iters:     11 | TTime: 0.00008 | LastNorm: 0.00000e+00 | Iterations/sec: 142840.07430 | Convergence: true |
+Execution Info - queue Mean (30 repetitions) | Iters:     12 | TTime: 0.01630 | LastNorm: 6.06500e-11 | Iterations/sec: 97154.47965 | Convergence: true |
+The number of divergent results in method queue: 0
+Saved results at: csvs/results/area_robust/BROWNBS/addedLS/queue.csv
+The results of the execution were saved at: csvs/historials/area_robust/BROWNBS/addedLS/queue

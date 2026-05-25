@@ -1,0 +1,56 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | QUEUE               
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/VARDIM.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | addedLS             
+tol                  | 1.0e-8              
+useLS                | true                
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 200
+| 1 |Execution Info - Grads  | Iters:     33 | TTime: 0.51416 | LastNorm: 4.25106e-10 | Iterations/sec: 64.18248 | Convergence: true |
+| 2 |Execution Info - Grads  | Iters:     30 | TTime: 0.22720 | LastNorm: 4.07050e-09 | Iterations/sec: 132.04279 | Convergence: true |
+| 3 |Execution Info - Grads  | Iters:     32 | TTime: 0.04797 | LastNorm: 1.50242e-09 | Iterations/sec: 667.11265 | Convergence: true |
+| 4 |Execution Info - Grads  | Iters:     33 | TTime: 0.11257 | LastNorm: 4.86830e-09 | Iterations/sec: 293.14025 | Convergence: true |
+| 5 |Execution Info - Grads  | Iters:     37 | TTime: 0.05661 | LastNorm: 1.35684e-09 | Iterations/sec: 653.60729 | Convergence: true |
+| 6 |Execution Info - Grads  | Iters:     29 | TTime: 0.04302 | LastNorm: 3.72692e-10 | Iterations/sec: 674.05635 | Convergence: true |
+| 7 |Execution Info - Grads  | Iters:     28 | TTime: 0.04025 | LastNorm: 4.49561e-09 | Iterations/sec: 695.61812 | Convergence: true |
+| 8 |Execution Info - Grads  | Iters:     34 | TTime: 0.04853 | LastNorm: 1.76156e-09 | Iterations/sec: 700.54103 | Convergence: true |
+| 9 |Execution Info - Grads  | Iters:     35 | TTime: 0.05070 | LastNorm: 4.25104e-10 | Iterations/sec: 690.32301 | Convergence: true |
+| 10 |Execution Info - Grads  | Iters:     35 | TTime: 0.05071 | LastNorm: 1.52280e-09 | Iterations/sec: 690.14452 | Convergence: true |
+| 11 |Execution Info - Grads  | Iters:     38 | TTime: 0.05566 | LastNorm: 2.43415e-09 | Iterations/sec: 682.76610 | Convergence: true |
+| 12 |Execution Info - Grads  | Iters:     36 | TTime: 0.05218 | LastNorm: 1.22290e-09 | Iterations/sec: 689.94404 | Convergence: true |
+| 13 |Execution Info - Grads  | Iters:     34 | TTime: 0.04963 | LastNorm: 3.08053e-09 | Iterations/sec: 685.04091 | Convergence: true |
+| 14 |Execution Info - Grads  | Iters:     39 | TTime: 0.05746 | LastNorm: 5.94562e-09 | Iterations/sec: 678.78009 | Convergence: true |
+| 15 |Execution Info - Grads  | Iters:     38 | TTime: 0.05537 | LastNorm: 4.46376e-09 | Iterations/sec: 686.32949 | Convergence: true |
+| 16 |Execution Info - Grads  | Iters:     38 | TTime: 0.05507 | LastNorm: 2.50406e-10 | Iterations/sec: 689.98105 | Convergence: true |
+| 17 |Execution Info - Grads  | Iters:     37 | TTime: 0.05312 | LastNorm: 1.45580e-10 | Iterations/sec: 696.56250 | Convergence: true |
+| 18 |Execution Info - Grads  | Iters:     37 | TTime: 0.05363 | LastNorm: 5.31087e-09 | Iterations/sec: 689.95078 | Convergence: true |
+| 19 |Execution Info - Grads  | Iters:     39 | TTime: 0.05627 | LastNorm: 5.24099e-09 | Iterations/sec: 693.11182 | Convergence: true |
+| 20 |Execution Info - Grads  | Iters:     39 | TTime: 0.05667 | LastNorm: 1.24328e-09 | Iterations/sec: 688.15778 | Convergence: true |
+| 21 |Execution Info - Grads  | Iters:     36 | TTime: 0.05188 | LastNorm: 1.69167e-09 | Iterations/sec: 693.94886 | Convergence: true |
+| 22 |Execution Info - Grads  | Iters:     39 | TTime: 0.05683 | LastNorm: 3.97733e-09 | Iterations/sec: 686.19766 | Convergence: true |
+| 23 |Execution Info - Grads  | Iters:     37 | TTime: 0.05317 | LastNorm: 1.89715e-15 | Iterations/sec: 695.81606 | Convergence: true |
+| 24 |Execution Info - Grads  | Iters:     36 | TTime: 0.05192 | LastNorm: 5.57292e-09 | Iterations/sec: 693.38800 | Convergence: true |
+| 25 |Execution Info - Grads  | Iters:     37 | TTime: 0.05362 | LastNorm: 1.80522e-09 | Iterations/sec: 690.01520 | Convergence: true |
+| 26 |Execution Info - Grads  | Iters:     35 | TTime: 0.05013 | LastNorm: 7.70425e-09 | Iterations/sec: 698.21281 | Convergence: true |
+| 27 |Execution Info - Grads  | Iters:     41 | TTime: 0.05941 | LastNorm: 5.42734e-09 | Iterations/sec: 690.15441 | Convergence: true |
+| 28 |Execution Info - Grads  | Iters:     41 | TTime: 0.05979 | LastNorm: 6.28628e-09 | Iterations/sec: 685.69905 | Convergence: true |
+| 29 |Execution Info - Grads  | Iters:     39 | TTime: 0.05690 | LastNorm: 1.40925e-09 | Iterations/sec: 685.42420 | Convergence: true |
+| 30 |Execution Info - Grads  | Iters:     40 | TTime: 0.05829 | LastNorm: 3.72695e-10 | Iterations/sec: 686.23522 | Convergence: true |
+Execution Info - queue Mean (30 repetitions) | Iters:     36 | TTime: 0.07629 | LastNorm: 2.81287e-09 | Iterations/sec: 634.88282 | Convergence: true |
+The number of divergent results in method queue: 0
+Saved results at: csvs/results/area_robust/VARDIM/addedLS/queue.csv
+The results of the execution were saved at: csvs/historials/area_robust/VARDIM/addedLS/queue
