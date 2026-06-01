@@ -397,7 +397,7 @@ function main()
     #Remember to finalize the model when you are done
     finalize(nlp_problem)
 
-    #Creation of Dataframe of the results
+    #Creation of data frame of the results
     times = [t_oviedo, t_queue, t_random, t_newton, t_bfgs, t_sgd]
     lastGrad = [normOviedo, normQueue, normRandom, normNewton, normBFGS, normSGD]
     iterations =[iterOviedo, iterQueue, iterRandom, iterNewton, iterBFGS, iterSGD]
