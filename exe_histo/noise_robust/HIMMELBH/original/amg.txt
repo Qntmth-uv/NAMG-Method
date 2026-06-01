@@ -1,0 +1,58 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | AMG                 
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/HIMMELBH.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |Execution Info - Oviedo | Iters:     33 | TTime: 0.38638 | LastNorm: 2.20890e-11 | Iterations/sec: 85.40837 | Convergence: true |
+| 2 |Execution Info - Oviedo | Iters:     69 | TTime: 0.00074 | LastNorm: 0.00000e+00 | Iterations/sec: 92847.92300 | Convergence: true |
+| 3 |Execution Info - Oviedo | Iters:     71 | TTime: 0.00050 | LastNorm: 1.46549e-14 | Iterations/sec: 143170.95385 | Convergence: true |
+| 4 |Execution Info - Oviedo | Iters:     46 | TTime: 0.00084 | LastNorm: 1.73195e-14 | Iterations/sec: 54905.51622 | Convergence: true |
+| 5 |Execution Info - Oviedo | Iters:     43 | TTime: 0.00064 | LastNorm: 1.56150e-09 | Iterations/sec: 67196.37556 | Convergence: true |
+| 6 |Execution Info - Oviedo | Iters:     52 | TTime: 0.00104 | LastNorm: 3.24941e-12 | Iterations/sec: 50138.80644 | Convergence: true |
+| 7 |Execution Info - Oviedo | Iters:     41 | TTime: 0.00053 | LastNorm: 0.00000e+00 | Iterations/sec: 77497.27986 | Convergence: true |
+| 8 |Execution Info - Oviedo | Iters:     53 | TTime: 0.00125 | LastNorm: 2.62457e-13 | Iterations/sec: 42399.02956 | Convergence: true |
+| 9 |Execution Info - Oviedo | Iters:     64 | TTime: 0.00152 | LastNorm: 4.33587e-11 | Iterations/sec: 42100.91844 | Convergence: true |
+| 10 |Execution Info - Oviedo | Iters:     50 | TTime: 0.00094 | LastNorm: 0.00000e+00 | Iterations/sec: 53186.71063 | Convergence: true |
+| 11 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.06967 | LastNorm: Inf | Iterations/sec: 14353.38806 | Convergence: false |
+| 12 |Execution Info - Oviedo | Iters:     68 | TTime: 0.00179 | LastNorm: 1.59328e-09 | Iterations/sec: 37987.83591 | Convergence: true |
+| 13 |Execution Info - Oviedo | Iters:     73 | TTime: 0.00236 | LastNorm: 8.90301e-11 | Iterations/sec: 30905.84354 | Convergence: true |
+| 14 |Execution Info - Oviedo | Iters:     48 | TTime: 0.00092 | LastNorm: 0.00000e+00 | Iterations/sec: 52347.00780 | Convergence: true |
+| 15 |Execution Info - Oviedo | Iters:     39 | TTime: 0.00052 | LastNorm: 4.52649e-10 | Iterations/sec: 74421.22657 | Convergence: true |
+| 16 |Execution Info - Oviedo | Iters:     49 | TTime: 0.00069 | LastNorm: 5.42121e-10 | Iterations/sec: 70722.95114 | Convergence: true |
+| 17 |AMG - Floating point overflow occurred, ending process.
+Execution Info - Oviedo | Iters:   1000 | TTime: 0.07783 | LastNorm: Inf | Iterations/sec: 12849.01510 | Convergence: false |
+| 18 |Execution Info - Oviedo | Iters:     59 | TTime: 0.00129 | LastNorm: 3.99680e-15 | Iterations/sec: 45809.68826 | Convergence: true |
+| 19 |Execution Info - Oviedo | Iters:     45 | TTime: 0.00060 | LastNorm: 1.57208e-13 | Iterations/sec: 74513.88867 | Convergence: true |
+| 20 |Execution Info - Oviedo | Iters:     72 | TTime: 0.00227 | LastNorm: 1.61076e-12 | Iterations/sec: 31691.66628 | Convergence: true |
+| 21 |Execution Info - Oviedo | Iters:     51 | TTime: 0.00091 | LastNorm: 2.85105e-13 | Iterations/sec: 56041.26382 | Convergence: true |
+| 22 |Execution Info - Oviedo | Iters:     64 | TTime: 0.00183 | LastNorm: 4.60699e-12 | Iterations/sec: 34879.86694 | Convergence: true |
+| 23 |Execution Info - Oviedo | Iters:     45 | TTime: 0.00078 | LastNorm: 4.50486e-11 | Iterations/sec: 57825.88235 | Convergence: true |
+| 24 |Execution Info - Oviedo | Iters:     53 | TTime: 0.00070 | LastNorm: 7.42303e-09 | Iterations/sec: 75921.48634 | Convergence: true |
+| 25 |Execution Info - Oviedo | Iters:     54 | TTime: 0.00056 | LastNorm: 6.54996e-11 | Iterations/sec: 96626.45734 | Convergence: true |
+| 26 |Execution Info - Oviedo | Iters:     45 | TTime: 0.00086 | LastNorm: 4.18216e-09 | Iterations/sec: 52327.05295 | Convergence: true |
+| 27 |Execution Info - Oviedo | Iters:     44 | TTime: 0.00043 | LastNorm: 3.36413e-09 | Iterations/sec: 103273.29379 | Convergence: true |
+| 28 |Execution Info - Oviedo | Iters:     57 | TTime: 0.00089 | LastNorm: 2.07838e-13 | Iterations/sec: 63889.71887 | Convergence: true |
+| 29 |Execution Info - Oviedo | Iters:     47 | TTime: 0.00074 | LastNorm: 0.00000e+00 | Iterations/sec: 63509.11340 | Convergence: true |
+| 30 |Execution Info - Oviedo | Iters:     48 | TTime: 0.00086 | LastNorm: 7.99361e-15 | Iterations/sec: 56017.41569 | Convergence: true |
+Execution Info - amg Mean (28 repetitions) | Iters:     53 | TTime: 0.01476 | LastNorm: 6.92654e-10 | Iterations/sec: 60794.30649 | Convergence: true |
+The number of divergent results in method amg: 2
+Saved results at: csvs/results/area_robust/HIMMELBH/original/amg.csv
+The results of the execution were saved at: csvs/historials/area_robust/HIMMELBH/original/amg

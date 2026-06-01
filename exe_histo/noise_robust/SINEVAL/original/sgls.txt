@@ -1,0 +1,56 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | SGLS                
+modifierH            | eigen               
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/SINEVAL.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | original            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00336 | LastNorm: 1.34707e+00 | Iterations/sec: 297721.74901 | Convergence: false |
+| 2 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00323 | LastNorm: 3.36555e-01 | Iterations/sec: 309977.38526 | Convergence: false |
+| 3 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00343 | LastNorm: 1.51805e+00 | Iterations/sec: 291291.33968 | Convergence: false |
+| 4 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00353 | LastNorm: 1.53633e+00 | Iterations/sec: 283533.02238 | Convergence: false |
+| 5 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00339 | LastNorm: 2.14894e+00 | Iterations/sec: 295165.65799 | Convergence: false |
+| 6 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00324 | LastNorm: 2.20200e-01 | Iterations/sec: 308268.70498 | Convergence: false |
+| 7 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00336 | LastNorm: 3.01571e-01 | Iterations/sec: 298060.26151 | Convergence: false |
+| 8 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00320 | LastNorm: 9.79569e-01 | Iterations/sec: 312215.57243 | Convergence: false |
+| 9 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00324 | LastNorm: 9.74471e-01 | Iterations/sec: 308722.50846 | Convergence: false |
+| 10 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00334 | LastNorm: 1.11889e+00 | Iterations/sec: 299507.56927 | Convergence: false |
+| 11 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00326 | LastNorm: 5.22443e-01 | Iterations/sec: 306937.72411 | Convergence: false |
+| 12 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00316 | LastNorm: 7.08515e-01 | Iterations/sec: 316264.81677 | Convergence: false |
+| 13 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00355 | LastNorm: 1.97238e+00 | Iterations/sec: 281610.31288 | Convergence: false |
+| 14 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00317 | LastNorm: 8.83541e-01 | Iterations/sec: 315361.20301 | Convergence: false |
+| 15 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00338 | LastNorm: 2.22120e+00 | Iterations/sec: 295852.71919 | Convergence: false |
+| 16 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00350 | LastNorm: 2.38387e+00 | Iterations/sec: 285949.27734 | Convergence: false |
+| 17 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00319 | LastNorm: 5.31942e-01 | Iterations/sec: 313874.42939 | Convergence: false |
+| 18 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00319 | LastNorm: 2.14888e-01 | Iterations/sec: 313475.63528 | Convergence: false |
+| 19 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00338 | LastNorm: 1.34492e+00 | Iterations/sec: 296019.76145 | Convergence: false |
+| 20 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00321 | LastNorm: 4.52770e-01 | Iterations/sec: 311612.48143 | Convergence: false |
+| 21 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00343 | LastNorm: 1.86643e+00 | Iterations/sec: 291473.52328 | Convergence: false |
+| 22 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00331 | LastNorm: 5.56133e-01 | Iterations/sec: 301661.68009 | Convergence: false |
+| 23 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00331 | LastNorm: 7.77543e-03 | Iterations/sec: 301835.34830 | Convergence: false |
+| 24 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00332 | LastNorm: 2.74216e+00 | Iterations/sec: 301293.29790 | Convergence: false |
+| 25 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00351 | LastNorm: 1.64371e+00 | Iterations/sec: 284649.06685 | Convergence: false |
+| 26 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00321 | LastNorm: 1.11040e+00 | Iterations/sec: 311820.97985 | Convergence: false |
+| 27 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00337 | LastNorm: 4.52445e-01 | Iterations/sec: 296647.85345 | Convergence: false |
+| 28 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00319 | LastNorm: 1.10595e+00 | Iterations/sec: 313968.41081 | Convergence: false |
+| 29 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00336 | LastNorm: 2.06598e+00 | Iterations/sec: 297616.12148 | Convergence: false |
+| 30 |Execution Info - Gradient descent with LS | Iters:   1000 | TTime: 0.00327 | LastNorm: 3.54494e-01 | Iterations/sec: 305618.18712 | Convergence: false |
+Execution Info - sgls Mean (30 repetitions) | Iters:   1000 | TTime: 0.00332 | LastNorm: 1.12079e+00 | Iterations/sec: 301600.22003 | Convergence: false |
+The number of divergent results in method sgls: 0
+Saved results at: csvs/results/area_robust/SINEVAL/original/sgls.csv
+The results of the execution were saved at: csvs/historials/area_robust/SINEVAL/original/sgls

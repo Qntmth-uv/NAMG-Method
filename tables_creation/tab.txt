@@ -1,0 +1,23 @@
+\begin{table}[tbh]
+    \centering
+    \scalebox{0.58}{
+        \begin{tabular}{|c|c|c|ccc|c|c|ccc|c|c|ccc|c|}
+            \toprule
+            \multirow{2}{*}{$\bs{F}$} & \multicolumn{5}{|c}{NAMGM-AMG}  & \multicolumn{5}{|c}{NAMGM-\textit{Queue}} & \multicolumn{5}{|c|}{NAMGM-\textit{Random}}& \multirow{2}{*}{Config}\\
+            \cmidrule(lr){2-6}\cmidrule(lr){7-11}\cmidrule(lr){12-16}
+            & C & CT & Iters & Time (s) & Last Norm & C & CT & Iters & Time (s) & Last Norm & C & CT & Iters & Time (s) & Last Norm & \\
+            \bottomrule
+            \cmidrule(lr){1-15}
+            \multirow{3}{*}{ARGLINA} & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.820\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.780\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 2.746\cdot 10^{-2} $ & $ 2.725\cdot 10^{-11} $ & S\\
+             & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.842\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.939\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 2.840\cdot 10^{-2} $ & $ 2.725\cdot 10^{-11} $ & O\\
+             & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.884\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 3.955\cdot 10^{-2} $ & $ 2.916\cdot 10^{-11} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 2 & $ 2.891\cdot 10^{-2} $ & $ 2.725\cdot 10^{-11} $ & W\\
+            \cmidrule(lr){1-17}
+            \multirow{3}{*}{BRKMCC} & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.043\cdot 10^{-2} $ & $ 7.558\cdot 10^{-10} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.134\cdot 10^{-2} $ & $ 7.558\cdot 10^{-10} $ & {\scriptsize  0.97}\cellcolor{ForestGreen!96!BrickRed!5} & {\scriptsize 30} & 37 & $ 5.135\cdot 10^{-4} $ & $ 3.735\cdot 10^{-1} $\\
+             & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.053\cdot 10^{-2} $ & $ 6.985\cdot 10^{-10} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.115\cdot 10^{-2} $ & $ 6.985\cdot 10^{-10} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 5 & $ 1.745\cdot 10^{-4} $ & $ 1.683\cdot 10^{-10} $\\
+             & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.079\cdot 10^{-2} $ & $ 8.460\cdot 10^{-10} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 6 & $ 1.338\cdot 10^{-2} $ & $ 9.562\cdot 10^{-10} $ & \textcolor{ForestGreen}{\checkmark}\cellcolor{ForestGreen!5} & {\scriptsize 30} & 5 & $ 1.600\cdot 10^{-4} $ & $ 1.683\cdot 10^{-10} $\\
+            \cmidrule(lr){1-16}
+        \end{tabular}
+    }
+    \caption{}
+    \label{}
+\end{table}

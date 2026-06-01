@@ -213,7 +213,11 @@ function main()
         _, iterQueue, t_queue, normQueue, _, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions
             M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
-            (isinf(M[i, 3]) || M[i, 3] > 1.0e12) ? divergent_results+=1 : U.+=M[i, :]
+            if isinf(M[i, 3]) || M[i, 3] > 1.0e12
+                divergent_results+=1;
+            else
+                U.+=M[i, :]
+            end
         end
         
         #Compute the mean of the results for the Random - NAMGM.

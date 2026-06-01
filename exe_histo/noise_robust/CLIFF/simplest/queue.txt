@@ -1,0 +1,82 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | QUEUE               
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/CLIFF.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 2
+| 1 |Execution Info - Grads  | Iters:     28 | TTime: 0.39431 | LastNorm: 2.13158e-11 | Iterations/sec: 71.00956 | Convergence: true |
+| 2 |Execution Info - Grads  | Iters:     27 | TTime: 0.00021 | LastNorm: 3.73106e-10 | Iterations/sec: 129276.49315 | Convergence: true |
+| 3 |Execution Info - Grads  | Iters:     51 | TTime: 0.00020 | LastNorm: 3.97167e-11 | Iterations/sec: 249894.28037 | Convergence: true |
+| 4 |Execution Info - Grads  | Iters:     28 | TTime: 0.00013 | LastNorm: 6.90878e-11 | Iterations/sec: 210466.86738 | Convergence: true |
+| 5 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 11781752.80899 | Convergence: false |
+| 6 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00013 | LastNorm: Inf | Iterations/sec: 7463174.37722 | Convergence: false |
+| 7 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00009 | LastNorm: Inf | Iterations/sec: 10979853.40314 | Convergence: false |
+| 8 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00010 | LastNorm: Inf | Iterations/sec: 10010272.07637 | Convergence: false |
+| 9 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 11915636.36364 | Convergence: false |
+| 10 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13706875.81699 | Convergence: false |
+| 11 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 12985461.30031 | Convergence: false |
+| 12 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 12985461.30031 | Convergence: false |
+| 13 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 13315250.79365 | Convergence: false |
+| 14 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14665398.60140 | Convergence: false |
+| 15 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14926348.75445 | Convergence: false |
+| 16 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14266340.13605 | Convergence: false |
+| 17 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14315030.71672 | Convergence: false |
+| 18 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 15363750.91575 | Convergence: false |
+| 19 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 13315250.79365 | Convergence: false |
+| 20 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14315030.71672 | Convergence: false |
+| 21 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14074845.63758 | Convergence: false |
+| 22 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 13315250.79365 | Convergence: false |
+| 23 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13706875.81699 | Convergence: false |
+| 24 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13706875.81699 | Convergence: false |
+| 25 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14926348.75445 | Convergence: false |
+| 26 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14074845.63758 | Convergence: false |
+| 27 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14266340.13605 | Convergence: false |
+| 28 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13706875.81699 | Convergence: false |
+| 29 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 13315250.79365 | Convergence: false |
+| 30 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14716856.14035 | Convergence: false |
+Execution Info - queue Mean (4 repetitions) | Iters:     34 | TTime: 0.09871 | LastNorm: 1.25807e-10 | Iterations/sec: 147427.16262 | Convergence: false |
+The number of divergent results in method queue: 26
+Saved results at: csvs/results/area_robust/CLIFF/simplest/queue.csv
+The results of the execution were saved at: csvs/historials/area_robust/CLIFF/simplest/queue

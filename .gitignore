@@ -17,4 +17,7 @@ csvs/results/test/*
 
 #--------------------- FILES ---------------------##
 tables_creation/TEXTABS/*.tex
+tables_creation/robust_execution_generation_commands.txt
 tabs.txt
+#------------------ TABLES FILES ------------------#
+

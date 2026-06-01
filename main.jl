@@ -168,6 +168,9 @@ function main()
     #If it is using LS, then change the save directory
     use_LS && subdirectory == "original/" ? subdirectory = "addedLS" : nothing
 
+    #If we use Line Search (backtracking), then we add that to the name of the file that is being written
+    name_added = use_LS ?  name*"_LS" : name
+
     #Images paths formatting
     if image_name == "default"
         images_path = "images/"
@@ -178,9 +181,9 @@ function main()
         path_image_conditionEvo = joinpath(images_path, "condition_analysis", subdirectory)  
 
         #Images names to write
-        image_historial = joinpath(path_image_historial, name*"_"*modH*".svg")
-        image_path = joinpath(path_image_path, name*"_"*modH*"_path.svg") 
-        image_conditionEvolution = joinpath(path_image_conditionEvo, name*"_"*modH*"CN_Evolution.png") 
+        image_historial = joinpath(path_image_historial, name_added*"_"*modH*".svg")
+        image_path = joinpath(path_image_path, name_added*"_"*modH*"_path.svg") 
+        image_conditionEvolution = joinpath(path_image_conditionEvo, name_added*"_"*modH*"CN_Evolution.png") 
     end
 
     #Files path formatting
@@ -191,9 +194,9 @@ function main()
         path_results_randoms = joinpath("csvs/results/random_historials", subdirectory)
 
         #Files to be write
-        file_name_results = joinpath(path_results, name*"_"*modH*".csv")
-        file_name_historials = joinpath(path_historials, name*"_"*modH*".csv")
-        file_name_results_historials = joinpath(path_results_randoms, name*"_"*modH*".csv")
+        file_name_results = joinpath(path_results, name_added*"_"*modH*".csv")
+        file_name_historials = joinpath(path_historials, name_added*"_"*modH*".csv")
+        file_name_results_historials = joinpath(path_results_randoms, name_added*"_"*modH*".csv")
     else
         file_name_results = file_name
     end
@@ -275,7 +278,7 @@ function main()
         xf_bfgs, historial_bfgs, t_bfgs, xP_bfgs, iterBFGS, normBFGS, ttpSB, flagBFGS = DEBUG_BFGSMethod(f, g, h, x0, tol, nIters, show_info)
         xf_SGD, historial_sgd, t_sgd, xP_sgd, iterSGD, normSGD, ttpSGD, flagSGD = DEGUB_steepestMethod(f, g, x0, tol, nIters)
 
-
+        #Displays the obtained solutions
         if(display_results)
             println("-"^80)
             println("Solutions of the optimization algorithms")
@@ -287,7 +290,6 @@ function main()
             display("BFGS Solution: $xf_bfgs")
             display("Newton Solution: $xf_newton")
         end
-
 
         #Clean the data if there is a 0.0 then the plot will explode.
         H = [historial_Ovideo, historial_Queue, historial_random, historial_newton, historial_bfgs, historial_sgd]
@@ -302,19 +304,21 @@ function main()
                 end
             end
         end
+
         #It should save the data?
         saveinfo ? createCSV(H, file_name_historials, headers_methods) : nothing
 
         #Variables to plot the results
         problems_labels = ["AMG", "Queue", "RD", "Newton", "BFGS", "SGD"]
         colors_list = [:blue, :red, :purple, :green, :orange, :salmon]
-        styles_list = [:solid, :dash, :dash, :solid, :dash, :solid]
+        styles_list = [:solid, :solid, :solid, :dash, :dash, :dash]
+        style_line_condition_number = [:solid, :solid, :solid]
 
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
-        gradplot = plotEvolution(H, name, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title, image_historial)
-        conditionplt = plotEvolution(Hc, name, colors_list[1:end-2], problems_labels[1:end-2], styles_list[1:end-2], "κ(Hψ)", plot_titleCN, image_conditionEvolution)
+        gradplot = plotEvolution(H, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title)
+        conditionplt = plotEvolution(Hc, colors_list[1:end-2], problems_labels[1:end-2], style_line_condition_number, "κ(Hψ)", plot_titleCN)
         
         #Save the images if it's required
         saveinfo ? savefig(gradplot, image_historial) : nothing 
@@ -348,15 +352,14 @@ function main()
             xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = processed_matrices
 
             #Visual path of the algorithms
-            ax = plot_optimization_path(f, xP_oviedo, levels=20, label="Oviedo", g_xlims=g_xlims, g_ylims=g_ylims, function_name=name)
+            ax = plot_optimization_path(f, xP_oviedo, function_name = name, levels = 20, label = "AMG", g_xlims = g_xlims, g_ylims = g_ylims)
 
             #Add others paths in the plot
-            add_optimization_path!(ax, xP_queue, label="Queue", color=:blue, linestyle=:dash)
-            add_optimization_path!(ax, xP_newton, label="Newton", color=:green)
-            add_optimization_path!(ax, xP_random, label="Random", color=:purple, linestyle=:dash)
+            add_optimization_path!(ax, xP_queue, label="Queue", color=:blue, linestyle=:solid)
+            add_optimization_path!(ax, xP_random, label="Random", color=:purple, linestyle=:solid)
+            add_optimization_path!(ax, xP_sgd, label="SGD", color=:salmon, linestyle=:dash)
             add_optimization_path!(ax, xP_bfgs, label="BFGS", color=:orange, linestyle=:dash)
-            add_optimization_path!(ax, xP_sgd, label="SGD", color=:salmon, linestyle=:solid)
-
+            add_optimization_path!(ax, xP_newton, label="Newton", color=:green, linestyle=:dash)
             #Save the plot
             savefig(ax, image_path)
 

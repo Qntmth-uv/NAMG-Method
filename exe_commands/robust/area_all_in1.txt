@@ -1,0 +1,12 @@
+#The number of functions will be very small.
+#The used functions should be over that we know that it converges, and of small dimension.
+
+#Default parameters of area_main.jl
+(--problem [MUST] --subdirectory [MUST] --repetitions 30 --epsilon 1.0e-8, --seed 0, --nIters 1000, --tol 1.0e-8,
+--modifierH none, --lqueue 3 --useLS [OPTIONAL] --varN "N" --varP -1 --method "AMG", --saveinfo [OPTIONAL])
+
+# Function name (Parameters = )
+julia area_main.jl --problem 1-cutest-sif/YFITU.SIF --method sgls --modifierH eigen --seed 19 --show_info  --saveinfo
+julia area_main.jl --problem 1-cutest-sif/YFITU.SIF --method amg --modifierH eigen --seed 19 --show_info  --saveinfo
+julia area_main.jl --problem 1-cutest-sif/YFITU.SIF --method queue --modifierH eigen --seed 19 --show_info  --saveinfo
+julia area_main.jl --problem 1-cutest-sif/YFITU.SIF --method random --modifierH eigen --seed 19 --show_info  --saveinfo

@@ -1,0 +1,67 @@
+----------------------------------------
+Parameters           | Value               
+----------------------------------------
+epsilon              | 1.0e-8              
+exp_rep              | 30                  
+lqueue               | 3                   
+method               | QUEUE               
+modifierH            | none                
+modifierS            | none                
+nIters               | 1000                
+problem              | 1-cutest-sif/GAUSSIAN.SIF
+repetitions          | 30                  
+saveinfo             | true                
+seed                 | 42                  
+show_info            | true                
+subdirectory         | simplest            
+tol                  | 1.0e-8              
+useLS                | false               
+varN                 | N                   
+varP                 | -1                  
+----------------------------------------
+Number of variables: 3
+| 1 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.39603 | LastNorm: Inf | Iterations/sec: 2525.03571 | Convergence: false |
+| 2 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00078 | LastNorm: Inf | Iterations/sec: 1290158.10520 | Convergence: false |
+| 3 |Execution Info - Grads  | Iters:     20 | TTime: 0.00012 | LastNorm: 5.89193e-09 | Iterations/sec: 172250.67762 | Convergence: true |
+| 4 |Execution Info - Grads  | Iters:     42 | TTime: 0.00030 | LastNorm: 5.24808e-09 | Iterations/sec: 141836.36715 | Convergence: true |
+| 5 |Execution Info - Grads  | Iters:     33 | TTime: 0.00020 | LastNorm: 4.83587e-09 | Iterations/sec: 164972.62455 | Convergence: true |
+| 6 |Execution Info - Grads  | Iters:     21 | TTime: 0.00014 | LastNorm: 4.93046e-09 | Iterations/sec: 146800.64000 | Convergence: true |
+| 7 |Execution Info - Grads  | Iters:      7 | TTime: 0.00006 | LastNorm: 5.54741e-11 | Iterations/sec: 111212.60606 | Convergence: true |
+| 8 |Execution Info - Grads  | Iters:   1000 | TTime: 0.22854 | LastNorm: 3.45024e+09 | Iterations/sec: 4375.50687 | Convergence: false |
+| 9 |Execution Info - Grads  | Iters:    110 | TTime: 0.00060 | LastNorm: 4.20036e-09 | Iterations/sec: 183960.70175 | Convergence: true |
+| 10 |Execution Info - Grads  | Iters:    191 | TTime: 0.00102 | LastNorm: 5.72305e-09 | Iterations/sec: 186522.01723 | Convergence: true |
+| 11 |Execution Info - Grads  | Iters:   1000 | TTime: 0.00528 | LastNorm: 3.36521e-07 | Iterations/sec: 189538.79525 | Convergence: false |
+| 12 |Execution Info - Grads  | Iters:     63 | TTime: 0.00037 | LastNorm: 1.95290e-138 | Iterations/sec: 168521.14286 | Convergence: true |
+| 13 |Execution Info - Grads  | Iters:   1000 | TTime: 0.00552 | LastNorm: 1.58243e-07 | Iterations/sec: 181093.38975 | Convergence: false |
+| 14 |Execution Info - Grads  | Iters:    207 | TTime: 0.00112 | LastNorm: 4.53848e-09 | Iterations/sec: 184492.33489 | Convergence: true |
+| 15 |Execution Info - Grads  | Iters:    185 | TTime: 0.00105 | LastNorm: 5.40243e-09 | Iterations/sec: 176552.04551 | Convergence: true |
+| 16 |Execution Info - Grads  | Iters:    171 | TTime: 0.00097 | LastNorm: 8.60941e-09 | Iterations/sec: 176482.77165 | Convergence: true |
+| 17 |Execution Info - Grads  | Iters:   1000 | TTime: 0.00579 | LastNorm: 1.82896e-08 | Iterations/sec: 172832.70150 | Convergence: false |
+| 18 |Execution Info - Grads  | Iters:    289 | TTime: 0.00166 | LastNorm: 4.80843e-09 | Iterations/sec: 174410.62676 | Convergence: true |
+| 19 |Execution Info - Grads  | Iters:     57 | TTime: 0.00034 | LastNorm: 8.30925e-09 | Iterations/sec: 169677.30873 | Convergence: true |
+| 20 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00065 | LastNorm: Inf | Iterations/sec: 1540890.52168 | Convergence: false |
+| 21 |Execution Info - Grads  | Iters:    110 | TTime: 0.00061 | LastNorm: 3.87840e-09 | Iterations/sec: 179452.91326 | Convergence: true |
+| 22 |Execution Info - Grads  | Iters:     65 | TTime: 0.00038 | LastNorm: 0.00000e+00 | Iterations/sec: 170606.85857 | Convergence: true |
+| 23 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00009 | LastNorm: Inf | Iterations/sec: 11244782.84182 | Convergence: false |
+| 24 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00010 | LastNorm: Inf | Iterations/sec: 10010272.07637 | Convergence: false |
+| 25 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14266340.13605 | Convergence: false |
+| 26 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00109 | LastNorm: Inf | Iterations/sec: 914190.06103 | Convergence: false |
+| 27 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13530012.90323 | Convergence: false |
+| 28 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00008 | LastNorm: Inf | Iterations/sec: 12052597.70115 | Convergence: false |
+| 29 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 14122235.69024 | Convergence: false |
+| 30 |Queue Gradients - Floating point overflow occurred, ending process.
+Execution Info - Grads  | Iters:   1000 | TTime: 0.00007 | LastNorm: Inf | Iterations/sec: 13486508.03859 | Convergence: false |
+Execution Info - queue Mean (19 repetitions) | Iters:    293 | TTime: 0.01337 | LastNorm: 1.81592e+08 | Iterations/sec: 160820.63316 | Convergence: true |
+The number of divergent results in method queue: 11
+Saved results at: csvs/results/area_robust/GAUSSIAN/simplest/queue.csv
+The results of the execution were saved at: csvs/historials/area_robust/GAUSSIAN/simplest/queue
