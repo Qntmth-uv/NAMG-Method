@@ -11,7 +11,8 @@ PROBLEMS=("ARGLINA" "BARD" "BEALE" "BRKMCC" "BROWNAL" "BROWNBS" "BROWNDEN" "CHNR
 #PROBLEMS=("MANCINO")
 
 #Available methods
-METHODS=("AMG" "SGLS" "QUEUE" "RANDOM")
+
+CONFIGURATIONS=("simplest" "original" "addedLS")
 
 #Execution of the methods using a for loop in Bash
 for prob in "${PROBLEMS[@]}"; do
@@ -20,7 +21,7 @@ for prob in "${PROBLEMS[@]}"; do
     echo "=========================================================="
     for conf in "${CONFIGURATIONS[@]}"; do
         echo "  -> Method: $conf"
-        julia separte_execution.jl --problem 1-cutest-sif/$prob.SIF --config "$conf" --method BFGS --seed 42 
+        julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/$prob.SIF --config "$conf" --method BFGS --seed 42 
     done
 done
 

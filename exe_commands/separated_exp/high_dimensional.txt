@@ -1,20 +1,20 @@
 #Simplest (BFGS)
-julia separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config simplest --method BFGS --seed 42 --nIters 2500
-julia separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config simplest --method BFGS --seed 42 --nIters 2500 
-julia separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config simplest --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config simplest --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config simplest --method BFGS --seed 42 --nIters 10000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config simplest --method BFGS --seed 42 --nIters 2500
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config simplest --method BFGS --seed 42 --nIters 2500 
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config simplest --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config simplest --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config simplest --method BFGS --seed 42 --nIters 10000
 
 #Original (BFGS)
-julia separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config original --method BFGS --seed 42 --nIters 2500
-julia separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config original --method BFGS --seed 42 --nIters 2500 
-julia separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config original --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config original --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config original --method BFGS --seed 42 --nIters 10000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config original --method BFGS --seed 42 --nIters 2500
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config original --method BFGS --seed 42 --nIters 2500 
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config original --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config original --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config original --method BFGS --seed 42 --nIters 10000
 
 #WithLS (BFGS)
-julia separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config addedls --method BFGS --seed 42 --nIters 2500
-julia separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config addedls --method BFGS --seed 42 --nIters 2500 
-julia separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config addedls --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config addedls --method BFGS --seed 42 --nIters 5000
-julia separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config addedls --method BFGS --seed 42 --nIters 10000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENALS.SIF --config addedls --method BFGS --seed 42 --nIters 2500
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/EIGENBLS.SIF --config addedls --method BFGS --seed 42 --nIters 2500 
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/FLETCBV2.SIF --config addedls --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/GENHUMPS.SIF --config addedls --method BFGS --seed 42 --nIters 5000
+julia --project=venv_NAMGM separte_execution.jl --problem 1-cutest-sif/DIXON3DQ.SIF --config addedls --method BFGS --seed 42 --nIters 10000
