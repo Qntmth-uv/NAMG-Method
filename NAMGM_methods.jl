@@ -463,11 +463,9 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
         #Compute the direction
         pk = -hk*g_old
 
-        #Update the point using weak wolfe condition
+        #Compute the step size using the SWC
         actualfxk = fx(x_old)
-
-        #add_lineSearch ? alpha = line_search_SWC(fx, gradient, x_old, pk) : alpha = 1.0
-        add_lineSearch ? alpha = backtrackWWC(fx, x_old, pk, g_old, actualfxk) : alpha = 1.0
+        add_lineSearch ? alpha = line_search_SWC(fx, gradient, x_old, pk) : alpha = 1.0
 
         #Update the sequence
         x_new = x_old+alpha*pk

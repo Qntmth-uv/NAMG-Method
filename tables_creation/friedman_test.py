@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from scipy.stats import friedmanchisquare
+from table_utils import existing_folders
 
 #To manege the information 
 import os
@@ -11,6 +12,7 @@ import glob
 #To visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 
 #Parser definition
@@ -361,7 +363,8 @@ def main():
         final_table = convergence(path, VAR)
     elif r2:
         EXP = "ROBUSTII"
-        final_table = robust_II(path, ["ARGLINA"], VAR)
+        problems = existing_folders(path=path)
+        final_table = robust_II(path, problems, VAR)
     else:
         return -1
 

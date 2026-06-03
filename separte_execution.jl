@@ -25,6 +25,9 @@ the information in the METHOD path with respect the csvs/results/CONF (which are
 Due to time limitations, and this script intention. We only implement the case for the BFGS method over all
 configurations. Nevertheless, we left all the structure to complete the code for other methods. 
 
+#Execution examples
+julia --env=x separte_execution.jl --problem 1-cutest-sif/PROBLEM.SIF --config simplest --method BFGS --nIters --nIters 3 --seed 42
+
 # Information contact:
 Email: jose.quiroz@cimat.mx
 Github-user: @Qntmth-uv | @Qntmth
@@ -102,18 +105,63 @@ function main()
     nIters = args["nIters"]
     var_problem = args["varP"]
     tol = args["tol"]
-    method = args["method"]
-    config = args["config"]
+    method = lowercase(args["method"])
+    config = lowercase(args["config"])
+    use_LS = false
 
     #Behavior variables (execution characteristics)
     seed = args["seed"]
     epsilonAdded = args["epsilon"]
     show_info = args["show_info"]
+
+    #Print the values of the parser
+    println("-"^40)
+    @printf("%-20s | %-20s\n", "Parameters", "Value")
+    println("-"^40)
+
+    #Convert the Dict in a set of bidimensioal vectors sorted by the keys
+    for (key) in sort(collect(keys(args)))
+        @printf("%-20s | %-20s\n", key, args[key])
+    end
+    println("-"^40)
+
+
+    #Assertion that the method is valid
+    if method ∉ ["amg", "queue", "random", "newton", "bfgs", "sgls"]
+        println("Not valid method. Please introduce one of these {'amg', 'queue', 'random', 'newton', 'bfgs', 'sgls'}")
+        return -1
+    end
+    
+    #Assertion that the configuration is valid.
+    if config ∉ ["simplest" "original" "addedls"]
+        println("Not valid configuration. Please introduce one of these {'simplest', 'original', 'addedls'}")
+        return -1
+    else
+        #Build the configuration.
+        if (config == "original")
+           modH = get_modifier("eigen") 
+        elseif config == "addedls"
+            modH = get_modifier("eigen")
+            use_LS = true
+        else
+            modH = get_modifier("none")
+        end
+    end
+
+    #Fix a Seed for generation
+    seed == 0 ? Random.seed!() : Random.seed!(seed)
+        
+    #Name of the results
+    name = first(splitext(basename(problem)))
+    #name_added = use_LS ?  name*"_LS" : name
     
     #Path where to sava the results
     work_directory = pwd()
     path_results = joinpath("csvs/results", method, config)
     mkpath(joinpath(work_directory, path_results)) #Place where to save the results
+
+    #Files to write
+    file_name_results = joinpath(path_results, name*".csv")
 
     #Get the CUTEST functions (according to the dimension variable)
     f, g, h, initial_point, nlp_problem = elementsTestFunction(problem, var_problem)
@@ -126,13 +174,29 @@ function main()
     headers = ["iterations", "Last Gradient", "Execution time", "Iterations per Second", "Archived Convergence"]
 
     #Methods
-    last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = BFGSMethod(f, g, h, x0, tol, nIters)
+    if (method == "amg")
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = NaN, NaN, NaN, NaN, NaN, NaN 
+    elseif (method == "queue")
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = NaN, NaN, NaN, NaN, NaN, NaN
+    elseif (method == "random")
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = NaN, NaN, NaN, NaN, NaN, NaN
+    elseif (method == "newton")
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = NaN, NaN, NaN, NaN, NaN, NaN
+    elseif (method == "bfgs")
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = BFGSMethod(f, g, h, x0, tol, nIters) 
+    else
+        last_point, taken_iters, taken_time, last_norm, iters_per_seconds, convergence_flag = NaN, NaN, NaN, NaN, NaN, NaN
+    end
+    
+    #We finalize the model when the CUTEst model has ended
+    finalize(nlp_problem)
 
     #Information to save
-    data = [taken_iters, last_norm, taken_time, iters_per_seconds, convergence_flag]
+    data = [taken_iters last_norm taken_time iters_per_seconds convergence_flag]
     
     #Save the CSV file
-    #df = DataFrame(data, headers)
+    df = DataFrame(data, headers)
+    CSV.write(file_name_results, df)
 
 end
 

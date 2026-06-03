@@ -7,6 +7,9 @@ from pathlib import Path
 import os
 import glob
 
+#Our codes
+from table_utils import existing_folders
+
 #Declaration of variables were we will load the results.
 parser = argparse.ArgumentParser(prog="Appending CSV for problems")
 
@@ -33,7 +36,7 @@ PWD/csvs/results/PROBLEM/Joint_CSV/CONF.csv
 Where PROBLEM is the name of the optimization problem, 'Joint_CSV' is a hardcoded path name where the
 joined methods will be saved, and CONF is one of three configurations (Simplest, original, WithLS).
 
-## Execution instance
+## Update the results and mix the information
 python3 mixing_information.py -p ../csvs/results/area_robust/
 
 
@@ -73,27 +76,6 @@ def join_results(results: dict, order:list[str] = ["AMG", "Queue", "Random", "SG
     #Construction of the final dataframe
     final_df:pd.DataFrame = pd.concat([results[meth] for meth in order])
     return final_df
-
-def existing_folders(path: Path)->list[str]:
-    """
-    ### Definition.
-    List the folders in the given path.
-
-    #### Inputs:
-        ##### Required.
-        - path(Path): Folder directory where to search the current folders.
-
-    #### Outputs:
-        - problems_names(list[str]): Name of the folders in the given path.    
-    
-    ##### Remark.
-    In the context of noise robustness, this function is used to list all
-    the available problems. With the given list, we will generate the joined 
-    dataframes.
-
-    """
-    return [f.name for f in path.iterdir() if f.is_dir()]
-
 
 def read_csvs(path: Path, methods:tuple[str])->list[pd.DataFrame]:
     """

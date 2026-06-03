@@ -1,6 +1,6 @@
 import math
 import numpy as np
-
+from pathlib import Path
 #Table constants 
 TAB_LINKER = " & "
 TAB_END = "\\\\"
@@ -309,11 +309,25 @@ class LaTeXTable:
         self.__bottomTable__()
 
 
-#Generic latex Tabular environment. This to be used as a basis of other 
-class genericLaTeXTabular:
-    def __init__(self):
-        pass
+def existing_folders(path: Path)->list[str]:
+    """
+    ### Definition.
+    List the folders in the given path.
 
+    #### Inputs:
+        ##### Required.
+        - path(Path): Folder directory where to search the current folders.
+
+    #### Outputs:
+        - problems_names(list[str]): Name of the folders in the given path.    
+    
+    ##### Remark.
+    In the context of noise robustness, this function is used to list all
+    the available problems. With the given list, we will generate the joined 
+    dataframes.
+
+    """
+    return [f.name for f in path.iterdir() if f.is_dir()]
 
 
 def main()->int:

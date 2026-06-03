@@ -297,7 +297,7 @@ function line_search_SWC(fx::Function, gx::Function, x::AbstractVector, p::Abstr
     phi_prime_0 = phi_prime(0.0)
 
     if phi_prime_0 >= 0
-        error("The search direction p is not a descent direction!")
+        println("The search direction p is not a descent direction!")
     end
 
     alpha_prev = 0.0
