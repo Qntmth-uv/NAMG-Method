@@ -55,6 +55,7 @@ function parse_commandline()
             help = "Minimum acceptable gradient norm"
             arg_type = Float64
             default = 1.e-8
+        
         "--modifierH"
             help = "Hessian modifier Strategy. Available: {'none', 'eigen', 'diag', 'sabsdiag', 'maxdiag', 'tridiag'
                     'remove'}"
