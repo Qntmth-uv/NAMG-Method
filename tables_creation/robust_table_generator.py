@@ -25,7 +25,6 @@ apart. With this the exact same code will work, and we can add the results for S
 this table generation will be also usable for area_robust experiments.
 """
 
-
 #Parser variables
 parser = argparse.ArgumentParser(description="Path to the directories were to search")
 
@@ -35,7 +34,6 @@ parser.add_argument("-o", "--original", help="Path to the original folder for th
 parser.add_argument("-w", "--withLs", help="Path to the addedLS folder for the problem")
 parser.add_argument("-v", "--verbose", help="Show information about the read files", action='store_false' )
 parser.add_argument("-ts", help="Displays the time execution in Scientific notation (exact format that 'Latest Norm')", action='store_true')
-#parser.add_argument("-d", "--decimals", "Number of decimals in the execution time (could be useful due to small execution times, default=3)", default=3)
 
 def get_ListOfDF(directory:str, verbose:int = 0):
     # Read all the results tables in the directory
@@ -112,9 +110,7 @@ def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
     return result_matrix, results_sgls
 
 class latexTable:
-
     def __init__(self, name:str, scalebox:float = 0.58, colors:bool = True, extra_indentation:int = 0):
-
         #Assertion of values
         assert 0.0 <= scalebox <= 1, "The scalebox_value value must be on the interval [0, 1]"
         #assert 0<=cell_alpha<=100 and type(cell_alpha)==int, "the alpha of the cell must be an integer and in the interval [0, 100]"
@@ -141,7 +137,6 @@ class latexTable:
         self.original_indentation = extra_indentation
         self.last_indentation_level:int = extra_indentation
         self.idnttn:str = self.einTab * self.last_indentation_level
-
 
     def __headerTable__(self, position:str = "tbh", add_centering:bool = True)->None:
         """
@@ -271,7 +266,7 @@ class latexTable:
             - `information: np.ndarray`         - A row from the matrix results (check the order of the variables)
 
             ### Optional
-            - `times_symbol: string = \cdot`     - Multiplication symbol used over the results in scientific notation
+            - `times_symbol: string = \cdot`     - Multiplication symbol used over the results in scientific notation
             - `add_cell_color: bool = True`      - Boolean flag to add color to the convergency variable.
             - `convergence_color:string = ForestGreen` - Color for the converged methods
             - `not_convergence_color:string = BrickRed` - Color for the not converged methods

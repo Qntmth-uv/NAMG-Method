@@ -2,5 +2,6 @@
     "cSpell.words": [
         "NAMGM",
         "scriptsize"
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }

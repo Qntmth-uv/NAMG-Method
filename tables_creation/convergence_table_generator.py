@@ -4,12 +4,32 @@ import pandas as pd
 import argparse
 import glob 
 from pathlib import Path
+import os
 
 parser = argparse.ArgumentParser(description="Paths where the results are saved")
 
+parser.add_argument("-p", "--path", help = "Path to the directory with the folders simplest, original and addedLS")
 parser.add_argument("-s", "--simplest", help="Path to simplest directory")
 parser.add_argument("-o", "--original", help="Path to original directory")
 parser.add_argument("-w", "--withLS", help="Path to addedLS directory")
+
+"""
+# Script intention
+
+
+## Execution examples
+Supposing that the execution is made inside the tables_creation folder. 
+
+python3 convergence_table_generator.py -p ../csvs/results/ 
+
+
+"""
+
+
+#Constants
+CONF_ORDER = {0: "simplest", 1: "original", 2: "addedLS"}
+METHOD_ORDER = {0: "SGLS", 1: "NAMGM-AMG", 2: "NAMGM-Queue", 3: "NAMGM-Random", 4: "BFGS", 5: "Mod-Newton"}
+
 
 def get_ListOfDF(directory:str, verbose:int = 0):
     # Read all the results tables in the directory
@@ -122,13 +142,87 @@ def change_orderOfMethods(result_tensor:np.ndarray, new_order:list[int] = [0, 1,
     reOrdered_matrix = result_tensor[:, :, new_order]
     return reOrdered_matrix
 
+def integrate_results_method(data: list[np.ndarray], elements_to_join: list[int] = [0, 4])->list[np.array]:
+    """
+    ### Usage
+    Function to join all the deterministic and not variable methods into one single variable.
+
+    #### Input:
+        - data(list[np.ndarray]): List containing the results per configuration
+        - elements_to_join(list): List of positions of methods that we will joint into one entry
+    
+        
+    #### Output:
+        - list[np.ndarray]: Modified array of results
+
+    ### Remarks. 
+    This function is intended to fix the solution of the table generation and the highlighting of the
+    best results. Also it uses the order stabilized after the change_orderOfMethods.
+    """
+    #We move through the variable that we have to modify
+    for m in elements_to_join:
+
+        #We move over the problems
+        for i in range(data[0].shape[1]):            
+
+            #For each problem in configuration we get the information from each configuration and we compute the mean
+            results = [configuration_matrix[:, i, m] for configuration_matrix in data]
+            mean = np.mean(results, axis=0)
+            
+            #We update the results for the method in the configuration.
+            for j in range(len(data)): data[j][:, i, m] = mean
+
+    #We return the data modified
+    return data
+
+
+def separate_indices(local_indices: list[list[int]], global_indices: list[list[int]], exclude_val: list[int] = [0, 4])->tuple:
+    """
+    ### Usage.
+    This function separates the indices which are from one type of method. This to catch the local and global indices to
+    highlight correctly.
+    
+
+    #### Remark.
+    I know that the implementation is not the optimal, since it's O(n^3); nevertheless, the searching space is constant and small.
+    So there is not big deal.
+
+    """
+    #Search space definition
+    methods_range = np.arange(0, 6, 1, dtype=int)
+    configuration_range = np.arange(0, 3, 1, dtype=int) 
+
+    #Variables where to catch the values
+    excluded_locals, exclude_globals = [], []
+
+    #Search and division of those values
+    for ex_v in exclude_val:
+
+        for m in methods_range:
+            for c in configuration_range:
+                ID = [c.item(), ex_v, m.item()]
+                remove_element = False
+                if ID in local_indices:
+                    excluded_locals.append(ID[1:])
+                    local_indices.remove(ID)
+                if ID in global_indices:
+                    exclude_globals.append(ID[1:])
+                    global_indices.remove(ID)
+
+    #We return the modified 
+    return local_indices, global_indices, excluded_locals, exclude_globals
+
+
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 #Function to print the results depending on the value on the column
 def format_column(value:any, variable_int: int, use_symbols:bool, use_colors:bool, time_in_scientific:bool = True,
                   final_element:bool = False, is_local_best:bool = False, is_global_best:bool = False, it_converged:bool = True)->str:
     """
     # Usage
-
+    This function allows a custom results table for the convergence experiments. It is the backbone of all the configuration
+    of the elements from the table.
 
     ## Inputs:
 
@@ -298,9 +392,12 @@ class experiment1_table(TU.LaTeXTable):
 
     def __bodyTabular__(self, problem_data:np.ndarray)->None:
         """
+        ## Usage
+        This function creates row entries to display the results for the Convergency experiments.
+
         ### Remark.
         We suppose that `problem_data` contains the information inf the following order:
-        `[simplest, original, addedLS]` of the current problem.
+        `[simplest, original, addedLS]` of the current problem.    
         """
 
         #Current indentation 
@@ -309,37 +406,52 @@ class experiment1_table(TU.LaTeXTable):
         #Get the index of the best local and global values
         best_values_packages = TU.values_and_index_best(problem_data, self.used_order)
         index_local, index_global = best_values_packages[1], best_values_packages[-1]
-        #print("------->", index_global, ">>>", index_global)
 
-        #Creation of the row of the table
+
+
+
+        """
+        ..AddedAfter..
+
+        Given that we unify the values of the different executions of SGLS and BFGS in just one value
+        (the mean). We need to indicate if one interior value of the SGLS and BFGS are the best of local best.
+
+        """
+        normal_indx_local, normal_indx_global, special_indx_local, special_indx_global = separate_indices(index_local, index_global, [0, 4])
+
+        #print("------->", normal_indx_local, ">>>", normal_indx_global)
+        #print("------->", special_indx_local, ">>>", special_indx_global)
+        
         #Move over the configurations ()
         for k in range(len(problem_data)):
 
             #Movement over the methods
             for j in range(problem_data[k].shape[1]):
 
-                #If the method is [GDLS, BFGS, then do not print]
+                #If the method is [GDLS, BFGS] then we print them at the end
                 if j in [0,4]: pass
 
                 #Otherwise
                 else:
                     #The method converged? (flag used to avoid HL no convergent values)
                     convergence_flag_method = bool(problem_data[k, -1, j])
+
+                    #If it's the first method, then we create a multicolum with the configuration name
                     if j==1:
                         extra_element = TU.MULTI_ROW(4, self.configurations_names[k])
                     else:
-                        extra_element = " "                 
+                        extra_element = " "
 
                     #First element in the tab                    
-                    print(indentation_level + extra_element + TU.TAB_LINKER + self.column_names[j]+TU.TAB_LINKER, end="")
+                    print(indentation_level + extra_element + TU.TAB_LINKER + self.column_names[j] + TU.TAB_LINKER, end="")
 
                     #Movement over the variables
                     for i in self.used_order:
                         
                         #IDENTIFIER INSIDE THE TABLE
                         local_id = [k, j, i]
-                        best_local_flag = local_id in index_local
-                        best_global_flag = local_id in index_global
+                        best_local_flag = local_id in normal_indx_local
+                        best_global_flag = local_id in normal_indx_global
 
                         #Get the value in the adequate format
                         if i == self.used_order[-1]:
@@ -367,16 +479,16 @@ class experiment1_table(TU.LaTeXTable):
                 for i in self.used_order:
 
                     #ID INSIDE THE TABLE
-                    local_id = [k, j, i]
-                    best_local_flag = local_id in index_local
-                    best_global_flag = local_id in index_global
+                    local_id = [j, i]
+                    best_local_flag = local_id in special_indx_local
+                    best_global_flag = local_id in special_indx_global
 
                     #Format of the element in the table
                     if i == self.used_order[-1]:
-                        print(indentation_level + format_column(problem_data[k, i, j], i, use_symbols=True, use_colors=self.add_colors, final_element=True,
+                        print(format_column(problem_data[k, i, j], i, use_symbols=True, use_colors=self.add_colors, final_element=True,
                                     is_local_best=best_local_flag, is_global_best=best_global_flag, it_converged=convergence_flag_method))
                     else:
-                        print(indentation_level + format_column(problem_data[k, i, j], i, use_symbols=True, 
+                        print(format_column(problem_data[k, i, j], i, use_symbols=True, 
                                     use_colors=self.add_colors, is_local_best=best_local_flag, is_global_best=best_global_flag,
                                     it_converged=convergence_flag_method), end="")
         print(indentation_level + TU.B_RULE)
@@ -393,7 +505,7 @@ class experiment1_table(TU.LaTeXTable):
         self.__bodyTabular__(problem_data)
         self.__bottomTabular__()
 
-# Dictionary of the dimensions of the testet problems
+# Dictionary of the dimensions of the tested problems
 problem_dimensions = {
     "ARGLINA": 200,
     "BARD": 3,
@@ -464,48 +576,39 @@ def main()->int:
 
     #Get the values from the parser
     args = parser.parse_args() 
+    root_path = args.path
 
-    #Directory of the results original
-    directory_simplest = args.simplest + "*.csv"
-    directory_original = args.original + "*.csv"
-    directory_addedLS = args.withLS + "*.csv"
+    #Construction of the results paths
+    paths_to_results = [os.path.join(root_path, c, "*.csv") for c in CONF_ORDER.values()]
 
-    #Read all the results of the dataframes
-    dataframes_SP, names_frames = get_ListOfDF(directory_simplest, -1)
-    dataframes_orig, names_frames = get_ListOfDF(directory_original, -1)
-    dataframes_LS, names_frames = get_ListOfDF(directory_addedLS, -1)
+    #Read of the CSVS files
+    problems_df = [get_ListOfDF(path, -1)[0] for path in paths_to_results]
+    problems_names_list = [get_ListOfDF(path, -1)[-1] for path in paths_to_results]
 
-    #Get the matrix of results
-    result_tensor_simplest = construct_matrixResults(dataframes_SP)
-    result_tensor_original = construct_matrixResults(dataframes_orig)
-    result_tensor_addedLS = construct_matrixResults(dataframes_LS)
+    #Modification to the data to np.ndarrays and re-ordering the order of the methods
+    tensors_per_conf = [change_orderOfMethods(construct_matrixResults(df), [5, 0, 1, 2, 4, 3]) for df in problems_df]
 
-    #Reorder the matrix results
-    result_tensor_simplest = change_orderOfMethods(result_tensor_simplest, [5, 0, 1, 2, 4, 3])
-    result_tensor_original = change_orderOfMethods(result_tensor_original, [5, 0, 1, 2, 4, 3])
-    result_tensor_addedLS = change_orderOfMethods(result_tensor_addedLS, [5, 0, 1, 2, 4, 3])
-
+    #Interchange the results of the SGLS and BFGS to the mean over the iterations
+    tensors_per_conf = integrate_results_method(tensors_per_conf)
+    
     #Assertion that all results matrices has the same number of problems
-    assert result_tensor_addedLS.shape[1] == result_tensor_simplest.shape[1] and result_tensor_simplest.shape[1] == result_tensor_original.shape[1], "The results matrices does not have the same dimension"
-    nProblems:int = result_tensor_simplest.shape[1]
+    assert tensors_per_conf[0].shape[1] == tensors_per_conf[1].shape[1] and tensors_per_conf[1].shape[1] == tensors_per_conf[2].shape[1], "The results matrices does not have the same dimension"
+    nProblems:int = tensors_per_conf[0].shape[1]
+
     
     #Get the result table for the current problem
-    
     for i in range(nProblems):
-        last_index = 0
+
         #List of matrices result1s
-        info = np.array([result_tensor_simplest[:,i,:], 
-                result_tensor_original[:,i,:],
-                result_tensor_addedLS[:,i,:]])    
+        info = np.array([conf[:,i,:] for conf in tensors_per_conf])    
 
         #Configuration of the table.
         exp1 = experiment1_table(extra_indentation=2)
-        name = names_frames[i]
+        name = problems_names_list[0][i]
         dim = problem_dimensions[name]
         exp1.generateTabular(name, dim, info)
 
         print("---"*20, end="\n\n")
-
 
 if __name__ =="__main__":
     main()

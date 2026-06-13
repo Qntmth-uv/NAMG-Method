@@ -161,6 +161,15 @@ def values_and_index_best(data: np.ndarray, order: list):
     - `index_best_conf(np.ndarray)`: Index where are located such best values
     - `best_global(np.ndarray)`: Best values per variable across all the configurations
     - `index_best_global(np.ndarray)`: Index of the best global results
+
+    ### Remarks.
+    It generates a list of list, which each interior list contains the value/index of the local and
+    global optimal value; this is doit for each variable in the given matrix. 
+    
+    In the intended case of'convergence_table_generator.py' generate the following results:
+
+    -    [[CONVERGENCE], [ITERATIONS], [TIME], [LAST NORM], [ITTP/S]]
+    
     """
     # Where to save the best values and index 
     max_per_variable = []
