@@ -13,7 +13,7 @@ This to do not overwrite the first results.
 #Constants variables
 CONFIGS = ("simplest", "original", "addedLS")
 CSVS_path = "csvs/results/"
-VERSION = "1.0.1"
+VERSION = "1_0_1"
 
 
 def get_ListOfDF(directory:str, change_order:bool = False):
@@ -55,12 +55,12 @@ def main():
     method = "bfgs"
 
     #Legacy values 
-    folders_orginal = [os.path.join(CSVS_path, c) for c in CONFIGS]
+    folders_orginal = [os.path.join(CSVS_path, c, "*.csv") for c in CONFIGS]
     dfs_originals = [get_ListOfDF(f, False)[0] for f in folders_orginal]
     problems_names_original = [get_ListOfDF(f, False)[1] for f in folders_orginal]
 
     #New results per method
-    folders_method = [os.path.join(CSVS_path, method, c) for c in CONFIGS]
+    folders_method = [os.path.join(CSVS_path, method, c, "*.csv") for c in CONFIGS]
     dfs_method = [get_ListOfDF(f, False)[0] for f in folders_method]
     problems_names_methods = [get_ListOfDF(f, False)[1] for f in folders_method]
 
@@ -76,13 +76,17 @@ def main():
     modified_dfs = surgery_df(4, dfs_originals, dfs_method)
 
     #Creation a new folder for the modified results
-    new_folder_with_dfs = CSVS_path+f"_{VERSION}"
-    os.mkdir(new_folder_with_dfs)
+    new_folder_with_dfs = CSVS_path+f"UpdatedResults_{VERSION}"
+    os.makedirs(new_folder_with_dfs, exist_ok=True)
+
+    #Now we create the folders for the different configs
+    for c in CONFIGS:
+        os.makedirs(os.path.join(new_folder_with_dfs, c), exist_ok=True)
 
     #We save in the new folder
     for i in range(len(modified_dfs)):
         conf_list = modified_dfs[i]
-        for problem, df in zip(problems_names_original, conf_list):
+        for problem, df in zip(problems_names_original[0], conf_list):
             path_to_save_problem = os.path.join(new_folder_with_dfs, CONFIGS[i], f"{problem}.csv")
             df.to_csv(path_to_save_problem)
             print(f"Updated the problem {CONFIGS[i]}/{problem} at :{path_to_save_problem}")

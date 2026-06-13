@@ -107,8 +107,8 @@ def change_orderOfMethods(result_tensor:np.ndarray, new_order:list[int] = [0, 1,
     - 5 - Gradient Descent with Line Search
     
     ## Input.
-        - ```result_tensor```: np.ndarray - 'Descriptive name'
-        - ```new_order```: list[int] - New proposed order
+        - `result_tensor`: np.ndarray - 'Descriptive name'
+        - `new_order`: list[int] - New proposed order
 
     ## Output.
         - `result_tensor`: np.ndarray - Same tensor results but a new method other    
@@ -122,15 +122,12 @@ def change_orderOfMethods(result_tensor:np.ndarray, new_order:list[int] = [0, 1,
     reOrdered_matrix = result_tensor[:, :, new_order]
     return reOrdered_matrix
 
-
-
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 #Function to print the results depending on the value on the column
 def format_column(value:any, variable_int: int, use_symbols:bool, use_colors:bool, time_in_scientific:bool = True,
                   final_element:bool = False, is_local_best:bool = False, is_global_best:bool = False, it_converged:bool = True)->str:
     """
     # Usage
-
 
 
     ## Inputs:
@@ -167,7 +164,7 @@ def format_column(value:any, variable_int: int, use_symbols:bool, use_colors:boo
     #String where save the element of the table
     s: str = ""   
 
-    # If the method diverged, then we add a special flag to indicate it. And returned inmeatly.
+    # If the method diverged, then we add a special flag to indicate it. And returned immediately.
     if np.isinf(value): 
         s += TU.TEXT_C("BrickRed", TU.CROSS_SYMBOL)
         s = TU.construct_cell_color("BrickRed", 10) + s if use_colors else s

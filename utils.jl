@@ -279,31 +279,28 @@ function LS_cubic_interpolation(fx::Function, gx::Function, x::AbstractVector, p
     return alpha_curr
 end
 
-"""
-    line_search_SWC(fx, gx, x, p; alpha_1=1.0, alpha_max=5.0, c1=1e-4, c2=0.9, max_iter=10)
-
-Performs a line search to find a step length alpha satisfying the Strong Wolfe Conditions:
-1) fx(x + alpha*p) <= fx(x) + c1 * alpha * dot(gx(x), p)             (Armijo/Sufficient Decrease)
-2) |dot(gx(x + alpha*p), p)| <= c2 * |dot(gx(x), p)|               (Curvature Condition)
-"""
 function line_search_SWC(fx::Function, gx::Function, x::AbstractVector, p::AbstractVector;
     alpha_1::Real = 1.0, alpha_max::Real = 5.0, c1::Real = 1e-4, c2::Real = 0.9, max_iter::Int = 10)
-    #Projections of the objective and its directional derivative
+    
+    #Definition of ϕ(.) functions.
     phi(alpha) = fx(x + alpha * p)
     phi_prime(alpha) = dot(gx(x + alpha * p), p)
 
-    # Initial values at alpha = 0
+    #Constant variables
     phi_0 = phi(0.0)
     phi_prime_0 = phi_prime(0.0)
 
+    #Assertion that the given direction is a decreasing direction.
     if phi_prime_0 >= 0
         println("The search direction p is not a descent direction!")
     end
 
+    #Declaration of previous variables
     alpha_prev = 0.0
     phi_prev = phi_0
     alpha_curr = alpha_1
 
+    #Search loop
     for i in 1:max_iter
         phi_curr = phi(alpha_curr)
 
