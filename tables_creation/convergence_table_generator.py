@@ -24,8 +24,6 @@ python3 convergence_table_generator.py -p ../csvs/results/
 
 
 """
-
-
 #Constants
 CONF_ORDER = {0: "simplest", 1: "original", 2: "addedLS"}
 METHOD_ORDER = {0: "SGLS", 1: "NAMGM-AMG", 2: "NAMGM-Queue", 3: "NAMGM-Random", 4: "BFGS", 5: "Mod-Newton"}

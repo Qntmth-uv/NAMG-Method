@@ -35,6 +35,8 @@ parser.add_argument("-w", "--withLs", help="Path to the addedLS folder for the p
 parser.add_argument("-v", "--verbose", help="Show information about the read files", action='store_false' )
 parser.add_argument("-ts", help="Displays the time execution in Scientific notation (exact format that 'Latest Norm')", action='store_true')
 
+VARIABLES = ("")
+
 def get_ListOfDF(directory:str, verbose:int = 0):
     # Read all the results tables in the directory
     csv_files = glob.glob(directory)
@@ -44,6 +46,14 @@ def get_ListOfDF(directory:str, verbose:int = 0):
 
     # Read all the csv files from the directory, and save we save them in a list
     dataframes = [pd.read_csv(f) for f in csv_files]
+
+    #Clearing the information of the dataframes
+    for df in dataframes:
+        df.iloc[:, 0] = df.iloc[:, 0].fillna(0.0) #Percentage of convergence
+        df.iloc[:, 1] = df.iloc[:, 1].fillna(1000) #Percentage of convergence
+        df.iloc[:, 2] = df.iloc[:, 2].fillna(np.inf) #Percentage of convergence
+        df.iloc[:, 3] = df.iloc[:, 3].fillna(np.inf) #Percentage of convergence
+        df.iloc[:, 4] = df.iloc[:, 4].fillna(0.0) #Percentage of convergence
 
     #Assert the correct read of the CSV files.
     assert len(dataframes)!=0, f"There was an error trying to read the files in the files directory {directory}"
@@ -107,6 +117,7 @@ def create_matrix_results(dataframes_list: list[pd.DataFrame])->np.ndarray:
         results_variables_per_factor: np.ndarray = dataframes_list[i].to_numpy()
         results_sgls[i,:] = results_variables_per_factor[0,:]
         result_matrix[i,:] = results_variables_per_factor[1:, :].flatten()
+
     return result_matrix, results_sgls
 
 class latexTable:
@@ -266,7 +277,7 @@ class latexTable:
             - `information: np.ndarray`         - A row from the matrix results (check the order of the variables)
 
             ### Optional
-            - `times_symbol: string = \cdot`     - Multiplication symbol used over the results in scientific notation
+            - `times_symbol: string = \\cdot`     - Multiplication symbol used over the results in scientific notation
             - `add_cell_color: bool = True`      - Boolean flag to add color to the convergency variable.
             - `convergence_color:string = ForestGreen` - Color for the converged methods
             - `not_convergence_color:string = BrickRed` - Color for the not converged methods
@@ -393,10 +404,8 @@ class latexTable:
         
         #Final part of the table.
         print(indentation + TU.C_RULE(1,14))
-        
 
-
-    def __bottomTable__(self, caption:str = "", label:str =""):
+    def __bottomTable__(self, caption:str = "", label:str ="", phantomcaption:bool = False):
         """
         # Definition    
         Function to print the ending lines of a table environment. It allows to place 
@@ -413,8 +422,11 @@ class latexTable:
         This is a general footer function for table environments.
         """
         #Lines
-        footers = [f"\\caption{{{caption}}}", f"\\label{{{label}}}", "\\end{table}"]
-    
+        if not phantomcaption:
+            footers = [f"\\caption{{{caption}}}", f"\\label{{{label}}}", "\\end{table}"]
+        else:
+           footers = [f"\\phantomcaption", f"\\label{{{label}}}", "\\end{table}"] 
+
         #Indentation levels 
         idnttn_levels = [self.last_indentation_level]*2+[self.last_indentation_level-1]
 
@@ -426,7 +438,7 @@ class latexTable:
         assert self.original_indentation == self.last_indentation_level, "There was an error with the indentation variable. It did not ended in their initial place. "
 
 
-    def generateTable(self, factors_matrices: list[np.ndarray], SGLS_array: np.ndarray, caption:str="", label:str="")->None:
+    def generateTable(self, factors_matrices: list[np.ndarray], SGLS_array: np.ndarray, caption:str="", label:str="", phantomcap = False)->None:
         """
         # Definition.
         Generates the complete concept table for the robust line experiments. 
@@ -455,18 +467,14 @@ class latexTable:
         #Print the elements of the NAMGM table results
         self.__headerNAMGM_Table__(15)
         self.__tableBody__(factors_matrices)
-
-        self.__footer_Tabular__(True)
-
-        #Print the table of the SGLS table results
-        self.__headerSGLS__Table(5)
-        self.__table_SGLS__(SGLS_array)
+        self.__header_GDLS_Table(14) #Part of GDLS results
+        self.__table_GDLS__(SGLS_array)
         self.__footer_Tabular__(True)
 
         #End the table
-        self.__bottomTable__(caption)
+        self.__bottomTable__(caption, label=label, phantomcaption=phantomcap)
 
-    def __headerSGLS__Table(self, nColumns:int = 5, columns_order:str = "|c|c|ccc|")->None:
+    def __header_GDLS_Table(self, nColumns:int = 5)->None:
         """
         # Definition
         Creates the header for a \\tabular environment in LaTeX. This is completely created to hold
@@ -491,26 +499,27 @@ class latexTable:
         of the 'tabular' environment.
 
         """
-        tabular_header = [TU.SCALE_BOX_TAB(self.scalebox_value), self.init_tabular(columns_order), TU.T_RULE]
-        method_row = [f"\\multicolumn{{{nColumns}}}{{|c|}}{{\\cellcolor{{PerlWhite}}Gradient Descent With LS}}"+TU.TAB_END]
+        #Rows to print
+        method_row = [f"\\multicolumn{{{nColumns}}}{{|c|}}{{\\cellcolor{{PerlWhite}}Gradient Descent With LS (Base-line)}}"+TU.TAB_END]
         middle_rule_complete = [TU.C_RULE(1,nColumns)]
-        variable_row_1 = ["\\textbf{F} & C & Iters & Time (s) & Last Norm"+TU.TAB_END]
-        crule = [TU.C_RULE(1,5)]
+        variable_row_1 = ["\\textbf{F} " + TU.TAB_LINKER + "C" + TU.TAB_LINKER +  TU.MULTI_COL(4, "c|", "Iters") + TU.TAB_LINKER + TU.MULTI_COL(4, "c|", "Time (s)") + TU.TAB_LINKER + TU.MULTI_COL(4, "c|", "Last Norm")+TU.TAB_END]
+        crule = [TU.C_RULE(1,nColumns)]
 
-        indentation = [self.last_indentation_level, self.last_indentation_level+1]+([self.last_indentation_level+2]*5)
-        header = tabular_header +method_row + middle_rule_complete + variable_row_1 + crule
+        #Definition of the 
+        indentation = [self.last_indentation_level] * 4
+        header = method_row + middle_rule_complete + variable_row_1 + crule
         for (e,i) in zip(header, indentation): print(self.einTab*i + e)
-        self.last_indentation_level+=2
-        return
+
+        return None
 
 
-    def __table_SGLS__(self, array_of_results: list[np.ndarray])->None:
+    def __table_GDLS__(self, array_of_results: list[np.ndarray])->None:
         """
         # Definition
-        This function is a imitation of the __tableBody__, for the SGLS method.
+        This function is a imitation of the __tableBody__, for the GDLS method.
         It does the exact same thing, just instead of dealing with 3 methods, we 
         just work with one. This function was implemented latter, due that the thesis advisor
-        ask to add the SGLS in the experiments. 
+        ask to add the GDLS in the experiments. 
 
         ## Inputs
 
@@ -518,7 +527,7 @@ class latexTable:
             - `information: np.ndarray`         - A row from the matrix results (check the order of the variables)
 
             ### Optional
-            - `times_symbol: string = \cdot`     - Multiplication symbol used over the results in scientific notation
+            - `times_symbol: string = \\cdot`     - Multiplication symbol used over the results in scientific notation
             - `add_cell_color: bool = True`      - Boolean flag to add color to the convergency variable.
             - `convergence_color:string = ForestGreen` - Color for the converged methods
             - `not_convergence_color:string = BrickRed` - Color for the not converged methods
@@ -568,9 +577,10 @@ class latexTable:
                 c+= TU.construct_cell_color(self.convergence_color, self.convergence_alpha) if bool(c_flag) else TU.construct_cell_color(self.not_convergence_color, self.convergence_alpha)
             
             #Add the other variables
-            s += c + TU.TAB_LINKER + str(iters) + TU.TAB_LINKER + time + TU.TAB_LINKER + gnorm + TU.TAB_END
+            s += c + TU.TAB_LINKER + TU.MULTI_COL(4, "c|", str(int(iters))) + TU.TAB_LINKER + TU.MULTI_COL(4, "c|", time) + TU.TAB_LINKER + TU.MULTI_COL(4, "c|", gnorm) + TU.TAB_END
             print(s)
-        print(actual_indentation+TU.B_RULE)
+        print(actual_indentation+TU.C_RULE(1, 14))
+
         return None
 
 
@@ -584,6 +594,8 @@ def main()->None:
     directory_original = args.original + "*.csv"
     directory_addedLS = args.withLs + "*.csv"
     decimals = 3
+
+    #Config of behavior    
     v = bool(args.verbose)
     time_scientific = bool(args.ts)
     verbose = 2 if v else 0
@@ -598,17 +610,25 @@ def main()->None:
     matrix_original, array_sgls_orginal= create_matrix_results(dataframes_orig) 
     matrix_addedLS, array_sgls_addedLS = create_matrix_results(dataframes_LS) 
 
+    #Cleaning of the data to avoid problems
+    matrix_simplest = np.nan_to_num(matrix_simplest)
+    matrix_original = np.nan_to_num(matrix_original)
+    matrix_addedLS = np.nan_to_num(matrix_addedLS)
+
+    #Information of the problem.
+    #print(f"Dimension of the Simplest: {matrix_simplest.shape} | Original: {matrix_original.shape} | Added LS: {matrix_addedLS.shape}")
+
     #List of matrix results
     list_matrices = [matrix_simplest, matrix_original, matrix_addedLS]
-    list_arrays_SGLS = [array_sgls_simplest, array_sgls_orginal, array_sgls_addedLS]
-
+    mean_of_arrays = np.concat([[array_sgls_simplest, array_sgls_orginal, array_sgls_addedLS]], axis=0).mean(axis=0)
+    
     #Creation of latexTable object
     table = latexTable(problem_name, extra_indentation=1)
     
     #Modification of parameters according to the parser
     table.decimals = decimals
     table.time_in_scientific = time_scientific
-    table.generateTable(list_matrices, array_sgls_simplest, "Conceptual table for the results of robust experiments on a exponential line")
+    table.generateTable(list_matrices, mean_of_arrays, "Conceptual table for the results of robust experiments on a exponential line", label=f"R1:{problem_name}",phantomcap=True)
     
 
     return

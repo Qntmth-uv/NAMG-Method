@@ -3,9 +3,17 @@ using ArgParse
 
 """
 Execution command (example)
-julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --nIters 5 --modifier eigen 
-julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --modifier eigen 
+julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --nIters 4
+julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --modifierH eigen 
 julia --project=venv_NAMGM main.jl --problem cutest-sif/DECONVU.SIF --seed 2 --useDimProblem --DEBUG  
+
+#Code to execute the removed convergence
+julia --project=venv_NAMGM main.jl --problem cutest-sif/ROSENBR.SIF --modifier remove --DEBUG --subdirectory Function_analysis
+
+#Code to execute the plots in the discussion section, we use the HIMMELBB
+julia --project=venv_NAMGM main.jl --problem cutest-sif/HAIRY.SIF --modifierH none --DEBUG --subdirectory Function_analysis --seed 19
+julia --project=venv_NAMGM main.jl --problem cutest-sif/HAIRY.SIF --modifierH eigen --DEBUG --subdirectory Function_analysis --seed 19 --dontuse_ModifierNewton ---factorX0 100.0
+julia --project=venv_NAMGM main.jl --problem cutest-sif/HAIRY.SIF --modifierH eigen --useLS --DEBUG --subdirectory Function_analysis --seed 19
 """
 
 const minValue = 2.220446049250313e-16
@@ -47,10 +55,12 @@ function parse_commandline()
             which means that the problem does not have other dimensions definitions)"
             arg_type = Int
             default = -1
+
         "--lqueue"
             help = "Maximum number of elements in the NAMGMGradQueue"
             arg_type = Int
             default = 3
+
         "--tol"
             help = "Minimum acceptable gradient norm"
             arg_type = Float64
@@ -184,7 +194,7 @@ function main()
         #Images names to write
         image_historial = joinpath(path_image_historial, name_added*"_"*modH*".svg")
         image_path = joinpath(path_image_path, name_added*"_"*modH*"_path.svg") 
-        image_conditionEvolution = joinpath(path_image_conditionEvo, name_added*"_"*modH*"CN_Evolution.png") 
+        image_conditionEvolution = joinpath(path_image_conditionEvo, name_added*"_"*modH*"CN_Evolution.svg") 
     end
 
     #Files path formatting
@@ -310,15 +320,15 @@ function main()
         saveinfo ? createCSV(H, file_name_historials, headers_methods) : nothing
 
         #Variables to plot the results
-        problems_labels = ["AMG", "Queue", "RD", "Newton", "BFGS", "SGD"]
-        colors_list = [:blue, :red, :purple, :green, :orange, :salmon]
+        problems_labels = ["X-AMG", "X-Queue", "X-Random", "M-Newton", "BFGS", "GDLS"]
+        colors_list = [:red, :lightseagreen, :blue, :green, :purple, :gray]
         styles_list = [:solid, :solid, :solid, :dash, :dash, :dash]
         style_line_condition_number = [:solid, :solid, :solid]
 
         #Plot the results (The gradient historial and the condition number)
         plot_title = "Convergence Analysis: " * name
         plot_titleCN = "Condition Analysis: " * name
-        gradplot = plotEvolution(H, colors_list, problems_labels, styles_list, "||∇f(x)||", plot_title)
+        gradplot = plotEvolution(H, colors_list, problems_labels, [:solid, :solid, :solid, :solid, :solid, :solid], "||∇f(x)||", plot_title)
         conditionplt = plotEvolution(Hc, colors_list[1:end-2], problems_labels[1:end-2], style_line_condition_number, "κ(Hψ)", plot_titleCN)
         
         #Save the images if it's required
@@ -353,14 +363,15 @@ function main()
             xP_oviedo, xP_queue, xP_random, xP_newton, xP_bfgs, xP_sgd = processed_matrices
 
             #Visual path of the algorithms
-            ax = plot_optimization_path(f, xP_oviedo, function_name = name, levels = 20, label = "AMG", g_xlims = g_xlims, g_ylims = g_ylims)
+            ax = plot_optimization_path(f, xP_oviedo, function_name = name, levels = 30, label = "X-AMG", g_xlims = g_xlims, g_ylims = g_ylims)
 
             #Add others paths in the plot
-            add_optimization_path!(ax, xP_queue, label="Queue", color=:blue, linestyle=:solid)
-            add_optimization_path!(ax, xP_random, label="Random", color=:purple, linestyle=:solid)
-            add_optimization_path!(ax, xP_sgd, label="SGD", color=:salmon, linestyle=:dash)
-            add_optimization_path!(ax, xP_bfgs, label="BFGS", color=:orange, linestyle=:dash)
-            add_optimization_path!(ax, xP_newton, label="Newton", color=:green, linestyle=:dash)
+            add_optimization_path!(ax, xP_queue, label="X-Queue", color=:lightseagreen, linestyle=:solid)
+            add_optimization_path!(ax, xP_random, label="X-Random", color=:blue, linestyle=:solid)
+            add_optimization_path!(ax, xP_sgd, label="GDLS", color=:gray, linestyle=:dash)
+            add_optimization_path!(ax, xP_bfgs, label="BFGS", color=:purple, linestyle=:dash)
+            add_optimization_path!(ax, xP_newton, label="M-Newton", color=:green, linestyle=:dash)
+
             #Save the plot
             savefig(ax, image_path)
 

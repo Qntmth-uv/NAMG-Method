@@ -131,6 +131,10 @@ function parse_commandline()
             help = "Subdirectory where to save the different results"
             arg_type = String
             default = "original/"
+        
+        "--saveinfo"
+            help = "Boolean flag to indicate if the information should be saved"
+            action = :store_true
         end
     return parse_args(s)
 end
@@ -148,6 +152,7 @@ function main()
     varN = parsed_args["varN"] 
     varP = parsed_args["varP"]
     subdirectory = parsed_args["subdirectory"]
+    saveinfo = parsed_args["saveinfo"]
 
     #Parameters of the method
     nIters = parsed_args["nIters"]
@@ -167,7 +172,7 @@ function main()
     
     #We create the paths in case that not exists
     working_directory = pwd()
-    mkpath(joinpath(working_directory, factors_folder_path))
+    (saveinfo) ? mkpath(joinpath(working_directory, factors_folder_path)) : nothing
 
     #File where we save the results
     file_basis = joinpath(factors_folder_path, name*"_FACTOR_")
@@ -208,11 +213,11 @@ function main()
         show_info ? println("Factor: $Factor") : nothing
 
         #Execution of the NAMGM methods
-        _, iterSGLS, t_sgls, normSGLS, _, flagSGLS = steepestMethod(f, g, x0, tol, nIters, use_LS)     
+        _, iterSGLS, t_sgls, normSGLS, _, flagSGLS = steepestMethod(f, g, x0, tol, nIters, true, show_info)     
         _, iterOviedo, t_oviedo, normOviedo, _, flagOviedo = namgmOviedo(f, g, h, x0, tol, nIters, modH, epsilonAdded, use_LS)    
         _, iterQueue, t_queue, normQueue, _, flagQueue = namgmGrads(f, g, h, x0, tol, nIters, lqueue, modH, epsilonAdded, use_LS)
         for i in 1:repetitions
-            M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, show_info, use_LS)[2:end]
+            M[i, :] .= namgmRandomVectors(f, g, h, x0, tol, nIters, lqueue-1, modH, epsilonAdded, use_LS, show_info)[2:end]
             if isinf(M[i, 3]) || M[i, 3] > 1.0e12
                 divergent_results+=1;
             else
@@ -241,11 +246,17 @@ function main()
 
         #Save the CSV file
         df = DataFrame(data, headers)
-        CSV.write(current_file, df)
 
-        #Information of the saved files
-        println("Saved results at: $current_file")
+        #If's required we save the results of this process
+        if(saveinfo)
+            #We write the information in the constructed path
+            CSV.write(current_file, df)
 
+            #Information of the saved files
+            println("Saved results at: $current_file")
+
+        end
+        
         #Factor the variables for the next execution
         x0 *= 10.0
         Factor *= 10.0

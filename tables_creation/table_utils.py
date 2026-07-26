@@ -75,7 +75,7 @@ def scientific_notation_converter(G:float, times_symbol:str = "\\cdot", number_o
     
     #If the number is infinite
     if np.isinf(G):
-        s = "$\infty$"
+        s = "\\infty"
     
     #If the number is exactly zero
     elif G == 0.0:

@@ -9,11 +9,14 @@ import os
 This script solves the problem of updating the results of the main.jl . We make this
 trough the insertion of the results and we save them on a new csvs/<NEW_FOLDER>/<CONFIGS>/PROBLEMS.
 This to do not overwrite the first results. 
+
+
 """
+
 #Constants variables
 CONFIGS = ("simplest", "original", "addedLS")
 CSVS_path = "csvs/results/"
-VERSION = "1_0_1"
+VERSION = "1_0_2"
 
 
 def get_ListOfDF(directory:str, change_order:bool = False):
@@ -55,9 +58,9 @@ def main():
     method = "bfgs"
 
     #Legacy values 
-    folders_orginal = [os.path.join(CSVS_path, c, "*.csv") for c in CONFIGS]
-    dfs_originals = [get_ListOfDF(f, False)[0] for f in folders_orginal]
-    problems_names_original = [get_ListOfDF(f, False)[1] for f in folders_orginal]
+    folders_original = [os.path.join(CSVS_path, c, "*.csv") for c in CONFIGS]
+    dfs_originals = [get_ListOfDF(f, False)[0] for f in folders_original]
+    problems_names_original = [get_ListOfDF(f, False)[1] for f in folders_original]
 
     #New results per method
     folders_method = [os.path.join(CSVS_path, method, c, "*.csv") for c in CONFIGS]

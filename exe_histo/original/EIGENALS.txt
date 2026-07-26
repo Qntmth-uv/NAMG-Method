@@ -2,14 +2,17 @@
 Parameters           | Value               
 ----------------------------------------
 DEBUG                | false               
+DM                   | false               
 displaysG            | false               
+dontuse_ModifierNewton | false               
 epsilon              | 1.0e-8              
+factorX0             | 1.0                 
 file_name            | default             
 image_name           | default             
 lqueue               | 3                   
 modifierH            | eigen               
 modifierS            | none                
-nIters               | 100                 
+nIters               | 2500                
 problem              | cutest-sif/EIGENALS.SIF
 repetitions          | 10                  
 saveinfo             | true                
@@ -19,30 +22,22 @@ subdirectory         | original/
 tol                  | 1.0e-8              
 useDimProblem        | false               
 useLS                | false               
+varP                 | -1                  
 ----------------------------------------
-Dimension of the problem: 2550
+Number of variables: 2550
 Random Vectors being used: 2
+The factor for the initial point is: 1.0
 --------------------------------------------------------------------------------
 >>Normal mode
-Execution Info - Oviedo | Iters:    100 | TTime: 86.48751 | LastNorm: 9.65625e+00 | Iterations/sec: 1.15624 | Convergence: false |
-Execution Info - Grads  | Iters:    100 | TTime: 97.83993 | LastNorm: 4.80477e+01 | Iterations/sec: 1.02208 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 88.97197 | LastNorm: 7.93797e+01 | Iterations/sec: 1.12395 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 89.23082 | LastNorm: 6.48699e+01 | Iterations/sec: 1.12069 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 83.28958 | LastNorm: 6.92814e+01 | Iterations/sec: 1.20063 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 83.47839 | LastNorm: 8.05548e+01 | Iterations/sec: 1.19791 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 84.63631 | LastNorm: 7.69553e+01 | Iterations/sec: 1.18153 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 83.61662 | LastNorm: 6.94705e+01 | Iterations/sec: 1.19593 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 82.47617 | LastNorm: 7.80309e+01 | Iterations/sec: 1.21247 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 81.67887 | LastNorm: 7.26931e+01 | Iterations/sec: 1.22431 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 82.34361 | LastNorm: 6.66765e+01 | Iterations/sec: 1.21442 | Convergence: false |
-Execution Info - Random | Iters:    100 | TTime: 83.14570 | LastNorm: 6.63720e+01 | Iterations/sec: 1.20271 | Convergence: false |
-Execution Info - Random Mean (10 repetitions) | Iters:    100 | TTime: 84.28681 | LastNorm: 7.24284e+01 | Iterations/sec: 1.18746 | Convergence: false |
+Execution Info - Oviedo | Iters:   2500 | TTime: 1912.05608 | LastNorm: 3.74901e-02 | Iterations/sec: 1.30749 | Convergence: false |
+Execution Info - Grads  | Iters:   2500 | TTime: 1902.65115 | LastNorm: 6.15326e+00 | Iterations/sec: 1.31396 | Convergence: false |
+Execution Info - Random Mean (10 repetitions) | Iters:   2500 | TTime: 1910.57088 | LastNorm: 1.04783e+01 | Iterations/sec: 1.30852 | Convergence: false |
 Newton - Floating point overflow occurred, ending process.
-Execution Info - Newton | Iters:    100 | TTime: 4.81766 | LastNorm: Inf | Iterations/sec: 20.75696 | Convergence: false |
-Execution Info - BFGSM | Iters:    100 | TTime: 50.23971 | LastNorm: 1.64050e+03 | Iterations/sec: 1.99046 | Convergence: false |
-Execution Info - Gradient descent with LS | Iters:    100 | TTime: 0.43026 | LastNorm: 8.00904e+01 | Iterations/sec: 232.41699 | Convergence: false |
+Execution Info - Newton | Iters:   2500 | TTime: 4.42207 | LastNorm: Inf | Iterations/sec: 565.34609 | Convergence: false |
+Execution Info - BFGS | Iters:   2500 | TTime: 1180.15377 | LastNorm: 1.07483e-05 | Iterations/sec: 2.11837 | Convergence: false |
+Execution Info - Gradient descent with LS | Iters:   2500 | TTime: 10.90717 | LastNorm: 5.48866e+00 | Iterations/sec: 229.20709 | Convergence: false |
 --------------------------------------------------------------------------------
-Files writed: 
-- csvs/results/original/EIGENALS_none.csv
-- csvs/results/random_historials/original/EIGENALS_none.csv
+Files written: 
+- csvs/results/original/EIGENALS_eigen.csv
+- csvs/results/random_historials/original/EIGENALS_eigen.csv
 --------------------------------------------------------------------------------

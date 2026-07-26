@@ -9,15 +9,18 @@ gr()
 function plot_optimization_path(f::Function, eval_points::AbstractMatrix; function_name::String = "Function ", padding_ratio::Float64 = 0.2, levels::Int = 30, 
                                 resolution::Int = 100, label::String = nothing, g_xlims, g_ylims)
 
-    # 1. Definimos lógica de expansión en una mini-función (Calcula límites nuevos + grid)
+    #Tiny function to set the extension axis of the plot
     setup_axis(l) = let d = max(l[2]-l[1], 1.0) * padding_ratio, new_l = (l[1]-d, l[2]+d)
         new_l, range(new_l..., length=resolution)
     end
-
+    
+    #Final Axis boundaries
     (xlims, x_grid), (ylims, y_grid) = setup_axis.([g_xlims, g_ylims])
 
+    #Grid where the contour function will be paint
     Z = [f([x, y]) for y in y_grid, x in x_grid]
 
+    #Level values
     min_z, max_z = extrema(Z)
     if min_z < 0
         lvl_vals = range(min_z, max_z, length=levels)
@@ -26,14 +29,16 @@ function plot_optimization_path(f::Function, eval_points::AbstractMatrix; functi
         lvl_vals = 10 .^ range(log10(start_val), log10(max_z), length=levels)
     end
 
-    #Create the graph levles in the given space
+    #Create the graph levels in the given space
     p = contour(x_grid, y_grid, Z, 
         levels=lvl_vals, color=:plasma, fill=false, alpha=0.4, 
         clabels=false, cbar=false, label=nothing,
-        title="$(function_name) Landscape", xlabel="x", ylabel="y")
+        title="$(function_name) ")
 
-    add_optimization_path!(p, eval_points; label=label, color=:crimson)
+    #We add the first path 
+    add_optimization_path!(p, eval_points; label=label, color=:red)
     
+    #Return the paint 
     return p
 end
 

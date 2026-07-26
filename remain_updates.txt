@@ -1,0 +1,35 @@
+# Possible Updates
+
+@Qntmth-UV July 06 26
+
+This entire code was created before I knew something about software design. Right now I'm not an expert in this area, nevertheless I should move all the results of the experiments into a RDB, something
+like MySQL or PostgreSQL, due to the tabular format of all the results. This could help in the creation of the tables and to mantain clean the structure of this project. Given than this is not right now a priority 
+in the Queue of remaining task, we can modify this in a near future. 
+
+To do this first, we need to move all the current results in to a DB, and then access to it in Julia to POST, PUT, GET and DELETE.
+
+The POST is to save the results of one function over an experiment, put is to update the database in case of that the experiment has been executed before. The GET function is to get the values in the creation of 
+a graphical representation of the path or in the creation of LaTeX tables, and DELETE in case of mistakes or if a problem function was not useful. This also need to create a primary key, which could be the name of
+the SIF file of the function to test. 
+
+Once that the creation of the RBD is created and filled with the current results, we'll need to re-factorize the following scripts.
+
+> main.jl (Convergency Experiments script)
+Now instead of creating new paths and a bunch of files for each experiment, configuration and problem, we just need to access to the RDB and POST and PUT the results
+of the execution using a correct Query. This logically implies the research of the RDB commands, and the wrappers for JULIA. 
+
+> robust_main.jl (Robust I (Numerical) Experiments script)
+Same re-factorization as Convergency.
+
+> area_main.jl (Robust II (Noise) Experiments script)
+Same re-factorization as Convergency.
+
+> tables_creation (FOLDER)
+First we will need to investigate how to connect with the choiced RDB, next given that the connection is stablished using a correct Query we can access to all the results in a correct format and also 
+using the Query we can made more analysis using correct KEYWORDS, like sorting and if statements. This will results in a different way to deal with the data, at least until the moment we use PANDAS to 
+get all the entire DataFrame.
+
+This might result in a better way to present this project, showing that I have work with RDBs and I have some naive notion of Software Design. Honestly this is cute interesting bc makes me enforce myself
+to learn new to thing and to put them in work. I don't known when this high modification will happen, however is affirmative to say this will happend after all the experiments were conducted. Which in this moment
+of writing there are 3 remaining experiments (which are quite expensive).
+

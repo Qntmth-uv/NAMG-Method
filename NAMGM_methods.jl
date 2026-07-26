@@ -465,7 +465,8 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
 
         #Compute the step size using the SWC
         actualfxk = fx(x_old)
-        add_lineSearch ? alpha = line_search_SWC(fx, gradient, x_old, pk) : alpha = 1.0
+        add_lineSearch ? alpha = backtrackWWC(fx, x_old, pk, g_old, fx) : alpha = 1.0
+        #add_lineSearch ? alpha = line_search_SWC(fx, gradient, x_old, pk) : alpha = 1.0
 
         #Update the sequence
         x_new = x_old+alpha*pk
@@ -510,7 +511,8 @@ function BFGSMethod(fx, gradient, hessian, x0::Vector, tolerance::Float64, maxIt
 end
 
 
-function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int, add_lineSearch::Bool = true, show_results::Bool = false,)
+function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance::Float64, maxIters::Int, 
+    add_lineSearch::Bool = true, show_results::Bool = false,)
     """Gradient descent method that uses line-search strategy (backtrack).
     
     #Input:
@@ -544,7 +546,7 @@ function steepestMethod(fx::Function, gradient::Function, x0::Vector, tolerance:
 
         #Compute the right steep size
         actualfxk = fx(x)
-        alpha = add_lineSearch ? backtrackWWC(fx, x, -gk, gk, actualfxk) : 1.0
+        alpha = add_lineSearch ? backtrackWWC(fx, x, gk, gk, actualfxk) : 1.0
 
         #Update the sequence
         x = x - alpha*gk

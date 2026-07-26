@@ -134,8 +134,8 @@ function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, g_x::Ab
 
     # Inputs
         - f: The objective function f(x).
-        - x: Current position vector.
-        - p: Search direction vector.
+        - x: Current position vector. (pre-computed)
+        - p: Search direction vector. (pre-computed)
         - g_x: The gradient at current x (pre-computed).
         - f_x: The function value at current x (pre-computed).
 
@@ -146,7 +146,6 @@ function backtrackWWC(f::Function, x::AbstractVector, p::AbstractVector, g_x::Ab
         - alpha: Initial step size (default 1.0, typical for Newton methods).
         - factor: Contraction factor (default 0.5).
         - c1: Armijo parameter (default 1e-4).
-
     """   
     #Limits of the backtracking variables
     max_iter = 100
